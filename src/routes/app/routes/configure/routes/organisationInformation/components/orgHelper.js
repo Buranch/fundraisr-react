@@ -1,6 +1,6 @@
 import React from 'react';
 
-class StartHelper extends React.Component {
+class OrgHelper extends React.Component {
   state = {
   };
 
@@ -11,7 +11,7 @@ class StartHelper extends React.Component {
     return (
       <div className="box bg-color-warning" style={this.state} onClick={this.clickHandle}>
         <div className="box-body">
-          Welcome
+          This is an Important Message, you can tell because it's right here at the top and a color that contrasts it's surroundings!  Click anywhere in the box to make this thing go away, until next time.
         </div>
       </div>
     );
@@ -19,4 +19,4 @@ class StartHelper extends React.Component {
 }
 
 
-module.exports = StartHelper;
+module.exports = OrgHelper;

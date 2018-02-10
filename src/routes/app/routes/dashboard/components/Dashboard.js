@@ -12,7 +12,7 @@ function getMonth(date) {
   return month[date.getMonth()];
 }
 const date = new Date();
-const dateString = `${getMonth(date)} ${date.getDay()}, ${date.getFullYear()}`;
+const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
 
 // TODO add a table of Top events, top donors, next events
 const Main = () => (

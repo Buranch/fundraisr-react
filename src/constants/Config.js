@@ -21,7 +21,7 @@ const APPCONFIG = {
     layoutBoxed: false,                             // true, false
     navCollapsed: false,                            // true, false
     navBehind: false,                               // true, false
-    fixedHeader: true,                              // true, false
+    fixedHeader: false,                              // true, false
     sidebarWidth: 'middle',                         // small, middle, large
     colorOption: '14',                              // String: 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
     theme: 'light',                                 // light, gray, dark

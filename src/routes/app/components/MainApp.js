@@ -48,11 +48,15 @@ let AsyncUI = loadable({
   loader: () => import('../routes/ui/'),
   loading: LoadingComponent
 });
+
 let AsyncDonors = loadable({
   loader: () => import('../routes/donors/'),
   loading: LoadingComponent
 });
-
+let AsyncConfigs = loadable({
+  loader: () => import('../routes/configure/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -71,6 +75,7 @@ class MainApp extends React.Component {
               <div className="full-height">
                 <Route path={`${match.url}/dashboard`} component={Dashboard} />
                 <Route path={`${match.url}/donors`} component={AsyncDonors} />
+                <Route path={`${match.url}/configure`} component={AsyncConfigs} />
                 <Route path={`${match.url}/chart`} component={AsyncChart} />
                 <Route path={`${match.url}/ecommerce`} component={AsyncECommerce} />
                 <Route path={`${match.url}/form`} component={AsyncForm} />
