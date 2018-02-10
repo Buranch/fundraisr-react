@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import OrgInfo from './routes/organisationInformation';
+import ApiAccess from './routes/apiAccess';
 
 const Configure = ({match}) => (
   <div>
@@ -9,7 +10,7 @@ const Configure = ({match}) => (
     <Route path={`${match.url}/field-manager`} component={OrgInfo} />
     <Route path={`${match.url}/payment-gateway`} component={OrgInfo} />
     <Route path={`${match.url}/mail-confirmations`} component={OrgInfo} />
-    <Route path={`${match.url}/api-access`} component={OrgInfo} />
+    <Route path={`${match.url}/api-access`} component={ApiAccess} />
   </div>
 );
 
