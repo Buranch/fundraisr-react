@@ -5,37 +5,83 @@ import ContentEdit from 'material-ui/svg-icons/content/create';
 import ContentDelete from 'material-ui/svg-icons/content/delete-sweep';
 import ContentSettings from 'material-ui/svg-icons/content/inbox';
 
+const style = {
+  fontSize: '15px',
+};
+
 // TODO add a tooltip
 export default class Donors extends React.Component {
   render() {
     return (
-      <div className="box box-transparent">
-        <div className="box-header no-padding-h">Top Donors</div>
-        <div className="box-body no-padding-h">
+      <div className="box box-default">
+        <div className="box-header">Top Donors</div>
+        <div className="box-body">
+          <small>This is a list of Top Performing Donors.</small>
           <div className="box box-default table-box mdl-shadow--2dp">
-            <table className="mdl-data-table" style={{whiteSpace: 'normal'}}>
+            <table className="mdl-data-table" style={{whiteSpace: 'normal', tableLayout: 'fixed'}}>
               <tbody>
                 <tr>
-                  <td><small className="material-icons">gradegrade</small></td>
-                  <td><b>John</b> Doe</td>
-                  <td> <IconButton> <ContentEdit /> </IconButton> </td>
-                  <td> <IconButton> <ContentSettings /> </IconButton> </td>
-                  <td> <IconButton> <ContentDelete /> </IconButton> </td>
+                  <td style={{width: '30%', paddingLeft: '10px'}}>
+                    <small className="material-icons color-warning" style={style}>gradegrade</small>
+                  </td>
+                  <td className="text-left"><b>John</b> Doe</td>
+                  <td style={{width: '25%', paddingLeft: '10px'}}>
+                    <small className="material-icons" style={style}>
+                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                    </small>
+                  </td>
                 </tr>
+
                 <tr>
-                  <td><small className="material-icons">grade</small></td>
-                  <td><b>John</b> Krazinski</td>
-                  <td> <IconButton> <ContentEdit /> </IconButton> </td>
-                  <td> <IconButton> <ContentSettings /> </IconButton> </td>
-                  <td> <IconButton> <ContentDelete /> </IconButton> </td>
+                  <td style={{paddingLeft: '10px'}}><small className="material-icons color-danger" style={style}>grade</small></td>
+                  <td className="text-left"><b>John</b> Krazinski</td>
+                  <td style={{paddingLeft: '10px'}}>
+                    <small className="material-icons" style={style}>
+                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                    </small>
+                  </td>
                 </tr>
+
                 <tr>
-                  <td><small className="material-icons">gradegradegrade</small></td>
-                  <td><b>Johnathan</b> Bell</td>
-                  <td> <IconButton> <ContentEdit /> </IconButton> </td>
-                  <td> <IconButton> <ContentSettings /> </IconButton> </td>
-                  <td> <IconButton> <ContentDelete /> </IconButton> </td>
+                  <td style={{paddingLeft: '10px'}}><small className="material-icons color-primary" style={style}>gradegradegrade</small></td>
+                  <td className="text-left"><b>Johnathan</b> Bell</td>
+                  <td style={{paddingLeft: '10px'}}>
+                    <small className="material-icons" style={style}>
+                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                    </small>
+                  </td>
                 </tr>
+
+                <tr>
+                  <td style={{paddingLeft: '10px'}}><small className="material-icons color-primary" style={style}>gradegradegrade</small></td>
+                  <td className="text-left"><b>John</b> Debogosrky</td>
+                  <td style={{paddingLeft: '10px'}}>
+                    <small className="material-icons" style={style}>
+                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                    </small>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style={{paddingLeft: '10px'}}><small className="material-icons color-warning" style={style}>gradegrade</small></td>
+                  <td className="text-left"><b>Johnathan</b> Bell</td>
+                  <td style={{paddingLeft: '10px'}}>
+                    <small className="material-icons" style={style}>
+                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                    </small>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style={{paddingLeft: '10px'}}><small className="material-icons color-success" style={style}>gradegradegradegrade</small></td>
+                  <td className="text-left"><b>Johnny</b> Haliday</td>
+                  <td style={{paddingLeft: '10px'}}>
+                    <small className="material-icons" style={style}>
+                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                    </small>
+                  </td>
+                </tr>
+
               </tbody>
             </table>
           </div>

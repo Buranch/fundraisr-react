@@ -6,6 +6,7 @@ import StatBoxes from './StatBoxes';
 import StartHelper from './StartHelper';
 import NewEvents from './NewEvents';
 import TopDonors from './TopDonors';
+import TopEvents from './TopEvents';
 
 function getMonth(date) {
   const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -14,7 +15,6 @@ function getMonth(date) {
 const date = new Date();
 const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
 
-// TODO add a table of Top events, top donors, next events
 const Main = () => (
   <div className="row">
     <div className="col-xl-6">
@@ -50,11 +50,9 @@ const Dashboard = () => (
       <Main />
     </QueueAnim>
     <div className="row">
-      <div className="col-xl-4">
-        <NewEvents />
-      </div>
       <div className="col-xl-4"><TopDonors /></div>
-      <div className="col-xl-4">aa</div>
+      <div className="col-xl-4"><TopEvents /></div>
+      <div className="col-xl-4"><NewEvents /></div>
     </div>
   </div>
 );
