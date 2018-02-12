@@ -71,6 +71,7 @@ const rowSelection = {};
 
 // TODO add the data
 // TODO add a number of showed rows
+// TODO add a work link to 2 col
 class DonorTable extends React.Component {
   render() {
     return (

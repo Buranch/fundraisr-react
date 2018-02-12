@@ -57,6 +57,10 @@ let AsyncConfigs = loadable({
   loader: () => import('../routes/configure/'),
   loading: LoadingComponent
 });
+let AsyncEvents = loadable({
+  loader: () => import('../routes/events/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -76,6 +80,7 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/dashboard`} component={Dashboard} />
                 <Route path={`${match.url}/donors`} component={AsyncDonors} />
                 <Route path={`${match.url}/configure`} component={AsyncConfigs} />
+                <Route path={`${match.url}/events`} component={AsyncEvents} />
                 <Route path={`${match.url}/chart`} component={AsyncChart} />
                 <Route path={`${match.url}/ecommerce`} component={AsyncECommerce} />
                 <Route path={`${match.url}/form`} component={AsyncForm} />

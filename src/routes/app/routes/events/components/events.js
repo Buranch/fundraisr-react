@@ -1,6 +1,6 @@
 import React from 'react';
 import Helper from './helper';
-import DonorTable from './table';
+import EventTable from './table';
 
 function getMonth(date) {
   const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -12,7 +12,7 @@ const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
 const HeadText = () => (
   <div className="row">
     <div className="col-sm-6">
-      <h1 className="article-title">Donors</h1>
+      <h1 className="article-title">Events</h1>
     </div>
     <div className="col-sm-6" style={{textAlign: 'right'}}>
       <h1 className="article-title">{dateString}</h1>
@@ -20,17 +20,17 @@ const HeadText = () => (
   </div>
 );
 
-class Donors extends React.Component {
+class Events extends React.Component {
   render() {
     return (
       <section className="container-fluid no-breadcrumbs">
         <Helper />
         <HeadText />
-        <DonorTable />
+        <EventTable />
       </section>
     );
   }
 }
 
 
-module.exports = Donors;
+module.exports = Events;
