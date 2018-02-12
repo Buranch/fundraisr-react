@@ -16,6 +16,7 @@
     "start": "npm run serve:dev"
   },
   "dependencies": {
+    "antd": "^3.2.1",
     "classnames": "~2.2.5",
     "core-js": "^2.5.1",
     "echarts": "^3.7.1",
