@@ -6,48 +6,45 @@ import FilterManager from './filterManager';
 
 const dataSource = [{
   key: '1',
-  eventName: 'Walk to the Cure',
-  dateCreated: '24 July 2015',
-  raisedToDate: '$734,579',
+  formName: 'Help Needed!',
+  owner: 'opp@Betty Boop',
+  dateCreated: '04 July 2014',
+  raisedToDate: '$500.00',
   status: 'active',
-  owner: 'Will Goodwin',
-}, {
-  key: '2',
-  eventName: 'Ride to the Cure',
-  dateCreated: '4 July 2015',
-  raisedToDate: '$3,474,217',
-  status: 'inactive',
-  owner: 'Henry Flanders',
 }];
-
 const col = [{
-  title: 'Event Name',
-  dataIndex: 'eventName',
-  key: 'eventName',
+  title: 'Form Name',
+  dataIndex: 'formName',
+  key: 'formName',
   render: text => <a href="#">{text}</a>,
-  sorter: (a, b) => a.eventName.localeCompare(b.eventName),
+  sorter: (a, b) => a.firstName.localeCompare(b.firstName),
 }, {
   title: 'Actions',
   key: 'actions',
   render: () => (
     <span>
-      <a href="#">Edit</a>
+      <a href="#">Design</a>
       <span className="space" />
-      <a href="#">Manage</a>
+      <a href="#">Options</a>
       <span className="space" />
       <a href="#">Bookkeeping</a>
     </span>
   ),
 }, {
+  title: 'Owner',
+  dataIndex: 'owner',
+  key: 'owner',
+  sorter: (a, b) => a.email.localeCompare(b.email),
+},{
   title: 'Date Created',
   dataIndex: 'dateCreated',
   key: 'dateCreated',
-  sorter: (a, b) => a.dateCreated.localeCompare(b.dateCreated),
+  sorter: (a, b) => a.address.localeCompare(b.address),
 }, {
-  title: 'Raised To Date',
+  title: 'Raised to Date',
   dataIndex: 'raisedToDate',
   key: 'raisedToDate',
-  sorter: (a, b) => a.raisedToDate.localeCompare(b.raisedToDate),
+  sorter: (a, b) => a.city.localeCompare(b.city),
 }, {
   title: 'Status',
   dataIndex: 'status',
@@ -58,20 +55,15 @@ const col = [{
     }
     return (<span className="color-danger">active</span>);
   },
-  sorter: (a, b) => a.status.localeCompare(b.status),
-}, {
-  title: 'Owner',
-  dataIndex: 'owner',
-  key: 'owner',
-  sorter: (a, b) => a.city.localeCompare(b.city),
+  sorter: (a, b) => a.state.localeCompare(b.state),
 }];
 const rowSelection = {};
 
 // TODO add the data
 // TODO add a number of showed rows
-// TODO add a work link to 1 col, 3 col
+// TODO add a work link to 2 col
 // TODO add an icons to link elems
-class EventTable extends React.Component {
+class DonationFormTable extends React.Component {
   render() {
     return (
       <div>
@@ -94,4 +86,4 @@ class EventTable extends React.Component {
   }
 }
 
-module.exports = EventTable;
+module.exports = DonationFormTable;

@@ -95,8 +95,7 @@ class SidebarContent extends React.Component {
         <li><FlatButton href="#/app/dashboard"><i className="nav-icon material-icons">dashboard</i><span className="nav-text">Dashboard</span></FlatButton></li>
         <li><FlatButton href="#/app/donors"><i className="nav-icon material-icons">face</i><span className="nav-text">Donors</span></FlatButton></li>
         <li><FlatButton href="#/app/events"><i className="nav-icon material-icons">event</i><span className="nav-text">Events</span></FlatButton></li>
-        <li><FlatButton href="#/app/dashboard"><i className="nav-icon material-icons">assignment</i><span className="nav-text">Donation Forms</span></FlatButton></li>
-
+        <li><FlatButton href="#/app/donation-forms"><i className="nav-icon material-icons">assignment</i><span className="nav-text">Donation Forms</span></FlatButton></li>
         <li>
           <FlatButton href="#/app/form"><i className="nav-icon material-icons">build</i><span className="nav-text">Configure</span><span className="badge badge-pill badge-info">6</span></FlatButton>
           <ul>
@@ -108,13 +107,9 @@ class SidebarContent extends React.Component {
             <li><FlatButton className="prepend-icon" href="#/app/configure/api-access"><span>API Access</span></FlatButton></li>
           </ul>
         </li>
+        <li><FlatButton href="#/app/donation-forms"><i className="nav-icon material-icons">report_problem</i><span className="nav-text">Reporting</span></FlatButton></li>
 
         <li className="nav-divider" />
-        <li><FlatButton href="#/app/dashboard"><i className="nav-icon material-icons">email</i><span className="nav-text">Messages</span><span className="badge badge-pill badge-danger">3</span></FlatButton></li>
-        <li><FlatButton href="#/app/dashboard"><i className="nav-icon material-icons">perm_identity</i><span className="nav-text">Profile</span></FlatButton></li>
-        <li><FlatButton href="#/app/dashboard"><i className="nav-icon material-icons">settings</i><span className="nav-text">Settings</span></FlatButton></li>
-        <li className="nav-divider" />
-
         <li>
           <FlatButton href="#/app/form"><i className="nav-icon material-icons">mode_edit</i><span className="nav-text">Forms</span></FlatButton>
           <ul>

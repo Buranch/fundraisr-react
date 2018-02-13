@@ -16,7 +16,7 @@
  */
 
 /**
- * A component handler interface using the revealing module design pattern.
+ * A components handler interface using the revealing module design pattern.
  * More details on this design pattern here:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  *
@@ -28,7 +28,7 @@
 // static verification.
 var componentHandler = {
   /**
-   * Searches existing DOM for elements of our component type and upgrades them
+   * Searches existing DOM for elements of our components type and upgrades them
    * if they have not already been upgraded.
    *
    * @param {string=} optJsClass the programatic name of the element class we
@@ -59,9 +59,9 @@ var componentHandler = {
   upgradeAllRegistered: function() {},
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
-   * component type
+   * components type
    *
-   * @param {string} jsClass The class name of the MDL component we wish
+   * @param {string} jsClass The class name of the MDL components we wish
    * to hook into for any upgrades performed.
    * @param {function(!HTMLElement)} callback The function to call upon an
    * upgrade. This function should expect 1 parameter - the HTMLElement which
@@ -163,7 +163,7 @@ componentHandler = (function() {
   }
 
   /**
-   * Searches existing DOM for elements of our component type and upgrades them
+   * Searches existing DOM for elements of our components type and upgrades them
    * if they have not already been upgraded.
    *
    * @param {string=} optJsClass the programatic name of the element class we
@@ -241,7 +241,7 @@ componentHandler = (function() {
         var instance = new registeredClass.classConstructor(element);
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
-        // Call any callbacks the user has registered with this component type.
+        // Call any callbacks the user has registered with this components type.
         for (var j = 0, m = registeredClass.callbacks.length; j < m; j++) {
           registeredClass.callbacks[j](element);
         }
@@ -252,7 +252,7 @@ componentHandler = (function() {
         }
       } else {
         throw new Error(
-          'Unable to find a registered component for the given class.');
+          'Unable to find a registered components for the given class.');
       }
 
       var upgradedEv = createEvent_('mdl-componentupgraded', true, false);
@@ -323,7 +323,7 @@ componentHandler = (function() {
     if (config.constructor.prototype
         .hasOwnProperty(componentConfigProperty_)) {
       throw new Error(
-          'MDL component classes must not have ' + componentConfigProperty_ +
+          'MDL components classes must not have ' + componentConfigProperty_ +
           ' defined as a property.');
     }
 
@@ -336,9 +336,9 @@ componentHandler = (function() {
 
   /**
    * Allows user to be alerted to any upgrades that are performed for a given
-   * component type
+   * components type
    *
-   * @param {string} jsClass The class name of the MDL component we wish
+   * @param {string} jsClass The class name of the MDL components we wish
    * to hook into for any upgrades performed.
    * @param {function(!HTMLElement)} callback The function to call upon an
    * upgrade. This function should expect 1 parameter - the HTMLElement which
@@ -362,9 +362,9 @@ componentHandler = (function() {
   }
 
   /**
-   * Check the component for the downgrade method.
+   * Check the components for the downgrade method.
    * Execute if found.
-   * Remove component from createdComponents list.
+   * Remove components from createdComponents list.
    *
    * @param {?componentHandler.Component} component
    */
@@ -423,7 +423,7 @@ componentHandler = (function() {
 })();
 
 /**
- * Describes the type of a registered component type managed by
+ * Describes the type of a registered components type managed by
  * componentHandler. Provided for benefit of the Closure compiler.
  *
  * @typedef {{
@@ -436,7 +436,7 @@ componentHandler = (function() {
 componentHandler.ComponentConfigPublic;  // jshint ignore:line
 
 /**
- * Describes the type of a registered component type managed by
+ * Describes the type of a registered components type managed by
  * componentHandler. Provided for benefit of the Closure compiler.
  *
  * @typedef {{
@@ -450,7 +450,7 @@ componentHandler.ComponentConfigPublic;  // jshint ignore:line
 componentHandler.ComponentConfig;  // jshint ignore:line
 
 /**
- * Created component (i.e., upgraded element) type as managed by
+ * Created components (i.e., upgraded element) type as managed by
  * componentHandler. Provided for benefit of the Closure compiler.
  *
  * @typedef {{

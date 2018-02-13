@@ -34,7 +34,7 @@ const col = [{
   title: 'Last Name',
   dataIndex: 'lastName',
   key: 'lastName',
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="#/app/donors-manage">{text}</a>,
   sorter: (a, b) => a.lastName.localeCompare(b.lastName),
 }, {
   title: 'eMail',
@@ -71,7 +71,7 @@ const rowSelection = {};
 
 // TODO add the data
 // TODO add a number of showed rows
-// TODO add a work link to 2 col
+// TODO add an icons to link elems
 class DonorTable extends React.Component {
   render() {
     return (

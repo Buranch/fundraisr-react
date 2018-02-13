@@ -10,6 +10,10 @@ const HeaderIconButtonStyle = {
   height: '60px'
 };
 
+const badgeStyle = {
+  marginTop: '14px'
+};
+
 const listItemStyle = {
   paddingLeft: '40px' // 36 + 16, algin with sub list
 };
@@ -18,7 +22,7 @@ class NavLeftList extends React.Component {
 
   handleChange = (event, value) => {
     this.props.history.push(value);
-  }
+  };
 
   render() {
     return (
@@ -29,44 +33,29 @@ class NavLeftList extends React.Component {
               style={HeaderIconButtonStyle}
               className="md-button header-btn">
               <i className="material-icons">notifications_none</i>
-              <span className="badge">3</span>
+              <span className="badge badge-pill badge-danger">3</span>
             </IconButton>}
             onChange={this.handleChange}
             anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
             targetOrigin={{horizontal: 'left', vertical: 'top'}}
             menuStyle={{minWidth: '250px'}}
-                    >
+          >
             <MenuItem
               className="header-icon-dropdown-item"
               leftIcon={<i className="material-icons">mail_outline</i>}
-              primaryText="New mail from Susan"
-              secondaryText={<span className="text-muted">5min ago</span>}
-                        />
+              primaryText="Messages"
+              secondaryText={<span style={badgeStyle} className="badge badge-pill badge-danger">3</span>}
+            />
             <MenuItem
               className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">mail_outline</i>}
-              primaryText="New mail from John"
-              secondaryText={<span className="text-muted">1h ago</span>}
-                        />
-            <Divider />
+              leftIcon={<i className="material-icons">perm_identity</i>}
+              primaryText="Profile"
+            />
             <MenuItem
               className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">chat_bubble_outline</i>}
-              primaryText="Message from Anna"
-              secondaryText={<span className="text-muted">5min ago</span>}
-                        />
-            <MenuItem
-              className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">chat_bubble_outline</i>}
-              primaryText="Message from Jane"
-              secondaryText={<span className="text-muted">1h ago</span>}
-                        />
-            <Divider />
-            <MenuItem
-              className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">notifications_none</i>}
-              primaryText="Copy task completed"
-                        />
+              leftIcon={<i className="material-icons">settings</i>}
+              primaryText="Settings"
+            />
           </IconMenu>
         </li>
       </ul>

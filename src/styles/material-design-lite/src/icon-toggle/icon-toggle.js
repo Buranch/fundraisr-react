@@ -19,8 +19,8 @@
   'use strict';
 
   /**
-   * Class constructor for icon toggle MDL component.
-   * Implements MDL component design pattern defined at:
+   * Class constructor for icon toggle MDL components.
+   * Implements MDL components design pattern defined at:
    * https://github.com/jasonmayes/mdl-component-design-pattern
    *
    * @constructor
@@ -45,7 +45,7 @@
   };
 
   /**
-   * Store strings for class names defined by this component that are used in
+   * Store strings for class names defined by this components that are used in
    * JavaScript. This allows us to simply change it in one place should we
    * decide to modify at a later date.
    *
@@ -244,7 +244,7 @@
     }
   };
 
-  // The component registers itself. It can assume componentHandler is available
+  // The components registers itself. It can assume componentHandler is available
   // in the global scope.
   componentHandler.register({
     constructor: MaterialIconToggle,

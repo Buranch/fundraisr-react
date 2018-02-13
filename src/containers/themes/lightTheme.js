@@ -9,7 +9,7 @@ import spacing from 'material-ui/styles/spacing';
 
 /**
  *  Light Theme is the default theme used in material-ui. It is guaranteed to
- *  have all theme variables needed for every component. Variables not defined
+ *  have all theme variables needed for every components. Variables not defined
  *  in a custom theme will default to these values.
  */
 export default {

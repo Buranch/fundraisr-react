@@ -18,7 +18,7 @@
 @import "../mixins";
 
 // Navigation classes. Only used here for now, but we may at some point move
-// this to its own component.
+// this to its own components.
 .mdl-navigation {
   display: flex;
   flex-wrap: nowrap;
@@ -65,7 +65,7 @@
 }
 
 
-  // Optional utility classes for formatting special blocks in this component.
+  // Optional utility classes for formatting special blocks in this components.
   .mdl-layout__title,
   .mdl-layout-title {
     display: block;
@@ -174,7 +174,7 @@
 
 
   // Drawer button.
-  // TODO(sgomes): Replace with an icon button when we have that component.
+  // TODO(sgomes): Replace with an icon button when we have that components.
   .mdl-layout__drawer-button {
     display: block;
 
