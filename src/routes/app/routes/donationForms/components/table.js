@@ -16,7 +16,7 @@ const col = [{
   title: 'Form Name',
   dataIndex: 'formName',
   key: 'formName',
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="#app/manage-df">{text}</a>,
   sorter: (a, b) => a.firstName.localeCompare(b.firstName),
 }, {
   title: 'Actions',
