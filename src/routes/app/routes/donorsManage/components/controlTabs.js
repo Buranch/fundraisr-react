@@ -204,7 +204,7 @@ class ContactMethods extends React.Component {
             <MenuItem value={'html'} primaryText="HTML" />
             <MenuItem value={'text'} primaryText="Text" />
           </SelectField>
-          <FlatButton style={mWidthStyle} label="Reset Password" target="_blank" />
+          <FlatButton style={mWidthStyle} label="Reset Password" target="_blank" primary />
         </div>
       </div>
     );
@@ -277,7 +277,7 @@ const TabsExampleSimple = () => (
     </Tab>
     <Tab label="Misc" >
       <div style={styles}>
-
+        <Misc />
       </div>
     </Tab>
   </Tabs>

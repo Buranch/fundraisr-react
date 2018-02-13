@@ -34,7 +34,7 @@ const col = [{
   title: 'Last Name',
   dataIndex: 'lastName',
   key: 'lastName',
-  render: text => <a href="#/app/donors-manage">{text}</a>,
+  render: text => <a href="#/app/user-profile">{text}</a>,
   sorter: (a, b) => a.lastName.localeCompare(b.lastName),
 }, {
   title: 'eMail',

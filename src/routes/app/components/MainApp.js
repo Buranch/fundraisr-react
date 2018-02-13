@@ -85,6 +85,10 @@ let AsyncManageDF = loadable({
   loader: () => import('../routes/manageDonationForm/'),
   loading: LoadingComponent
 });
+let AsyncUsersProfile = loadable({
+  loader: () => import('../routes/userProfile/'),
+  loading: LoadingComponent
+});
 class MainApp extends React.Component {
 
   render() {
@@ -110,6 +114,7 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/initiative-records`} component={AsyncInitiativeRecords} />
                 <Route path={`${match.url}/gift-entry`} component={AsyncGiftEntry} />
                 <Route path={`${match.url}/manage-df`} component={AsyncManageDF} />
+                <Route path={`${match.url}/user-profile`} component={AsyncUsersProfile} />
 
 
                 <Route path={`${match.url}/chart`} component={AsyncChart} />
