@@ -5,7 +5,6 @@ const mWidthStyle = {
   minWidth: '135px'
 };
 
-// TODO add links
 class Runner extends React.Component {
   render() {
     return (
@@ -18,7 +17,7 @@ class Runner extends React.Component {
             <div className="box-body">
               Edit and update general and transactional information for your initiative participants, donors and sponsors.
               <div className="text-right">
-                <FlatButton style={mWidthStyle} label="Run" target="_blank" primary />
+                <FlatButton href="#app/initiative-records" style={mWidthStyle} label="Run" target="_blank" primary />
               </div>            </div>
           </div>
         </div>
@@ -31,7 +30,7 @@ class Runner extends React.Component {
               Enter one donation at a time and associate with an existing contact record. Real time credit card transactions or offline cash, check, or credit card transactions (pledges or payments) are available.
 
               <div className="text-right">
-                <FlatButton style={mWidthStyle} label="Run" target="_blank" primary />
+                <FlatButton href="#app/initiative-records" style={mWidthStyle} label="Run" target="_blank" primary />
               </div>            </div>
           </div>
         </div>
@@ -43,7 +42,7 @@ class Runner extends React.Component {
             <div className="box-body">
               Enter Registrations one at a time.
               <div className="text-right">
-                <FlatButton style={mWidthStyle} label="Run" target="_blank" primary />
+                <FlatButton href="#app/initiative-records" style={mWidthStyle} label="Run" target="_blank" primary />
               </div>
             </div>
           </div>
