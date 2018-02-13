@@ -1,8 +1,6 @@
 import React from 'react';
 import Helper from './helper';
-import ControlPanel from './controlPanel';
-import FormTable from './formTable';
-import ControlTabs from './controlTabs';
+import Runner from './runners';
 
 function getMonth(date) {
   const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -14,7 +12,7 @@ const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
 const HeadText = () => (
   <div className="row">
     <div className="col-sm-6">
-      <h1 className="article-title">Donors Manage</h1>
+      <h1 className="article-title">Bookkeeping</h1>
     </div>
     <div className="col-sm-6" style={{textAlign: 'right'}}>
       <h1 className="article-title">{dateString}</h1>
@@ -22,14 +20,12 @@ const HeadText = () => (
   </div>
 );
 
-const orgInfo = () => (
+const evBk = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
     <HeadText />
-    <ControlPanel />
-    <FormTable />
-    <ControlTabs />
+    <Runner />
   </section>
 );
 
-module.exports = orgInfo;
+module.exports = evBk;

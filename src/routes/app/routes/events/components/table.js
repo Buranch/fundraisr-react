@@ -35,7 +35,7 @@ const col = [{
       <span className="space" />
       <a href="#">Manage</a>
       <span className="space" />
-      <a href="#">Bookkeeping</a>
+      <a href="#/app/events-bookkeeping">Bookkeeping</a>
     </span>
   ),
 }, {
