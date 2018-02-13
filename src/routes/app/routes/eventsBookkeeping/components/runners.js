@@ -30,7 +30,7 @@ class Runner extends React.Component {
               Enter one donation at a time and associate with an existing contact record. Real time credit card transactions or offline cash, check, or credit card transactions (pledges or payments) are available.
 
               <div className="text-right">
-                <FlatButton href="#app/initiative-records" style={mWidthStyle} label="Run" target="_blank" primary />
+                <FlatButton href="#app/gift-entry" style={mWidthStyle} label="Run" target="_blank" primary />
               </div>            </div>
           </div>
         </div>

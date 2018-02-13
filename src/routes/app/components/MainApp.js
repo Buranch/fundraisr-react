@@ -77,6 +77,10 @@ let AsyncInitiativeRecords = loadable({
   loader: () => import('../routes/initiativesRecords/'),
   loading: LoadingComponent
 });
+let AsyncGiftEntry = loadable({
+  loader: () => import('../routes/giftEntry/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -101,6 +105,7 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/donors-manage`} component={AsyncDonorsManage} />
                 <Route path={`${match.url}/events-bookkeeping`} component={AsyncEventsBookkeeping} />
                 <Route path={`${match.url}/initiative-records`} component={AsyncInitiativeRecords} />
+                <Route path={`${match.url}/gift-entry`} component={AsyncGiftEntry} />
 
 
                 <Route path={`${match.url}/chart`} component={AsyncChart} />
