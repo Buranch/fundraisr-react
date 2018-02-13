@@ -85,7 +85,6 @@ let AsyncManageDF = loadable({
   loader: () => import('../routes/manageDonationForm/'),
   loading: LoadingComponent
 });
-
 class MainApp extends React.Component {
 
   render() {
