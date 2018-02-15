@@ -49,6 +49,7 @@ let AsyncUI = loadable({
   loading: LoadingComponent
 });
 
+
 let AsyncDonors = loadable({
   loader: () => import('../routes/donors/'),
   loading: LoadingComponent
@@ -93,7 +94,10 @@ let AsyncFieldManager = loadable({
   loader: () => import('../routes/fieldManager/'),
   loading: LoadingComponent
 });
-
+let AsyncDFO = loadable({
+  loader: () => import('../routes/donationFormOptions/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -122,6 +126,7 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/manage-df`} component={AsyncManageDF} />
                 <Route path={`${match.url}/user-profile`} component={AsyncUsersProfile} />
                 <Route path={`${match.url}/field-manager`} component={AsyncFieldManager} />
+                <Route path={`${match.url}/donation-form-options`} component={AsyncDFO} />
 
 
                 <Route path={`${match.url}/chart`} component={AsyncChart} />

@@ -13,7 +13,6 @@ const styles = {
   textFieldStyle: { top: '-17px' }
 };
 
-
 class Elem extends React.Component {
   clickHandler = (e) => {
     e.preventDefault();
