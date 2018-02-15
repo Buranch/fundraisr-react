@@ -14,36 +14,24 @@ const TabsExampleSimple = () => (
   <Tabs>
     <Tab label="Confirmations" >
       <div style={styles}>
-
-        <div className="row">
-          <div className="col-xl-4">
-            <h5> Mail Settings </h5>
-            <MailChimp />
-          </div>
-        </div>
+        <TableMail />
       </div>
     </Tab>
     <Tab label="Settings" >
       <div style={styles}>
-        <TableMail />
+        <h5> Mail Settings </h5>
+        <MailChimp />
       </div>
     </Tab>
   </Tabs>
 );
 
 const TabsSection = () => (
-  <section className="box box-default">
-    <div className="box-body">
       <section className="box box-default">
         <div className="box-body no-padding">
           <TabsExampleSimple />
         </div>
       </section>
-    </div>
-  </section>
 );
 
 module.exports = TabsSection;
-
-
-

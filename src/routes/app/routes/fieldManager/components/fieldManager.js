@@ -1,5 +1,6 @@
 import React from 'react';
-import OrgHelper from './orgHelper';
+import Helper from './helper';
+import Tabs from './tabs';
 
 function getMonth(date) {
   const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -11,7 +12,7 @@ const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
 const HeadText = () => (
   <div className="row">
     <div className="col-sm-6">
-      <h1 className="article-title">Organisation information</h1>
+      <h1 className="article-title">Bookkeeping</h1>
     </div>
     <div className="col-sm-6" style={{textAlign: 'right'}}>
       <h1 className="article-title">{dateString}</h1>
@@ -19,12 +20,13 @@ const HeadText = () => (
   </div>
 );
 
-const orgInfo = () => (
-  <section className="container-fluid no-breadcrumbs">
-    <OrgHelper />
-    <HeadText />
 
+const fMan = () => (
+  <section className="container-fluid no-breadcrumbs">
+    <Helper />
+    <HeadText />
+    <Tabs />
   </section>
 );
 
-module.exports = orgInfo;
+module.exports = fMan;

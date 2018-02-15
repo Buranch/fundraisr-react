@@ -2,7 +2,6 @@ import React from 'react';
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
 import ControlPanel from './controlPanel';
-import FilterManager from './filterManager';
 
 const dataSource = [{
   key: '1',
@@ -56,7 +55,6 @@ class DonorTable extends React.Component {
   render() {
     return (
       <div>
-        <FilterManager />
         <div className="box box-default">
           <div className="box-body">
             <ControlPanel />

@@ -11,7 +11,7 @@ const panel = () => (
     <div className="text-right">
       <FlatButton style={mWidthStyle} label="Save" secondary />
       <FlatButton style={mWidthStyle} label="Revert" />
-      <FlatButton style={mWidthStyle} label="Cancel" primary/>
+      <FlatButton style={mWidthStyle} label="Cancel" primary />
     </div>
   </div>
 );

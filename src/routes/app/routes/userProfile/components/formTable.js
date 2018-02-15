@@ -1,7 +1,11 @@
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete/index';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+
+
+const mWidthStyle = {
+  minWidth: '135px'
+};
 
 class UserInfo extends React.Component {
   render() {
@@ -34,9 +38,10 @@ class UserContact extends React.Component {
 class UserAccess extends React.Component {
   render() {
     return (
-      <div role="form">
-        <TextField defaultValue="dave_be" floatingLabelText="Username" />
-        <FlatButton style={mWidthStyle} label="Reset Password" target="_blank" primary />
+      <div>
+        <TextField defaultValue="dave_be" floatingLabelText="User Name" />
+        <div className="divider" />
+        <div className="text-right"><FlatButton style={mWidthStyle} label="Delete" primary /></div>
       </div>
     );
   }
