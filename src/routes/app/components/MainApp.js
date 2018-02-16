@@ -106,6 +106,10 @@ let AsyncReporting = loadable({
   loader: () => import('../routes/reporting/'),
   loading: LoadingComponent
 });
+let AsyncMirBk = loadable({
+  loader: () => import('../routes/bookkeepingMirEdit/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -137,6 +141,7 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/donation-form-options`} component={AsyncDFO} />
                 <Route path={`${match.url}/donation-form-bookkeeping`} component={AsyncDFB} />
                 <Route path={`${match.url}/reporting`} component={AsyncReporting} />
+                <Route path={`${match.url}/bookkeeping-mir-edit`} component={AsyncMirBk} />
 
 
                 <Route path={`${match.url}/chart`} component={AsyncChart} />
