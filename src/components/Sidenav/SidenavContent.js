@@ -107,7 +107,7 @@ class SidebarContent extends React.Component {
             <li><FlatButton className="prepend-icon" href="#/app/configure/api-access"><span>API Access</span></FlatButton></li>
           </ul>
         </li>
-        <li><FlatButton href="#/app/donation-forms"><i className="nav-icon material-icons">report_problem</i><span className="nav-text">Reporting</span></FlatButton></li>
+        <li><FlatButton href="#/app/reporting"><i className="nav-icon material-icons">report_problem</i><span className="nav-text">Reporting</span></FlatButton></li>
 
         <li className="nav-divider" />
         <li>
