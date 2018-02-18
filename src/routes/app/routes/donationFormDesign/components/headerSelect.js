@@ -1,0 +1,73 @@
+import React from 'react';
+import Upload from 'material-ui-upload/Upload';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import TextField from 'material-ui/TextField';
+
+const styles = {
+  padding: '12px 18px',
+  marginBottom: 12,
+  fontWeight: 400,
+  minHeight: 300,
+};
+
+// TODO make different col-xl, col-lg and other everywhere
+
+const TabsExampleSimple = () => (
+  <Tabs>
+    <Tab label="Option 1" >
+      <div style={styles}>
+        <h5>Full Header Image</h5>
+        <div className="row">
+          <div className="col-xl-4 box-body">
+            <Upload label="Choose an Image" /><br />
+            <small>Recommended image size is 1170 x 320 for this layout.</small><br /><br />
+          </div>
+          <div className="col-lg-8 box-body">
+            <b>Image Preview</b><br />
+            <img src="assets/images-demo/donr-header.png" alt="donor-header" style={{maxWidth: '100%', borderRadius: '5px'}} />
+          </div>
+        </div>
+      </div>
+    </Tab>
+    <Tab label="Option 2" >
+      <div style={styles}>
+        <h5>Split Header with image and text</h5>
+        <div className="row">
+          <div className="col-xl-4 box-body">
+            <b>Image Preview</b><br />
+            <img src="assets/images-demo/donr-header.png" alt="donor-header" style={{maxWidth: '100%', borderRadius: '5px'}} />
+            <br /><br />
+            <Upload label="Choose an Image" />
+            <small>Recommended image size is 1170 x 320 for this layout.</small>
+          </div>
+          <div className="col-xl-8">
+            <b>Text</b>
+            <div className="box bg-color-page">
+              <div className="box-body">
+                <TextField hintText="HeadLine" />
+                <TextField
+                  hintText="<html> is ok. Lorem ipsum"
+                  multiLine
+                  rows={2}
+                  rowsMax={10}
+                  fullWidth
+                />
+                <TextField floatingLabelText="CSS Class" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Tab>
+  </Tabs>
+);
+
+const TabsSection = () => (
+  <section className="box box-default">
+    <div className="box-body no-padding">
+      <TabsExampleSimple />
+    </div>
+  </section>
+);
+
+module.exports = TabsSection;
