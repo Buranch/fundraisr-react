@@ -19,37 +19,6 @@ import Dashboard from '../routes/dashboard/';
 function LoadingComponent() {
   return <div></div>;
 }
-
-let AsyncChart = loadable({
-  loader: () => import('../routes/chart/'),
-  loading: LoadingComponent
-});
-let AsyncECommerce = loadable({
-  loader: () => import('../routes/ecommerce/'),
-  loading: LoadingComponent
-});
-let AsyncForm = loadable({
-  loader: () => import('../routes/form/'),
-  loading: LoadingComponent
-});
-let AsyncPage = loadable({
-  loader: () => import('../routes/page/'),
-  loading: LoadingComponent
-});
-let AsyncPageLayout = loadable({
-  loader: () => import('../routes/page-layout/'),
-  loading: LoadingComponent
-});
-let AsyncTable = loadable({
-  loader: () => import('../routes/table/'),
-  loading: LoadingComponent
-});
-let AsyncUI = loadable({
-  loader: () => import('../routes/ui/'),
-  loading: LoadingComponent
-});
-
-
 let AsyncDonors = loadable({
   loader: () => import('../routes/donors/'),
   loading: LoadingComponent
@@ -114,6 +83,10 @@ let AsyncDfDesign = loadable({
   loader: () => import('../routes/donationFormDesign/'),
   loading: LoadingComponent
 });
+let AsyncManageEvent = loadable({
+  loader: () => import('../routes/eventManage/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -147,15 +120,7 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/reporting`} component={AsyncReporting} />
                 <Route path={`${match.url}/bookkeeping-mir-edit`} component={AsyncMirBk} />
                 <Route path={`${match.url}/donation-form-design`} component={AsyncDfDesign} />
-`
-
-                <Route path={`${match.url}/chart`} component={AsyncChart} />
-                <Route path={`${match.url}/ecommerce`} component={AsyncECommerce} />
-                <Route path={`${match.url}/form`} component={AsyncForm} />
-                <Route path={`${match.url}/page`} component={AsyncPage} />
-                <Route path={`${match.url}/pglayout`} component={AsyncPageLayout} />
-                <Route path={`${match.url}/table`} component={AsyncTable} />
-                <Route path={`${match.url}/ui`} component={AsyncUI} />
+                <Route path={`${match.url}/event-manage`} component={AsyncManageEvent} />
               </div>
             </div>
 

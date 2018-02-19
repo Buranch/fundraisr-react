@@ -8,7 +8,7 @@ import React from 'react';
 class Breadcrumb extends React.Component {
   state = {
     path: this.props.path,
-    id: this.props.id ? `${this.props.typeId} ID ${this.props.id}` : ''
+    id: this.props.id ? `${this.props.typeId} ID #${this.props.id}` : ''
   };
 
   render() {
@@ -17,8 +17,8 @@ class Breadcrumb extends React.Component {
         <div className="col-sm-6">
           {this.state.path}
         </div>
-        <div className="col-sm-6">
-          {this.state.id}
+        <div className="col-sm-6 text-right">
+          <small>{this.state.id}</small>
         </div>
       </div>
     );
