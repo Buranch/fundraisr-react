@@ -87,6 +87,14 @@ let AsyncManageEvent = loadable({
   loader: () => import('../routes/eventManage/'),
   loading: LoadingComponent
 });
+let AsyncManageEmailConf = loadable({
+  loader: () => import('../routes/emailConfManage/'),
+  loading: LoadingComponent
+});
+let AsyncReportRegistrants = loadable({
+  loader: () => import('../routes/reportingRegistrants/'),
+  loading: LoadingComponent
+});
 
 class MainApp extends React.Component {
 
@@ -121,13 +129,13 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/bookkeeping-mir-edit`} component={AsyncMirBk} />
                 <Route path={`${match.url}/donation-form-design`} component={AsyncDfDesign} />
                 <Route path={`${match.url}/event-manage`} component={AsyncManageEvent} />
+                <Route path={`${match.url}/email-conf-manage`} component={AsyncManageEmailConf} />
+                <Route path={`${match.url}/reporting-registrant`} component={AsyncReportRegistrants} />
               </div>
             </div>
-
             <Footer />
           </div>
         </section>
-
       </div>
     );
   }
