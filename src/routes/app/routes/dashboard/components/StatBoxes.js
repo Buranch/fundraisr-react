@@ -5,7 +5,7 @@ import CHARTCONFIG from 'constants/ChartConfig';
 const Statboxes = () => (
   <div>
     <div className="row">
-      <div className="col-xl-6 col-sm-12">
+      <div className="col-xs-12 col-sm-6 col-md-6">
       <div className="box box-default">
         <div className="box-top">
           <span>79</span>
@@ -18,7 +18,7 @@ const Statboxes = () => (
         </div>
       </div>
     </div>
-      <div className="col-xl-6 col-sm-12">
+      <div className="col-xs-12 col-sm-6 col-md-6">
       <div className="box box-default">
         <div className="box-top">
           <span>109</span>
@@ -33,7 +33,7 @@ const Statboxes = () => (
     </div>
     </div>
     <div className="row">
-      <div className="col-xl-6 col-sm-12">
+      <div className="col-xs-12 col-sm-6 col-md-6">
         <div className="box box-default">
           <div className="box-top">
             <span>159</span>
@@ -46,7 +46,7 @@ const Statboxes = () => (
           </div>
         </div>
       </div>
-      <div className="col-xl-6 col-sm-12">
+      <div className="col-xs-12 col-sm-6 col-md-6">
         <div className="box box-default">
           <div className="box-top">
             <span>235</span>

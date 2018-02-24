@@ -77,7 +77,7 @@ class Elem extends React.Component {
 class FilterManager extends React.Component {
   state = {
     array: [],
-    firstElem: {value: {item: '', event: ''}}
+    firstElem: {value: {item: 'firstName', event: 'startWith'}}
   };
 
   AddHandler = () => {
@@ -90,7 +90,6 @@ class FilterManager extends React.Component {
       };
     });
   };
-
   RemoveHandler = (num) => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
@@ -101,7 +100,6 @@ class FilterManager extends React.Component {
       };
     });
   };
-
   RemoveAllHandler = () => {
     this.setState({
       array: []
@@ -193,9 +191,9 @@ class FilterManager extends React.Component {
               onChange={this.FirstItemHandler}
               floatingLabelText="Tag"
               key="-1item"
-              value={this.state.firstElem.value.item}
+              value={this.state.firstElem.value.item || 0}
             >
-              <MenuItem value={0} primaryText="First Name" />
+              <MenuItem value={'firstName'} primaryText="First Name" />
               <MenuItem value={1} primaryText="Last Name" />
               <MenuItem value={2} primaryText="Company Name" />
               <MenuItem value={3} primaryText="eMail" />
@@ -208,12 +206,12 @@ class FilterManager extends React.Component {
             </SelectField>
             <span className="space" />
             <SelectField
-              value={this.state.firstElem.value.event}
+              value={this.state.firstElem.value.event || 0}
               onChange={this.FirstEventHandler}
               floatingLabelText="option"
               key="-1event"
             >
-              <MenuItem value={0} primaryText="Start With" />
+              <MenuItem value={'startWith'} primaryText="Start With" />
               <MenuItem value={1} primaryText="Equal" />
               <MenuItem value={2} primaryText="Contains" />
               <MenuItem value={3} primaryText="Not Contain" />

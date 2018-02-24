@@ -4,6 +4,11 @@ import 'antd/dist/antd.css';
 import ControlPanel from './controlPanel';
 import FilterManager from './filterManager';
 
+const styles = {
+  fontSize: '15px',
+  float: 'right'
+};
+
 const dataSource = [{
   key: '1',
   firstName: 'Optimus',
@@ -24,6 +29,86 @@ const dataSource = [{
   city: 'Duckville',
   state: 'CA',
   zip: '92345'
+}, {
+  key: '3',
+  firstName: 'Betty',
+  lastName: 'Boop',
+  email: 'bboop@mail.com',
+  companyName: 'Betty Bucks',
+  address: '12 Boop Blvd',
+  city: 'Betyington',
+  state: 'CA',
+  zip: '98756'
+}, {
+  key: '4',
+  firstName: 'Jonas',
+  lastName: 'Grumby',
+  email: 'theskipper@mail.com',
+  companyName: 'Minnow Money',
+  address: '3 Gilli Lane',
+  city: 'Island',
+  state: 'CA',
+  zip: '91654'
+}, {
+  key: '5',
+  firstName: 'Super',
+  lastName: 'Luidgi',
+  email: 'sluigi@mail.com',
+  companyName: '1-Up',
+  address: '347 Castle Lane',
+  city: 'Superland',
+  state: 'CA',
+  zip: '99876'
+}, {
+  key: '6',
+  firstName: 'Jim',
+  lastName: 'Magoo',
+  email: 'mrmagoo@mail.com',
+  companyName: 'Rag-Time',
+  address: '657 Bear St',
+  city: 'Gooville',
+  state: 'CA',
+  zip: '98734'
+}, {
+  key: '7',
+  firstName: 'George',
+  lastName: 'Jetson',
+  email: 'gjett@mail.com',
+  companyName: 'RUDI',
+  address: '456 Space Lane',
+  city: 'Space',
+  state: 'CP',
+  zip: 'X2148'
+}, {
+  key: '8',
+  firstName: 'Bobby',
+  lastName: 'Hill',
+  email: 'bhill@mail.com',
+  companyName: 'Sugarland Propane',
+  address: '124 Rainey St',
+  city: 'Arlen',
+  state: 'TX',
+  zip: '91993'
+}, {
+  key: '9',
+  firstName: 'Eunice',
+  lastName: 'Howell',
+  email: 'lovey@mail.com',
+  companyName: 'TH3 Industries',
+  address: '128 High Lane',
+  city: 'Island',
+  state: 'CA',
+  zip: '98376'
+}, {
+  key: '10',
+  firstName: 'Bob',
+  lastName: 'Denver',
+  email: 'gilligan@mail.com',
+  companyName: 'Minnow Money',
+  address: '3.5 Gilli Lane',
+  city: 'Island',
+  state: 'CA',
+  zip: '91654'
 }];
 const col = [{
   title: 'First Name',
@@ -34,7 +119,7 @@ const col = [{
   title: 'Last Name',
   dataIndex: 'lastName',
   key: 'lastName',
-  render: text => <a href="#/app/donors-manage">{text}</a>,
+  render: text => <a href="#/app/donors-manage" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="">settings</a></small></a>,
   sorter: (a, b) => a.lastName.localeCompare(b.lastName),
 }, {
   title: 'eMail',
@@ -69,9 +154,6 @@ const col = [{
 }];
 const rowSelection = {};
 
-// TODO add the data
-// TODO add a number of showed rows
-// TODO add an icons to link elems
 class DonorTable extends React.Component {
   render() {
     return (
@@ -86,6 +168,7 @@ class DonorTable extends React.Component {
               size="small"
               bordered
               rowSelection={rowSelection}
+              pagination={{defaultCurrent: 1, total: 50, pageSize: 10 }}
             />
             <ControlPanel />
           </div>

@@ -7,17 +7,11 @@ import StartHelper from './StartHelper';
 import NewEvents from './NewEvents';
 import TopDonors from './TopDonors';
 import TopEvents from './TopEvents';
-
-function getMonth(date) {
-  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  return month[date.getMonth()];
-}
-const date = new Date();
-const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
+import HeadText from '../../../components/headText';
 
 const Main = () => (
   <div className="row">
-    <div className="col-xl-6">
+    <div className="col-xs-12 col-sm-12 col-md-6">
       <div className="box box-default">
         <div className="box-body">
           <DonationChart />
@@ -25,19 +19,8 @@ const Main = () => (
       </div>
     </div>
 
-    <div className="col-xl-6">
+    <div className="col-xs-12 col-sm-12 col-md-6">
       <StatBoxes />
-    </div>
-  </div>
-);
-
-const HeadText = () => (
-  <div className="row">
-    <div className="col-sm-6">
-      <h1 className="article-title">Dashboard</h1>
-    </div>
-    <div className="col-sm-6" style={{textAlign: 'right'}}>
-      <h1 className="article-title">{dateString}</h1>
     </div>
   </div>
 );
@@ -45,14 +28,14 @@ const HeadText = () => (
 const Dashboard = () => (
   <div className="container-fluid no-breadcrumbs page-dashboard">
     <StartHelper />
-    <HeadText />
+    <HeadText pageName="Dashboard" />
     <QueueAnim type="bottom" className="ui-animate">
       <Main />
     </QueueAnim>
     <div className="row">
-      <div className="col-xl-4"><TopDonors /></div>
-      <div className="col-xl-4"><TopEvents /></div>
-      <div className="col-xl-4"><NewEvents /></div>
+      <div className="col-xs-12 col-sm-6 col-md-4"><TopDonors /></div>
+      <div className="col-xs-12 col-sm-6 col-md-4"><TopEvents /></div>
+      <div className="col-xs-12 col-sm-6 col-md-4"><NewEvents /></div>
     </div>
   </div>
 );

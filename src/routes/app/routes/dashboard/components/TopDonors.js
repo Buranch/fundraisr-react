@@ -27,7 +27,7 @@ export default class Donors extends React.Component {
                   <td className="text-left"><b>John</b> Doe</td>
                   <td style={{width: '25%', paddingLeft: '10px'}}>
                     <small className="material-icons" style={style}>
-                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                      <a href="">mode_edit</a> <a href="">settings</a> <a href="">delete</a>
                     </small>
                   </td>
                 </tr>
@@ -37,7 +37,7 @@ export default class Donors extends React.Component {
                   <td className="text-left"><b>John</b> Krazinski</td>
                   <td style={{paddingLeft: '10px'}}>
                     <small className="material-icons" style={style}>
-                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                      <a href="">mode_edit</a> <a href="">settings</a> <a href="">delete</a>
                     </small>
                   </td>
                 </tr>
@@ -47,7 +47,7 @@ export default class Donors extends React.Component {
                   <td className="text-left"><b>Johnathan</b> Bell</td>
                   <td style={{paddingLeft: '10px'}}>
                     <small className="material-icons" style={style}>
-                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                      <a href="">mode_edit</a> <a href="">settings</a> <a href="">delete</a>
                     </small>
                   </td>
                 </tr>
@@ -57,7 +57,7 @@ export default class Donors extends React.Component {
                   <td className="text-left"><b>John</b> Debogosrky</td>
                   <td style={{paddingLeft: '10px'}}>
                     <small className="material-icons" style={style}>
-                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                      <a href="">mode_edit</a> <a href="">settings</a> <a href="">delete</a>
                     </small>
                   </td>
                 </tr>
@@ -67,7 +67,7 @@ export default class Donors extends React.Component {
                   <td className="text-left"><b>Johnathan</b> Bell</td>
                   <td style={{paddingLeft: '10px'}}>
                     <small className="material-icons" style={style}>
-                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                      <a href="">mode_edit</a> <a href="">settings</a> <a href="">delete</a>
                     </small>
                   </td>
                 </tr>
@@ -77,7 +77,7 @@ export default class Donors extends React.Component {
                   <td className="text-left"><b>Johnny</b> Haliday</td>
                   <td style={{paddingLeft: '10px'}}>
                     <small className="material-icons" style={style}>
-                      <a href="http://localhost:3000/#/app/dashboard">mode_edit</a> <a href="http://localhost:3000/#/app/dashboard">settings</a> <a href="http://localhost:3000/#/app/dashboard">delete</a>
+                      <a href="">mode_edit</a> <a href="">settings</a> <a href="">delete</a>
                     </small>
                   </td>
                 </tr>

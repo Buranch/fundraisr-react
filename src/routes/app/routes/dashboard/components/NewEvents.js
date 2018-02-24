@@ -11,8 +11,10 @@ class TableEvents extends React.Component {
                 <tr className="bg-color-info">
                   <td><span className="dropcap">8</span></td>
                   <td style={{whiteSpace: 'normal'}} className="mdl-data-table__cell--non-numeric">
-                    <b>Event</b> <br />
-                    Event description text.
+                    <a href="" style={{display: 'block'}}>
+                      <b>Event</b> <br />
+                      Event description text.
+                    </a>
                   </td>
                 </tr>
                 <tr>
