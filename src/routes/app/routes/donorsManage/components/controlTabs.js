@@ -23,7 +23,19 @@ const styles = {
   },
 };
 const years = [
-  1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999
+  '1900', '1901', '1902', '1903', '1904', '1905', '1906', '1907',
+  '1908', '1909', '1910', '1911', '1912', '1913', '1914', '1915',
+  '1916', '1917', '1918', '1919', '1920', '1921', '1922', '1923',
+  '1924', '1925', '1926', '1927', '1928', '1929', '1930', '1931',
+  '1932', '1933', '1934', '1935', '1936', '1937', '1938', '1939',
+  '1940', '1941', '1942', '1943', '1944', '1945', '1946', '1947',
+  '1948', '1949', '1950', '1951', '1952', '1953', '1954', '1955',
+  '1956', '1957', '1958', '1959', '1960', '1961', '1962', '1963',
+  '1964', '1965', '1966', '1967', '1968', '1969', '1970', '1971',
+  '1972', '1973', '1974', '1975', '1976', '1977', '1978', '1979',
+  '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987',
+  '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995',
+  '1996', '1997', '1998', '1999'
 ];
 const mWidthStyle = {
   minWidth: '135px'
@@ -44,13 +56,13 @@ class Personal extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Demographics</h5>
           <TextField value="68" floatingLabelText="Age" disabled /><br />
           <small>Donors "Age" is set by Donors "Birth Day". </small>
           <DatePicker floatingLabelText="Birth Day" />
           <SelectField
-            floatingLabelText="Sex"
+            floatingLabelText="Gender"
             value={this.state.sexValue}
             onChange={this.handleSexChange}
           >
@@ -94,13 +106,13 @@ class Personal extends React.Component {
           </SelectField>
         </div>
 
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Tax Information</h5>
           <TextField defaultValue="2034299-345" floatingLabelText="Tax ID#" />
           <Toggle label="Head of Household?" style={styles.toggle} defaultToggled />
         </div>
 
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Employment Information</h5>
           <TextField defaultValue="Transformers - Robots in Disguise" floatingLabelText="Company Name" /> <br />
           <TextField defaultValue="Team Leader" floatingLabelText="Job Title" /> <br />
@@ -112,7 +124,7 @@ class Personal extends React.Component {
 }
 const Identifiers = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="col-xs-12 col-sm-6 col-md-4">
       <h5>Identifiers</h5>
       <TextField value="9812873456" floatingLabelText="Donor ID" disabled /><br />
       <small>Donor ID can not be changed. </small>
@@ -134,7 +146,7 @@ class Education extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xl-3">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Education</h5>
           <TextField value="Cybertron University" floatingLabelText="School" /><br />
           <TextField value="Engineering" floatingLabelText="Department" /><br />
@@ -163,7 +175,7 @@ class Education extends React.Component {
 }
 const Relationships = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="col-xs-12 col-sm-6 col-md-4">
       <h5>Relationships</h5>
     </div>
   </div>
@@ -183,17 +195,17 @@ class ContactMethods extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Phone</h5>
           <Toggle label="Home Phone" style={styles.toggle} defaultToggled />
           <Toggle label="Cell Phone" style={styles.toggle} defaultToggled />
           <Toggle label="Business Phone" style={styles.toggle} defaultToggled />
         </div>
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Physical</h5>
           <Toggle label="Direct Mail" style={styles.toggle} defaultToggled />
         </div>
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>eMail</h5>
           <Toggle label="eMail" style={styles.toggle} defaultToggled />
           <SelectField
@@ -219,7 +231,7 @@ class Misc extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Custom Fields</h5>
           <SelectField
             floatingLabelText="How did you hear about us?"
@@ -242,7 +254,6 @@ class Misc extends React.Component {
   }
 }
 
-// TODO: autocomplete (there and in congigure/orgInfo doesnt work
 const TabsExampleSimple = () => (
   <Tabs>
     <Tab label="Personal" >

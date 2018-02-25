@@ -14,10 +14,10 @@ class Breadcrumb extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-sm-6">
+        <div className="col-xs-6 col-sm-6 col-md-6">
           {this.state.path}
         </div>
-        <div className="col-sm-6 text-right">
+        <div className="col-xs-6 col-sm-6 col-md-6 text-right">
           <small>{this.state.id}</small>
         </div>
       </div>

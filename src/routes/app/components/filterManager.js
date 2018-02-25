@@ -41,16 +41,16 @@ class Elem extends React.Component {
           onChange={this.typeOfItemHandler}
           key={`${this.props.num}item`}
         >
-          <MenuItem value={0} primaryText="First Name" />
-          <MenuItem value={1} primaryText="Last Name" />
-          <MenuItem value={2} primaryText="Company Name" />
-          <MenuItem value={3} primaryText="eMail" />
-          <MenuItem value={4} primaryText="City" />
-          <MenuItem value={5} primaryText="State" />
-          <MenuItem value={6} primaryText="Zip/Postal Code" />
-          <MenuItem value={7} primaryText="Supporter ID" />
-          <MenuItem value={8} primaryText="Alternate ID" />
-          <MenuItem value={9} primaryText="Special Flag" />
+          <MenuItem value="firstName" primaryText="First Name" />
+          <MenuItem value="lastName" primaryText="Last Name" />
+          <MenuItem value="companyName" primaryText="Company Name" />
+          <MenuItem value="eMail" primaryText="eMail" />
+          <MenuItem value="city" primaryText="City" />
+          <MenuItem value="state" primaryText="State" />
+          <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code" />
+          <MenuItem value="supporterId" primaryText="Supporter ID" />
+          <MenuItem value="alternateId" primaryText="Alternate ID" />
+          <MenuItem value="specialFlag" primaryText="Special Flag" />
         </SelectField>
         <span className="space" />
         <SelectField
@@ -59,12 +59,12 @@ class Elem extends React.Component {
           value={this.props.value.event}
           onChange={this.typeOfSearchHandler}
         >
-          <MenuItem value={0} primaryText="Start With" />
-          <MenuItem value={1} primaryText="Equal" />
-          <MenuItem value={2} primaryText="Contains" />
-          <MenuItem value={3} primaryText="Not Contain" />
-          <MenuItem value={4} primaryText="Contains Any Of" />
-          <MenuItem value={5} primaryText="Contains All Of" />
+          <MenuItem value="startWith" primaryText="Start With" />
+          <MenuItem value="equal" primaryText="Equal" />
+          <MenuItem value="contains" primaryText="Contains" />
+          <MenuItem value="notContain" primaryText="Not Contain" />
+          <MenuItem value="containsAnyOf" primaryText="Contains Any Of" />
+          <MenuItem value="containsAllOf" primaryText="Contains All Of" />
         </SelectField>
         <span className="space" />
         <TextField style={styles.textFieldStyle} value={this.props.value.request} onChange={this.requestHandler} key={`${this.props.num}request`} />
@@ -83,7 +83,7 @@ class FilterManager extends React.Component {
   AddHandler = () => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
-      prev.push({item: '', event: '', request: ''});
+      prev.push({item: 'firstName', event: 'startWith', request: ''});
       return {
         style: prevState.style,
         array: prev
@@ -105,7 +105,6 @@ class FilterManager extends React.Component {
       array: []
     });
   };
-
   ItemHandler = (newValue, num) => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
@@ -191,32 +190,32 @@ class FilterManager extends React.Component {
               onChange={this.FirstItemHandler}
               floatingLabelText="Tag"
               key="-1item"
-              value={this.state.firstElem.value.item || 0}
+              value={this.state.firstElem.value.item}
             >
-              <MenuItem value={'firstName'} primaryText="First Name" />
-              <MenuItem value={1} primaryText="Last Name" />
-              <MenuItem value={2} primaryText="Company Name" />
-              <MenuItem value={3} primaryText="eMail" />
-              <MenuItem value={4} primaryText="City" />
-              <MenuItem value={5} primaryText="State" />
-              <MenuItem value={6} primaryText="Zip/Postal Code" />
-              <MenuItem value={7} primaryText="Supporter ID" />
-              <MenuItem value={8} primaryText="Alternate ID" />
-              <MenuItem value={9} primaryText="Special Flag" />
+              <MenuItem value="firstName" primaryText="First Name" />
+              <MenuItem value="lastName" primaryText="Last Name" />
+              <MenuItem value="companyName" primaryText="Company Name" />
+              <MenuItem value="eMail" primaryText="eMail" />
+              <MenuItem value="city" primaryText="City" />
+              <MenuItem value="state" primaryText="State" />
+              <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code" />
+              <MenuItem value="supporterId" primaryText="Supporter ID" />
+              <MenuItem value="alternateId" primaryText="Alternate ID" />
+              <MenuItem value="specialFlag" primaryText="Special Flag" />
             </SelectField>
             <span className="space" />
             <SelectField
-              value={this.state.firstElem.value.event || 0}
+              value={this.state.firstElem.value.event}
               onChange={this.FirstEventHandler}
               floatingLabelText="option"
               key="-1event"
             >
-              <MenuItem value={'startWith'} primaryText="Start With" />
-              <MenuItem value={1} primaryText="Equal" />
-              <MenuItem value={2} primaryText="Contains" />
-              <MenuItem value={3} primaryText="Not Contain" />
-              <MenuItem value={4} primaryText="Contains Any Of" />
-              <MenuItem value={5} primaryText="Contains All Of" />
+              <MenuItem value="startWith" primaryText="Start With" />
+              <MenuItem value="equal" primaryText="Equal" />
+              <MenuItem value="contains" primaryText="Contains" />
+              <MenuItem value="notContain" primaryText="Not Contain" />
+              <MenuItem value="containsAnyOf" primaryText="Contains Any Of" />
+              <MenuItem value="containsAllOf" primaryText="Contains All Of" />
             </SelectField>
             <span className="space" />
             <TextField key="-1request" style={styles.textFieldStyle} />

@@ -2,7 +2,7 @@ import React from 'react';
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
 import ControlPanel from './controlPanel';
-import FilterManager from './filterManager';
+import FilterManager from '../../../components/filterManager';
 
 const styles = {
   fontSize: '15px',
@@ -168,7 +168,7 @@ class DonorTable extends React.Component {
               size="small"
               bordered
               rowSelection={rowSelection}
-              pagination={{defaultCurrent: 1, total: 50, pageSize: 10 }}
+              pagination={{defaultCurrent: 1, total: 50, pageSize: 10, showSizeChanger: true  }}
             />
             <ControlPanel />
           </div>
