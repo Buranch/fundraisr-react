@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import ContentRemove from 'material-ui/svg-icons/content/remove';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import SearchIcon from 'material-ui/svg-icons/action/search';
 
 const mWidthStyle = {
   minWidth: '135px'
@@ -182,7 +183,7 @@ class FilterManager extends React.Component {
           <div className="text-right">
             <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add Filter" labelPosition="after" primary />
             <FlatButton onClick={this.RemoveAllHandler} style={mWidthStyle} label="Show All" labelPosition="after" primary />
-            <FlatButton style={mWidthStyle} label="Search" labelPosition="after" primary />
+            <FlatButton style={mWidthStyle} label="Search" labelPosition="after" primary icon={<SearchIcon/>}/>
           </div>
 
           <div>

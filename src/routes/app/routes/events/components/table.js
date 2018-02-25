@@ -136,10 +136,6 @@ const col = [{
 }];
 const rowSelection = {};
 
-// TODO add the data
-// TODO add a number of showed rows
-// TODO add a work link to 1 col, 3 col
-// TODO add an icons to link elems
 class EventTable extends React.Component {
   render() {
     return (

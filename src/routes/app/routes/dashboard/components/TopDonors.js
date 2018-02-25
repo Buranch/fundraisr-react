@@ -9,7 +9,6 @@ const style = {
   fontSize: '15px',
 };
 
-// TODO add a tooltip
 export default class Donors extends React.Component {
   render() {
     return (
