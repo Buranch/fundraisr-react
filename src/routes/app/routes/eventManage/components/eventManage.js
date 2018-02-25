@@ -9,7 +9,7 @@ import EventSettings from './eventSettings';
 const EventManage = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
-    <HeadText pageName="Event Manage" />
+    <HeadText pageName="Manage Event" />
     <Breadcrumb
       path={<small><a href="#app/dashboard">Dashboard</a> >> <a href="#app/events">Events</a> >> Raise FunDation</small>}
       typeId="event"
