@@ -6,7 +6,7 @@ import {
   StepContent,
 } from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+import SettingsIcon from 'material-ui/svg-icons/action/settings';
 
 /**
  * A basic vertical non-linear implementation
@@ -33,6 +33,7 @@ class VerticalNonLinear extends React.Component {
           disableFocusRipple
           primary
           style={{marginRight: 12}}
+          icon={<SettingsIcon />}
         />
       </div>
     );

@@ -2,7 +2,9 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Danger from './danger';
+import ContactIcon from 'material-ui/svg-icons/action/perm-contact-calendar';
+import DeleteIcon from 'material-ui/svg-icons/action/delete-forever';
+import Helper from '../../../components/helper';
 import Runners from './runners';
 import Role from './roleStepper';
 
@@ -18,22 +20,20 @@ const styles = {
 
 const General = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="col-xs-12 col-sm-6 col-md-6">
       <h5>Affiliation</h5>
       <TextField value="Michael Scott" floatingLabelText="Name" disabled /> <br />
       <TextField value="The Raisers" floatingLabelText="Team Member of" disabled /><br />
-      <RaisedButton style={mWidthStyle} label="View Contact" labelPosition="after" primary />
+      <RaisedButton style={mWidthStyle} label="View Contact" labelPosition="after" primary icon={<ContactIcon />} />
     </div>
-    <div className="col-xl-4">
+    <div className="col-xs-12 col-sm-6 col-md-6">
       <h5>Record</h5>
       <TextField value="Michael Scott123" floatingLabelText="User Name" disabled /><br />
       <TextField value="The Raisers" floatingLabelText="Password" type="password" disabled /><br />
-      <RaisedButton style={mWidthStyle} label="Reset Password" labelPosition="after" primary />
+      <RaisedButton style={mWidthStyle} label="Reset Password" labelPosition="after" primary icon={<DeleteIcon />} />
     </div>
   </div>
 );
-
-
 
 const TabsExampleSimple = () => (
   <Tabs>
@@ -46,7 +46,7 @@ const TabsExampleSimple = () => (
     </Tab>
     <Tab label="Delete Record">
       <div style={styles}>
-        <Danger />
+        <Helper text="Alert: This action will permanently delete the information related to this entry." isDanger />
         <Runners />
       </div>
     </Tab>
