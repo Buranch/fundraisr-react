@@ -1,8 +1,18 @@
 import React from 'react';
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
-import FilterManager from './filterManager';
+import FilterManager from '../../../components/filterManager';
 import ControlPanel from './controlPanel';
+
+const styles = {
+  fontSize: '15px',
+  float: 'right'
+};
+
+const smallIconsStyle = {
+  fontSize: '15px', padding: '3px'
+};
+
 
 const dataSource = [{
   key: '1',
@@ -31,9 +41,9 @@ const col = [{
   key: 'actions',
   render: () => (
     <span>
-      <a href="#app/donors-manage">Profile</a>
+      <a href="#/app/donors-manage" className="material-icons" style={smallIconsStyle} title="Profile">visibility</a>
       <span className="space" />
-      <a href="#">Edit</a>
+      <a href="#" className="material-icons" style={smallIconsStyle} title="Edit">settings</a>
     </span>)
 }, {
   title: 'First Name',
@@ -45,7 +55,7 @@ const col = [{
   dataIndex: 'lastName',
   key: 'lastName',
   sorter: (a, b) => a.lastName.localeCompare(b.lastName),
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="#/app/bookkeeping-mir-edit" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="">settings</a></small></a>,
 }, {
   title: 'Company Name',
   dataIndex: 'companyName',
@@ -62,9 +72,9 @@ const col = [{
   key: 'paymentType',
   render: (text) => {
     if (text === 'credit') {
-      return (<span className="color-danger">active</span>);
+      return (<span><small className="color-success material-icons" style={smallIconsStyle}>credit_card</small>CREDIT</span>);
     }
-    return (<span className="color-primary">active</span>);
+    return (<span><small className="color-info material-icons" style={smallIconsStyle}>card_membership</small>DEBIT</span>);
   },
   sorter: (a, b) => a.paymentType.localeCompare(b.paymentType),
 }, {
@@ -85,9 +95,6 @@ const col = [{
 }];
 const rowSelection = {};
 
-// TODO add a number of showed rows
-// TODO add a work link to 1 col
-// TODO add an icons to link elems
 class EventTable extends React.Component {
   render() {
     return (
@@ -102,6 +109,7 @@ class EventTable extends React.Component {
               size="small"
               bordered
               rowSelection={rowSelection}
+              pagination={{defaultCurrent: 1, total: 55, pageSize: 11, showSizeChanger: true }}
             />
           </div>
         </div>

@@ -5,6 +5,10 @@ const mWidthStyle = {
   minWidth: '135px'
 };
 
+const controlPanelStyle = {
+  padding: '4px'
+};
+
 class Controls extends React.Component {
   state={
     donors: true,
@@ -20,7 +24,7 @@ class Controls extends React.Component {
   render() {
     this.ClickHandler = this.ClickHandler.bind(this);
     return (
-      <div className="box box-default text-center">
+      <div className="box box-default text-center" style={controlPanelStyle}>
         <FlatButton onClick={this.ClickHandler} style={mWidthStyle} label="Donors" href="" target="_blank" secondary={this.state.donors} />
         <FlatButton onClick={this.ClickHandler} style={mWidthStyle} label="Participants" href="" target="_blank" secondary={!this.state.donors} />
       </div>
