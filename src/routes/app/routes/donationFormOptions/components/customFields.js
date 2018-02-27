@@ -4,21 +4,10 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import ContentRemove from 'material-ui/svg-icons/content/remove';
-import NumField from '../../../components/numField';
 
 const mWidthStyle = {
   minWidth: '135px'
 };
-const styles = {
-  toggle: {
-    maxWidth: 250,
-    marginBottom: 16
-  },
-  textFieldStyle: { width: '80px' }
-};
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
 
 class Elem extends React.Component {
   clickHandler = (e) => {
@@ -36,7 +25,6 @@ class Elem extends React.Component {
         <TextField
           key={this.props.key}
           name={this.props.key}
-          style={styles.textFieldStyle}
           floatingLabelText="Amount"
           onChange={this.numHandler}
           value={this.props.value}
@@ -47,16 +35,16 @@ class Elem extends React.Component {
   }
 }
 
-class BlockIP extends React.Component {
+class CustomFields extends React.Component {
   state = {
-    array: [75, 100]
+    array: ['', '']
   };
 
   AddHandler = () => {
     if (this.state.array.length < 6) {
       this.setState((prevState, props) => {
         const prev = prevState.array.map(elem => elem);
-        prev.push(10);
+        prev.push('');
         return {
           array: prev
         };
@@ -75,21 +63,13 @@ class BlockIP extends React.Component {
     });
   };
   NumHandler = (newValue, num) => {
-    if (!isNumeric(newValue) && newValue !== '') return;
-    if (+newValue >= 10) {
-      this.setState((prevState, props) => {
-        const prev = prevState.array.map(elem => elem);
-        prev[num] = newValue;
-        return {
-          array: prev
-        };
-      });
-    } else {
-      // allow user to enter a number, that smallest the min
-      // (for typping 14 from 10 firstly user del 0 and make number smaller 10)
-      // when focus ended with smaller num, previous value will return
-      throw e;
-    }
+    this.setState((prevState, props) => {
+      const prev = prevState.array.map(elem => elem);
+      prev[num] = newValue;
+      return {
+        array: prev
+      };
+    });
   };
 
   render() {
@@ -99,29 +79,36 @@ class BlockIP extends React.Component {
     const elems = [];
     for (let i = 0; i < this.state.array.length; i++) {
       elems.push(
-        <Elem
-          key={i}
-          value={this.state.array[i]}
-          giveKey={i}
-          num={i}
-          onDelete={this.RemoveHandler}
-          onChange={this.NumHandler}
-        />
+        <div>
+          <Elem
+            key={i}
+            value={this.state.array[i]}
+            giveKey={i}
+            num={i}
+            onDelete={this.RemoveHandler}
+            onChange={this.NumHandler}
+          />
+        </div>
       );
     }
-
     return (
-      <div>
-        <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add" labelPosition="after" primary icon={<ContentAdd />} />
-        <div>
-          <NumField style={styles.textFieldStyle} min={10} start={25} />
-          <span className="space" />
-          <NumField style={styles.textFieldStyle} min={10} start={50} />
+      <div className="box box-default">
+        <div className="box-body">
+          <h5>Custom Fields</h5>
+          <small>
+            Add custom fields for your Donation Form
+          </small>
+          <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add" labelPosition="after" primary icon={<ContentAdd />} />
+          <div>
+            <TextField floatingLabelText="Amount" />
+            <br />
+            <TextField floatingLabelText="Amount" />
+          </div>
+          {elems}
         </div>
-        {elems}
       </div>
     );
   }
 }
 
-module.exports = BlockIP;
+module.exports = CustomFields;

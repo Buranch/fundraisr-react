@@ -1,70 +1,52 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import Helper from './helper';
-import ControlPanel from './controlPanel';
+import DoneIcon from 'material-ui/svg-icons/action/done';
+import Helper from '../../../components/helper';
+import HeadText from '../../../components/headText';
+import Breadcrumb from '../../../components/breadcrumb';
+import ControlPanel from '../../../components/stickyControlPanel';
 import DonationAmounts from './donationAmounts';
+import CustomFields from './customFields';
 
 const mWidthStyle = {
   minWidth: '135px'
 };
 
-function getMonth(date) {
-  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  return month[date.getMonth()];
-}
-const date = new Date();
-const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
-
-const HeadText = () => (
-  <div className="row">
-    <div className="col-sm-6">
-      <h1 className="article-title">User Profile</h1>
-    </div>
-    <div className="col-sm-6" style={{textAlign: 'right'}}>
-      <h1 className="article-title">{dateString}</h1>
-    </div>
-  </div>
-);
-
-// TODO Styles dont change!
 class AdditionalContent extends React.Component {
   state = {
     advanced: false,
-    underlineStyle: {
-      borderColor: 'orange500',
-    },
-    floatingLabelStyle: {
-      color: 'orange500',
-    },
+    notAdvFirst: '',
+    notAdvTwo: '',
+    advFirst: '',
+    advTwo: '',
   };
 
   ClickHandler(e) {
     e.preventDefault();
-    this.setState((prev, props) => {
-      let underline;
-      let floatingLabel;
-      if (prev.advanced) {
-        underline = {};
-        floatingLabel = {};
-      } else {
-        underline = {
-          borderColor: 'orange500',
-        };
-        floatingLabel = {
-          color: 'orange500',
-        };
-      }
-      return {
-        advanced: !prev.advanced,
-        underlineStyle: underline,
-        floatingLabelStyle: floatingLabel
-      };
-    });
+    this.setState((prev, props) => ({advanced: !prev.advanced }));
+  }
+
+  ChangeFirstHandler(e, newValue) {
+    if (this.state.advanced) {
+      this.setState({advFirst: newValue});
+    } else {
+      this.setState({notAvdFirst: newValue});
+    }
+  }
+
+  ChangeTwoHandler(e, newValue) {
+    if (this.state.advanced) {
+      this.setState({advTwo: newValue});
+    } else {
+      this.setState({notAvdTwo: newValue});
+    }
   }
 
   render = () => {
     this.ClickHandler = this.ClickHandler.bind(this);
+    this.ChangeFirstHandler = this.ChangeFirstHandler.bind(this);
+    this.ChangeTwoHandler = this.ChangeTwoHandler.bind(this);
     return (
       <div className="box box-default">
         <div className="box-body">
@@ -80,29 +62,35 @@ class AdditionalContent extends React.Component {
           <b>Header Content</b><br />
           <TextField
             hintText="<html> is ok. Lorem ipsum"
-            multiLine={true}
-            rows={2}
-            underlineStyle={this.state.underlineStyle}
-            underlineFocusStyle={this.state.underlineStyle}
-            floatingLabelStyle={this.state.floatingLabelStyle}
-            floatingLabelFocusStyle={this.state.floatingLabelFocusStyle}
-            rowsMax={4}
+            multiLine
+            rows={5}
+            value={this.state.advanced ? this.state.advFirst : this.state.notAdvFirst}
+            underlineStyle={this.state.advanced ? {borderColor: '#ff9e00'} : false}
+            underlineFocusStyle={this.state.advanced ? {borderColor: '#ff9e00'} : false}
+            floatingLabelStyle={this.state.advanced ? {color: '#ff9e00'} : false}
+            floatingLabelFocusStyle={this.state.advanced ? {color: '#ff9e00'} : false}
+            rowsMax={10}
+            onChange={this.ChangeFirstHandler}
             fullWidth
           /><br />
           <b>Footer Content</b><br />
           <TextField
             hintText="<html> is ok. Lorem ipsum"
-            multiLine={true}
-            underlineStyle={this.state.underlineStyle}
-            underlineFocusStyle={this.state.underlineStyle}
-            floatingLabelStyle={this.state.floatingLabelStyle}
-            floatingLabelFocusStyle={this.state.floatingLabelFocusStyle}
-            rows={2}
-            rowsMax={4}
+            multiLine
+            value={this.state.advanced ? this.state.advTwo : this.state.notAdvTwo}
+            underlineStyle={this.state.advanced ? {borderColor: '#ff9e00'} : false}
+            underlineFocusStyle={this.state.advanced ? {borderColor: '#ff9e00'} : false}
+            floatingLabelStyle={this.state.advanced ? {color: '#ff9e00'} : false}
+            floatingLabelFocusStyle={this.state.advanced ? {color: '#ff9e00'} : false}
+            rows={5}
+            rowsMax={10}
+            onChange={this.ChangeTwoHandler}
             fullWidth
           />
         </div>
-      </div>)};
+      </div>
+    );
+  };
 }
 
 const AnalysticsCode = () => (
@@ -113,9 +101,9 @@ const AnalysticsCode = () => (
 
       <TextField
         hintText="<html> is ok. Lorem ipsum"
-        multiLine={true}
-        rows={2}
-        rowsMax={4}
+        multiLine
+        rows={5}
+        rowsMax={10}
         fullWidth
       />
     </div>
@@ -131,19 +119,22 @@ const FriendlyUrl = () => (
       .fundaisr.org/<span className="space" />
       <TextField hintText="Form Name" />
       <div className="text-right">
-        <FlatButton style={mWidthStyle} label="Submit" secondary />
+        <FlatButton style={mWidthStyle} label="Submit" icon={<DoneIcon />} secondary />
       </div>
     </div>
   </div>
 );
 
+
 const orgInfo = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
-    <HeadText />
+    <HeadText pageName="Donation Form Options" />
+    <Breadcrumb path={<small><a href="">Dashboard</a> >> <a href="">Donation Forms</a> >> <a href="">Manage Donation Forms</a> >> Donation Form Options</small>} />
     <ControlPanel />
     <FriendlyUrl />
-    <DonationAmounts />п
+    <DonationAmounts />
+    <CustomFields />
     <AdditionalContent />
     <AnalysticsCode />
   </section>
