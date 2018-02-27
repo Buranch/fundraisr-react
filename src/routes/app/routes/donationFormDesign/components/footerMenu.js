@@ -155,7 +155,7 @@ const Table = () => (
   <div className="box box-default">
     <div className="box-body">
       <div className="row">
-        <div className="col-xl-6">
+        <div className="col-xs-12 col-sm-6 col-md-6">
           <h5>Logo & Copyright</h5>
           <Upload label="Choose an Image" />
           <br />
@@ -165,7 +165,7 @@ const Table = () => (
           </div>
           © 2018 <TextField hintText="Company Name" />
         </div>
-        <div className="col-xl-6">
+        <div className="col-xs-12 col-sm-6 col-md-6">
           <h5>Footer Menu</h5>
           <FooterLinks />
         </div>

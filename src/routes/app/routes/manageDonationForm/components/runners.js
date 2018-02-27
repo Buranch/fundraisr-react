@@ -12,7 +12,7 @@ class Runner extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <div className="box box-default">
             <div className="box-header bg-color-primary">
               Form Design
@@ -25,7 +25,7 @@ class Runner extends React.Component {
             </div>
           </div>
         </div>
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <div className="box box-default">
             <div className="box-header bg-color-primary">
               Form Options
@@ -37,7 +37,7 @@ class Runner extends React.Component {
               </div>            </div>
           </div>
         </div>
-        <div className="col-xl-4">
+        <div className="col-xs-12 col-sm-6 col-md-4">
           <div className="box box-default">
             <div className="box-header bg-color-primary">
               Form Bookkeeping

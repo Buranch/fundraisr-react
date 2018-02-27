@@ -10,19 +10,17 @@ const styles = {
   minHeight: 300,
 };
 
-// TODO make different col-xl, col-lg and other everywhere
-
 const TabsExampleSimple = () => (
   <Tabs>
     <Tab label="Option 1" >
       <div style={styles}>
         <h5>Full Header Image</h5>
         <div className="row">
-          <div className="col-xl-4 box-body">
+          <div className="col-xs-12 col-sm-12 col-md-4 box-body">
             <Upload label="Choose an Image" /><br />
             <small>Recommended image size is 1170 x 320 for this layout.</small><br /><br />
           </div>
-          <div className="col-lg-8 box-body">
+          <div className="col-xs-12 col-sm-12 col-md-8 box-body">
             <b>Image Preview</b><br />
             <img src="assets/images-demo/donr-header.png" alt="donor-header" style={{maxWidth: '100%', borderRadius: '5px'}} />
           </div>
@@ -33,14 +31,14 @@ const TabsExampleSimple = () => (
       <div style={styles}>
         <h5>Split Header with image and text</h5>
         <div className="row">
-          <div className="col-xl-4 box-body">
+          <div className="col-xs-12 col-sm-12 col-md-4 box-body">
             <b>Image Preview</b><br />
             <img src="assets/images-demo/donr-header.png" alt="donor-header" style={{maxWidth: '100%', borderRadius: '5px'}} />
             <br /><br />
             <Upload label="Choose an Image" />
             <small>Recommended image size is 1170 x 320 for this layout.</small>
           </div>
-          <div className="col-xl-8">
+          <div className="col-xs-12 col-sm-12 col-md-8">
             <b>Text</b>
             <div className="box bg-color-page">
               <div className="box-body">

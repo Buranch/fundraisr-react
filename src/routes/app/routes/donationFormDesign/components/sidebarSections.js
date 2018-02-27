@@ -23,7 +23,7 @@ class TextSection extends React.Component {
   };
   render() {
     return (
-      <div className="bg-color-page col-xl-4 box">
+      <div className="bg-color-page col-xs-12 col-sm-6 col-md-4 box">
         <div className="box-body">
           <TextField hintText="HeadLine" onChange={this.headLineHandler} value={this.props.value.headLine} />
           <TextField
