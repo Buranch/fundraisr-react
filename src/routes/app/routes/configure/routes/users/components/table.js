@@ -1,8 +1,14 @@
 import React from 'react';
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
-import ControlPanel from './controlPanel';
-import FilterManager from './filterManager';
+import ControlPanel from '../../../../../components/standartControlPanel';
+import FilterManager from '../../../../../components/filterManager';
+
+const styles = {
+  fontSize: '15px',
+  float: 'right'
+};
+
 
 const dataSource = [{
   key: '1',
@@ -34,7 +40,7 @@ const col = [{
   title: 'Last Name',
   dataIndex: 'lastName',
   key: 'lastName',
-  render: text => <a href="#/app/user-profile">{text}</a>,
+  render: text => <a href="#/app/user-profile" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="#/app/user-profile">settings</a></small></a>,
   sorter: (a, b) => a.lastName.localeCompare(b.lastName),
 }, {
   title: 'eMail',
@@ -69,9 +75,6 @@ const col = [{
 }];
 const rowSelection = {};
 
-// TODO add the data
-// TODO add a number of showed rows
-// TODO add an icons to link elems
 class DonorTable extends React.Component {
   render() {
     return (
@@ -79,15 +82,16 @@ class DonorTable extends React.Component {
         <FilterManager />
         <div className="box box-default">
           <div className="box-body">
-            <ControlPanel />
+            <ControlPanel edit="#/app/user-profile" />
             <Table
               dataSource={dataSource}
               columns={col}
               size="small"
               bordered
               rowSelection={rowSelection}
+              pagination={{defaultCurrent: 1, total: 50, pageSize: 10, showSizeChanger: true  }}
             />
-            <ControlPanel />
+            <ControlPanel edit="#/app/user-profile" />
           </div>
         </div>
       </div>
