@@ -1,10 +1,8 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
-import Helper from './helper';
-import ControlPanel from './controlPanel';
 import AmNums from './amountsNum';
+import NumField from '../../../components/numField';
 
 const styles = {
   toggle: {
@@ -16,28 +14,6 @@ const mWidthStyle = {
   minWidth: '135px'
 };
 
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-class NumTextField extends React.Component {
-  state = {
-    value: this.props.value || this.props.defaultValue || '',
-  };
-
-  numHandler = (evt, newValue) => {
-    if (!isNumeric(newValue)) return;
-    if (+newValue < 5) {
-      this.setState({value: 5});
-    } else {
-      this.setState({value: newValue});
-    }
-  };
-
-  render = () => (
-    <TextField value={this.state.value} floatingLabelText="Amount" onChange={this.numHandler} />
-  );
-}
 class HonorGiving extends React.Component {
   state = {
     display: 'none'
@@ -88,7 +64,7 @@ class OthAmount extends React.Component {
       <div>
         <Toggle label="Other Amount" style={styles.toggle} onToggle={this.ToggleHandler} />
         <div className="box-body" style={this.state}>
-          <NumTextField />
+          <NumField min={5} label="Minimum" />
         </div>
       </div>
     );
@@ -96,7 +72,7 @@ class OthAmount extends React.Component {
 }
 
 const PaymentTypes = () => (
-  <div className="col-xl-4"><h5>Payment Types</h5>
+  <div className="col-xs-12 col-sm-6 col-md-4"><h5>Payment Types</h5>
     <small>
       Default payment types are Visa, Master Card, American Express and Discover.
     </small>
@@ -106,7 +82,7 @@ const PaymentTypes = () => (
   </div>
 );
 const GivingOpt = () => (
-  <div className="col-xl-4"><h5>Giving Options</h5>
+  <div className="col-xs-12 col-sm-6 col-md-4"><h5>Giving Options</h5>
     <small>
       Enable donors to customize how they donate.
     </small>
@@ -119,9 +95,8 @@ const GivingOpt = () => (
     <Toggle label="Designation" style={styles.toggle} />
   </div>
 );
-
 const DonAm = () => (
-  <div className="col-xl-4">
+  <div className="col-xs-12 col-sm-6 col-md-4">
     <h5>Donation Amounts</h5>
     <AmNums />
     <div className="divider" />
