@@ -71,17 +71,17 @@ class formTable extends React.Component {
       <div className="box box-default">
         <div className="box-body">
           <div className="row">
-            <div className="col-xl-2">
+            <div className="сol-xs-12 col-sm-12 col-md-2">
               <h5>Logo</h5>
               <img src="assets/images-demo/image-icons/imac.png" alt="Logo" />
               <div className="divider" />
               <img src="assets/images-demo/image-icons/imac.png" alt="Logo" />
             </div>
-            <div className="col-xl-5">
+            <div className="сol-xs-12 col-sm-6 col-md-5">
               <h5>Organization Overview</h5>
               <OverviewTable />
             </div>
-            <div className="col-xl-5">
+            <div className="сol-xs-12 col-sm-6 col-md-5">
               <h5>Contact</h5>
               <ContactTable />
             </div>

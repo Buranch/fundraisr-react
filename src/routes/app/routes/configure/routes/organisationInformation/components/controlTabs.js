@@ -137,7 +137,7 @@ const month = [
 
 const Verification = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Verification Defaults</h5>
       <small>Require Address or Zip/Postal code verification. </small>
       <Toggle label="Postal Code" style={styles.toggle} />
@@ -145,11 +145,11 @@ const Verification = () => (
       <small>Lock credit card verification settings. </small>
       <Toggle label="Lock Settings" style={styles.toggle} />
     </div>
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Description</h5>
       <TextField defaultValue="e5r6tyui" floatingLabelText="Soft Descriptor" />
     </div>
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Contact</h5>
       <TextField defaultValue="drfytguyh" floatingLabelText="Inquiry Phone" /> <br/>
       <small>Donor Inquiry Phone Number. </small>
@@ -158,7 +158,7 @@ const Verification = () => (
 );
 const Virtual = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>All Accounts</h5>
       <small>Share Transactions Across All Virtual Accounts.</small>
       <Toggle label="Sharing" style={styles.toggle} defaultToggled />
@@ -167,7 +167,7 @@ const Virtual = () => (
 );
 const Preferences = () => (
   <div className="row">
-    <div className="col-xl-3">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Time Keeping</h5>
       <AutoComplete
         floatingLabelText="Time Zone"
@@ -189,7 +189,7 @@ const Preferences = () => (
 );
 const Benchmark = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Benchmark Profile</h5>
       <TextField hintText="Adult & Child Matching Programs" floatingLabelText="NTEE Code" />
       <TextField hintText="2,500,000" floatingLabelText="Annual Revenue" />
@@ -198,7 +198,7 @@ const Benchmark = () => (
 );
 const Duplicates = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Duplicates</h5>
       <small>Merge new records if First Name, Last Name, and E-Mail address match exactly</small>
       <Toggle label="De-Duplicator" style={styles.toggle} defaultToggled />
@@ -207,7 +207,7 @@ const Duplicates = () => (
 );
 const Admin = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Admin</h5>
       <small>Administrator for “Forgot Password?” and “Form Workflow” Support</small>
       <br />
@@ -218,7 +218,7 @@ const Admin = () => (
 );
 const Analytics = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Analytics Tracking</h5>
       <TextField hintText="12345-2345-4567488" floatingLabelText="Account" />
     </div>
@@ -226,7 +226,7 @@ const Analytics = () => (
 );
 const Receipts = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Enable PDF Receipts for Account?</h5>
       <small>You must specify all three numbers. When the number specified for Send Warning at is assigned, an email will be sent notifying that you are nearing the end of the range. Select values that will give you sufficient time to reset the range. To meet tax agency requirements, when you start a new range of numbers for PDF receipts, you must manually enter a range that is unique and not previously used.</small>
       <Toggle label="PDF Receipts" style={styles.toggle} />
@@ -239,7 +239,7 @@ const Receipts = () => (
 );
 const Export = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Enable PDF Receipts for Account?</h5>
       <small>Exclude extended characters set in CSV and XLS exports.</small>
       <Toggle label="Sharing" style={styles.toggle} />
@@ -298,14 +298,11 @@ const TabsExampleSimple = () => (
 );
 
 const TabsSection = () => (
-      <section className="box box-default">
-        <div className="box-body no-padding">
-          <TabsExampleSimple />
-        </div>
-      </section>
+  <section className="box box-default">
+    <div className="box-body no-padding">
+      <TabsExampleSimple />
+    </div>
+  </section>
 );
 
 module.exports = TabsSection;
-
-
-
