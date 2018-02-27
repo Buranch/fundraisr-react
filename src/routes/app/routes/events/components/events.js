@@ -12,7 +12,7 @@ class Events extends React.Component {
         <HeadText pageName="Events" />
         <Breadcrumb path={
           <small>
-            <a href="#app/dashboard">Dashboard</a> >> Events
+            <a href="#/app/dashboard">Dashboard</a> >> Events
           </small>
         } />
         <EventTable />

@@ -16,11 +16,11 @@ const styles = {
 
 const Priveleges = () => (
   <div className="row">
-    <div className="col-xl-4">
+    <div className="col-xs-12 col-sm-6 col-md-4">
       <h5>Status</h5>
       <Toggle label="Active" style={styles.toggle} defaultToggled />
     </div>
-    <div className="col-xl-4">
+    <div className="col-xs-12 col-sm-6 col-md-4">
       <h5>Group</h5>
       <small>Full Access</small>
       <Toggle label="Administrator" style={styles.toggle} defaultToggled />
@@ -51,11 +51,11 @@ const TabsExampleSimple = () => (
 );
 
 const TabsSection = () => (
-      <section className="box box-default">
-        <div className="box-body no-padding">
-          <TabsExampleSimple />
-        </div>
-      </section>
+  <section className="box box-default">
+    <div className="box-body no-padding">
+      <TabsExampleSimple />
+    </div>
+  </section>
 );
 
 module.exports = TabsSection;

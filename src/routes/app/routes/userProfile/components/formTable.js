@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-
+import SettingsIcon from 'material-ui/svg-icons/action/settings';
 
 const mWidthStyle = {
   minWidth: '135px'
@@ -41,7 +41,7 @@ class UserAccess extends React.Component {
       <div>
         <TextField defaultValue="dave_be" floatingLabelText="User Name" />
         <div className="divider" />
-        <div className="text-right"><FlatButton style={mWidthStyle} label="Delete" primary /></div>
+        <div className="text-right"><FlatButton style={mWidthStyle} label="Reset Password" icon={<SettingsIcon />} primary /></div>
       </div>
     );
   }
@@ -53,15 +53,15 @@ class formTable extends React.Component {
       <div className="box box-default">
         <div className="box-body">
           <div className="row">
-            <div className="col-xl-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <h5>User Info</h5>
               <UserInfo />
             </div>
-            <div className="col-xl-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <h5>User Contact</h5>
               <UserContact />
             </div>
-            <div className="col-xl-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <h5>User Access</h5>
               <UserAccess />
             </div>
