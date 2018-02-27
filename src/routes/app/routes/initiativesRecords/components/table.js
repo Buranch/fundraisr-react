@@ -41,9 +41,9 @@ const col = [{
   key: 'actions',
   render: () => (
     <span>
-      <a href="#/app/donors-manage" className="material-icons" style={smallIconsStyle} title="Profile">visibility</a>
+      <a href="#app/donors-manage" className="material-icons" style={smallIconsStyle} title="Profile">visibility</a>
       <span className="space" />
-      <a href="#" className="material-icons" style={smallIconsStyle} title="Edit">settings</a>
+      <a href="#app/bookkeeping-mir-edit" className="material-icons" style={smallIconsStyle} title="Edit">settings</a>
     </span>)
 }, {
   title: 'First Name',
