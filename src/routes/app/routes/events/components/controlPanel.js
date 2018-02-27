@@ -11,11 +11,11 @@ const mWidthStyle = {
 
 const Controls = () => (
   <div className="box box-default text-center">
-    <FlatButton style={mWidthStyle} label="New" href="" target="_blank" icon={<AddIcon />} secondary />
+    <FlatButton style={mWidthStyle} label="New" href="" icon={<AddIcon />} secondary />
     <span className="space" />
-    <FlatButton style={mWidthStyle} label="Edit" href="#app/event-manage" target="_blank" icon={<EditIcon />} primary />
-    <FlatButton style={mWidthStyle} label="Duplicate" href="" target="_blank" icon={<CopyIcon />} primary />
-    <FlatButton style={mWidthStyle} label="Delete" href="" target="_blank" icon={<DeleteIcon />} />
+    <FlatButton style={mWidthStyle} label="Edit" href="#app/event-manage" icon={<EditIcon />} primary />
+    <FlatButton style={mWidthStyle} label="Duplicate" href="" icon={<CopyIcon />} primary />
+    <FlatButton style={mWidthStyle} label="Delete" href="" icon={<DeleteIcon />} />
   </div>
 );
 

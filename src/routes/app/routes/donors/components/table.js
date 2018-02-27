@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
-import ControlPanel from './controlPanel';
+import ControlPanel from '../../../components/standartControlPanel';
 import FilterManager from '../../../components/filterManager';
 
 const styles = {
@@ -119,7 +119,7 @@ const col = [{
   title: 'Last Name',
   dataIndex: 'lastName',
   key: 'lastName',
-  render: text => <a href="#/app/donors-manage" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="">settings</a></small></a>,
+  render: text => <a href="#/app/donors-manage" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="#/app/donors-manage">settings</a></small></a>,
   sorter: (a, b) => a.lastName.localeCompare(b.lastName),
 }, {
   title: 'eMail',
@@ -161,7 +161,7 @@ class DonorTable extends React.Component {
         <FilterManager />
         <div className="box box-default">
           <div className="box-body">
-            <ControlPanel />
+            <ControlPanel edit="#/app/donors-manage" />
             <Table
               dataSource={dataSource}
               columns={col}
@@ -170,7 +170,7 @@ class DonorTable extends React.Component {
               rowSelection={rowSelection}
               pagination={{defaultCurrent: 1, total: 50, pageSize: 10, showSizeChanger: true  }}
             />
-            <ControlPanel />
+            <ControlPanel edit="#/app/donors-manage" />
           </div>
         </div>
       </div>
