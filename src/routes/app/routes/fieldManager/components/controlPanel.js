@@ -4,11 +4,12 @@ import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import AddIcon from 'material-ui/svg-icons/content/add';
+import RemoveIcon from 'material-ui/svg-icons/content/remove';
 
 const mWidthStyle = {
   minWidth: '135px'
 };
-
 
 class AddDialog extends React.Component {
   state = {
@@ -54,7 +55,7 @@ class AddDialog extends React.Component {
 
     return (
       <span>
-        <FlatButton label="Add" onClick={this.handleOpen} target="_blank" secondary />
+        <FlatButton label="Add" onClick={this.handleOpen} icon={<AddIcon />} secondary />
         <Dialog
           title="Add Custom Field"
           actions={actions}
@@ -69,10 +70,10 @@ class AddDialog extends React.Component {
             value={this.state.inputType}
             onChange={this.handleInputType}
           >
-            <MenuItem value={'checkBox'} primaryText="Check Box" />
-            <MenuItem value={'textInput'} primaryText="Text Input" />
-            <MenuItem value={'select'} primaryText="Select" />
-            <MenuItem value={'radioButtons'} primaryText="Radio Buttons" />
+            <MenuItem value="checkbox" primaryText="Check Box" />
+            <MenuItem value="textInput" primaryText="Text Input" />
+            <MenuItem value="select" primaryText="Select" />
+            <MenuItem value="radioButtons" primaryText="Radio Buttons" />
           </SelectField>
         </Dialog>
       </span>
@@ -83,7 +84,7 @@ class AddDialog extends React.Component {
 const Controls = () => (
   <div className="box box-default text-center">
     <AddDialog />
-    <FlatButton style={mWidthStyle} label="Delete" href="" target="_blank" primary />
+    <FlatButton style={mWidthStyle} label="Delete" href="" icon={<RemoveIcon />} primary />
   </div>
 );
 

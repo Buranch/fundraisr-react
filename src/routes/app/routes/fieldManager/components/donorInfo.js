@@ -6,6 +6,7 @@ import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
+import SettingIcon from 'material-ui/svg-icons/action/settings';
 
 // TODO Dialog doesnt work in table!
 class EditDialog extends React.Component {
@@ -52,7 +53,7 @@ class EditDialog extends React.Component {
 
     return (
       <span>
-        <FlatButton label={this.state.inputLabel || this.props.defaultLabel} onClick={this.handleOpen} target="_blank" secondary />
+        <FlatButton label={this.state.inputLabel || this.props.defaultLabel} icon={<SettingIcon />} onClick={this.handleOpen} target="_blank" secondary />
         <Dialog
           title="Edit Field"
           actions={actions}
@@ -137,9 +138,6 @@ const col = [{
 }];
 const rowSelection = {};
 
-// TODO add the data
-// TODO add a number of showed rows
-// TODO add an icons to link elems
 class DonorTable extends React.Component {
   render() {
     return (
@@ -149,6 +147,7 @@ class DonorTable extends React.Component {
         size="small"
         bordered
         rowSelection={rowSelection}
+        pagination={false}
       />
     );
   }
