@@ -27,11 +27,11 @@ const TabsExampleSimple = () => (
 );
 
 const TabsSection = () => (
-      <section className="box box-default">
-        <div className="box-body no-padding">
-          <TabsExampleSimple />
-        </div>
-      </section>
+  <section className="box box-default">
+    <div className="box-body no-padding">
+      <TabsExampleSimple />
+    </div>
+  </section>
 );
 
 module.exports = TabsSection;

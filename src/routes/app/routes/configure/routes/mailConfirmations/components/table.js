@@ -3,9 +3,14 @@ import {Table} from 'antd';
 import 'antd/dist/antd.css';
 import ControlPanel from './controlPanel';
 
+const styles = {
+  fontSize: '15px',
+  float: 'right'
+};
+
 const dataSource = [{
   key: '1',
-  confirmationEmailType: 'Donation Cofirmation',
+  confirmationEmailType: 'Donation Confirmation',
   category: 'Donation Forms',
   versionInUse: 'Default',
 }, {
@@ -14,17 +19,17 @@ const dataSource = [{
   category: 'Registration Forms',
   versionInUse: 'Default',
 }, {
-  key: '1',
+  key: '3',
   confirmationEmailType: 'Falled Payment',
   category: 'Recurring Installment Payments',
   versionInUse: 'Default',
 }, {
-  key: '1',
+  key: '4',
   confirmationEmailType: 'Profile Modification',
   category: 'Communication',
   versionInUse: 'Default',
 }, {
-  key: '1',
+  key: '5',
   confirmationEmailType: 'Login Retrieval',
   category: 'General Account eMail',
   versionInUse: 'Default',
@@ -33,13 +38,12 @@ const col = [{
   title: 'Confirmation eMail type',
   dataIndex: 'confirmationEmailType',
   key: 'confirmationEmailType',
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="#/app/configure/email-conf-manage" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="#/app/configure/email-conf-manage">settings</a></small></a>,
   sorter: (a, b) => a.confirmationEmailType.localeCompare(b.confirmationEmailType),
 }, {
   title: 'Category',
   dataIndex: 'category',
   key: 'category',
-  render: text => <a href="#/app/donors-manage">{text}</a>,
   sorter: (a, b) => a.category.localeCompare(b.category),
 }, {
   title: 'Version in Use',
@@ -48,9 +52,6 @@ const col = [{
   sorter: (a, b) => a.versionInUse.localeCompare(b.versionInUse)}];
 const rowSelection = {};
 
-// TODO add the data
-// TODO add a number of showed rows
-// TODO add an icons to link elems
 class DonorTable extends React.Component {
   render() {
     return (
@@ -64,6 +65,7 @@ class DonorTable extends React.Component {
               size="small"
               bordered
               rowSelection={rowSelection}
+              pagination={{defaultCurrent: 1, total: 50, pageSize: 5, showSizeChanger: true }}
             />
             <ControlPanel />
           </div>
