@@ -9,7 +9,8 @@ import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';
 import ControlPanel from './controlPanel';
 import EventChoose from './eventChoose';
-import DateRange from  './dateRange';
+import DateRange from './dateRange';
+import Delivery from './delivery';
 
 class HorizontalNonLinearStepper extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class HorizontalNonLinearStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <EventChoose />;
+        return 'EventChoose';
       case 1:
         return <DateRange />;
       case 2:
@@ -27,7 +28,7 @@ class HorizontalNonLinearStepper extends React.Component {
       case 3:
         return 'here4';
       case 4:
-        return 'here5';
+        return <Delivery />;
       default:
         return 'Error';
     }
@@ -38,7 +39,7 @@ class HorizontalNonLinearStepper extends React.Component {
     const contentStyle = {margin: '0 16px'};
 
     return (
-      <div style={{width: '100%', maxWidth: 900, margin: 'auto'}}>
+      <div style={{width: '100%', maxWidth: 1100, margin: 'auto'}}>
         <Stepper linear={false} activeStep={stepIndex}>
           <Step>
             <StepButton onClick={() => this.setState({stepIndex: 0})}>
