@@ -8,13 +8,6 @@ import Customizer from 'components/Customizer';
 
 
 import Dashboard from '../routes/dashboard/';
-// import Chart from '../components/chart/'
-// import ECommerce from '../components/ecommerce/'
-// import Form from '../components/form/'
-// import Page from '../components/page/'
-// import PageLayout from '../components/page-layout/'
-// import Table from '../components/table/'
-// import UI from '../components/ui/'
 
 function LoadingComponent() {
   return <div></div>;
@@ -57,10 +50,6 @@ let AsyncManageDF = loadable({
 });
 let AsyncUsersProfile = loadable({
   loader: () => import('../routes/userProfile/'),
-  loading: LoadingComponent
-});
-let AsyncFieldManager = loadable({
-  loader: () => import('../routes/fieldManager/'),
   loading: LoadingComponent
 });
 let AsyncDFO = loadable({
@@ -122,7 +111,6 @@ class MainApp extends React.Component {
                 <Route path={`${match.url}/gift-entry`} component={AsyncGiftEntry} />
                 <Route path={`${match.url}/manage-df`} component={AsyncManageDF} />
                 <Route path={`${match.url}/user-profile`} component={AsyncUsersProfile} />
-                <Route path={`${match.url}/field-manager`} component={AsyncFieldManager} />
                 <Route path={`${match.url}/donation-form-options`} component={AsyncDFO} />
                 <Route path={`${match.url}/donation-form-bookkeeping`} component={AsyncDFB} />
                 <Route path={`${match.url}/reporting`} component={AsyncReporting} />

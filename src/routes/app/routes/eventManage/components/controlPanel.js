@@ -38,7 +38,7 @@ class Panel extends React.Component {
       <div className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
         <div className="text-right" style={boxBodyStyle}>
           <FlatButton style={mWidthStyle} label="Save" secondary icon={<SaveIcon />} />
-          <FlatButton style={mWidthStyle} label="Revert" icon={<UndoIcon />}/>
+          <FlatButton style={mWidthStyle} label="Revert" icon={<UndoIcon />} />
           <FlatButton style={mWidthStyle} label="Cancel" primary icon={<CancelIcon />} />
           <FlatButton
             style={mWidthStyle}
