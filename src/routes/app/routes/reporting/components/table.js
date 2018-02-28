@@ -43,7 +43,7 @@ const col = [{
   title: 'Template',
   dataIndex: 'template',
   key: 'template',
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="#/app/reporting-registrant">{text}</a>,
 }, {
   title: 'Description',
   dataIndex: 'description',
@@ -53,10 +53,10 @@ const col = [{
   key: 'actions',
   render: () => (
     <span>
-      <a href="#">Run</a>
+      <a href="#/app/reporting-registrant">Run</a>
     </span>
   ),
-},];
+}];
 
 class DonationFormTable extends React.Component {
   render() {

@@ -15,7 +15,7 @@ class Events extends React.Component {
           id="1234567890"
           path={
             <small>
-              <a href="#app/dashboard">Dashboard</a> >> <a href="#app/events">Events</a> >> <a href="#app/events-bookkeeping">Bookkeeping</a> >> Gift Entry
+              <a href="#/app/dashboard">Dashboard</a> >> <a href="#/app/events">Events</a> >> <a href="#/app/events-bookkeeping">Bookkeeping</a> >> Gift Entry
             </small>
           } />
         <TableRec />

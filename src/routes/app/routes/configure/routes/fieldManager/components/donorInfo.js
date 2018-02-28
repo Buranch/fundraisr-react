@@ -1,79 +1,52 @@
 import React from 'react';
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
-import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-import SettingIcon from 'material-ui/svg-icons/action/settings';
 
-// TODO Dialog doesnt work in table!
 class EditDialog extends React.Component {
   state = {
-    open: false,
     inputLabel: this.props.defaultLabel || '',
     inputId: this.props.defaultId || '',
-    inputType: this.props.defaultType || ''
+    inputType: this.props.defaultType.toUpperCase().search(/CHECK/i) === -1 ? 'select' : 'check box'
   };
 
-  handleOpen = () => {
-    this.setState({open: true});
-  };
   handleConfirm = () => {
     alert('Confirm!');
     alert(this.state.inputLabel);
     alert(this.state.inputId);
     alert(this.state.inputType);
-    this.setState({open: false});
   };
-  handleClose = () => {
-    alert("Close!");
-    this.setState({open: false});
-  };
+
   handleLabel = (event, value) => this.setState({inputLabel: value});
   handleInputType = (event, index, value) => this.setState({inputType: value});
   handleId = (event, value) => this.setState({inputId: value});
 
   render() {
-    const actions = [
-      <FlatButton
-        label="Confirm"
-        secondary
-        keyboardFocused
-        onClick={this.handleConfirm}
-      />,
-      <FlatButton
-        label="Cancel"
-        style={mWidthStyle}
-        primary
-        onClick={this.handleClose}
-      />,
-    ];
 
     return (
       <span>
-        <FlatButton label={this.state.inputLabel || this.props.defaultLabel} icon={<SettingIcon />} onClick={this.handleOpen} target="_blank" secondary />
-        <Dialog
-          title="Edit Field"
-          actions={actions}
-          modal={false}
-          open={this.state.open}
-          onRequestClose={this.handleClose}
+        <TextField floatingLabelText="Input Label" value={this.state.inputLabel} onChange={this.handleLabel} /> <br />
+        <TextField floatingLabelText="Input Label" value={this.state.inputId} onChange={this.handleId} /> <br />
+        <SelectField
+          floatingLabelText="Input Type"
+          value={this.state.inputType}
+          onChange={this.handleInputType}
         >
-          <TextField floatingLabelText="Input Label" value={this.state.inputLabel} onChange={this.handleLabel} /> <br />
-          <TextField floatingLabelText="Input Label" value={this.state.inputId} onChange={this.handleId} /> <br />
-          <SelectField
-            floatingLabelText="Input Type"
-            value={this.state.inputType}
-            onChange={this.handleInputType}
-          >
-            <MenuItem value={'checkBox'} primaryText="Check Box" />
-            <MenuItem value={'textInput'} primaryText="Text Input" />
-            <MenuItem value={'select'} primaryText="Select" />
-            <MenuItem value={'radioButtons'} primaryText="Radio Buttons" />
-          </SelectField>
-        </Dialog>
+          <MenuItem value={'check box'} primaryText="Check Box" />
+          <MenuItem value={'text input'} primaryText="Text Input" />
+          <MenuItem value={'select'} primaryText="Select" />
+          <MenuItem value={'radio button'} primaryText="Radio Buttons" />
+        </SelectField>
+        <br />
+        <FlatButton
+          label="Confirm"
+          secondary
+          keyboardFocused
+          onClick={this.handleConfirm}
+        />
       </span>
     );
   }
@@ -147,6 +120,11 @@ class DonorTable extends React.Component {
         size="small"
         bordered
         rowSelection={rowSelection}
+        expandedRowRender={record =>
+          (<p style={{ margin: 0 }}>
+            <EditDialog defaultLabel={record.inputLabel} defaultId={record.inputId} defaultType={record.inputType} />
+          </p>)
+        }
         pagination={false}
       />
     );
