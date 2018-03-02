@@ -10,6 +10,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 const ROOT = path.resolve(__dirname, '../..');
+console.log(ROOT);
+
 function root(args) {
   args = Array.prototype.slice.call(arguments, 0);
   return path.join.apply(path, [ROOT].concat(args));
@@ -26,7 +28,7 @@ class WebpackDistConfig extends WebpackBaseConfig {
         './client.js'
       ],
       output: {
-        path: root('dist'),
+        path: root('/public'),
         publicPath: '/',
         filename: 'assets/app.js',
         chunkFilename: 'assets/[id].[hash].chunk.js'
@@ -43,11 +45,11 @@ class WebpackDistConfig extends WebpackBaseConfig {
           "window.jQuery": "jquery"
         }),
         new CopyWebpackPlugin([
-          {from: root('public/index.html'), to: root('dist/') },
-          {from: root('public/favicon.ico'), to: root('dist/') },
-          {from: root('public/vendors'), to: root('dist/vendors') },
-          {from: root('src/assets/images'), to: root('dist/assets/images') },
-          {from: root('src/assets/images-demo'), to: root('dist/assets/images-demo') },
+          //{from: root('public/index.html'), to: root('dist/') },
+          //{from: root('public/favicon.ico'), to: root('dist/') },
+          //{from: root('public/vendors'), to: root('dist/vendors') },
+          {from: root('src/assets/images'), to: root('public/assets/images') },
+          {from: root('src/assets/images-demo'), to: root('public/assets/images-demo') },
         ]),
       ]
     };
