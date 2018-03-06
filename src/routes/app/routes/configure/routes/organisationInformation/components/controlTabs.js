@@ -191,8 +191,7 @@ const Benchmark = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Benchmark Profile</h5>
-      <TextField hintText="Adult & Child Matching Programs" floatingLabelText="NTEE Code" />
-      <TextField hintText="2,500,000" floatingLabelText="Annual Revenue" />
+      <TextField hintText="2,500,000" floatingLabelText="Annual Revenue" floatingLabelFixed />
     </div>
   </div>
 );
@@ -211,8 +210,8 @@ const Admin = () => (
       <h5>Admin</h5>
       <small>Administrator for “Forgot Password?” and “Form Workflow” Support</small>
       <br />
-      <TextField hintText="Thirston Howell" floatingLabelText="Administrator" />
-      <TextField hintText="thirst@th3.com" floatingLabelText="eMail" />
+      <TextField floatingLabelFixed hintText="Thirston Howell" floatingLabelText="Administrator" />
+      <TextField floatingLabelFixed hintText="thirst@th3.com" floatingLabelText="eMail" />
     </div>
   </div>
 );
@@ -220,7 +219,7 @@ const Analytics = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Analytics Tracking</h5>
-      <TextField hintText="12345-2345-4567488" floatingLabelText="Account" />
+      <TextField floatingLabelFixed hintText="12345-2345-4567488" floatingLabelText="Account" />
     </div>
   </div>
 );
@@ -231,9 +230,9 @@ const Receipts = () => (
       <small>You must specify all three numbers. When the number specified for Send Warning at is assigned, an email will be sent notifying that you are nearing the end of the range. Select values that will give you sufficient time to reset the range. To meet tax agency requirements, when you start a new range of numbers for PDF receipts, you must manually enter a range that is unique and not previously used.</small>
       <Toggle label="PDF Receipts" style={styles.toggle} />
 
-      <TextField hintText="1" floatingLabelText="Starting Number" />
-      <TextField hintText="99000" floatingLabelText="Send Warning at" />
-      <TextField hintText="99999" floatingLabelText="Ending Number" />
+      <TextField floatingLabelFixed hintText="1" floatingLabelText="Starting Number" />
+      <TextField floatingLabelFixed hintText="99000" floatingLabelText="Send Warning at" />
+      <TextField floatingLabelFixed hintText="99999" floatingLabelText="Ending Number" />
     </div>
   </div>
 );

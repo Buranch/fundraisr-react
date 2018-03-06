@@ -33,12 +33,12 @@ class SketchExample extends React.Component {
       'default': {
         color: {
           padding: '0 4px',
-          color: '#000',
           borderRadius: '2px',
           background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
         },
         swatch: {
-          padding: '5px',
+          paddingBottom: '5px',
+          paddingTop: '5px',
           display: 'inline-block',
           cursor: 'pointer',
         },
@@ -58,8 +58,14 @@ class SketchExample extends React.Component {
 
     return (
       <div>
-        <div style={ styles.swatch } onClick={ this.handleClick }>
-          <div style={ styles.color } > {this.props.text} </div>
+        <div style={styles.swatch} onClick={this.handleClick}>
+          <div style={styles.color}>
+            { '#' +
+              ('0' + parseInt(this.state.color.r, 10).toString(16)).slice(-2) +
+              ('0' + parseInt(this.state.color.g, 10).toString(16)).slice(-2) +
+              ('0' + parseInt(this.state.color.b, 10).toString(16)).slice(-2)
+            }
+          </div>
         </div>
         { this.state.displayColorPicker ? <div style={ styles.popover }>
           <div style={ styles.cover } onClick={ this.handleClose } />

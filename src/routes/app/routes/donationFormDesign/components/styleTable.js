@@ -4,6 +4,8 @@ import MenuItem from 'material-ui/MenuItem';
 import ColorPicker from '../../../components/colorPicker';
 import NumField from '../../../components/numField';
 
+const boxStyle = {margin: '5px'};
+
 class BoxPattern extends React.Component {
   state = {
     value: 1,
@@ -78,59 +80,124 @@ class ColorTable extends React.Component {
       <div>
         <div className="row">
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="61" g="68" b="255" text="canvas" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Canvas
+                <ColorPicker r="61" g="68" b="255" />
+              </div>
+            </div>
           </div>
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="74" g="125" b="217" text="top box" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Top box
+                <ColorPicker r="74" g="125" b="217" />
+              </div>
+            </div>
           </div>
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="85" g="80" b="75" text="body text" />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="255" g="255" b="255" text="bottom footer text" />
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="86" g="162" b="2" text="form headlines" />
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="255" g="255" b="255" text="sidebar headlines" />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="1" g="132" b="255" text="sidebar top bg" />
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="226" g="226" b="213" text="sidebar cont text" />
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="226" g="226" b="213" text="sidebar cont bg" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Body text
+                <ColorPicker r="85" g="80" b="75" />
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="51" g="51" b="51" text="top footer bg" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Bottom footer text
+                <ColorPicker r="255" g="255" b="255" />
+              </div>
+            </div>
           </div>
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="240" g="240" b="232" text="top footer text" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Form headlines
+                <ColorPicker r="86" g="162" b="2" />
+              </div>
+            </div>
           </div>
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="74" g="125" b="217" text="bottom footer bg" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Sidebar headlines
+                <ColorPicker r="255" g="255" b="255" />
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-xs-4 col-sm-4 col-md-4">
-            <ColorPicker r="66" g="139" b="202" text="body links" />
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Sidebar top bg
+                <ColorPicker r="1" g="132" b="255" />
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-4 col-sm-4 col-md-4">
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Sidebar container text
+                <ColorPicker r="226" g="226" b="213" />
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-4 col-sm-4 col-md-4">
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Sidebar container bg
+                <ColorPicker r="226" g="226" b="213" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-4 col-sm-4 col-md-4">
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Top footer bg
+                <ColorPicker r="51" g="51" b="51" />
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-4 col-sm-4 col-md-4">
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Top footer text
+                <ColorPicker r="240" g="240" b="232" />
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-4 col-sm-4 col-md-4">
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Bottom footer bg
+                <ColorPicker r="74" g="125" b="217" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-4 col-sm-4 col-md-4">
+            <div className="box bg-color-page">
+              <div className="box-body no-padding" style={boxStyle}>
+                Body links
+                <ColorPicker r="66" g="139" b="202" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

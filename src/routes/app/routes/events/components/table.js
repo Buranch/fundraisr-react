@@ -91,7 +91,7 @@ const col = [{
   title: 'Event Name',
   dataIndex: 'eventName',
   key: 'eventName',
-  render: text => <a href="#/app/events-manage">{text}</a>,
+  render: text => <a href="#/app/event-manage">{text}</a>,
   sorter: (a, b) => a.eventName.localeCompare(b.eventName),
 }, {
   title: 'Actions',
