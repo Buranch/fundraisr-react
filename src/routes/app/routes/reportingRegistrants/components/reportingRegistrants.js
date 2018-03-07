@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Step,
-  Stepper,
-  StepButton,
-} from 'material-ui/Stepper';
+import {Step, StepButton, Stepper,} from 'material-ui/Stepper';
 import Helper from '../../../components/helper';
 import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';
@@ -11,25 +7,27 @@ import ControlPanel from './controlPanel';
 import ChooseEvents from './eventChoose';
 import DateRange from './dateRange';
 import Delivery from './delivery';
+import FormatStep from './format';
 
 class HorizontalNonLinearStepper extends React.Component {
   props = {
     stepIndex: 0,
-    changeStep: (newStep) => {}
+    changeStep: (newStep) => {
+    }
   };
 
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <ChooseEvents />;
+        return <ChooseEvents/>;
       case 1:
-        return <DateRange />;
+        return <DateRange/>;
       case 2:
-        return 'here3';
+        return <FormatStep/>;
       case 3:
         return 'here4';
       case 4:
-        return <Delivery />;
+        return <Delivery/>;
       default:
         return 'Error';
     }
@@ -100,15 +98,15 @@ class RR extends React.Component {
   render() {
     return (
       <section className="container-fluid no-breadcrumbs">
-        <Helper />
-        <HeadText pageName="Reporting - Registrants" />
+        <Helper/>
+        <HeadText pageName="Reporting - Registrants"/>
         <Breadcrumb
           path={
             <small>
               <a href="#/app/dashboard">Dashboard</a> >> <a href="#/app/reporting">Events</a> >> Registrants
             </small>
-          } />
-        <ControlPanel onNextClick={this.moveNext} onPreviousClick={this.moveBack} />
+          }/>
+        <ControlPanel onNextClick={this.moveNext} onPreviousClick={this.moveBack}/>
         <div className="box box-default">
           <div className="box-body">
             <HorizontalNonLinearStepper stepIndex={this.state.currentStepIndex} changeStep={this.setStep}/>
