@@ -11,28 +11,41 @@ const mWidthStyle = {
   minWidth: '135px'
 };
 const styles = {
-  textFieldStyle: { top: '-17px' }
+  textFieldStyle: {top: '-17px', width: '170px'},
+  tagCheckBoxStyle: {width: '180px'},
+  optionCheckBoxStyle: {width: '180px'}
 };
 
 
 class Elem extends React.Component {
+  props = {
+    value: {item: '', event: null, request: null},
+    num: 0,
+    onDelete: (idx) => {
+    },
+    onItemChange: (value, idx) => {
+    },
+    onEventChange: (value, idx) => {
+    },
+    onRequestChange: (value, idx) => {
+    },
+    canRemove: false,
+  };
+
   clickHandler = (e) => {
-    e.preventDefault();
     this.props.onDelete(this.props.num - 1);
   };
 
-  typeOfItemHandler = (e, newValue) => {
-    e.preventDefault();
+  typeOfItemHandler = (e, index, newValue) => {
     this.props.onItemChange(newValue, this.props.num - 1);
   };
-  typeOfSearchHandler = (e, newValue) => {
-    e.preventDefault();
+  typeOfSearchHandler = (e, index, newValue) => {
     this.props.onEventChange(newValue, this.props.num - 1);
   };
   requestHandler = (e, newValue) => {
-    e.preventDefault();
     this.props.onRequestChange(newValue, this.props.num - 1);
   };
+
   render() {
     return (
       <div>
@@ -40,36 +53,40 @@ class Elem extends React.Component {
           floatingLabelText="Tag"
           value={this.props.value.item}
           onChange={this.typeOfItemHandler}
+          style={styles.tagCheckBoxStyle}
           key={`${this.props.num}item`}
         >
-          <MenuItem value="firstName" primaryText="First Name" />
-          <MenuItem value="lastName" primaryText="Last Name" />
-          <MenuItem value="companyName" primaryText="Company Name" />
-          <MenuItem value="eMail" primaryText="eMail" />
-          <MenuItem value="city" primaryText="City" />
-          <MenuItem value="state" primaryText="State" />
-          <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code" />
-          <MenuItem value="supporterId" primaryText="Supporter ID" />
-          <MenuItem value="alternateId" primaryText="Alternate ID" />
-          <MenuItem value="specialFlag" primaryText="Special Flag" />
+          <MenuItem value="firstName" primaryText="First Name"/>
+          <MenuItem value="lastName" primaryText="Last Name"/>
+          <MenuItem value="companyName" primaryText="Company Name"/>
+          <MenuItem value="eMail" primaryText="eMail"/>
+          <MenuItem value="city" primaryText="City"/>
+          <MenuItem value="state" primaryText="State"/>
+          <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code"/>
+          <MenuItem value="supporterId" primaryText="Supporter ID"/>
+          <MenuItem value="alternateId" primaryText="Alternate ID"/>
+          <MenuItem value="specialFlag" primaryText="Special Flag"/>
         </SelectField>
-        <span className="space" />
+        <span className="space"/>
         <SelectField
           floatingLabelText="option"
           key={`${this.props.num}event`}
           value={this.props.value.event}
+          style={styles.optionCheckBoxStyle}
           onChange={this.typeOfSearchHandler}
         >
-          <MenuItem value="startWith" primaryText="Start With" />
-          <MenuItem value="equal" primaryText="Equal" />
-          <MenuItem value="contains" primaryText="Contains" />
-          <MenuItem value="notContain" primaryText="Not Contain" />
-          <MenuItem value="containsAnyOf" primaryText="Contains Any Of" />
-          <MenuItem value="containsAllOf" primaryText="Contains All Of" />
+          <MenuItem value="startWith" primaryText="Start With"/>
+          <MenuItem value="equal" primaryText="Equal"/>
+          <MenuItem value="contains" primaryText="Contains"/>
+          <MenuItem value="notContain" primaryText="Not Contain"/>
+          <MenuItem value="containsAnyOf" primaryText="Contains Any Of"/>
+          <MenuItem value="containsAllOf" primaryText="Contains All Of"/>
         </SelectField>
-        <span className="space" />
-        <TextField style={styles.textFieldStyle} value={this.props.value.request} onChange={this.requestHandler} key={`${this.props.num}request`} />
-        <IconButton onClick={this.clickHandler} > <ContentRemove /> </IconButton>
+        <span className="space"/>
+        <TextField style={styles.textFieldStyle} value={this.props.value.request} onChange={this.requestHandler}
+                   key={`${this.props.num}request`}/>
+
+        {this.props.canRemove && <IconButton onClick={this.clickHandler}> <ContentRemove/> </IconButton>}
       </div>
     );
   }
@@ -77,8 +94,7 @@ class Elem extends React.Component {
 
 class FilterManager extends React.Component {
   state = {
-    array: [],
-    firstElem: {value: {item: 'firstName', event: 'startWith'}}
+    array: [{value: {item: 'firstName', event: 'startWith', request: ''}}],
   };
 
   AddHandler = () => {
@@ -103,7 +119,7 @@ class FilterManager extends React.Component {
   };
   RemoveAllHandler = () => {
     this.setState({
-      array: []
+      array: [{value: {item: 'firstName', event: 'startWith', request: ''}}],
     });
   };
   ItemHandler = (newValue, num) => {
@@ -136,26 +152,6 @@ class FilterManager extends React.Component {
       };
     });
   };
-  FirstItemHandler = (e, newValue) => {
-    e.preventDefault();
-    this.setState((prevState, props) => {
-      const prev = prevState.firstElem;
-      prev.value.item = newValue;
-      return {
-        firstElem: prev
-      };
-    });
-  };
-  FirstEventHandler = (e, newValue) => {
-    e.preventDefault();
-    this.setState((prevState, props) => {
-      const prev = prevState.firstElem;
-      prev.value.event = newValue;
-      return {
-        firstElem: prev
-      };
-    });
-  };
 
   render() {
     this.ItemHandler = this.ItemHandler.bind(this);
@@ -173,6 +169,7 @@ class FilterManager extends React.Component {
           onItemChange={this.ItemHandler}
           onEventChange={this.EventHandler}
           onRequestChange={this.RequestHandler}
+          canRemove={this.state.array.length > 1}
         />
       );
     }
@@ -181,45 +178,11 @@ class FilterManager extends React.Component {
       <div className="box box-default" style={this.state.style}>
         <div className="box-body">
           <div className="text-right">
-            <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add Filter" labelPosition="after" primary />
-            <FlatButton onClick={this.RemoveAllHandler} style={mWidthStyle} label="Show All" labelPosition="after" primary />
-            <FlatButton onClick={this.props.onSearch ? this.props.onSearch : null} style={mWidthStyle} label="Search" labelPosition="after" primary icon={<SearchIcon />} />
-          </div>
-
-          <div>
-            <SelectField
-              onChange={this.FirstItemHandler}
-              floatingLabelText="Tag"
-              key="-1item"
-              value={this.state.firstElem.value.item}
-            >
-              <MenuItem value="firstName" primaryText="First Name" />
-              <MenuItem value="lastName" primaryText="Last Name" />
-              <MenuItem value="companyName" primaryText="Company Name" />
-              <MenuItem value="eMail" primaryText="eMail" />
-              <MenuItem value="city" primaryText="City" />
-              <MenuItem value="state" primaryText="State" />
-              <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code" />
-              <MenuItem value="supporterId" primaryText="Supporter ID" />
-              <MenuItem value="alternateId" primaryText="Alternate ID" />
-              <MenuItem value="specialFlag" primaryText="Special Flag" />
-            </SelectField>
-            <span className="space" />
-            <SelectField
-              value={this.state.firstElem.value.event}
-              onChange={this.FirstEventHandler}
-              floatingLabelText="option"
-              key="-1event"
-            >
-              <MenuItem value="startWith" primaryText="Start With" />
-              <MenuItem value="equal" primaryText="Equal" />
-              <MenuItem value="contains" primaryText="Contains" />
-              <MenuItem value="notContain" primaryText="Not Contain" />
-              <MenuItem value="containsAnyOf" primaryText="Contains Any Of" />
-              <MenuItem value="containsAllOf" primaryText="Contains All Of" />
-            </SelectField>
-            <span className="space" />
-            <TextField key="-1request" style={styles.textFieldStyle} />
+            <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add Filter" labelPosition="after" primary/>
+            <FlatButton onClick={this.RemoveAllHandler} style={mWidthStyle} label="Show All" labelPosition="after"
+                        primary/>
+            <FlatButton onClick={this.props.onSearch ? this.props.onSearch : null} style={mWidthStyle} label="Search"
+                        labelPosition="after" primary icon={<SearchIcon/>}/>
           </div>
           {elems}
         </div>
