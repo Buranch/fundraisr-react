@@ -207,11 +207,11 @@ class FormTable extends React.Component {
       <div className="box box-default">
         <div className="box-body">
           <div className="row">
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-lg-12 col-xl-4">
               <h5>Colors</h5>
               <ColorTable />
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-md-12 col-lg-6 col-xl-4">
               <h5>Body Font</h5>
               <NumField min="10" start="10" label="Font Size" />
               <SelectFonts />
@@ -222,7 +222,7 @@ class FormTable extends React.Component {
               <NumField min="10" start="20" label="Font Size" />
               <SelectFonts />
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-md-12 col-lg-6 col-xl-4">
               <h5>Patterns</h5>
               <BoxPattern label="Top Box Pattern" />
               <RepeatPattern />

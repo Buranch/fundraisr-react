@@ -1,6 +1,6 @@
 import React from 'react';
 import reactCSS from 'reactcss';
-import { SketchPicker } from 'react-color';
+import {SketchPicker} from 'react-color';
 
 /**
  * @param {string} [r, g, b]
@@ -28,6 +28,15 @@ class SketchExample extends React.Component {
     this.setState({ color: color.rgb });
   };
 
+  getTextColor = () => {
+    const {r, g, b} = this.state.color;
+    if ((r * 0.299 + g * 0.587 + b * 0.114) > 186) {
+      return '#000000';
+    } else {
+      return '#FFFFFF';
+    }
+  }
+
   render() {
     const styles = reactCSS({
       'default': {
@@ -35,6 +44,7 @@ class SketchExample extends React.Component {
           padding: '0 4px',
           borderRadius: '2px',
           background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
+          color: this.getTextColor()
         },
         swatch: {
           paddingBottom: '5px',
