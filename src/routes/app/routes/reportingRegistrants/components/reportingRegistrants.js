@@ -8,6 +8,7 @@ import ChooseEvents from './eventChoose';
 import DateRange from './dateRange';
 import Delivery from './delivery';
 import FormatStep from './format';
+import DefineFilters from './filters';
 
 class HorizontalNonLinearStepper extends React.Component {
   props = {
@@ -25,7 +26,7 @@ class HorizontalNonLinearStepper extends React.Component {
       case 2:
         return <FormatStep/>;
       case 3:
-        return 'here4';
+        return <DefineFilters/>;
       case 4:
         return <Delivery/>;
       default:

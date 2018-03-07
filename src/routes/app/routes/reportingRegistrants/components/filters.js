@@ -1,84 +1,156 @@
 import React from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+import {Button, Table} from 'antd';
 
-class Date extends React.Component {
-  state = {
-    value: 'select',
-  };
 
-  handleChange = (event, index, value) => this.setState({value});
-
-  render() {
-    return (
-      <SelectField
-        floatingLabelText="Date Range"
-        value={this.state.value}
-        maxHeight={200}
-        onChange={this.handleChange}
-      >
-        <MenuItem value="select" primaryText="-Select-" />
-        <MenuItem value={1} primaryText="Within" />
-        <MenuItem value={2} primaryText="Between" />
-        <MenuItem value={3} primaryText="Exactly" />
-        <MenuItem value={4} primaryText="Equal to" />
-        <MenuItem value={5} primaryText="Greater than" />
-        <MenuItem value={6} primaryText="Less than" />
-        <MenuItem value={7} primaryText="Greater than or Equal to" />
-        <MenuItem value={8} primaryText="Less than or Equial to" />
-      </SelectField>
-    );
-  }
-}
-class DateSel extends React.Component {
-  state = {
-    value: 'select',
-  };
-
-  handleChange = (event, index, value) => this.setState({value});
-
-  render() {
-    return (
-      <SelectField
-        floatingLabelText="Date Range"
-        value={this.state.value}
-        maxHeight={200}
-        onChange={this.handleChange}
-      >
-        <MenuItem value="select" primaryText="-Select-" />
-        <MenuItem value={1} primaryText="Today Only" />
-        <MenuItem value={2} primaryText="Previous # of Days" />
-        <MenuItem value={3} primaryText="Previous # of Weeks" />
-        <MenuItem value={4} primaryText="Previous # of Months" />
-        <MenuItem value={5} primaryText="Previous # of Years" />
-        <MenuItem value={6} primaryText="Last Full Week" />
-        <MenuItem value={7} primaryText="Last Full Monnth" />
-        <MenuItem value={8} primaryText="Last Billing Cycle" />
-        <MenuItem value={9} primaryText="2nd Last Billing Cycle" />
-        <MenuItem value={10} primaryText="Year To Date" />
-        <MenuItem value={11} primaryText="To Date" />
-        <MenuItem value={12} primaryText="Next # of Days" />
-        <MenuItem value={13} primaryText="Next # of Weeks" />
-        <MenuItem value={14} primaryText="Next # of Months" />
-        <MenuItem value={15} primaryText="Next # of Years" />
-        <MenuItem value={16} primaryText="Next Full Week" />
-        <MenuItem value={17} primaryText="Next Full Month" />
-      </SelectField>
-    );
-  }
-}
+const styles = {
+  textFieldStyle: {top: '-17px', width: '175px'},
+  operatorSelectBoxStyle: {width: '175px'},
+  addFilterButtonStyle: {top: '-17px'}
+};
 
 
 class DefineFilters extends React.Component {
+  state = {
+    fieldValue: null,
+    operatorValue: null,
+    textFieldValue: '',
+    selectedFilters: []
+  };
+
+  renderFieldSelection = () => {
+    return (
+      <SelectField
+        floatingLabelText="Field"
+        value={this.state.fieldValue}
+        maxHeight={200}
+        onChange={(event, index, value) => this.setState({fieldValue: value})}
+      >
+        <MenuItem value="Account EIN" primaryText="Account EIN"/>
+        <MenuItem value="Account Name" primaryText="Account Name"/>
+        <MenuItem value="Additional Fee 1" primaryText="Additional Fee 1"/>
+        <MenuItem value="Additional Fee 2" primaryText="Additional Fee 2"/>
+        <MenuItem value="Adoption Tracking #" primaryText="Adoption Tracking #"/>
+        <MenuItem value="Amount Due" primaryText="Amount Due"/>
+        <MenuItem value="Amount Paid" primaryText="Amount Paid"/>
+        <MenuItem value="Capacity Limit" primaryText="Capacity Limit"/>
+        <MenuItem value="Capacity Status" primaryText="Capacity Status"/>
+        <MenuItem value="Mobile Phone" primaryText="Mobile Phone"/>
+        <MenuItem value="Check Date" primaryText="Check Date"/>
+        <MenuItem value="Deposit Date" primaryText="Deposit Date"/>
+        <MenuItem value="Check Number" primaryText="Check Number"/>
+        <MenuItem value="Co-Leader Yes/No" primaryText="Co-Leader Yes/No"/>
+        <MenuItem value="Comments" primaryText="Comments"/>
+        <MenuItem value="Date Created" primaryText="Date Created"/>
+        <MenuItem value="Credit Card Type" primaryText="Credit Card Type"/>
+        <MenuItem value="Customer Product Code" primaryText="Customer Product Code"/>
+        <MenuItem value="Decline Gift" primaryText="Decline Gift"/>
+      </SelectField>
+    )
+  };
+
+  renderOperatorSelection = () => {
+    return (
+      <SelectField
+        floatingLabelText="Operator"
+        value={this.state.operatorValue}
+        maxHeight={200}
+        onChange={(event, index, value) => this.setState({operatorValue: value})}
+        style={styles.operatorSelectBoxStyle}
+      >
+        <MenuItem value="Equals" primaryText="Equals"/>
+        <MenuItem value="Not Equal" primaryText="Not Equal"/>
+        <MenuItem value="Starts With" primaryText="Starts With"/>
+        <MenuItem value="Contains" primaryText="Contains"/>
+        <MenuItem value="Not Contain" primaryText="Not Contain"/>
+        <MenuItem value="Contains Any Of" primaryText="Contains Any Of"/>
+        <MenuItem value="Contains All Of" primaryText="Contains All Of"/>
+        <MenuItem value="Is One Of" primaryText="Is One Of"/>
+        <MenuItem value="Not One Of" primaryText="Not One Of"/>
+      </SelectField>
+    )
+  };
+
+  createTableCols = (onRemoveRow) => {
+    return [
+      {
+        title: 'Filter',
+        dataIndex: 'filter',
+        key: 'filter',
+      },
+      {
+        title: 'Condition',
+        dataIndex: 'condition',
+        key: 'condition',
+      },
+      {
+        title: 'Variable',
+        dataIndex: 'variable',
+        key: 'variable',
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        render: (a) => <Button icon="minus" onClick={() => onRemoveRow(a)}>Remove</Button>,
+        width: 100
+      }
+    ]
+  };
+
+  addFilter = () => {
+    if (this.state.textFieldValue && this.state.fieldValue && this.state.operatorValue) {
+      this.setState({
+        selectedFilters: this.state.selectedFilters.concat([{
+          filter: this.state.fieldValue,
+          condition: this.state.operatorValue,
+          variable: this.state.textFieldValue
+        }])
+      })
+    }
+  };
+
+  removeSelectedRow = (row) => {
+    this.setState({
+      selectedFilters: this.state.selectedFilters.filter(x => x !== row)
+    });
+  };
+
+  renderTable = () => {
+    if (this.state.selectedFilters.length === 0) {
+      return <div/>;
+    }
+    return (
+      <Table
+        dataSource={this.state.selectedFilters}
+        columns={this.createTableCols(this.removeSelectedRow)}
+        size="small"
+        bordered
+      />
+    )
+  };
+
   render() {
     return (
       <div>
-        <h5>Date Range</h5>
-        <small>
-          Define the date range for your report. The dates in your report will be within this range.
-        </small>
-        <br />
-        <Date /> <span className="space" /> <DateSel />
+        <div>
+          <h5>Define Filters</h5>
+          <small>
+            To filter the results in your report:
+          </small>
+        </div>
+        <div>
+          {this.renderFieldSelection()} {this.renderOperatorSelection()}
+          <TextField style={styles.textFieldStyle} value={this.state.textFieldValue}
+                     onChange={(e, newValue) => this.setState({textFieldValue: newValue})}/>
+          <FlatButton onClick={this.addFilter} style={styles.addFilterButtonStyle} label="Add Filter"
+                      labelPosition="after" primary/>
+        </div>
+        <div>
+          {this.renderTable()}
+        </div>
       </div>
     );
   }
