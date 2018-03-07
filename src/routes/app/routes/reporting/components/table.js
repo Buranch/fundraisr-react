@@ -56,6 +56,7 @@ const col = [{
       <a href="#/app/reporting-registrant">Run</a>
     </span>
   ),
+  width: 64
 }];
 
 class DonationFormTable extends React.Component {
