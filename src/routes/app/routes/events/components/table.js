@@ -99,12 +99,13 @@ const col = [{
   render: () => (
     <span>
       <a href="#" className="material-icons" style={smallIconsStyle} title="Edit Event Settings & Information">edit</a>
-      <span className="space" />
+      <span className="space"/>
       <a href="#" className="material-icons" style={smallIconsStyle} title="Manage Team">timeline</a>
-      <span className="space" />
+      <span className="space"/>
       <a href="#/app/events-bookkeeping" className="material-icons" style={smallIconsStyle} title="Bookkeeping">book</a>
     </span>
   ),
+  width: 120
 }, {
   title: 'Date Created',
   dataIndex: 'dateCreated',
@@ -123,11 +124,14 @@ const col = [{
     if (text === 'active') {
       return (<span><small className="color-success material-icons" style={smallIconsStyle}>label</small>ACTIVE</span>);
     } else if (text === 'no active') {
-      return (<span><small className="color-danger material-icons" style={smallIconsStyle}>label_outline</small>ACTIVE</span>);
+      return (<span><small className="color-danger material-icons"
+                           style={smallIconsStyle}>label_outline</small>ACTIVE</span>);
     }
-    return (<span><small className="color-danger material-icons" style={smallIconsStyle}>label_outline</small>INACTIVE</span>);
+    return (<span><small className="color-danger material-icons"
+                         style={smallIconsStyle}>label_outline</small>INACTIVE</span>);
   },
   sorter: (a, b) => a.status.localeCompare(b.status),
+  width: 100
 }, {
   title: 'Owner',
   dataIndex: 'owner',
@@ -140,19 +144,19 @@ class EventTable extends React.Component {
   render() {
     return (
       <div>
-        <FilterManager />
+        <FilterManager/>
         <div className="box box-default">
           <div className="box-body">
-            <ControlPanel />
+            <ControlPanel/>
             <Table
               dataSource={dataSource}
               columns={col}
               size="small"
               bordered
               rowSelection={rowSelection}
-              pagination={{defaultCurrent: 1, total: 55, pageSize: 11, showSizeChanger: true }}
+              pagination={{defaultCurrent: 1, total: 55, pageSize: 11, showSizeChanger: true}}
             />
-            <ControlPanel />
+            <ControlPanel/>
           </div>
         </div>
       </div>
