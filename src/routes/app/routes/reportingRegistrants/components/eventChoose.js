@@ -60,7 +60,7 @@ class Date extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText=""
+        floatingLabelText="Initatives"
         value={this.state.value}
         maxHeight={200}
         onChange={this.handleChange}
@@ -128,8 +128,32 @@ class ChooseEvents extends React.Component {
     this.setState({searchClicked: true});
   };
 
-  createCols = (addRowHandler) => {
+  createCols = (addRowHandler, isActionAdd) => {
     const handler = addRowHandler || (() => {});
+    let actionColumn;
+    if (isActionAdd) {
+      actionColumn = {
+        title: 'Actions',
+          key: 'add-action',
+        render: (a) => (
+        <span>
+          <Button icon="plus" onClick={() => handler(a)}>Add</Button>
+        </span>
+      ),
+        width: 100
+      }
+    } else {
+      actionColumn = {
+        title: 'Actions',
+        key: 'add-action',
+        render: (a) => (
+          <span>
+          <Button icon="minus" onClick={() => handler(a)}>Remove</Button>
+        </span>
+        ),
+        width: 100
+      }
+    }
     const cols = [{
       title: 'Account Name',
       dataIndex: 'accountName',
@@ -153,16 +177,7 @@ class ChooseEvents extends React.Component {
         }
       },
       width: 100
-    }, {
-      title: 'Actions',
-      key: 'add-action',
-      render: (a) => (
-        <span>
-          <Button icon="plus" onClick={() => handler(a)}>Add</Button>
-        </span>
-      ),
-      width: 100
-    }];
+    }, actionColumn];
     return cols;
   };
 
@@ -172,6 +187,12 @@ class ChooseEvents extends React.Component {
     }
     this.setState({
       selectedCol: this.state.selectedCol.concat([row])
+    });
+  };
+
+  removeFromSelectedRows = (row) => {
+    this.setState({
+      selectedCol: this.state.selectedCol.filter((x) => x.key !== row.key)
     });
   };
 
@@ -210,7 +231,7 @@ class ChooseEvents extends React.Component {
         }
         <Table
           dataSource={this.state.searchClicked ? dataSource : []}
-          columns={this.createCols(this.addToSelectedRows)}
+          columns={this.createCols(this.addToSelectedRows, true)}
           size="small"
           bordered
           rowSelection={rowSelection}
@@ -221,7 +242,7 @@ class ChooseEvents extends React.Component {
         <div style={{display: this.state.selectedCol.length > 0 ? 'block' : 'none'}}>
           <Table
             dataSource={this.state.selectedCol}
-            columns={this.createCols()}
+            columns={this.createCols(this.removeFromSelectedRows, false)}
             size="small"
             bordered
             pagination={{defaultCurrent: 1, total: 55, pageSize: 11}}
