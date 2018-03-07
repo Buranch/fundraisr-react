@@ -13,8 +13,9 @@ import DateRange from './dateRange';
 import Delivery from './delivery';
 
 class HorizontalNonLinearStepper extends React.Component {
-  state = {
+  props = {
     stepIndex: 0,
+    changeStep: (newStep) => {}
   };
 
   getStepContent(stepIndex) {
@@ -35,34 +36,34 @@ class HorizontalNonLinearStepper extends React.Component {
   }
 
   render() {
-    const {stepIndex} = this.state;
+    const {stepIndex} = this.props;
     const contentStyle = {margin: '0 16px'};
 
     return (
       <div style={{width: '100%', maxWidth: 1100, margin: 'auto'}}>
         <Stepper linear={false} activeStep={stepIndex}>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 0})}>
+            <StepButton onClick={() => this.props.changeStep(0)}>
               Events
             </StepButton>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 1})}>
+            <StepButton onClick={() => this.props.changeStep(1)}>
               DateRange
             </StepButton>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 2})}>
+            <StepButton onClick={() => this.props.changeStep(2)}>
               Format
             </StepButton>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 3})}>
+            <StepButton onClick={() => this.props.changeStep(3)}>
               Filters
             </StepButton>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 4})}>
+            <StepButton onClick={() => this.props.changeStep(4)}>
               Delivery
             </StepButton>
           </Step>
@@ -76,6 +77,26 @@ class HorizontalNonLinearStepper extends React.Component {
 }
 
 class RR extends React.Component {
+  state = {
+    currentStepIndex: 0
+  };
+
+  moveNext = () => {
+    if (this.state.currentStepIndex < 4) {
+      this.setState({currentStepIndex: this.state.currentStepIndex + 1})
+    }
+  };
+
+  moveBack = () => {
+    if (this.state.currentStepIndex > 0) {
+      this.setState({currentStepIndex: this.state.currentStepIndex - 1})
+    }
+  };
+
+  setStep = (newStepIndex) => {
+    this.setState({currentStepIndex: newStepIndex})
+  };
+
   render() {
     return (
       <section className="container-fluid no-breadcrumbs">
@@ -87,10 +108,10 @@ class RR extends React.Component {
               <a href="#/app/dashboard">Dashboard</a> >> <a href="#/app/reporting">Events</a> >> Registrants
             </small>
           } />
-        <ControlPanel />
+        <ControlPanel onNextClick={this.moveNext} onPreviousClick={this.moveBack} />
         <div className="box box-default">
           <div className="box-body">
-            <HorizontalNonLinearStepper />
+            <HorizontalNonLinearStepper stepIndex={this.state.currentStepIndex} changeStep={this.setStep}/>
           </div>
         </div>
       </section>

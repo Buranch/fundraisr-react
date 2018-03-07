@@ -12,15 +12,35 @@ const boxBodyStyle = {
   padding: '4px'
 };
 
-const panel = () => (
-  <div className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
-    <div className="text-right" style={boxBodyStyle}>
-      <FlatButton style={mWidthStyle} label="Previous" icon={<PreviousIcon />} />
-      <FlatButton style={mWidthStyle} label="Next" secondary icon={<NextIcon />} />
-      <FlatButton style={mWidthStyle} label="Finish" primary icon={<DoneIcon />} />
-      <FlatButton style={mWidthStyle} label="Cancel"  icon={<CancelButton />} />
-    </div>
-  </div>
-);
+class ControlPanel extends React.Component {
+  props = {
+    onPreviousClick: (e) => {
+    },
+    onNextClick: (e) => {
+    },
+    onFinishClick: (e) => {
+    },
+    onCancelClick: (e) => {
+    },
+  };
 
-module.exports = panel;
+  render() {
+    return (
+      <div
+        className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
+        <div className="text-right" style={boxBodyStyle}>
+          <FlatButton style={mWidthStyle} label="Previous" icon={<PreviousIcon/>}
+                      onClick={this.props.onPreviousClick}/>
+          <FlatButton style={mWidthStyle} label="Next" secondary icon={<NextIcon/>}
+                      onClick={this.props.onNextClick}/>
+          <FlatButton style={mWidthStyle} label="Finish" primary icon={<DoneIcon/>}
+                      onClick={this.props.onFinishClick}/>
+          <FlatButton style={mWidthStyle} label="Cancel" icon={<CancelButton/>}
+                      onClick={this.props.onCancelClick}/>
+        </div>
+      </div>
+    )
+  }
+}
+
+module.exports = ControlPanel;
