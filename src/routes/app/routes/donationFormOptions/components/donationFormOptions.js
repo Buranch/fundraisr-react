@@ -115,7 +115,7 @@ const FriendlyUrl = () => (
     <div className="box-body">
       <h5>Friendly URL</h5>
       http://<span className="space" />
-      <TextField hintText="Organisation Name" /> <span className="space" />
+      <TextField hintText="Organization Name" /> <span className="space" />
       .fundaisr.org/<span className="space" />
       <TextField hintText="Form Name" />
       <div className="text-right">

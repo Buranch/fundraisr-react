@@ -9,7 +9,7 @@ import ControlTabs from './controlTabs';
 const orgInfo = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
-    <HeadText pageName="Organisation information" />
+    <HeadText pageName="Organization information" />
     <Breadcrumb
       typeId="Donor"
       id="9812873456"
