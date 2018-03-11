@@ -38,7 +38,7 @@ const col = [{
   title: 'Confirmation eMail type',
   dataIndex: 'confirmationEmailType',
   key: 'confirmationEmailType',
-  render: text => <a href="#/app/configure/email-conf-manage" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="#/app/configure/email-conf-manage">settings</a></small></a>,
+  render: text => <a href="#/app/email-conf-manage" style={{display: 'block'}}>{text} <small className="material-icons" style={styles}><a href="#/app/email-conf-manage">settings</a></small></a>,
   sorter: (a, b) => a.confirmationEmailType.localeCompare(b.confirmationEmailType),
 }, {
   title: 'Category',
