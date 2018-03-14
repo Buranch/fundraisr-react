@@ -119,10 +119,6 @@ class WebpackBaseConfig {
             ]
           },
           {
-            test: /\.json$/,
-            loader: 'json-loader'
-          },
-          {
             test: /\.(js|jsx)$/,
             include: [].concat(
               this.includedPackages,

@@ -1,5 +1,5 @@
 import React from 'react';
-import Upload from 'material-ui-upload/Upload';
+import Upload from 'material-ui-next-upload/Upload';
 import TextField from 'material-ui/TextField';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import FlatButton from 'material-ui/FlatButton';
