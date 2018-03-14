@@ -28,7 +28,7 @@ class WebpackDistConfig extends WebpackBaseConfig {
         './client.js'
       ],
       output: {
-        path: root('/public'),
+        path: root('/dist'),
         publicPath: '/',
         filename: 'assets/app.js',
         chunkFilename: 'assets/[id].[hash].chunk.js'
@@ -45,11 +45,11 @@ class WebpackDistConfig extends WebpackBaseConfig {
           "window.jQuery": "jquery"
         }),
         new CopyWebpackPlugin([
-          //{from: root('public/index.html'), to: root('dist/') },
-          //{from: root('public/favicon.ico'), to: root('dist/') },
-          //{from: root('public/vendors'), to: root('dist/vendors') },
-          {from: root('src/assets/images'), to: root('assets/images') },
-          {from: root('src/assets/images-demo'), to: root('assets/images-demo') },
+          {from: root('public/index.html'), to: root('dist/') },
+          {from: root('public/favicon.ico'), to: root('dist/') },
+          {from: root('public/vendors'), to: root('dist/vendors') },
+          {from: root('src/assets/images'), to: root('public/assets/images') },
+          {from: root('src/assets/images-demo'), to: root('public/assets/images-demo') },
         ]),
       ]
     };
