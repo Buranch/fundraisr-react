@@ -10,11 +10,14 @@ const orgInfo = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
     <HeadText pageName="User Profile" />
-    <Breadcrumb path={
-      <small>
-        <a href="#/app/dashboard">Dashboard</a> >> <a href="#/app/configure/users">Users</a> >> "User Name"
-      </small>
-    } />
+    <Breadcrumb
+      path={
+        <small>
+          <a href="#/app/dashboard">Dashboard</a> >{' '}
+          <a href="#/app/configure/users">Users</a> > "User Name"
+        </small>
+      }
+    />
     <ControlPanel />
     <FormTable />
     <ControlTabs />

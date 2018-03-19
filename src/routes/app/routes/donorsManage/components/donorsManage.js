@@ -15,7 +15,8 @@ const orgInfo = () => (
       id="9812873456"
       path={
         <small>
-          <a href="#app/dashboard">Dashboard</a> >> <a href="#app/donors">Donors</a> >> "Donor Name"
+          <a href="#app/dashboard">Dashboard</a> >{' '}
+          <a href="#app/donors">Donors</a> > "Donor Name"
         </small>
       }
     />

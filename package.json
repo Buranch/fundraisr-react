@@ -4,6 +4,7 @@
   "private": true,
   "main": "",
   "scripts": {
+    "precommit": "lint-staged",
     "clean": "rimraf dist/*",
     "build": "npm run clean && webpack --progress --bail --env dist -p",
     "serve:dist": "webpack-dev-server --open --env dist -p --progress",
@@ -61,8 +62,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "bootstrap": "~4.0.0-beta",
     "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.28.10",
-    "eslint": "^4.6.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.3.0",
@@ -70,10 +71,13 @@
     "eslint-plugin-react": "^7.0.1",
     "file-loader": "^1.1.11",
     "glob": "^7.1.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
     "node-sass": "^4.5.3",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.15",
-    "postcss-loader": "^2.0.5",
+    "postcss-loader": "^2.1.2",
+    "prettier": "^1.11.1",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.11.1",
     "sass-loader": "^6.0.5",
@@ -86,5 +90,11 @@
   "engines": {
     "node": ">=6.9.0",
     "npm": ">= 3"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+        "prettier --single-quote --write",
+        "git add"
+    ]
   }
 }

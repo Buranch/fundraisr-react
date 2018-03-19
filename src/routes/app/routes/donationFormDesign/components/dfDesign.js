@@ -15,7 +15,14 @@ class Design extends React.Component {
       <section className="container-fluid no-breadcrumbs">
         <Helper />
         <HeadText pageName="Donation Form Design" />
-        <Breadcrumb path={<small><a href="">Dashboard</a> >> <a href="">Donation Forms</a> >> <a href="">Manage Donation Forms</a> >> Donation Form Style</small>} />
+        <Breadcrumb
+          path={
+            <small>
+              <a href="">Dashboard</a> > <a href="">Donation Forms</a> >{' '}
+              <a href="">Manage Donation Forms</a> > Donation Form Style
+            </small>
+          }
+        />
         <ControlPanel />
         <StyleTable />
         <HeaderSelect />
@@ -26,6 +33,5 @@ class Design extends React.Component {
     );
   }
 }
-
 
 module.exports = Design;

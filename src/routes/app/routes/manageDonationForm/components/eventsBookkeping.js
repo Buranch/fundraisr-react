@@ -13,7 +13,9 @@ const evBk = () => (
       id="1234567890"
       path={
         <small>
-          <a href="#app/dashboard">Dashboard</a> >> <a href="#/app/donation-forms">Donation Forms</a> >> Manage Donation Form
+          <a href="#app/dashboard">Dashboard</a> >{' '}
+          <a href="#/app/donation-forms">Donation Forms</a> > Manage Donation
+          Form
         </small>
       }
     />

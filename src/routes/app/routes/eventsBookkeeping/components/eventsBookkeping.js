@@ -13,9 +13,11 @@ const evBk = () => (
       id="1234567890"
       path={
         <small>
-          <a href="#app/dashboard">Dashboard</a> >> <a href="#app/events">Events</a> >> Bookkeeping
+          <a href="#app/dashboard">Dashboard</a> >{' '}
+          <a href="#app/events">Events</a> > Bookkeeping
         </small>
-      } />
+      }
+    />
     <Runner />
   </section>
 );

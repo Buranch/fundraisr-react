@@ -8,11 +8,13 @@ const apiAccess = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
     <HeadText pageName="Api Access" />
-    <Breadcrumb path={
-      <small>
-        <a href="#app/dashboard">Dashboard</a> >> <a>Configure</a> >> Api Access
-      </small>
-    } />
+    <Breadcrumb
+      path={
+        <small>
+          <a href="#app/dashboard">Dashboard</a> > <a>Configure</a> > Api Access
+        </small>
+      }
+    />
     <Keys />
   </section>
 );

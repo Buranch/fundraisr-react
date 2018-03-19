@@ -1,5 +1,5 @@
 import React from 'react';
-import {Step, StepButton, Stepper,} from 'material-ui/Stepper';
+import { Step, StepButton, Stepper } from 'material-ui/Stepper';
 import Helper from '../../../components/helper';
 import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';
@@ -13,33 +13,32 @@ import DefineFilters from './filters';
 class HorizontalNonLinearStepper extends React.Component {
   props = {
     stepIndex: 0,
-    changeStep: (newStep) => {
-    }
+    changeStep: newStep => {}
   };
 
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <ChooseEvents/>;
+        return <ChooseEvents />;
       case 1:
-        return <DateRange/>;
+        return <DateRange />;
       case 2:
-        return <FormatStep/>;
+        return <FormatStep />;
       case 3:
-        return <DefineFilters/>;
+        return <DefineFilters />;
       case 4:
-        return <Delivery/>;
+        return <Delivery />;
       default:
         return 'Error';
     }
   }
 
   render() {
-    const {stepIndex} = this.props;
-    const contentStyle = {margin: '0 16px'};
+    const { stepIndex } = this.props;
+    const contentStyle = { margin: '0 16px' };
 
     return (
-      <div style={{width: '100%', maxWidth: 1100, margin: 'auto'}}>
+      <div style={{ width: '100%', maxWidth: 1100, margin: 'auto' }}>
         <Stepper linear={false} activeStep={stepIndex}>
           <Step>
             <StepButton onClick={() => this.props.changeStep(0)}>
@@ -67,9 +66,7 @@ class HorizontalNonLinearStepper extends React.Component {
             </StepButton>
           </Step>
         </Stepper>
-        <div style={contentStyle}>
-          {this.getStepContent(stepIndex)}
-        </div>
+        <div style={contentStyle}>{this.getStepContent(stepIndex)}</div>
       </div>
     );
   }
@@ -82,41 +79,48 @@ class RR extends React.Component {
 
   moveNext = () => {
     if (this.state.currentStepIndex < 4) {
-      this.setState({currentStepIndex: this.state.currentStepIndex + 1})
+      this.setState({ currentStepIndex: this.state.currentStepIndex + 1 });
     }
   };
 
   moveBack = () => {
     if (this.state.currentStepIndex > 0) {
-      this.setState({currentStepIndex: this.state.currentStepIndex - 1})
+      this.setState({ currentStepIndex: this.state.currentStepIndex - 1 });
     }
   };
 
-  setStep = (newStepIndex) => {
-    this.setState({currentStepIndex: newStepIndex})
+  setStep = newStepIndex => {
+    this.setState({ currentStepIndex: newStepIndex });
   };
 
   render() {
     return (
       <section className="container-fluid no-breadcrumbs">
-        <Helper/>
-        <HeadText pageName="Reporting - Registrants"/>
+        <Helper />
+        <HeadText pageName="Reporting - Registrants" />
         <Breadcrumb
           path={
             <small>
-              <a href="#/app/dashboard">Dashboard</a> >> <a href="#/app/reporting">Events</a> >> Registrants
+              <a href="#/app/dashboard">Dashboard</a> >{' '}
+              <a href="#/app/reporting">Events</a> > Registrants
             </small>
-          }/>
-        <ControlPanel onNextClick={this.moveNext} onPreviousClick={this.moveBack}/>
+          }
+        />
+        <ControlPanel
+          onNextClick={this.moveNext}
+          onPreviousClick={this.moveBack}
+        />
         <div className="box box-default">
           <div className="box-body">
-            <HorizontalNonLinearStepper stepIndex={this.state.currentStepIndex} changeStep={this.setStep}/>
+            <HorizontalNonLinearStepper
+              stepIndex={this.state.currentStepIndex}
+              changeStep={this.setStep}
+            />
           </div>
         </div>
       </section>
     );
   }
 }
-
 
 module.exports = RR;

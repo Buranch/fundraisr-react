@@ -11,7 +11,12 @@ const EventManage = () => (
     <Helper />
     <HeadText pageName="Manage Event" />
     <Breadcrumb
-      path={<small><a href="#app/dashboard">Dashboard</a> >> <a href="#app/events">Events</a> >> Raise FunDation</small>}
+      path={
+        <small>
+          <a href="#app/dashboard">Dashboard</a> >{' '}
+          <a href="#app/events">Events</a> > Raise FunDation
+        </small>
+      }
       typeId="event"
       id="1234567890"
     />

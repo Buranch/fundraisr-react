@@ -4,7 +4,6 @@ import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';
 import ControlTab from './tabs';
 
-
 class Reports extends React.Component {
   render() {
     return (
@@ -16,17 +15,19 @@ class Reports extends React.Component {
           id="1234567890"
           path={
             <small>
-              <a href="#app/dashboard">Dashboard</a> >> <a href="#app/events">Events</a> >> <a href="#app/events-bookkeeping">Bookkeeping</a> >> <a href="#app/initiative-records">Manage Initiative Records</a> >> Edit
+              <a href="#app/dashboard">Dashboard</a> >{' '}
+              <a href="#app/events">Events</a> >{' '}
+              <a href="#app/events-bookkeeping">Bookkeeping</a> >{' '}
+              <a href="#app/initiative-records">Manage Initiative Records</a> >
+              Edit
             </small>
-          } />
-        <h5>
-          Participant / Donor Name: Michael Scott
-        </h5>
+          }
+        />
+        <h5>Participant / Donor Name: Michael Scott</h5>
         <ControlTab />
       </section>
     );
   }
 }
-
 
 module.exports = Reports;

@@ -13,9 +13,10 @@ const fMan = () => (
       id="1234567890"
       path={
         <small>
-          <a href="#app/dashboard">Dashboard</a> >> Field Manager
+          <a href="#app/dashboard">Dashboard</a> > Field Manager
         </small>
-      } />
+      }
+    />
     <Tabs />
   </section>
 );

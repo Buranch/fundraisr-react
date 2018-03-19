@@ -10,16 +10,17 @@ class Events extends React.Component {
       <section className="container-fluid no-breadcrumbs">
         <Helper />
         <HeadText pageName="Events" />
-        <Breadcrumb path={
-          <small>
-            <a href="#/app/dashboard">Dashboard</a> >> Events
-          </small>
-        } />
+        <Breadcrumb
+          path={
+            <small>
+              <a href="#/app/dashboard">Dashboard</a> > Events
+            </small>
+          }
+        />
         <EventTable />
       </section>
     );
   }
 }
-
 
 module.exports = Events;

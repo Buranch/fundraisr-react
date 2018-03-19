@@ -24,7 +24,9 @@ const Main = () => (
       <div className="box box-default">
         <div className="box-body">
           <h5>Donor Payment Options</h5>
-          <small>Setup Fraud Protection by blocking Countries and IP Ranges </small>
+          <small>
+            Setup Fraud Protection by blocking Countries and IP Ranges{' '}
+          </small>
           <br /> <br />
           <BlockCountries />
           <br />
@@ -39,11 +41,14 @@ const paymentGateway = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
     <HeadText pageName="Payment Gateway" />
-    <Breadcrumb path={
-      <small>
-        <a href="#app/dashboard">Dashboard</a> >> <a>Configure</a> >> Payment Gateway
-      </small>
-    } />
+    <Breadcrumb
+      path={
+        <small>
+          <a href="#app/dashboard">Dashboard</a> > <a>Configure</a> > Payment
+          Gateway
+        </small>
+      }
+    />
     <Main />
   </section>
 );

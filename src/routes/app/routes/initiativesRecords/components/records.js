@@ -15,14 +15,17 @@ class Events extends React.Component {
           id="1234567890"
           path={
             <small>
-              <a href="#app/dashboard">Dashboard</a> >> <a href="#app/events">Events</a> >> <a href="#app/events-bookkeeping">Bookkeeping</a> >> Manage Initiative Records
+              <a href="#app/dashboard">Dashboard</a> >{' '}
+              <a href="#app/events">Events</a> >{' '}
+              <a href="#app/events-bookkeeping">Bookkeeping</a> > Manage
+              Initiative Records
             </small>
-          } />
+          }
+        />
         <TableRec />
       </section>
     );
   }
 }
-
 
 module.exports = Events;

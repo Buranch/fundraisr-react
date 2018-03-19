@@ -8,11 +8,13 @@ const orgInfo = () => (
   <section className="container-fluid no-breadcrumbs">
     <Helper />
     <HeadText pageName="eMail & Confirmations" />
-    <Breadcrumb path={
-      <small>
-        <a href="#app/dashboard">Dashboard</a> >> eMail & Confirmations
-      </small>
-    } />
+    <Breadcrumb
+      path={
+        <small>
+          <a href="#app/dashboard">Dashboard</a> > eMail & Confirmations
+        </small>
+      }
+    />
     <ControlTabs />
   </section>
 );

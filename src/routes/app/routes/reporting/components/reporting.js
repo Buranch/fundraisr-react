@@ -10,16 +10,17 @@ class Reports extends React.Component {
       <section className="container-fluid no-breadcrumbs">
         <Helper />
         <HeadText pageName="Reporting" />
-        <Breadcrumb path={
-          <small>
-            <a href="#app/dashboard">Dashboard</a> >> Reporting
-          </small>
-        } />
+        <Breadcrumb
+          path={
+            <small>
+              <a href="#app/dashboard">Dashboard</a> > Reporting
+            </small>
+          }
+        />
         <ControlTab />
       </section>
     );
   }
 }
-
 
 module.exports = Reports;

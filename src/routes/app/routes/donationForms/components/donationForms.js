@@ -10,16 +10,17 @@ class DonationForm extends React.Component {
       <section className="container-fluid no-breadcrumbs">
         <Helper />
         <HeadText pageName="Donation Forms" />
-        <Breadcrumb path={
-          <small>
-            <a href="#app/dashboard">Dashboard</a> >> Donation Forms
-          </small>
-        } />
+        <Breadcrumb
+          path={
+            <small>
+              <a href="#app/dashboard">Dashboard</a> > Donation Forms
+            </small>
+          }
+        />
         <DonationTable />
       </section>
     );
   }
 }
-
 
 module.exports = DonationForm;

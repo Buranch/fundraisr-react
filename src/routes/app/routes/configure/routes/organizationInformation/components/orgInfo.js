@@ -15,9 +15,11 @@ const orgInfo = () => (
       id="9812873456"
       path={
         <small>
-          <a href="#app/dashboard">Dashboard</a> >> Configure  "Organization Information"
+          <a href="#app/dashboard">Dashboard</a> > Configure "Organization
+          Information"
         </small>
-      } />
+      }
+    />
     <ControlPanel />
     <FormTable />
     <ControlTabs />

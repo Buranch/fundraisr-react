@@ -10,16 +10,17 @@ class Donors extends React.Component {
       <section className="container-fluid no-breadcrumbs">
         <Helper />
         <HeadText pageName="Donors" />
-        <Breadcrumb path={
-          <small>
-            <a href="#app/dashboard">Dashboard</a> >> Donors
-          </small>
-        } />
+        <Breadcrumb
+          path={
+            <small>
+              <a href="#app/dashboard">Dashboard</a> > Donors
+            </small>
+          }
+        />
         <DonorTable />
       </section>
     );
   }
 }
-
 
 module.exports = Donors;
