@@ -30,7 +30,7 @@ const EventInformation = () => (
     <div className="box-body">
       <h1 className="article-title">Event Information</h1>
       <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-8">
+        <div className="col-xs-12 col-sm-12 col-md-7">
           <h5>Details</h5>
           <small>Event Information</small><br />
           <TextField defaultValue="Raise FunDation" floatingLabelText="Event Name" /><br/>
@@ -46,7 +46,7 @@ const EventInformation = () => (
           <TextField defaultValue="1234567890" floatingLabelText="Event ID" disabled /><br/>
           <small>Event ID is unique to your event and can not be edited.</small>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-4">
+        <div className="col-xs-12 col-sm-12 col-md-5">
           <h5>Contact</h5>
           <small>
             These fields are for the Event Information,
