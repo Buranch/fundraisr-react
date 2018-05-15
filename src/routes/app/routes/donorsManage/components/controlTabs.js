@@ -56,7 +56,7 @@ class Personal extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        <div className="Col32Div"> {/* Change by Kirill */}
           <h5>Demographics</h5>
           <TextField value="68" floatingLabelText="Age" disabled /><br />
           <small>Donors "Age" is set by Donors "Birth Day". </small>
@@ -106,13 +106,13 @@ class Personal extends React.Component {
           </SelectField>
         </div>
 
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        <div className="Col32Div"> {/* Change by Kirill */}
           <h5>Tax Information</h5>
           <TextField defaultValue="2034299-345" floatingLabelText="Tax ID#" />
           <Toggle label="Head of Household?" style={styles.toggle} defaultToggled />
         </div>
 
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        <div className="Col32Div"> {/* Change by Kirill */}
           <h5>Employment Information</h5>
           <TextField defaultValue="Transformers - Robots in Disguise" floatingLabelText="Company Name" /> <br />
           <TextField defaultValue="Team Leader" floatingLabelText="Job Title" /> <br />
