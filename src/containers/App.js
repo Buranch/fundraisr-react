@@ -17,7 +17,7 @@ import PageSignUp from 'routes/sign-up/';
 
 // = styles =
 // 3rd
-import 'styles/bootstrap.scss';
+import 'styles/bootstrap.scss';   //Marked by Kirill : Bootstrap loading
 // custom
 import 'styles/layout.scss';
 import 'styles/theme.scss';

@@ -137,7 +137,7 @@ const month = [
 
 const Verification = () => (
   <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+    <div className="Col32Div"> {/* Change by Kirill */}
       <h5>Verification Defaults</h5>
       <small>Require Address or Zip/Postal code verification. </small>
       <Toggle label="Postal Code" style={styles.toggle} />
@@ -145,11 +145,11 @@ const Verification = () => (
       <small>Lock credit card verification settings. </small>
       <Toggle label="Lock Settings" style={styles.toggle} />
     </div>
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+    <div className="Col32Div"> {/* Change by Kirill */}
       <h5>Description</h5>
       <TextField defaultValue="e5r6tyui" floatingLabelText="Soft Descriptor" />
     </div>
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+    <div className="Col32Div"> {/* Change by Kirill */}
       <h5>Contact</h5>
       <TextField defaultValue="drfytguyh" floatingLabelText="Inquiry Phone" /> <br/>
       <small>Donor Inquiry Phone Number. </small>

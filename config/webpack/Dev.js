@@ -40,7 +40,8 @@ class WebpackDevConfig extends WebpackBaseConfig {
               sourceMap: true
             }
           },
-          { loader: 'sass-loader',
+          {
+            loader: 'sass-loader',
             options: {
               sourceMap: true
             }
