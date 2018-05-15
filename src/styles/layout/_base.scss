@@ -16,29 +16,4 @@ body {
   height: 100% !important;
 }
 
-//ADD BY KIRILL FOR RESPONSIVE
-//*****************************************
-@media only screen and (min-width: 651px) and (max-width: 1267px){
-  .Col32Div {
-    max-width:50%;
-    flex: 0 0 50%;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-  .Col32Div {
-    max-width:100%;
-    flex: 0 0 100%;
-  }
-}
-
-@media only screen and (min-width: 1268px) {
-  .Col32Div {
-    max-width:33.3%;
-    flex: 0 0 33.3%;
-  }
-}
-//*****************************************
-
-
 

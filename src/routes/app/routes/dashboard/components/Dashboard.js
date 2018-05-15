@@ -11,7 +11,7 @@ import HeadText from '../../../components/headText';
 
 const Main = () => (
   <div className="row">
-    <div className="col-xs-12 col-sm-12 col-md-6 dashboard-half">
+    <div className="col-xs-12 col-sm-12 col-md-6">
       <div className="box box-default">
         <div className="box-body">
           <DonationChart />
@@ -19,7 +19,7 @@ const Main = () => (
       </div>
     </div>
 
-    <div className="col-xs-12 col-sm-12 col-md-6 dashboard-half">
+    <div className="col-xs-12 col-sm-12 col-md-6">
       <StatBoxes />
     </div>
   </div>
@@ -33,9 +33,9 @@ const Dashboard = () => (
       <Main />
     </QueueAnim>
     <div className="row">
-      <div className="col-xs-12 col-sm-6 col-md-4 dashboard-half"><TopDonors /></div>
-      <div className="col-xs-12 col-sm-6 col-md-4 dashboard-half"><TopEvents /></div>
-      <div className="col-xs-12 col-sm-6 col-md-4 dashboard-half"><NewEvents /></div>
+      <div className="col-xs-12 col-sm-6 col-md-4"><TopDonors /></div>
+      <div className="col-xs-12 col-sm-6 col-md-4"><TopEvents /></div>
+      <div className="col-xs-12 col-sm-6 col-md-4"><NewEvents /></div>
     </div>
   </div>
 );
