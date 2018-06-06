@@ -8,12 +8,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import MainApp from 'routes/app/';
 import Page404 from 'routes/404/';
 import Page500 from 'routes/500/';
-import PageConfirmEmail from 'routes/confirm-email/';
-import PageForgotPassword from 'routes/forgot-password/';
-import PageFullscreen from 'routes/fullscreen/';
-import PageLockScreen from 'routes/lock-screen/';
-import PageLogin from 'routes/login/';
-import PageSignUp from 'routes/sign-up/';
 
 // = styles =
 // 3rd
@@ -32,7 +26,16 @@ class App extends Component {
   componentDidMount() {}
 
   render() {
-    const { match, location, layoutBoxed, navCollapsed, navBehind, fixedHeader, sidebarWidth, theme } = this.props;
+    const {
+      match,
+      location,
+      layoutBoxed,
+      navCollapsed,
+      navBehind,
+      fixedHeader,
+      sidebarWidth,
+      theme
+    } = this.props;
     let materialUITheme;
     switch (theme) {
       case 'gray':
@@ -47,13 +50,15 @@ class App extends Component {
 
     const isRoot = location.pathname === '/' ? true : false;
     if (isRoot) {
-      return ( <Redirect to={'/app/dashboard'}/> );
+      return <Redirect to={'/app/dashboard'} />;
     }
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(materialUITheme)}>
         <div id="app-inner">
-          <div className="preloaderbar hide"><span className="bar" /></div>
+          <div className="preloaderbar hide">
+            <span className="bar" />
+          </div>
           <div
             className={classnames('app-main full-height', {
               'fixed-header': fixedHeader,
@@ -63,17 +68,12 @@ class App extends Component {
               'theme-gray': theme === 'gray',
               'theme-dark': theme === 'dark',
               'sidebar-sm': sidebarWidth === 'small',
-              'sidebar-lg': sidebarWidth === 'large'})
-          }>
+              'sidebar-lg': sidebarWidth === 'large'
+            })}
+          >
             <Route path={`${match.url}app`} component={MainApp} />
             <Route exact path="/404" component={Page404} />
             <Route exact path="/500" component={Page500} />
-            <Route exact path="/confirm-email" component={PageConfirmEmail} />
-            <Route exact path="/forgot-password" component={PageForgotPassword} />
-            <Route exact path="/fullscreen" component={PageFullscreen} />
-            <Route exact path="/lock-screen" component={PageLockScreen} />
-            <Route exact path="/login" component={PageLogin} />
-            <Route exact path="/sign-up" component={PageSignUp} />
           </div>
         </div>
       </MuiThemeProvider>
@@ -87,9 +87,7 @@ const mapStateToProps = (state, ownProps) => ({
   navBehind: state.settings.navBehind,
   fixedHeader: state.settings.fixedHeader,
   sidebarWidth: state.settings.sidebarWidth,
-  theme: state.settings.theme,
+  theme: state.settings.theme
 });
 
-module.exports = connect(
-  mapStateToProps
-)(App);
+module.exports = connect(mapStateToProps)(App);
