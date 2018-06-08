@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
-import 'jquery-slimscroll/jquery.slimscroll.min';
 
 class SidebarContent extends React.Component {
   componentDidMount() {
