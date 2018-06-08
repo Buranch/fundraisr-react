@@ -4,25 +4,45 @@ import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
 import APPCONFIG from 'constants/Config';
 import { toggleCollapsedNav } from '../../actions';
-import SidenavContent from './SidenavContent';
+import SidenavContent2 from './SidenavContent';
+import SidenavContent from './SideOriginal';
 
 class Sidebar extends React.Component {
-
   componentDidMount() {
     // AutoCloseMobileNav
     const { history } = this.props;
-    const $body = $('#body');
+    // const $body = $('#body');
+    const body = document.getElementById('body');
 
     if (APPCONFIG.AutoCloseMobileNav) {
-      history.listen((location) => {
+      history.listen(location => {
         setTimeout(() => {
-          $body.removeClass('sidebar-mobile-open');
+          console.log('on sidenav');
+          // if (body.classList.contains('sidebar-mobile-open')) {
+          body.classList.remove('sidebar-mobile-open');
+          // }
+          // $body.removeClass('sidebar-mobile-open');
         }, 0);
       });
     }
   }
+  //
+  //
+  // componentDidMount() {
+  //    AutoCloseMobileNav
+  //   const { history } = this.props;
+  //   const $body = $('#body');
+  //
+  //   if (APPCONFIG.AutoCloseMobileNav) {
+  //     history.listen((location) => {
+  //       setTimeout(() => {
+  //         $body.removeClass('sidebar-mobile-open');
+  //       }, 0);
+  //     });
+  //   }
+  // }
 
-  onToggleCollapsedNav = (e) => {
+  onToggleCollapsedNav = e => {
     const val = !this.props.navCollapsed;
     const { handleToggleCollapsedNav } = this.props;
     handleToggleCollapsedNav(val);
@@ -40,9 +60,12 @@ class Sidebar extends React.Component {
     return (
       <nav
         className={classnames('app-sidebar', {
-          'bg-color-light': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
-          'bg-color-dark': ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) < 0 })}
-            >
+          'bg-color-light':
+            ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) >= 0,
+          'bg-color-dark':
+            ['31', '32', '33', '34', '35', '36'].indexOf(colorOption) < 0
+        })}
+      >
         <section
           className={classnames('sidebar-header', {
             'bg-color-dark': ['11', '31'].indexOf(colorOption) >= 0,
@@ -51,16 +74,24 @@ class Sidebar extends React.Component {
             'bg-color-success': ['13', '23', '33'].indexOf(colorOption) >= 0,
             'bg-color-info': ['14', '24', '34'].indexOf(colorOption) >= 0,
             'bg-color-warning': ['15', '25', '35'].indexOf(colorOption) >= 0,
-            'bg-color-danger': ['16', '26', '36'].indexOf(colorOption) >= 0 })}
-                >
-          <Link to="/" className="brand">{APPCONFIG.brand}</Link>
-          <a href="javascript:;" className="collapsednav-toggler" onClick={this.onToggleCollapsedNav}>
+            'bg-color-danger': ['16', '26', '36'].indexOf(colorOption) >= 0
+          })}
+        >
+          <Link to="/" className="brand">
+            {APPCONFIG.brand}
+          </Link>
+          <a
+            href="javascript:;"
+            className="collapsednav-toggler"
+            onClick={this.onToggleCollapsedNav}
+          >
             {toggleIcon}
           </a>
         </section>
 
         <section className="sidebar-content">
-          <SidenavContent />
+          <SidenavContent2 />
+          {/* <SidenavContent /> */}
         </section>
 
         <section className="sidebar-footer">
@@ -68,7 +99,11 @@ class Sidebar extends React.Component {
             <li>
               <a target="_blank" href={APPCONFIG.productLink}>
                 <i className="nav-icon material-icons">help</i>
-                <span className="nav-text"><span>Help</span> & <span>Support</span></span>
+                <span className="nav-text">
+                  <span>Help</span>
+                  &
+                  <span>Support</span>
+                </span>
               </a>
             </li>
           </ul>
@@ -84,13 +119,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleToggleCollapsedNav: (isNavCollapsed) => {
+  handleToggleCollapsedNav: isNavCollapsed => {
     dispatch(toggleCollapsedNav(isNavCollapsed));
-  },
+  }
 });
 
-module.exports = withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Sidebar));
-
+module.exports = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Sidebar)
+);
