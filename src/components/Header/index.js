@@ -7,17 +7,6 @@ import NavLeftList from './NavLeftList';
 import NavRightList from './NavRightList';
 
 class Header extends React.Component {
-  // componentDidMount() {
-  //   const sidebarToggler = this.sidebarBtn;
-  //   const $sidebarToggler = $(sidebarToggler);
-  //   const $body = $('#body');
-  //
-  //   $sidebarToggler.on('click', (e) => {
-  //      _sidebar.scss, _page-container.scss
-  //     $body.toggleClass('sidebar-mobile-open');
-  //   });
-  // }
-
   constructor(props) {
     super(props);
   }
@@ -26,7 +15,6 @@ class Header extends React.Component {
     const body = document.getElementById('body');
     const sidebarToggler = this.sidebarBtn;
     sidebarToggler.addEventListener('click', e => {
-      // body.classList.add('sidebar-mobile-open');
       body.classList.toggle('sidebar-mobile-open');
     });
   }

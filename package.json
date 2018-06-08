@@ -59,7 +59,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "bootstrap": "~4.0.0-beta",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.0",

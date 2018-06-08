@@ -22,13 +22,13 @@ class SidebarContent extends React.Component {
     let dropDown = document.createElement('i');
     dropDown.appendChild(document.createTextNode('keyboard_arrow_right'));
     dropDown.classList.add('material-icons');
-    var ch = nav.querySelectorAll('.prepend-icon');
+    let ch = nav.querySelectorAll('.prepend-icon');
     ch.forEach(prepend => {
       let dropDown = document.createElement('i');
       dropDown.appendChild(document.createTextNode('keyboard_arrow_right'));
       dropDown.classList.add('material-icons');
       console.log();
-      var d = prepend.children[0];
+      let d = prepend.children[0];
       d.insertBefore(dropDown, d.firstChild);
     });
     const list = nav.querySelector('ul');
@@ -79,7 +79,7 @@ class SidebarContent extends React.Component {
     const child = list.querySelectorAll('li');
     const p = list.querySelector('li').parentNode;
     const li = p.querySelector('li');
-    var flag = this.state.completed;
+    let flag = this.state.completed;
     if (!flag) {
       this.setState({
         completed: !this.state.completed,
@@ -110,7 +110,7 @@ class SidebarContent extends React.Component {
     const p = list.querySelector('li').parentNode;
     const li = p.querySelector('li');
     const h = li.getBoundingClientRect().height;
-    var i = h * child.length;
+    let i = h * child.length;
     console.log('mslo');
     p.parentNode.classList.remove('open');
 

@@ -22,11 +22,6 @@ class WebpackDevConfig extends WebpackBaseConfig {
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        // new webpack.ProvidePlugin({
-        //   $: "jquery",
-        //   jQuery: "jquery",
-        //   "window.jQuery": "jquery"
-        // })
       ]
     };
 

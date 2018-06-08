@@ -4,43 +4,23 @@ import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
 import APPCONFIG from 'constants/Config';
 import { toggleCollapsedNav } from '../../actions';
-import SidenavContent2 from './SidenavContent';
-import SidenavContent from './SideOriginal';
+import SidenavContent from './SidenavContent';
 
 class Sidebar extends React.Component {
   componentDidMount() {
     // AutoCloseMobileNav
     const { history } = this.props;
-    // const $body = $('#body');
     const body = document.getElementById('body');
 
     if (APPCONFIG.AutoCloseMobileNav) {
       history.listen(location => {
         setTimeout(() => {
           console.log('on sidenav');
-          // if (body.classList.contains('sidebar-mobile-open')) {
           body.classList.remove('sidebar-mobile-open');
-          // }
-          // $body.removeClass('sidebar-mobile-open');
         }, 0);
       });
     }
   }
-  //
-  //
-  // componentDidMount() {
-  //    AutoCloseMobileNav
-  //   const { history } = this.props;
-  //   const $body = $('#body');
-  //
-  //   if (APPCONFIG.AutoCloseMobileNav) {
-  //     history.listen((location) => {
-  //       setTimeout(() => {
-  //         $body.removeClass('sidebar-mobile-open');
-  //       }, 0);
-  //     });
-  //   }
-  // }
 
   onToggleCollapsedNav = e => {
     const val = !this.props.navCollapsed;
@@ -90,8 +70,7 @@ class Sidebar extends React.Component {
         </section>
 
         <section className="sidebar-content">
-          <SidenavContent2 />
-          {/* <SidenavContent /> */}
+          <SidenavContent />
         </section>
 
         <section className="sidebar-footer">

@@ -37,11 +37,6 @@ class WebpackDistConfig extends WebpackBaseConfig {
         }),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        // new webpack.ProvidePlugin({
-        //   $: "jquery",
-        //   jQuery: "jquery",
-        //   "window.jQuery": "jquery"
-        // }),
         new CopyWebpackPlugin([
           {from: root('public/index.html'), to: root('dist/') },
           {from: root('public/favicon.ico'), to: root('dist/') },
