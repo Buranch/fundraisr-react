@@ -19,7 +19,6 @@ class SidebarContent extends React.Component {
   componentDidMount() {
     const { history } = this.props;
     const nav = this.nav;
-    const $nav = $(nav);
     let dropDown = document.createElement('i');
     dropDown.appendChild(document.createTextNode('keyboard_arrow_right'));
     dropDown.classList.add('material-icons');
