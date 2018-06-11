@@ -29,10 +29,9 @@ const Keys = () => (
 
     <TextField
       defaultValue={'192.168.1.1\n192.168.1.255'}
-      floatingLabelText="IP White List"
+      placeholder="IP White List"
       multiLine
       fullWidth
-      floatingLabelFixed
       rows={2}
       rowsMax={4}
     />
@@ -43,12 +42,9 @@ const Keys = () => (
     </small>
     <br />
     <br />
-    <Button
-      variant="contained"
-      style={mWidthStyle}
-      label="View API Documentation"
-      primary
-    />
+    <Button variant="contained" style={mWidthStyle} color="primary">
+      View API Documentation
+    </Button>
   </div>
 );
 

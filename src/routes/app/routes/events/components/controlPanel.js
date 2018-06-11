@@ -22,7 +22,7 @@ const Controls = () => (
       label="New"
       href=""
       icon={<AddIcon />}
-      secondary
+      color="secondary"
     />
     <span className="space" />
     <Button

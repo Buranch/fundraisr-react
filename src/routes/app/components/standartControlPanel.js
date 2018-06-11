@@ -31,20 +31,16 @@ class Controls extends React.Component {
           icon={<AddIcon />}
         />
         <span className="space" />
+        <Button style={mWidthStyle} href={this.state.editHref} color="primary">
+          <EditIcon /> Edit
+        </Button>
         <Button
           style={mWidthStyle}
-          label="Edit"
-          href={this.state.editHref}
-          primary
-          icon={<EditIcon />}
-        />
-        <Button
-          style={mWidthStyle}
-          label="Delete"
           href={this.state.deleteHref}
-          primary
-          icon={<DeleteIcon />}
-        />
+          color="primary"
+        >
+          <DeleteIcon /> Delete
+        </Button>
       </div>
     );
   }

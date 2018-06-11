@@ -194,24 +194,29 @@ class FilterManager extends React.Component {
               onClick={this.AddHandler}
               style={mWidthStyle}
               label="Add Filter"
-              labelPosition="after"
-              primary
-            />
+              // labelPosition="after"
+              color="primary"
+            >
+              Add Filter
+            </Button>
             <Button
               onClick={this.RemoveAllHandler}
               style={mWidthStyle}
               label="Show All"
-              labelPosition="after"
-              primary
-            />
+              // labelPosition="after"
+              color="primary"
+            >
+              Show All
+            </Button>
             <Button
               onClick={this.props.onSearch ? this.props.onSearch : null}
               style={mWidthStyle}
               label="Search"
               labelPosition="after"
-              primary
-              icon={<SearchIcon />}
-            />
+              color="primary"
+            >
+              <SearchIcon /> Search
+            </Button>
           </div>
           {elems}
         </div>
