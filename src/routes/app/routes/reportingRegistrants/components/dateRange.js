@@ -1,13 +1,16 @@
 import React from 'react';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+// import SelectField from 'material-ui/SelectField';
+// import MenuItem from 'material-ui/MenuItem';
+
+import SelectField from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class Date extends React.Component {
   state = {
-    value: 'select',
+    value: 'select'
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => this.setState({ value });
 
   render() {
     return (
@@ -32,10 +35,10 @@ class Date extends React.Component {
 }
 class DateSel extends React.Component {
   state = {
-    value: 'select',
+    value: 'select'
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => this.setState({ value });
 
   render() {
     return (
@@ -68,14 +71,14 @@ class DateSel extends React.Component {
   }
 }
 
-
 class DateRange extends React.Component {
   render() {
     return (
       <div>
         <h5>Date Range</h5>
         <small>
-          Define the date range for your report. The dates in your report will be within this range.
+          Define the date range for your report. The dates in your report will
+          be within this range.
         </small>
         <br />
         <Date /> <span className="space" /> <DateSel />

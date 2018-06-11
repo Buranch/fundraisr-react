@@ -1,22 +1,61 @@
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete/index';
-import TextField from 'material-ui/TextField';
+// import AutoComplete from 'material-ui/AutoComplete/index';
+// import TextField from 'material-ui/TextField';
+
+import TextField from '@material-ui/core/TextField';
 
 const states = [
-  'Alaska', 'Alabama', 'Arkansas',
-  'Arizona', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'Florida',
-  'Georgia', 'Hawaii', 'Iowa', 'Idaho',
-  'Illinois', 'Indiana', 'Kansas', 'Kentucky',
-  'Louisiana', 'Massachusetts', 'Maryland',
-  'Maine', 'Michigan', 'Minnesota', 'Missouri',
-  'Mississippi', 'Montana', 'North Carolina',
-  'North Dakota', 'Nebraska', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'Nevada', 'New York',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-  'Rhode Island', 'South Carolina', 'South Dakota',
-  'Tennessee', 'Texas', 'Utah', 'Virginia', 'Vermont',
-  'Washington', 'Wisconsin', 'West Virginia', 'Wyoming'];
+  'Alaska',
+  'Alabama',
+  'Arkansas',
+  'Arizona',
+  'California',
+  'Colorado',
+  'Connecticut',
+  'Delaware',
+  'Florida',
+  'Georgia',
+  'Hawaii',
+  'Iowa',
+  'Idaho',
+  'Illinois',
+  'Indiana',
+  'Kansas',
+  'Kentucky',
+  'Louisiana',
+  'Massachusetts',
+  'Maryland',
+  'Maine',
+  'Michigan',
+  'Minnesota',
+  'Missouri',
+  'Mississippi',
+  'Montana',
+  'North Carolina',
+  'North Dakota',
+  'Nebraska',
+  'New Hampshire',
+  'New Jersey',
+  'New Mexico',
+  'Nevada',
+  'New York',
+  'Ohio',
+  'Oklahoma',
+  'Oregon',
+  'Pennsylvania',
+  'Rhode Island',
+  'South Carolina',
+  'South Dakota',
+  'Tennessee',
+  'Texas',
+  'Utah',
+  'Virginia',
+  'Vermont',
+  'Washington',
+  'Wisconsin',
+  'West Virginia',
+  'Wyoming'
+];
 
 class DonorTitle extends React.Component {
   render() {
@@ -41,22 +80,30 @@ class ContactTable extends React.Component {
   render() {
     return (
       <div>
-        <TextField hintText="619-555-2424" floatingLabelText="Home Phone" /><br />
-        <TextField hintText="619-555-2424" floatingLabelText="Cell Phone" /><br />
+        <TextField hintText="619-555-2424" floatingLabelText="Home Phone" />
+        <br />
+        <TextField hintText="619-555-2424" floatingLabelText="Cell Phone" />
+        <br />
         <TextField hintText="619-555-2424" floatingLabelText="Business Phone" />
         <div className="divider" />
-        <TextField defaultValue="oprime@autobots.com" floatingLabelText="eMail" />
+        <TextField
+          defaultValue="oprime@autobots.com"
+          floatingLabelText="eMail"
+        />
         <div className="divider" />
 
-        <TextField defaultValue="123 Main St." floatingLabelText="Street Address" />
+        <TextField
+          defaultValue="123 Main St."
+          floatingLabelText="Street Address"
+        />
         <br />
         <TextField defaultValue="Cityville" floatingLabelText="City" />
         <br />
-        <AutoComplete
-          floatingLabelText="State"
-          filter={AutoComplete.caseInsensitiveFilter}
-          dataSource={states}
-        />
+        {/*<AutoComplete*/}
+        {/*floatingLabelText="State"*/}
+        {/*filter={AutoComplete.caseInsensitiveFilter}*/}
+        {/*dataSource={states}*/}
+        {/*/>*/}
         <br />
         <TextField defaultValue="91234" floatingLabelText="Zip Code" />
       </div>

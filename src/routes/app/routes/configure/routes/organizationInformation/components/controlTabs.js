@@ -1,8 +1,13 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import AutoComplete from 'material-ui/AutoComplete/index';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+// import {Tabs, Tab} from 'material-ui/Tabs';
+// import AutoComplete from 'material-ui/AutoComplete/index';
+// import TextField from 'material-ui/TextField';
+// import Toggle from 'material-ui/Toggle';
+
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import TextField from '@material-ui/core/TextField';
+import Switch from '@material-ui/core/Switch';
 
 const styles = {
   padding: '12px 18px',
@@ -12,7 +17,7 @@ const styles = {
   toggle: {
     maxWidth: 250,
     marginBottom: 16
-  },
+  }
 };
 const timezones = [
   '(GMT-11:00) Midway Island',
@@ -129,10 +134,18 @@ const timezones = [
   '(GMT+12:00) Fiji'
 ];
 const month = [
-  'January', 'February', 'March',
-  'April', 'May', 'June', 'July',
-  'August', 'September', 'October',
-  'November', 'December'
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
 ];
 
 const Verification = () => (
@@ -140,10 +153,10 @@ const Verification = () => (
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Verification Defaults</h5>
       <small>Require Address or Zip/Postal code verification. </small>
-      <Toggle label="Postal Code" style={styles.toggle} />
+      <Switch label="Postal Code" style={styles.toggle} />
       <br />
       <small>Lock credit card verification settings. </small>
-      <Toggle label="Lock Settings" style={styles.toggle} />
+      <Switch label="Lock Settings" style={styles.toggle} />
     </div>
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Description</h5>
@@ -151,7 +164,11 @@ const Verification = () => (
     </div>
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Contact</h5>
-      <TextField defaultValue="drfytguyh" floatingLabelText="Inquiry Phone" /> <br/>
+      <TextField
+        defaultValue="drfytguyh"
+        floatingLabelText="Inquiry Phone"
+      />{' '}
+      <br />
       <small>Donor Inquiry Phone Number. </small>
     </div>
   </div>
@@ -161,7 +178,7 @@ const Virtual = () => (
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>All Accounts</h5>
       <small>Share Transactions Across All Virtual Accounts.</small>
-      <Toggle label="Sharing" style={styles.toggle} defaultToggled />
+      <Switch label="Sharing" style={styles.toggle} defaultToggled />
     </div>
   </div>
 );
@@ -169,21 +186,21 @@ const Preferences = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Time Keeping</h5>
-      <AutoComplete
-        floatingLabelText="Time Zone"
-        filter={AutoComplete.caseInsensitiveFilter}
-        dataSource={timezones} />
-      <AutoComplete
-        floatingLabelText="Time Zone"
-        filter={AutoComplete.caseInsensitiveFilter}
-        dataSource={month}
-      />
+      {/*<AutoComplete*/}
+      {/*floatingLabelText="Time Zone"*/}
+      {/*filter={AutoComplete.caseInsensitiveFilter}*/}
+      {/*dataSource={timezones} />*/}
+      {/*<AutoComplete*/}
+      {/*floatingLabelText="Time Zone"*/}
+      {/*filter={AutoComplete.caseInsensitiveFilter}*/}
+      {/*dataSource={month}*/}
+      {/*/>*/}
       <br />
       <small>Last Month of Fiscal Year</small>
-      <br /><br />
+      <br />
+      <br />
       <small>Enable Daylight Saving Time (DST)</small>
-      <Toggle label="DST" style={styles.toggle} defaultToggled />
-
+      <Switch label="DST" style={styles.toggle} defaultToggled />
     </div>
   </div>
 );
@@ -191,7 +208,11 @@ const Benchmark = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Benchmark Profile</h5>
-      <TextField hintText="2,500,000" floatingLabelText="Annual Revenue" floatingLabelFixed />
+      <TextField
+        hintText="2,500,000"
+        floatingLabelText="Annual Revenue"
+        floatingLabelFixed
+      />
     </div>
   </div>
 );
@@ -199,8 +220,11 @@ const Duplicates = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Duplicates</h5>
-      <small>Merge new records if First Name, Last Name, and E-Mail address match exactly</small>
-      <Toggle label="De-Duplicator" style={styles.toggle} defaultToggled />
+      <small>
+        Merge new records if First Name, Last Name, and E-Mail address match
+        exactly
+      </small>
+      <Switch label="De-Duplicator" style={styles.toggle} defaultToggled />
     </div>
   </div>
 );
@@ -208,10 +232,20 @@ const Admin = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Admin</h5>
-      <small>Administrator for “Forgot Password?” and “Form Workflow” Support</small>
+      <small>
+        Administrator for “Forgot Password?” and “Form Workflow” Support
+      </small>
       <br />
-      <TextField floatingLabelFixed hintText="Thirston Howell" floatingLabelText="Administrator" />
-      <TextField floatingLabelFixed hintText="thirst@th3.com" floatingLabelText="eMail" />
+      <TextField
+        floatingLabelFixed
+        hintText="Thirston Howell"
+        floatingLabelText="Administrator"
+      />
+      <TextField
+        floatingLabelFixed
+        hintText="thirst@th3.com"
+        floatingLabelText="eMail"
+      />
     </div>
   </div>
 );
@@ -219,7 +253,11 @@ const Analytics = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Analytics Tracking</h5>
-      <TextField floatingLabelFixed hintText="12345-2345-4567488" floatingLabelText="Account" />
+      <TextField
+        floatingLabelFixed
+        hintText="12345-2345-4567488"
+        floatingLabelText="Account"
+      />
     </div>
   </div>
 );
@@ -227,12 +265,31 @@ const Receipts = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Enable PDF Receipts for Account?</h5>
-      <small>You must specify all three numbers. When the number specified for Send Warning at is assigned, an email will be sent notifying that you are nearing the end of the range. Select values that will give you sufficient time to reset the range. To meet tax agency requirements, when you start a new range of numbers for PDF receipts, you must manually enter a range that is unique and not previously used.</small>
-      <Toggle label="PDF Receipts" style={styles.toggle} />
+      <small>
+        You must specify all three numbers. When the number specified for Send
+        Warning at is assigned, an email will be sent notifying that you are
+        nearing the end of the range. Select values that will give you
+        sufficient time to reset the range. To meet tax agency requirements,
+        when you start a new range of numbers for PDF receipts, you must
+        manually enter a range that is unique and not previously used.
+      </small>
+      <Switch label="PDF Receipts" style={styles.toggle} />
 
-      <TextField floatingLabelFixed hintText="1" floatingLabelText="Starting Number" />
-      <TextField floatingLabelFixed hintText="99000" floatingLabelText="Send Warning at" />
-      <TextField floatingLabelFixed hintText="99999" floatingLabelText="Ending Number" />
+      <TextField
+        floatingLabelFixed
+        hintText="1"
+        floatingLabelText="Starting Number"
+      />
+      <TextField
+        floatingLabelFixed
+        hintText="99000"
+        floatingLabelText="Send Warning at"
+      />
+      <TextField
+        floatingLabelFixed
+        hintText="99999"
+        floatingLabelText="Ending Number"
+      />
     </div>
   </div>
 );
@@ -241,54 +298,54 @@ const Export = () => (
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Enable PDF Receipts for Account?</h5>
       <small>Exclude extended characters set in CSV and XLS exports.</small>
-      <Toggle label="Sharing" style={styles.toggle} />
+      <Switch label="Sharing" style={styles.toggle} />
     </div>
   </div>
 );
 
 const TabsExampleSimple = () => (
   <Tabs>
-    <Tab label="Verification" >
+    <Tab label="Verification">
       <div style={styles}>
         <Verification />
       </div>
     </Tab>
-    <Tab label="Virtual" >
+    <Tab label="Virtual">
       <div style={styles}>
         <Virtual />
       </div>
     </Tab>
-    <Tab label="Preferences" >
+    <Tab label="Preferences">
       <div style={styles}>
         <Preferences />
       </div>
     </Tab>
-    <Tab label="Benchmark" >
+    <Tab label="Benchmark">
       <div style={styles}>
         <Benchmark />
       </div>
     </Tab>
-    <Tab label="Duplicates" >
+    <Tab label="Duplicates">
       <div style={styles}>
         <Duplicates />
       </div>
     </Tab>
-    <Tab label="Admin" >
+    <Tab label="Admin">
       <div style={styles}>
         <Admin />
       </div>
     </Tab>
-    <Tab label="Analytics" >
+    <Tab label="Analytics">
       <div style={styles}>
         <Analytics />
       </div>
     </Tab>
-    <Tab label="Reciepts" >
+    <Tab label="Reciepts">
       <div style={styles}>
         <Receipts />
       </div>
     </Tab>
-    <Tab label="Export" >
+    <Tab label="Export">
       <div style={styles}>
         <Export />
       </div>

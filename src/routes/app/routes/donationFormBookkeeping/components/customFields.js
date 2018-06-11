@@ -1,16 +1,22 @@
 import React from 'react';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
+// import ContentAdd from 'material-ui/svg-icons/content/add';
+// import TextField from 'material-ui/TextField';
+// import FlatButton from 'material-ui/FlatButton';
+// import IconButton from 'material-ui/IconButton';
+// import ContentRemove from 'material-ui/svg-icons/content/remove';
+
+import ContentAdd from '@material-ui/icons/Add';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ContentRemove from '@material-ui/icons/Remove';
 
 const mWidthStyle = {
   minWidth: '135px'
 };
 
 class Elem extends React.Component {
-  clickHandler = (e) => {
+  clickHandler = e => {
     e.preventDefault();
     this.props.onDelete(this.props.num);
   };
@@ -29,7 +35,13 @@ class Elem extends React.Component {
           onChange={this.numHandler}
           value={this.props.value}
         />
-        <IconButton onClick={this.clickHandler} style={{padding: '0 10px 0 0'}}> <ContentRemove /> </IconButton>
+        <IconButton
+          onClick={this.clickHandler}
+          style={{ padding: '0 10px 0 0' }}
+        >
+          {' '}
+          <ContentRemove />{' '}
+        </IconButton>
       </span>
     );
   }
@@ -53,7 +65,7 @@ class CustomFields extends React.Component {
       alert('Maximum is set at 8');
     }
   };
-  RemoveHandler = (num) => {
+  RemoveHandler = num => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
@@ -95,10 +107,15 @@ class CustomFields extends React.Component {
       <div className="box box-default">
         <div className="box-body">
           <h5>Custom Fields</h5>
-          <small>
-            Add custom fields for your Donation Form
-          </small>
-          <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add" labelPosition="after" primary icon={<ContentAdd />} />
+          <small>Add custom fields for your Donation Form</small>
+          <Button
+            onClick={this.AddHandler}
+            style={mWidthStyle}
+            label="Add"
+            labelPosition="after"
+            primary
+            icon={<ContentAdd />}
+          />
           <div>
             <TextField floatingLabelText="Amount" />
             <br />

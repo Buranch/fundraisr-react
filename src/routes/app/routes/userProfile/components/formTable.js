@@ -1,7 +1,11 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import SettingsIcon from 'material-ui/svg-icons/action/settings';
+// import TextField from 'material-ui/TextField';
+// import FlatButton from 'material-ui/FlatButton';
+// import SettingsIcon from 'material-ui/svg-icons/action/settings';
+
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const mWidthStyle = {
   minWidth: '135px'
@@ -30,7 +34,10 @@ class UserContact extends React.Component {
         <br />
         <TextField hintText="619-555-2424" floatingLabelText="Business Phone" />
         <div className="divider" />
-        <TextField defaultValue="oprime@autobots.com" floatingLabelText="eMail" />
+        <TextField
+          defaultValue="oprime@autobots.com"
+          floatingLabelText="eMail"
+        />
       </div>
     );
   }
@@ -41,7 +48,14 @@ class UserAccess extends React.Component {
       <div>
         <TextField defaultValue="dave_be" floatingLabelText="User Name" />
         <div className="divider" />
-        <div className="text-right"><FlatButton style={mWidthStyle} label="Reset Password" icon={<SettingsIcon />} primary /></div>
+        <div className="text-right">
+          <Button
+            style={mWidthStyle}
+            label="Reset Password"
+            icon={<SettingsIcon />}
+            primary
+          />
+        </div>
       </div>
     );
   }

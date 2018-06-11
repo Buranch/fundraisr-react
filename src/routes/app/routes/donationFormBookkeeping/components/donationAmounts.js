@@ -1,6 +1,9 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+// import TextField from 'material-ui/TextField';
+// import Toggle from 'material-ui/Toggle';
+
+import TextField from '@material-ui/core/TextField';
+import Switch from '@material-ui/core/Switch';
 import AmNums from './amountsNum';
 import NumField from '../../../components/numField';
 
@@ -8,7 +11,7 @@ const styles = {
   toggle: {
     maxWidth: 250,
     marginBottom: 16
-  },
+  }
 };
 const mWidthStyle = {
   minWidth: '135px'
@@ -34,9 +37,13 @@ class HonorGiving extends React.Component {
   render() {
     return (
       <div>
-        <Toggle label="Honor Giving" style={styles.toggle} onToggle={this.ToggleHandler} />
+        <Switch
+          label="Honor Giving"
+          style={styles.toggle}
+          onToggle={this.ToggleHandler}
+        />
         <div style={this.state}>
-          <Toggle label="Honoree Card" />
+          <Switch label="Honoree Card" />
         </div>
       </div>
     );
@@ -62,7 +69,11 @@ class OthAmount extends React.Component {
   render() {
     return (
       <div>
-        <Toggle label="Other Amount" style={styles.toggle} onToggle={this.ToggleHandler} />
+        <Switch
+          label="Other Amount"
+          style={styles.toggle}
+          onToggle={this.ToggleHandler}
+        />
         <div className="box-body" style={this.state}>
           <NumField min={5} label="Minimum" />
         </div>
@@ -72,27 +83,28 @@ class OthAmount extends React.Component {
 }
 
 const PaymentTypes = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4"><h5>Payment Types</h5>
+  <div className="col-xs-12 col-sm-6 col-md-4">
+    <h5>Payment Types</h5>
     <small>
-      Default payment types are Visa, Master Card, American Express and Discover.
+      Default payment types are Visa, Master Card, American Express and
+      Discover.
     </small>
     <br />
     <br />
-    <Toggle label="PayPal" style={styles.toggle} defaultToggled/>
+    <Switch label="PayPal" style={styles.toggle} defaultToggled />
   </div>
 );
 const GivingOpt = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4"><h5>Giving Options</h5>
-    <small>
-      Enable donors to customize how they donate.
-    </small>
+  <div className="col-xs-12 col-sm-6 col-md-4">
+    <h5>Giving Options</h5>
+    <small>Enable donors to customize how they donate.</small>
     <br />
     <br />
-    <Toggle label="Monthly Giving" style={styles.toggle} />
+    <Switch label="Monthly Giving" style={styles.toggle} />
     <div className="divider" />
     <HonorGiving />
     <div className="divider" />
-    <Toggle label="Designation" style={styles.toggle} />
+    <Switch label="Designation" style={styles.toggle} />
   </div>
 );
 const DonAm = () => (

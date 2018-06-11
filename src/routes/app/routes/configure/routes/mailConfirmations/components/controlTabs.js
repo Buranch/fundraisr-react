@@ -1,5 +1,7 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
+// import {Tabs, Tab} from 'material-ui/Tabs';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import TableMail from './table';
 import MailChimp from './mailChimp';
 
@@ -12,12 +14,12 @@ const styles = {
 
 const TabsExampleSimple = () => (
   <Tabs>
-    <Tab label="Confirmations" >
+    <Tab label="Confirmations">
       <div style={styles}>
         <TableMail />
       </div>
     </Tab>
-    <Tab label="Settings" >
+    <Tab label="Settings">
       <div style={styles}>
         <h5> Mail Settings </h5>
         <MailChimp />

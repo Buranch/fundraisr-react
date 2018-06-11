@@ -1,6 +1,10 @@
 import React from 'react';
-import Toggle from 'material-ui/Toggle';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+// import Toggle from 'material-ui/Toggle';
+// import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+
+import Switch from '@material-ui/core/Switch';
+import RadioButton from '@material-ui/core/Radio';
+import RadioButtonGroup from '@material-ui/core/RadioGroup';
 
 const styles = {
   toggle: {
@@ -29,14 +33,18 @@ class CreditCard extends React.Component {
   render() {
     return (
       <div>
-        <Toggle label="Credit Cards" style={styles.toggle} onToggle={this.ToggleHandler} />
+        <Switch
+          label="Credit Cards"
+          style={styles.toggle}
+          onToggle={this.ToggleHandler}
+        />
         <div className="box bg-color-page" style={this.state}>
           <div className="box-body">
             <h5>Credit Card Types</h5>
-            <Toggle label="Visa" style={styles.toggle} />
-            <Toggle label="MasterCard" style={styles.toggle} />
-            <Toggle label="American Express" style={styles.toggle} />
-            <Toggle label="Discover" style={styles.toggle} />
+            <Switch label="Visa" style={styles.toggle} />
+            <Switch label="MasterCard" style={styles.toggle} />
+            <Switch label="American Express" style={styles.toggle} />
+            <Switch label="Discover" style={styles.toggle} />
             <div className="divider" />
 
             <h5>Credit Card Verification</h5>

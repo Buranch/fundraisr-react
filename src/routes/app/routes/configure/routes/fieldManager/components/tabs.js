@@ -1,5 +1,7 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
+// import {Tabs, Tab} from 'material-ui/Tabs';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import DonorTitle from './donorTitle';
 import DonorContact from './donorContact';
 import Demographic from './demographic';
@@ -11,11 +13,11 @@ import DonorInfo from './donorInfo';
 const styles = {
   padding: '12px 18px',
   marginBottom: 12,
-  fontWeight: 400,
+  fontWeight: 400
 };
 const TabsExampleSimple = () => (
   <Tabs>
-    <Tab label="Standard Fields" >
+    <Tab label="Standard Fields">
       <div style={styles}>
         <DonorTitle />
         <div className="divider" />
@@ -26,7 +28,7 @@ const TabsExampleSimple = () => (
         <EploymentInfo />
       </div>
     </Tab>
-    <Tab label="Custom Fields" >
+    <Tab label="Custom Fields">
       <div style={styles}>
         <ControlPanel />
         <DonorInfo />
@@ -39,7 +41,6 @@ const TabsExampleSimple = () => (
     </Tab>
   </Tabs>
 );
-
 
 const TabsSection = () => (
   <section className="box box-default">

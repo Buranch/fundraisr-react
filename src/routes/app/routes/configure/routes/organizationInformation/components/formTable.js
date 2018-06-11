@@ -1,22 +1,61 @@
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete/index';
-import TextField from 'material-ui/TextField';
+// import AutoComplete from 'material-ui/AutoComplete/index';
+// import TextField from 'material-ui/TextField';
+
+import TextField from '@material-ui/core/TextField';
 
 const states = [
-  'Alaska', 'Alabama', 'Arkansas',
-  'Arizona', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'Florida',
-  'Georgia', 'Hawaii', 'Iowa', 'Idaho',
-  'Illinois', 'Indiana', 'Kansas', 'Kentucky',
-  'Louisiana', 'Massachusetts', 'Maryland',
-  'Maine', 'Michigan', 'Minnesota', 'Missouri',
-  'Mississippi', 'Montana', 'North Carolina',
-  'North Dakota', 'Nebraska', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'Nevada', 'New York',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-  'Rhode Island', 'South Carolina', 'South Dakota',
-  'Tennessee', 'Texas', 'Utah', 'Virginia', 'Vermont',
-  'Washington', 'Wisconsin', 'West Virginia', 'Wyoming'];
+  'Alaska',
+  'Alabama',
+  'Arkansas',
+  'Arizona',
+  'California',
+  'Colorado',
+  'Connecticut',
+  'Delaware',
+  'Florida',
+  'Georgia',
+  'Hawaii',
+  'Iowa',
+  'Idaho',
+  'Illinois',
+  'Indiana',
+  'Kansas',
+  'Kentucky',
+  'Louisiana',
+  'Massachusetts',
+  'Maryland',
+  'Maine',
+  'Michigan',
+  'Minnesota',
+  'Missouri',
+  'Mississippi',
+  'Montana',
+  'North Carolina',
+  'North Dakota',
+  'Nebraska',
+  'New Hampshire',
+  'New Jersey',
+  'New Mexico',
+  'Nevada',
+  'New York',
+  'Ohio',
+  'Oklahoma',
+  'Oregon',
+  'Pennsylvania',
+  'Rhode Island',
+  'South Carolina',
+  'South Dakota',
+  'Tennessee',
+  'Texas',
+  'Utah',
+  'Virginia',
+  'Vermont',
+  'Washington',
+  'Wisconsin',
+  'West Virginia',
+  'Wyoming'
+];
 
 class OverviewTable extends React.Component {
   render() {
@@ -38,7 +77,10 @@ class ContactTable extends React.Component {
   render() {
     return (
       <div>
-        <TextField defaultValue="Thirston Howell" floatingLabelText="Main POC" />
+        <TextField
+          defaultValue="Thirston Howell"
+          floatingLabelText="Main POC"
+        />
         <div className="divider" />
 
         <TextField defaultValue="619-555-2424" floatingLabelText="Phone" />
@@ -49,15 +91,18 @@ class ContactTable extends React.Component {
         <TextField defaultValue="support@th3.com" floatingLabelText="eMail" />
         <div className="divider" />
 
-        <TextField defaultValue="234 Ortiz Dr." floatingLabelText="Street Address" />
+        <TextField
+          defaultValue="234 Ortiz Dr."
+          floatingLabelText="Street Address"
+        />
         <br />
         <TextField defaultValue="Organie" floatingLabelText="City" />
         <br />
-        <AutoComplete
-          floatingLabelText="State"
-          filter={AutoComplete.caseInsensitiveFilter}
-          dataSource={states}
-        />
+        {/*<AutoComplete*/}
+        {/*floatingLabelText="State"*/}
+        {/*filter={AutoComplete.caseInsensitiveFilter}*/}
+        {/*dataSource={states}*/}
+        {/*/>*/}
         <br />
         <TextField defaultValue="91234" floatingLabelText="Zip Code" />
       </div>

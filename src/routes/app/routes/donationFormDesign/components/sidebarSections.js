@@ -1,15 +1,20 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+// import TextField from 'material-ui/TextField';
+// import FlatButton from 'material-ui/FlatButton';
+// import ContentRemove from 'material-ui/svg-icons/content/remove';
+// import ContentAdd from 'material-ui/svg-icons/content/add';
+
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import ContentRemove from '@material-ui/icons/Remove';
+import ContentAdd from '@material-ui/icons/Add';
 
 const mWidthStyle = {
   minWidth: '135px'
 };
 
 class TextSection extends React.Component {
-  clickHandler = (e) => {
+  clickHandler = e => {
     this.props.onDelete(this.props.num - 1);
   };
   headLineHandler = (e, newValue) => {
@@ -25,7 +30,11 @@ class TextSection extends React.Component {
     return (
       <div className="bg-color-page col-xs-12 col-sm-6 col-md-4 box">
         <div className="box-body">
-          <TextField hintText="HeadLine" onChange={this.headLineHandler} value={this.props.value.headLine} />
+          <TextField
+            hintText="HeadLine"
+            onChange={this.headLineHandler}
+            value={this.props.value.headLine}
+          />
           <TextField
             onChange={this.contentHandler}
             hintText="<html> is ok. Lorem ipsum"
@@ -35,8 +44,21 @@ class TextSection extends React.Component {
             fullWidth
             value={this.props.value.content}
           />
-          <TextField floatingLabelText="CSS Class" onChange={this.cssHandler} value={this.props.value.css} />
-          <div className="text-right"><FlatButton style={mWidthStyle} onClick={this.clickHandler} label="Delete" labelPosition="after" primary icon={<ContentRemove />} /></div>
+          <TextField
+            floatingLabelText="CSS Class"
+            onChange={this.cssHandler}
+            value={this.props.value.css}
+          />
+          <div className="text-right">
+            <FlatButton
+              style={mWidthStyle}
+              onClick={this.clickHandler}
+              label="Delete"
+              labelPosition="after"
+              primary
+              icon={<ContentRemove />}
+            />
+          </div>
         </div>
       </div>
     );
@@ -44,19 +66,19 @@ class TextSection extends React.Component {
 }
 class SidebarSections extends React.Component {
   state = {
-    array: [{headLine: '', css: '', content: ''}]
+    array: [{ headLine: '', css: '', content: '' }]
   };
 
   addHandler = () => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
-      prev.push({headLine: '', css: '', content: ''});
+      prev.push({ headLine: '', css: '', content: '' });
       return {
         array: prev
       };
     });
   };
-  removeHandler = (num) => {
+  removeHandler = num => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
@@ -117,7 +139,14 @@ class SidebarSections extends React.Component {
       <div>
         <div className="box box-default">
           <div className="box-body">
-            <FlatButton onClick={this.addHandler} style={mWidthStyle} label="Addresses" labelPosition="after" primary icon={<ContentAdd />} />
+            <Button
+              onClick={this.addHandler}
+              style={mWidthStyle}
+              label="Addresses"
+              labelPosition="after"
+              primary
+              icon={<ContentAdd />}
+            />
             <br />
             <div className="row">{elems}</div>
           </div>

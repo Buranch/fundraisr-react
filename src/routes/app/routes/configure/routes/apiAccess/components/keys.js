@@ -1,11 +1,13 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+// import RaisedButton from 'material-ui/RaisedButton';
+// import TextField from 'material-ui/TextField';
+
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const mWidthStyle = {
   minWidth: '135px'
 };
-
 
 const Keys = () => (
   <div>
@@ -19,7 +21,10 @@ const Keys = () => (
       rowsMax={4}
     />
     <br />
-    <small>This API key are required for your site to interact securely with Fundraisr's API.</small>
+    <small>
+      This API key are required for your site to interact securely with
+      Fundraisr's API.
+    </small>
     <br />
 
     <TextField
@@ -32,9 +37,18 @@ const Keys = () => (
       rowsMax={4}
     />
     <br />
-    <small>Add your companies IP network to always allows traffic from your internal network.</small>
-    <br /><br />
-    <RaisedButton style={mWidthStyle} label="View API Documentation" primary />
+    <small>
+      Add your companies IP network to always allows traffic from your internal
+      network.
+    </small>
+    <br />
+    <br />
+    <Button
+      variant="contained"
+      style={mWidthStyle}
+      label="View API Documentation"
+      primary
+    />
   </div>
 );
 
@@ -43,7 +57,7 @@ const KeysContainer = () => (
     <div className="box-body">
       <h5>API Key</h5>
       <small>This is the Key to your API Access</small>
-      <br/>
+      <br />
       <Keys />
     </div>
   </div>

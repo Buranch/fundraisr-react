@@ -1,5 +1,7 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+// import TextField from 'material-ui/TextField';
+
+import TextField from '@material-ui/core/TextField';
 
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -16,7 +18,7 @@ class NumTextField extends React.Component {
   numHandler = (evt, newValue) => {
     if (!isNumeric(newValue) && newValue !== '') return;
     if (+newValue >= +this.props.min) {
-      this.setState({value: newValue});
+      this.setState({ value: newValue });
       if (this.props.onChange) {
         this.props.onChange(evt, newValue);
       }

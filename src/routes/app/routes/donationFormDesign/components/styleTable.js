@@ -1,17 +1,20 @@
 import React from 'react';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+// import SelectField from 'material-ui/SelectField';
+// import MenuItem from 'material-ui/MenuItem';
+
+import SelectField from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import ColorPicker from '../../../components/colorPicker';
 import NumField from '../../../components/numField';
 
-const boxStyle = {margin: '5px'};
+const boxStyle = { margin: '5px' };
 
 class BoxPattern extends React.Component {
   state = {
-    value: 1,
+    value: 1
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => this.setState({ value });
 
   render() {
     return (
@@ -29,10 +32,10 @@ class BoxPattern extends React.Component {
 }
 class RepeatPattern extends React.Component {
   state = {
-    value: 1,
+    value: 1
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => this.setState({ value });
 
   render() {
     return (
@@ -51,10 +54,10 @@ class RepeatPattern extends React.Component {
 }
 class SelectFonts extends React.Component {
   state = {
-    value: 1,
+    value: 1
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => this.setState({ value });
 
   render() {
     return (

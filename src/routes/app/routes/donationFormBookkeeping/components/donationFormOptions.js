@@ -1,7 +1,11 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import DoneIcon from 'material-ui/svg-icons/action/done';
+// import TextField from 'material-ui/TextField';
+// import FlatButton from 'material-ui/FlatButton';
+// import DoneIcon from 'material-ui/svg-icons/action/done';
+
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import DoneIcon from '@material-ui/icons/Done';
 import Helper from '../../../components/helper';
 import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';
@@ -56,7 +60,7 @@ class AdditionalContent extends React.Component {
             container
           </small>
           <div className="text-center">
-            <FlatButton
+            <Button
               onClick={this.ClickHandler}
               style={mWidthStyle}
               label="Content"
@@ -64,7 +68,7 @@ class AdditionalContent extends React.Component {
               target="_blank"
               secondary={!this.state.advanced}
             />
-            <FlatButton
+            <Button
               onClick={this.ClickHandler}
               style={mWidthStyle}
               label="Advanced"
@@ -157,7 +161,7 @@ const FriendlyUrl = () => (
       .fundaisr.org/<span className="space" />
       <TextField hintText="Form Name" />
       <div className="text-right">
-        <FlatButton
+        <Button
           style={mWidthStyle}
           label="Submit"
           icon={<DoneIcon />}

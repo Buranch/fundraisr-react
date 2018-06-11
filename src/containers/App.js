@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProviderV0 from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import MainApp from 'routes/app/';
@@ -54,28 +56,30 @@ class App extends Component {
     }
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(materialUITheme)}>
-        <div id="app-inner">
-          <div className="preloaderbar hide">
-            <span className="bar" />
+      <MuiThemeProvider>
+        <MuiThemeProviderV0>
+          <div id="app-inner">
+            <div className="preloaderbar hide">
+              <span className="bar" />
+            </div>
+            <div
+              className={classnames('app-main full-height', {
+                'fixed-header': fixedHeader,
+                'nav-collapsed': navCollapsed,
+                'nav-behind': navBehind,
+                'layout-boxed': layoutBoxed,
+                'theme-gray': theme === 'gray',
+                'theme-dark': theme === 'dark',
+                'sidebar-sm': sidebarWidth === 'small',
+                'sidebar-lg': sidebarWidth === 'large'
+              })}
+            >
+              <Route path={`${match.url}app`} component={MainApp} />
+              <Route exact path="/404" component={Page404} />
+              <Route exact path="/500" component={Page500} />
+            </div>
           </div>
-          <div
-            className={classnames('app-main full-height', {
-              'fixed-header': fixedHeader,
-              'nav-collapsed': navCollapsed,
-              'nav-behind': navBehind,
-              'layout-boxed': layoutBoxed,
-              'theme-gray': theme === 'gray',
-              'theme-dark': theme === 'dark',
-              'sidebar-sm': sidebarWidth === 'small',
-              'sidebar-lg': sidebarWidth === 'large'
-            })}
-          >
-            <Route path={`${match.url}app`} component={MainApp} />
-            <Route exact path="/404" component={Page404} />
-            <Route exact path="/500" component={Page500} />
-          </div>
-        </div>
+        </MuiThemeProviderV0>
       </MuiThemeProvider>
     );
   }
