@@ -56,7 +56,7 @@ class App extends Component {
     }
 
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider theme={createMuiTheme(materialUITheme)}>
         <MuiThemeProviderV0>
           <div id="app-inner">
             <div className="preloaderbar hide">
