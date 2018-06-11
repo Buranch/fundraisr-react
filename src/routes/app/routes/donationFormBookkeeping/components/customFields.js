@@ -111,11 +111,11 @@ class CustomFields extends React.Component {
           <Button
             onClick={this.AddHandler}
             style={mWidthStyle}
-            label="Add"
             labelPosition="after"
-            primary
-            icon={<ContentAdd />}
-          />
+            color="primary"
+          >
+            <ContentAdd /> Add
+          </Button>
           <div>
             <TextField floatingLabelText="Amount" />
             <br />

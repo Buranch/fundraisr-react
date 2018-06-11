@@ -40,7 +40,7 @@ class HonorGiving extends React.Component {
         <Switch
           label="Honor Giving"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          onChange={this.ToggleHandler}
         />
         <div style={this.state}>
           <Switch label="Honoree Card" />
@@ -69,10 +69,10 @@ class OthAmount extends React.Component {
   render() {
     return (
       <div>
-        <Toggle
+        <Switch
           label="Other Amount"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          onChange={this.ToggleHandler}
         />
         <div className="box-body" style={this.state}>
           <NumField min={5} label="Minimum" />
@@ -91,7 +91,7 @@ const PaymentTypes = () => (
     </small>
     <br />
     <br />
-    <Toggle label="PayPal" style={styles.toggle} defaultToggled />
+    <Switch label="PayPal" style={styles.toggle} defaultToggled />
   </div>
 );
 const GivingOpt = () => (
@@ -100,11 +100,11 @@ const GivingOpt = () => (
     <small>Enable donors to customize how they donate.</small>
     <br />
     <br />
-    <Toggle label="Monthly Giving" style={styles.toggle} />
+    <Switch label="Monthly Giving" style={styles.toggle} />
     <div className="divider" />
     <HonorGiving />
     <div className="divider" />
-    <Toggle label="Designation" style={styles.toggle} />
+    <Switch label="Designation" style={styles.toggle} />
   </div>
 );
 const DonAm = () => (

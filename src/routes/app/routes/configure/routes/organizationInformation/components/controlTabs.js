@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import {Tabs, Tab} from 'material-ui/Tabs';
 // import AutoComplete from 'material-ui/AutoComplete/index';
 // import TextField from 'material-ui/TextField';
@@ -303,55 +303,81 @@ const Export = () => (
   </div>
 );
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="Verification">
-      <div style={styles}>
-        <Verification />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="Verification" />
+          <Tab label="Virtual" />
+          <Tab label="Preferences" />
+          <Tab label="Benchmark" />
+          <Tab label="Duplicates" />
+          <Tab label="Admin" />
+          <Tab label="Analytics" />
+          <Tab label="Reciepts" />
+          <Tab label="Export" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <Verification />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <Virtual />
+          </div>
+        )}
+        {value === 2 && (
+          <div style={styles}>
+            <Preferences />
+          </div>
+        )}
+        {value === 3 && (
+          <div style={styles}>
+            <Benchmark />
+          </div>
+        )}
+        {value === 4 && (
+          <div style={styles}>
+            <Duplicates />
+          </div>
+        )}
+        {value === 5 && (
+          <div style={styles}>
+            <Admin />
+          </div>
+        )}
+        {value === 6 && (
+          <div style={styles}>
+            <Analytics />
+          </div>
+        )}
+        {value === 7 && (
+          <div style={styles}>
+            <Receipts />
+          </div>
+        )}
+        {value === 8 && (
+          <div style={styles}>
+            <Export />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Virtual">
-      <div style={styles}>
-        <Virtual />
-      </div>
-    </Tab>
-    <Tab label="Preferences">
-      <div style={styles}>
-        <Preferences />
-      </div>
-    </Tab>
-    <Tab label="Benchmark">
-      <div style={styles}>
-        <Benchmark />
-      </div>
-    </Tab>
-    <Tab label="Duplicates">
-      <div style={styles}>
-        <Duplicates />
-      </div>
-    </Tab>
-    <Tab label="Admin">
-      <div style={styles}>
-        <Admin />
-      </div>
-    </Tab>
-    <Tab label="Analytics">
-      <div style={styles}>
-        <Analytics />
-      </div>
-    </Tab>
-    <Tab label="Reciepts">
-      <div style={styles}>
-        <Receipts />
-      </div>
-    </Tab>
-    <Tab label="Export">
-      <div style={styles}>
-        <Export />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <section className="box box-default">

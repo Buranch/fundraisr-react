@@ -133,11 +133,11 @@ class FooterLinks extends React.Component {
         <Button
           onClick={this.AddHandler}
           style={mWidthStyle}
-          label="Addresses"
           labelPosition="after"
-          primary
-          icon={<ContentAdd />}
-        />
+          color="primary"
+        >
+          <ContentAdd /> Addresses
+        </Button>
         <div>
           <TextField
             floatingLabelText="Link*"

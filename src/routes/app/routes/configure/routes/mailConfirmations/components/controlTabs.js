@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import {Tabs, Tab} from 'material-ui/Tabs';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -12,21 +12,39 @@ const styles = {
   minHeight: 300
 };
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="Confirmations">
-      <div style={styles}>
-        <TableMail />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="Confirmations" />
+          <Tab label="Settings" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <TableMail />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <h5> Mail Settings </h5>
+            <MailChimp />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Settings">
-      <div style={styles}>
-        <h5> Mail Settings </h5>
-        <MailChimp />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <section className="box box-default">

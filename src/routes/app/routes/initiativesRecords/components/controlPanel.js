@@ -33,7 +33,9 @@ class Controls extends React.Component {
           href=""
           target="_blank"
           secondary={this.state.donors}
-        />
+        >
+          Donors
+        </Button>
         <Button
           onClick={this.ClickHandler}
           style={mWidthStyle}
@@ -41,7 +43,9 @@ class Controls extends React.Component {
           href=""
           target="_blank"
           secondary={!this.state.donors}
-        />
+        >
+          Participants
+        </Button>
       </div>
     );
   }

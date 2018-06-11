@@ -49,12 +49,9 @@ class UserAccess extends React.Component {
         <TextField defaultValue="dave_be" floatingLabelText="User Name" />
         <div className="divider" />
         <div className="text-right">
-          <Button
-            style={mWidthStyle}
-            label="Reset Password"
-            icon={<SettingsIcon />}
-            primary
-          />
+          <Button style={mWidthStyle} color="primary">
+            <SettingsIcon /> Reset Password
+          </Button>
         </div>
       </div>
     );

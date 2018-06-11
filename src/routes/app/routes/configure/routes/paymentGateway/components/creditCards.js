@@ -36,7 +36,7 @@ class CreditCard extends React.Component {
         <Switch
           label="Credit Cards"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          onChange={this.ToggleHandler}
         />
         <div className="box bg-color-page" style={this.state}>
           <div className="box-body">

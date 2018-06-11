@@ -28,10 +28,10 @@ class Runner extends React.Component {
                 <Button
                   href="#/app/donation-form-design"
                   style={mWidthStyle}
-                  label="Open"
-                  icon={<BrushIcon />}
-                  primary
-                />
+                  color="primary"
+                >
+                  <BrushIcon /> Open
+                </Button>
               </div>
             </div>
           </div>
@@ -46,10 +46,10 @@ class Runner extends React.Component {
                 <Button
                   href="#/app/donation-form-options"
                   style={mWidthStyle}
-                  label="Open"
-                  icon={<OptionIcon />}
-                  primary
-                />
+                  color="primary"
+                >
+                  <OptionIcon /> Open
+                </Button>
               </div>{' '}
             </div>
           </div>
@@ -63,10 +63,10 @@ class Runner extends React.Component {
                 <Button
                   href="#/app/donation-form-bookkeeping"
                   style={mWidthStyle}
-                  label="Open"
-                  icon={<BookIcon />}
-                  primary
-                />
+                  color="primary"
+                >
+                  <BookIcon /> Open
+                </Button>
               </div>
             </div>
           </div>

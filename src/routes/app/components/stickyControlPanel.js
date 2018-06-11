@@ -19,19 +19,15 @@ const boxBodyStyle = {
 const panel = () => (
   <div className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
     <div className="text-right" style={boxBodyStyle}>
-      <Button
-        style={mWidthStyle}
-        label="Save"
-        secondary
-        icon={<SaveButton />}
-      />
-      <Button style={mWidthStyle} label="Revert" icon={<UndoButton />} />
-      <Button
-        style={mWidthStyle}
-        label="Cancel"
-        primary
-        icon={<CancelButton />}
-      />
+      <Button style={mWidthStyle} color="secondary">
+        <SaveButton /> Save
+      </Button>
+      <Button style={mWidthStyle}>
+        <UndoButton /> Revert
+      </Button>
+      <Button style={mWidthStyle} color="primary">
+        <CancelButton /> Cancel
+      </Button>
     </div>
   </div>
 );

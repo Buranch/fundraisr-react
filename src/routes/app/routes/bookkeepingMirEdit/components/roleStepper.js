@@ -38,10 +38,12 @@ class VerticalNonLinear extends React.Component {
           variant="contained"
           disableTouchRipple
           disableFocusRipple
-          primary
+          color="primary"
           style={{ marginRight: 12 }}
           icon={<SettingsIcon />}
-        />
+        >
+          Run <SettingsIcon />
+        </Button>
       </div>
     );
   }

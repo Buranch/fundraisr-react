@@ -29,9 +29,10 @@ class Runner extends React.Component {
                   style={mWidthStyle}
                   label="Run"
                   target="_blank"
-                  icon={<DeleteIcon />}
-                  primary
-                />
+                  color="primary"
+                >
+                  <DeleteIcon /> Run
+                </Button>
               </div>
             </div>
           </div>
@@ -50,8 +51,10 @@ class Runner extends React.Component {
                   label="Run"
                   icon={<DeleteIcon />}
                   target="_blank"
-                  primary
-                />
+                  color="primary"
+                >
+                  <DeleteIcon /> Run
+                </Button>
               </div>
             </div>
           </div>

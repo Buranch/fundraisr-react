@@ -40,7 +40,7 @@ class BlockCountries extends React.Component {
         <Switch
           label="Block Countries"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          onChange={this.ToggleHandler}
         />
 
         <div style={this.state}>

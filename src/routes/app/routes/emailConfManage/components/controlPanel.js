@@ -40,33 +40,29 @@ class Panel extends React.Component {
     return (
       <div className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
         <div className="text-right" style={{ padding: '4px' }}>
-          <Button
-            style={mWidthStyle}
-            label="Save"
-            secondary
-            icon={<SaveIcon />}
-          />
-          <Button style={mWidthStyle} label="Revert" icon={<UndoIcon />} />
-          <Button
-            style={mWidthStyle}
-            label="Cancel"
-            primary
-            icon={<CancelIcon />}
-          />
+          <Button style={mWidthStyle} color="secondary">
+            <SaveIcon /> Save
+          </Button>
+          <Button style={mWidthStyle}>
+            <UndoIcon /> Revert
+          </Button>
+          <Button style={mWidthStyle} color="primary">
+            <CancelIcon /> Cancel
+          </Button>
           <Button
             style={mWidthStyle}
             onClick={this.testClickHandle}
-            label="Test Mode"
-            icon={this.state.testMode ? <PlayIcon /> : <PauseIcon />}
             primary={this.state.testMode}
-          />
+          >
+            {this.state.testMode ? <PlayIcon /> : <PauseIcon />} Test Mode
+          </Button>
           <Button
             style={mWidthStyle}
             onClick={this.eventClickHandle}
-            label="Event Mode"
-            icon={this.state.eventMode ? <PlayIcon /> : <PauseIcon />}
             primary={this.state.eventMode}
-          />
+          >
+            {this.state.eventMode ? <PlayIcon /> : <PauseIcon />} Event Mode
+          </Button>
         </div>
       </div>
     );

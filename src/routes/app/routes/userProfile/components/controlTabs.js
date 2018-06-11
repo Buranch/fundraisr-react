@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import {Tabs, Tab} from 'material-ui/Tabs';
 // import Toggle from 'material-ui/Toggle';
 
@@ -39,20 +39,38 @@ const Priveleges = () => (
   </div>
 );
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="Priveleges">
-      <div style={styles}>
-        <Priveleges />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="Priveleges" />
+          <Tab label="Activity" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <Priveleges />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <ActivityTable />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Activity">
-      <div style={styles}>
-        <ActivityTable />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <section className="box box-default">

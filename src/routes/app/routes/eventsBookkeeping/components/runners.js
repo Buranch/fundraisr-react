@@ -23,12 +23,12 @@ class Runner extends React.Component {
               initiative participants, donors and sponsors.
               <div className="text-right">
                 <Button
-                  icon={<RunIcon />}
                   href="#app/initiative-records"
                   style={mWidthStyle}
-                  label="Run"
-                  primary
-                />
+                  color="primary"
+                >
+                  <RunIcon /> Run
+                </Button>
               </div>
             </div>
           </div>
@@ -43,12 +43,12 @@ class Runner extends React.Component {
               available.
               <div className="text-right">
                 <Button
-                  icon={<RunIcon />}
                   href="#app/gift-entry"
                   style={mWidthStyle}
-                  label="Run"
-                  primary
-                />
+                  color="primary"
+                >
+                  <RunIcon /> Run
+                </Button>
               </div>
             </div>
           </div>
@@ -60,12 +60,12 @@ class Runner extends React.Component {
               Enter Registrations one at a time.
               <div className="text-right">
                 <Button
-                  icon={<RunIcon />}
                   href="#app/initiative-records"
                   style={mWidthStyle}
-                  label="Run"
-                  primary
-                />
+                  color="primary"
+                >
+                  <RunIcon /> Run
+                </Button>
               </div>
             </div>
           </div>

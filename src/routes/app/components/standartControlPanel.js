@@ -23,13 +23,9 @@ class Controls extends React.Component {
   render() {
     return (
       <div className="box box-default text-center">
-        <Button
-          style={mWidthStyle}
-          label="New"
-          href={this.state.newHref}
-          secondary
-          icon={<AddIcon />}
-        />
+        <Button style={mWidthStyle} href={this.state.newHref} color="secondary">
+          <AddIcon /> New
+        </Button>
         <span className="space" />
         <Button style={mWidthStyle} href={this.state.editHref} color="primary">
           <EditIcon /> Edit

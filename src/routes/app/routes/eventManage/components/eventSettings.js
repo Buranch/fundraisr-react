@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import {Tabs, Tab} from 'material-ui/Tabs';
 // import TextField from 'material-ui/TextField';
 // import Toggle from 'material-ui/Toggle';
@@ -306,30 +306,50 @@ class Registration extends React.Component {
   );
 }
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="Confirmations">
-      <div style={styles}>
-        <Confirmations />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="Confirmations" />
+          <Tab label="Notifications" />
+          <Tab label="Features" />
+          <Tab label="Registration" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <Confirmations />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <Notification />
+          </div>
+        )}
+        {value === 2 && (
+          <div style={styles}>
+            <Features />
+          </div>
+        )}
+        {value === 3 && (
+          <div style={styles}>
+            <Registration />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Notifications">
-      <div style={styles}>
-        <Notification />
-      </div>
-    </Tab>
-    <Tab label="Features">
-      <div style={styles}>
-        <Features />
-      </div>
-    </Tab>
-    <Tab label="Registration">
-      <div style={styles}>
-        <Registration />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <div>

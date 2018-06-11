@@ -44,17 +44,19 @@ class EmailConf extends React.Component {
                   <Button
                     onClick={this.clickHandler}
                     style={mWidthStyle}
-                    label="Use Default Text"
                     target="_blank"
                     secondary={this.state.first}
-                  />
+                  >
+                    Use Default Text
+                  </Button>
                   <Button
                     onClick={this.clickHandler}
                     style={mWidthStyle}
-                    label="Use Custom Text"
                     target="_blank"
                     secondary={!this.state.first}
-                  />
+                  >
+                    Use Custom Text
+                  </Button>
                 </div>
               </div>
               <div className="col-xl-8">

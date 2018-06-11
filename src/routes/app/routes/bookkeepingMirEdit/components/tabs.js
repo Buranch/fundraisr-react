@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import {Tabs, Tab} from 'material-ui/Tabs';
 // import TextField from 'material-ui/TextField';
 // import RaisedButton from 'material-ui/RaisedButton';
 // import ContactIcon from 'material-ui/svg-icons/action/perm-contact-calendar';
 // import DeleteIcon from 'material-ui/svg-icons/action/delete-forever';
 
+import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
@@ -39,11 +40,11 @@ const General = () => (
       <Button
         style={mWidthStyle}
         variant="contained"
-        label="View Contact"
         labelPosition="after"
-        primary
-        icon={<ContactIcon />}
-      />
+        color="primary"
+      >
+        <ContactIcon /> View Contact
+      </Button>
     </div>
     <div className="col-xs-12 col-sm-6 col-md-6">
       <h5>Record</h5>
@@ -63,35 +64,53 @@ const General = () => (
       <Button
         style={mWidthStyle}
         variant="contained"
-        label="Reset Password"
         labelPosition="after"
-        primary
-        icon={<DeleteIcon />}
-      />
+        color="primary"
+      >
+        <DeleteIcon /> Reset Password
+      </Button>
     </div>
   </div>
 );
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="General Information">
-      <div style={styles}>
-        <General />
-        <div className="divider divider-md" />
-        <Role />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="General Information" />
+          <Tab label="Delete Record" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <General />
+            <div className="divider divider-md" />
+            <Role />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <Helper
+              text="Alert: This action will permanently delete the information related to this entry."
+              isDanger
+            />
+            <Runners />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Delete Record">
-      <div style={styles}>
-        <Helper
-          text="Alert: This action will permanently delete the information related to this entry."
-          isDanger
-        />
-        <Runners />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <section className="box box-default">

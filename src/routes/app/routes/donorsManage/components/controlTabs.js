@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import {Tabs, Tab} from 'material-ui/Tabs';
 // import AutoComplete from 'material-ui/AutoComplete/index';
 // import TextField from 'material-ui/TextField';
@@ -372,56 +372,79 @@ class Misc extends React.Component {
             <MenuItem value={'referal'} primaryText="Referal" />
             <MenuItem value={'other'} primaryText="Other" />
           </SelectField>
-          <Toggle label="Active Flag" style={styles.toggle} />
-          <Toggle label="Private Listing" style={styles.toggle} />
-          <Toggle label="Celebrity" style={styles.toggle} />
-          <Toggle label="Can Post" style={styles.toggle} defaultToggled />
-          <Toggle label="Giving Fund" style={styles.toggle} defaultToggled />
+          <Switch label="Active Flag" style={styles.toggle} />
+          <Switch label="Private Listing" style={styles.toggle} />
+          <Switch label="Celebrity" style={styles.toggle} />
+          <Switch label="Can Post" style={styles.toggle} defaultToggled />
+          <Switch label="Giving Fund" style={styles.toggle} defaultToggled />
         </div>
       </div>
     );
   }
 }
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="Personal">
-      <div style={styles}>
-        <Personal />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="Personal" />
+          <Tab label="Identifiers" />
+          <Tab label="Education" />
+          <Tab label="Relationships" />
+          <Tab label="History" />
+          <Tab label="Contact Methods" />
+          <Tab label="Misc" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <Personal />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <Identifiers />
+          </div>
+        )}
+        {value === 2 && (
+          <div style={styles}>
+            <Education />
+          </div>
+        )}
+        {value === 3 && (
+          <div style={styles}>
+            <Relationships />
+          </div>
+        )}
+        {value === 4 && (
+          <div style={styles}>
+            <History />
+          </div>
+        )}
+        {value === 5 && (
+          <div style={styles}>
+            <ContactMethods />
+          </div>
+        )}
+        {value === 6 && (
+          <div style={styles}>
+            <Misc />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Identifiers">
-      <div style={styles}>
-        <Identifiers />
-      </div>
-    </Tab>
-    <Tab label="Education">
-      <div style={styles}>
-        <Education />
-      </div>
-    </Tab>
-    <Tab label="Relationships">
-      <div style={styles}>
-        <Relationships />
-      </div>
-    </Tab>
-    <Tab label="History">
-      <div style={styles}>
-        <History />
-      </div>
-    </Tab>
-    <Tab label="Contact Methods">
-      <div style={styles}>
-        <ContactMethods />
-      </div>
-    </Tab>
-    <Tab label="Misc">
-      <div style={styles}>
-        <Misc />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <section className="box box-default">

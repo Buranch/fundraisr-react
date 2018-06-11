@@ -67,7 +67,9 @@ class AdditionalContent extends React.Component {
               href=""
               target="_blank"
               secondary={!this.state.advanced}
-            />
+            >
+              Content
+            </Button>
             <Button
               onClick={this.ClickHandler}
               style={mWidthStyle}
@@ -75,7 +77,9 @@ class AdditionalContent extends React.Component {
               href=""
               target="_blank"
               secondary={this.state.advanced}
-            />
+            >
+              Advanced
+            </Button>
           </div>
           <br />
           <b>Header Content</b>
@@ -161,12 +165,9 @@ const FriendlyUrl = () => (
       .fundaisr.org/<span className="space" />
       <TextField hintText="Form Name" />
       <div className="text-right">
-        <Button
-          style={mWidthStyle}
-          label="Submit"
-          icon={<DoneIcon />}
-          secondary
-        />
+        <Button style={mWidthStyle} color="secondary">
+          <DoneIcon /> Submit
+        </Button>
       </div>
     </div>
   </div>

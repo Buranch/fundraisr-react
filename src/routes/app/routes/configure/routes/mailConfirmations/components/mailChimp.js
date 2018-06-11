@@ -35,7 +35,7 @@ class PayPal extends React.Component {
         <Switch
           label="Mail Chimp"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          onChange={this.ToggleHandler}
         />
         <div className="box bg-color-page" style={this.state}>
           <div className="box-body">

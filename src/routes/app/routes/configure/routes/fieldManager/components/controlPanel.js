@@ -48,28 +48,29 @@ class AddDialog extends React.Component {
 
   render() {
     const actions = [
-      <FlatButton
+      <Button
         label="Confirm"
-        secondary
+        color="secondary"
         keyboardFocused
         onClick={this.handleConfirm}
-      />,
-      <FlatButton
+      >
+        Confirm
+      </Button>,
+      <Button
         label="Cancel"
         style={mWidthStyle}
-        primary
+        color="primary"
         onClick={this.handleClose}
-      />
+      >
+        Cancel
+      </Button>
     ];
 
     return (
       <span>
-        <Button
-          label="Add"
-          onClick={this.handleOpen}
-          icon={<AddIcon />}
-          secondary
-        />
+        <Button onClick={this.handleOpen} color="secondary">
+          <AddIcon /> Add
+        </Button>
         <Dialog
           title="Add Custom Field"
           actions={actions}
@@ -113,8 +114,10 @@ const Controls = () => (
       label="Delete"
       href=""
       icon={<RemoveIcon />}
-      primary
-    />
+      color="primary"
+    >
+      <RemoveIcon /> Delete
+    </Button>
   </div>
 );
 

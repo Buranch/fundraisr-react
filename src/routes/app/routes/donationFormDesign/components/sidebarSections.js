@@ -50,7 +50,7 @@ class TextSection extends React.Component {
             value={this.props.value.css}
           />
           <div className="text-right">
-            <FlatButton
+            <Button
               style={mWidthStyle}
               onClick={this.clickHandler}
               label="Delete"
@@ -142,11 +142,11 @@ class SidebarSections extends React.Component {
             <Button
               onClick={this.addHandler}
               style={mWidthStyle}
-              label="Addresses"
               labelPosition="after"
-              primary
-              icon={<ContentAdd />}
-            />
+              color="primary"
+            >
+              <ContentAdd /> Addresses
+            </Button>
             <br />
             <div className="row">{elems}</div>
           </div>

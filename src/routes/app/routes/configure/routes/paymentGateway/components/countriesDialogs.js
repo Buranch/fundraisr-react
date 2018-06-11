@@ -326,8 +326,9 @@ class Padum extends React.Component {
           style={styles.raisedButton}
           disabled={!this.state.selectAllowed}
           onClick={this.handleAdd}
-          icon={<ArrowDown />}
-        />
+        >
+          <ArrowDown /> Add
+        </Button>
 
         <Button
           label="Remove"
@@ -336,8 +337,9 @@ class Padum extends React.Component {
           style={styles.raisedButton}
           disabled={!this.state.selectBlocked}
           onClick={this.handleRemove}
-          icon={<ArrowUp />}
-        />
+        >
+          <ArrowUp /> Remove
+        </Button>
 
         <div className="box bg-color-page">
           <div

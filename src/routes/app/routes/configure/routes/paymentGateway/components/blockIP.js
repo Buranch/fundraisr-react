@@ -152,18 +152,18 @@ class BlockIP extends React.Component {
         <Switch
           label="Block IP Addresses"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          onChange={this.ToggleHandler}
         />
         <div className="box bg-color-page" style={this.state.style}>
           <div className="box-body">
             <Button
               onClick={this.AddHandler}
               style={mWidthStyle}
-              label="Addresses"
               labelPosition="after"
-              primary
-              icon={<ContentAdd />}
-            />
+              color="primary"
+            >
+              <ContentAdd /> Addresses
+            </Button>
             <div>
               <TextField
                 floatingLabelText="Begin Range"
