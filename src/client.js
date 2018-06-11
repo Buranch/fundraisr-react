@@ -8,7 +8,7 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
 import App from './containers/App';
 
-import Page404 from 'routes/404/components/404';
+import Page404 from './routes/404/components/404';
 
 const history = createHistory();
 const middleware = routerMiddleware(history);
