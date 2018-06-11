@@ -3,14 +3,9 @@ import grey600 from '@material-ui/core/colors/grey';
 import green600 from '@material-ui/core/colors/green';
 import green200 from '@material-ui/core/colors/green';
 import green400 from '@material-ui/core/colors/green';
-
 import common from '@material-ui/core/colors/common';
-
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import spacing from '@material-ui/core/styles/spacing';
-
-// $theme_gray_sidebar_bg_color: grayscale($theme_dark_sidebar_bg_color); // or 3c3c3c
-// $theme_dark_text_color:       rgba(255,255,255,.7);
 
 export default {
   spacing,

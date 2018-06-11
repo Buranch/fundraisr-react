@@ -1,7 +1,4 @@
 import React from 'react';
-// import AutoComplete from 'material-ui/AutoComplete/index';
-// import TextField from 'material-ui/TextField';
-
 import TextField from '@material-ui/core/TextField';
 
 const states = [

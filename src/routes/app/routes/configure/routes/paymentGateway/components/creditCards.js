@@ -1,7 +1,4 @@
 import React from 'react';
-// import Toggle from 'material-ui/Toggle';
-// import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-
 import Switch from '@material-ui/core/Switch';
 import RadioButton from '@material-ui/core/Radio';
 import RadioButtonGroup from '@material-ui/core/RadioGroup';

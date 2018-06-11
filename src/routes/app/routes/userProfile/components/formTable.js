@@ -1,8 +1,4 @@
 import React from 'react';
-// import TextField from 'material-ui/TextField';
-// import FlatButton from 'material-ui/FlatButton';
-// import SettingsIcon from 'material-ui/svg-icons/action/settings';
-
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';

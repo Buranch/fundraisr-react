@@ -1,13 +1,4 @@
 import React from 'react';
-// import {
-//   Step,
-//   Stepper,
-//   StepButton,
-//   StepContent,
-// } from 'material-ui/Stepper';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import SettingsIcon from 'material-ui/svg-icons/action/settings';
-
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';

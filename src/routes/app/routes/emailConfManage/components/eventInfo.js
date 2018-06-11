@@ -1,8 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import TextField from 'material-ui/TextField';
-// import {Tabs, Tab} from 'material-ui/Tabs';
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';

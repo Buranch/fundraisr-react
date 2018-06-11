@@ -1,7 +1,4 @@
 import React from 'react';
-// import Toggle from 'material-ui/Toggle';
-// import TextField from 'material-ui/TextField';
-
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 

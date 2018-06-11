@@ -1,10 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import AddIcon from 'material-ui/svg-icons/content/add';
-// import DeleteIcon from 'material-ui/svg-icons/content/remove';
-// import EditIcon from 'material-ui/svg-icons/image/edit';
-// import CopyIcon from 'material-ui/svg-icons/content/content-copy';
-
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';

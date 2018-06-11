@@ -1,8 +1,5 @@
 import React from 'react';
 import Upload from 'material-ui-next-upload/Upload';
-// import {Tabs, Tab} from 'material-ui/Tabs';
-// import TextField from 'material-ui/TextField';
-
 import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';

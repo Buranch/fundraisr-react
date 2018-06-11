@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-// import {Tabs, Tab} from 'material-ui/Tabs';
-// import AutoComplete from 'material-ui/AutoComplete/index';
-// import TextField from 'material-ui/TextField';
-// import Toggle from 'material-ui/Toggle';
-// import DatePicker from 'material-ui/DatePicker';
-// import SelectField from 'material-ui/SelectField';
-// import MenuItem from 'material-ui/MenuItem';
-// import FlatButton from 'material-ui/FlatButton';
-
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';

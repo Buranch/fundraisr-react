@@ -1,10 +1,4 @@
-/* eslint-disable jsx-a11y/href-no-hash */
 import React from 'react';
-// import IconButton from 'material-ui/IconButton';
-// import ContentEdit from 'material-ui/svg-icons/content/create';
-// import ContentDelete from 'material-ui/svg-icons/content/delete-sweep';
-// import ContentSettings from 'material-ui/svg-icons/content/inbox';
-
 import IconButton from '@material-ui/core/IconButton';
 import ContentEdit from '@material-ui/icons/Create';
 import ContentDelete from '@material-ui/icons/DeleteSweep';

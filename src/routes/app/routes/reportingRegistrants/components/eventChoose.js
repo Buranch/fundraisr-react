@@ -1,10 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import AddIcon from 'material-ui/svg-icons/content/add';
-// import SearchIcon from 'material-ui/svg-icons/action/search';
-// import SelectField from 'material-ui/SelectField';
-// import MenuItem from 'material-ui/MenuItem';
-
 import FlatButton from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';

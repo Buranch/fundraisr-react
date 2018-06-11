@@ -1,9 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import SaveButton from 'material-ui/svg-icons/content/save';
-// import UndoButton from 'material-ui/svg-icons/content/undo';
-// import CancelButton from 'material-ui/svg-icons/navigation/cancel';
-
 import Button from '@material-ui/core/Button';
 import SaveButton from '@material-ui/icons/Save';
 import UndoButton from '@material-ui/icons/Undo';

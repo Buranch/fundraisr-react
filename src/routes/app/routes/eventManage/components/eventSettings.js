@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-// import {Tabs, Tab} from 'material-ui/Tabs';
-// import TextField from 'material-ui/TextField';
-// import Toggle from 'material-ui/Toggle';
-
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';

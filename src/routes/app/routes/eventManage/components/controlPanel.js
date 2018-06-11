@@ -1,11 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import PlayIcon from 'material-ui/svg-icons/av/play-arrow';
-// import PauseIcon from 'material-ui/svg-icons/av/pause';
-// import SaveIcon from 'material-ui/svg-icons/content/save';
-// import CancelIcon from 'material-ui/svg-icons/navigation/cancel';
-// import UndoIcon from 'material-ui/svg-icons/content/undo';
-
 import Button from '@material-ui/core/Button';
 import PlayIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';

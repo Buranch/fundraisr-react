@@ -1,10 +1,4 @@
 import React from 'react';
-// import ContentAdd from 'material-ui/svg-icons/content/add';
-// import TextField from 'material-ui/TextField';
-// import FlatButton from 'material-ui/FlatButton';
-// import IconButton from 'material-ui/IconButton';
-// import ContentRemove from 'material-ui/svg-icons/content/remove';
-
 import ContentAdd from '@material-ui/icons/Add';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';

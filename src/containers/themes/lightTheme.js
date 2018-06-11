@@ -1,12 +1,3 @@
-// import {
-//   cyan500, cyan700,
-//   green400,
-//   grey100, grey300, grey400, grey500,
-//   white, darkBlack, fullBlack,
-// } from 'material-ui/styles/colors';
-// import {fade} from 'material-ui/utils/colorManipulator';
-// import spacing from 'material-ui/styles/spacing';
-
 import cyan500 from '@material-ui/core/colors/cyan';
 import cyan700 from '@material-ui/core/colors/cyan';
 import green400 from '@material-ui/core/colors/green';
@@ -14,9 +5,7 @@ import grey100 from '@material-ui/core/colors/grey';
 import grey300 from '@material-ui/core/colors/grey';
 import grey400 from '@material-ui/core/colors/grey';
 import grey500 from '@material-ui/core/colors/grey';
-
 import common from '@material-ui/core/colors/common';
-
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import spacing from '@material-ui/core/styles/spacing';
 
@@ -36,21 +25,14 @@ export default {
     accent1Color: green400,
     accent2Color: grey100,
     accent3Color: grey500,
-    // textColor: darkBlack,
     textColor: common.black,
-    // secondaryTextColor: fade(darkBlack, 0.54),
     secondaryTextColor: fade(common.black, 0.54),
-    // alternateTextColor: white,
     alternateTextColor: common.white,
-    // canvasColor: white,
     canvasColor: common.white,
     borderColor: grey300,
-    // disabledColor: fade(darkBlack, 0.3),
     disabledColor: fade(common.black, 0.3),
     pickerHeaderColor: cyan500,
-    // clockCircleColor: fade(darkBlack, 0.07),
     clockCircleColor: fade(common.black, 0.07),
-    // shadowColor: fullBlack,
     shadowColor: common.black
   }
 };

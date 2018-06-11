@@ -1,14 +1,4 @@
 import React from 'react';
-// import TextField from 'material-ui/TextField';
-// import Toggle from 'material-ui/Toggle';
-// import SelectField from 'material-ui/SelectField';
-// import MenuItem from 'material-ui/MenuItem';
-// import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-// import FlatButton from 'material-ui/FlatButton';
-// import AddIcon from 'material-ui/svg-icons/content/add';
-// import IconButton from 'material-ui/IconButton';
-// import ContentRemove from 'material-ui/svg-icons/content/remove';
-
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import SelectField from '@material-ui/core/Select';

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button, Collapse, Table } from 'antd';
-// import Checkbox from 'material-ui/Checkbox';
-
 import Checkbox from '@material-ui/core/Checkbox';
 
 const Panel = Collapse.Panel;

@@ -1,11 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
 import 'antd/dist/antd.css';
-// import TextField from 'material-ui/TextField';
-// import SelectField from 'material-ui/SelectField';
-// import MenuItem from 'material-ui/MenuItem';
-// import FlatButton from 'material-ui/FlatButton';
-
 import TextField from '@material-ui/core/TextField';
 import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';

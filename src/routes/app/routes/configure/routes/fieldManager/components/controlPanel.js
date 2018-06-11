@@ -1,12 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import Dialog from 'material-ui/Dialog';
-// import TextField from 'material-ui/TextField';
-// import SelectField from 'material-ui/SelectField';
-// import MenuItem from 'material-ui/MenuItem';
-// import AddIcon from 'material-ui/svg-icons/content/add';
-// import RemoveIcon from 'material-ui/svg-icons/content/remove';
-
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import TextField from '@material-ui/core/TextField';

@@ -1,5 +1,4 @@
 import React from 'react';
-// import Toggle from 'material-ui/Toggle';
 import Switch from '@material-ui/core/Switch';
 import CountryDialog from './countriesDialogs';
 

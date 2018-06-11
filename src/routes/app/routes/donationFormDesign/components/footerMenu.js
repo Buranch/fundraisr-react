@@ -1,11 +1,5 @@
 import React from 'react';
 import Upload from 'material-ui-next-upload/Upload';
-// import TextField from 'material-ui/TextField';
-// import ContentAdd from 'material-ui/svg-icons/content/add';
-// import FlatButton from 'material-ui/FlatButton';
-// import IconButton from 'material-ui/IconButton';
-// import ContentRemove from 'material-ui/svg-icons/content/remove';
-
 import TextField from '@material-ui/core/TextField';
 import ContentAdd from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';

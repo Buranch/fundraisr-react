@@ -1,7 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import RunIcon from 'material-ui/svg-icons/image/edit';
-
 import Button from '@material-ui/core/Button';
 import RunIcon from '@material-ui/icons/Image';
 

@@ -1,10 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import DoneIcon from 'material-ui/svg-icons/action/done';
-// import PreviousIcon from 'material-ui/svg-icons/navigation/chevron-left';
-// import NextIcon from 'material-ui/svg-icons/navigation/chevron-right';
-// import CancelButton from 'material-ui/svg-icons/navigation/cancel';
-
 import Button from '@material-ui/core/Button';
 import DoneIcon from '@material-ui/icons/Done';
 import PreviousIcon from '@material-ui/icons/ChevronLeft';

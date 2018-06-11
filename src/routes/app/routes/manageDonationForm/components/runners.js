@@ -1,9 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-// import BrushIcon from 'material-ui/svg-icons/image/brush';
-// import BookIcon from 'material-ui/svg-icons/action/book';
-// import OptionIcon from 'material-ui/svg-icons/action/build';
-
 import Button from '@material-ui/core/Button';
 import BrushIcon from '@material-ui/icons/Brush';
 import BookIcon from '@material-ui/icons/Book';

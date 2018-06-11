@@ -1,6 +1,4 @@
 import React from 'react';
-// import FlatButton from 'material-ui/FlatButton';
-
 import Button from '@material-ui/core/Button';
 
 const mWidthStyle = {

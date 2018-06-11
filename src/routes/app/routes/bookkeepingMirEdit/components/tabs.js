@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-// import {Tabs, Tab} from 'material-ui/Tabs';
-// import TextField from 'material-ui/TextField';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import ContactIcon from 'material-ui/svg-icons/action/perm-contact-calendar';
-// import DeleteIcon from 'material-ui/svg-icons/action/delete-forever';
-
 import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';

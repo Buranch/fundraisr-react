@@ -1,9 +1,4 @@
 import React from 'react';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import ArrowUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
-// import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
-// import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-
 import Button from '@material-ui/core/Button';
 import ArrowUp from '@material-ui/icons/KeyboardArrowUp';
 import ArrowDown from '@material-ui/icons/KeyboardArrowDown';
