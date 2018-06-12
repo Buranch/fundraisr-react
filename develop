@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+export APP_PORT=${APP_PORT:-3000}
+
+# Users of the docker containers
+DOCKER_USER_NODE="node"
+
+# Disable pseudo-TTY allocation for CI (Jenkins)
+TTY=""
+
+if [ ! -z "$BUILD_NUMBER" ]; then
+    TTY="-T"
+fi
+
+COMPOSE="docker-compose -f docker-compose.yml"
+
+if [ $# -gt 0 ]; then
+    # If "yarn" is used, run yarn
+    # from our node container
+    if [ "$1" == "yarn" ]; then
+        shift 1
+        $COMPOSE run \
+            --user="$DOCKER_USER_NODE" \
+            --rm \
+            $TTY \
+            -w /var/www/html \
+            node \
+            yarn "$@"
+
+    # If "npm" is used, run npm
+    # from our node container
+    elif [ "$1" == "npm" ]; then
+        shift 1
+        $COMPOSE run \
+            --user="$DOCKER_USER_NODE" \
+            --rm \
+            $TTY \
+            -w /var/www/html \
+            node \
+            npm "$@"
+    else
+        $COMPOSE "$@"
+    fi
+else
+    $COMPOSE ps
+fi
