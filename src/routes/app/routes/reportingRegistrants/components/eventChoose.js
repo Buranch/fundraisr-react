@@ -1,10 +1,11 @@
 import React from 'react';
 import FlatButton from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 import SearchIcon from '@material-ui/icons/Search';
 import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Button, Table } from 'antd';
+import { Table } from 'antd';
 import 'antd/dist/antd.css';
 import FilterManager from '../../../components/filterManager';
 
@@ -77,15 +78,15 @@ class Date extends React.Component {
         maxHeight={200}
         onChange={this.handleChange}
       >
-        <MenuItem value="All Initatives" primaryText="All Initatives" />
-        <MenuItem
-          value="All Active Initatives"
-          primaryText="All Active Initatives"
-        />
-        <MenuItem
-          value="All Closed Initatives"
-          primaryText="All Closed Initatives"
-        />
+        <MenuItem value="" primaryText="All Initatives">
+          All Initatives
+        </MenuItem>
+        <MenuItem primaryText="All Active Initatives">
+          All Active Initatives
+        </MenuItem>
+        <MenuItem primaryText="All Closed Initatives">
+          All Closed Initatives
+        </MenuItem>
       </SelectField>
     );
   }
@@ -106,8 +107,8 @@ class DateSel extends React.Component {
         maxHeight={200}
         onChange={this.handleChange}
       >
-        <MenuItem value="Donation Form" primaryText="Donation Form" />
-        <MenuItem value="Events" primaryText="Events" />
+        <MenuItem primaryText="Donation Form">Donation Form</MenuItem>
+        <MenuItem primaryText="Events">Events</MenuItem>
       </SelectField>
     );
   }
@@ -157,9 +158,9 @@ class ChooseEvents extends React.Component {
         key: 'add-action',
         render: a => (
           <span>
-            <Button icon="plus" onClick={() => handler(a)}>
-              Add
-            </Button>
+            <FlatButton onClick={() => handler(a)} color="primary">
+              <AddIcon /> Add
+            </FlatButton>
           </span>
         ),
         width: 100
@@ -170,9 +171,9 @@ class ChooseEvents extends React.Component {
         key: 'add-action',
         render: a => (
           <span>
-            <Button icon="minus" onClick={() => handler(a)}>
-              Remove
-            </Button>
+            <FlatButton onClick={() => handler(a)} color="secondary">
+              <DeleteIcon /> Remove
+            </FlatButton>
           </span>
         ),
         width: 100
@@ -245,15 +246,18 @@ class ChooseEvents extends React.Component {
           <FlatButton
             onClick={this.toggleIndividual}
             style={mWidthStyle}
-            label="Choose Individual Initiatives"
             secondary={this.state.individual}
-          />
+          >
+            Choose Individual Initiatives
+          </FlatButton>
           <FlatButton
             onClick={this.toggleSpecifyType}
             style={mWidthStyle}
             label="Specify the type of Initiative"
             secondary={!this.state.individual}
-          />
+          >
+            Specify the type of Initiative
+          </FlatButton>
         </div>
         {this.state.individual ? (
           <FilterManager onSearch={this.searchHandler} />
@@ -267,10 +271,10 @@ class ChooseEvents extends React.Component {
               <FlatButton
                 onClick={this.searchHandler}
                 style={mWidthStyle}
-                label="Search"
-                icon={<SearchIcon />}
-                primary
-              />
+                color="primary"
+              >
+                <SearchIcon /> Search
+              </FlatButton>
             </div>
           </div>
         )}
@@ -283,13 +287,14 @@ class ChooseEvents extends React.Component {
           pagination={{ defaultCurrent: 1, total: 55, pageSize: 11 }}
         />
         <FlatButton
-          icon={<AddIcon />}
           secondary
           onClick={this.start}
           disabled={!hasSelected}
           style={mWidthStyle}
           label="Add All"
-        />
+        >
+          <AddIcon /> Add All
+        </FlatButton>
         <div
           style={{
             display: this.state.selectedCol.length > 0 ? 'block' : 'none'

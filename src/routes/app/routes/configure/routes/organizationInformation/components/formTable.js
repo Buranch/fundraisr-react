@@ -1,57 +1,58 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import IntegrationDownshift from './formTableAutocomplete';
 
-const states = [
-  'Alaska',
-  'Alabama',
-  'Arkansas',
-  'Arizona',
-  'California',
-  'Colorado',
-  'Connecticut',
-  'Delaware',
-  'Florida',
-  'Georgia',
-  'Hawaii',
-  'Iowa',
-  'Idaho',
-  'Illinois',
-  'Indiana',
-  'Kansas',
-  'Kentucky',
-  'Louisiana',
-  'Massachusetts',
-  'Maryland',
-  'Maine',
-  'Michigan',
-  'Minnesota',
-  'Missouri',
-  'Mississippi',
-  'Montana',
-  'North Carolina',
-  'North Dakota',
-  'Nebraska',
-  'New Hampshire',
-  'New Jersey',
-  'New Mexico',
-  'Nevada',
-  'New York',
-  'Ohio',
-  'Oklahoma',
-  'Oregon',
-  'Pennsylvania',
-  'Rhode Island',
-  'South Carolina',
-  'South Dakota',
-  'Tennessee',
-  'Texas',
-  'Utah',
-  'Virginia',
-  'Vermont',
-  'Washington',
-  'Wisconsin',
-  'West Virginia',
-  'Wyoming'
+const suggestions = [
+  { label: 'Alaska' },
+  { label: 'Alabama' },
+  { label: 'Arkansas' },
+  { label: 'Arizona' },
+  { label: 'California' },
+  { label: 'Colorado' },
+  { label: 'Connecticut' },
+  { label: 'Delaware' },
+  { label: 'Florida' },
+  { label: 'Georgia' },
+  { label: 'Hawaii' },
+  { label: 'Iowa' },
+  { label: 'Idaho' },
+  { label: 'Illinois' },
+  { label: 'Indiana' },
+  { label: 'Kansas' },
+  { label: 'Kentucky' },
+  { label: 'Louisiana' },
+  { label: 'Massachusetts' },
+  { label: 'Maryland' },
+  { label: 'Maine' },
+  { label: 'Michigan' },
+  { label: 'Minnesota' },
+  { label: 'Missouri' },
+  { label: 'Mississippi' },
+  { label: 'Montana' },
+  { label: 'North Carolina' },
+  { label: 'North Dakota' },
+  { label: 'Nebraska' },
+  { label: 'New Hampshire' },
+  { label: 'New Jersey' },
+  { label: 'New Mexico' },
+  { label: 'Nevada' },
+  { label: 'New York' },
+  { label: 'Ohio' },
+  { label: 'Oklahoma' },
+  { label: 'Oregon' },
+  { label: 'Pennsylvania' },
+  { label: 'Rhode Island' },
+  { label: 'South Carolina' },
+  { label: 'South Dakota' },
+  { label: 'Tennessee' },
+  { label: 'Texas' },
+  { label: 'Utah' },
+  { label: 'Virginia' },
+  { label: 'Vermont' },
+  { label: 'Washington' },
+  { label: 'Wisconsin' },
+  { label: 'West Virginia' },
+  { label: 'Wyoming}' }
 ];
 
 class OverviewTable extends React.Component {
@@ -95,11 +96,7 @@ class ContactTable extends React.Component {
         <br />
         <TextField defaultValue="Organie" floatingLabelText="City" />
         <br />
-        {/*<AutoComplete*/}
-        {/*floatingLabelText="State"*/}
-        {/*filter={AutoComplete.caseInsensitiveFilter}*/}
-        {/*dataSource={states}*/}
-        {/*/>*/}
+        <IntegrationDownshift title="state" suggestions={suggestions} />
         <br />
         <TextField defaultValue="91234" floatingLabelText="Zip Code" />
       </div>

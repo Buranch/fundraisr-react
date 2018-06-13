@@ -48,10 +48,10 @@ class EditDialog extends React.Component {
           value={this.state.inputType}
           onChange={this.handleInputType}
         >
-          <MenuItem value={'check box'} primaryText="Check Box" />
-          <MenuItem value={'text input'} primaryText="Text Input" />
-          <MenuItem value={'select'} primaryText="Select" />
-          <MenuItem value={'radio button'} primaryText="Radio Buttons" />
+          <MenuItem primaryText="Check Box">check box</MenuItem>
+          <MenuItem primaryText="Text Input">text input</MenuItem>
+          <MenuItem primaryText="Select">select</MenuItem>
+          <MenuItem primaryText="Radio Buttons">radio button</MenuItem>
         </SelectField>
         <br />
         <Button

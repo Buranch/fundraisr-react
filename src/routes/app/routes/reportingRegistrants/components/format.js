@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, Collapse, Table } from 'antd';
+import { Table } from 'antd';
+import FlatButton from '@material-ui/core/Button';
+import RemoveIcon from '@material-ui/icons/Remove';
 import Checkbox from '@material-ui/core/Checkbox';
-
-const Panel = Collapse.Panel;
+import SimpleExpansionPanel from './reportingCollapse';
 
 class FormatStep extends React.Component {
   state = {
@@ -79,9 +80,9 @@ class FormatStep extends React.Component {
         title: 'Remove',
         key: 'remove',
         render: a => (
-          <Button icon="minus" onClick={() => onRemoveRow(a)}>
-            Remove
-          </Button>
+          <FlatButton icon="minus" onClick={() => onRemoveRow(a)}>
+            <RemoveIcon /> Remove
+          </FlatButton>
         ),
         width: 100
       }
@@ -117,24 +118,14 @@ class FormatStep extends React.Component {
 
   renderOptionsPanel = (panelLabel, panelKey, params) => {
     if (params.length === 1) {
-      return (
-        <Panel header={panelLabel} key={panelKey}>
-          {this.renderCheckboxes(params[0].options)}
-        </Panel>
-      );
+      return <div>{this.renderCheckboxes(params[0].options)}</div>;
     } else {
       return (
-        <Panel header={panelLabel} key={panelKey}>
-          <Collapse bordered={false} defaultActiveKey={params.map(x => x.key)}>
-            {params.map(param => {
-              return (
-                <Panel header={param.label} key={param.key}>
-                  {this.renderCheckboxes(param.options)}
-                </Panel>
-              );
-            })}
-          </Collapse>
-        </Panel>
+        <SimpleExpansionPanel>
+          {params.map(param => {
+            return <div>{this.renderCheckboxes(param.options)}</div>;
+          })}
+        </SimpleExpansionPanel>
       );
     }
   };
@@ -174,7 +165,7 @@ class FormatStep extends React.Component {
       <div>
         <div className="row">
           <div className="col-xl-6 col-lg-12">
-            <Collapse accordion>
+            <SimpleExpansionPanel>
               {this.renderOptionsPanel('Standard Fields', 'standard-fields', [
                 { options: this.getStandardFieldsOptions() }
               ])}
@@ -195,7 +186,7 @@ class FormatStep extends React.Component {
                   key: 'training-2'
                 }
               ])}
-            </Collapse>
+            </SimpleExpansionPanel>
           </div>
           <div className="col-xl-6 col-lg-12">
             <Table

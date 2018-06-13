@@ -3,7 +3,8 @@ import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import FlatButton from '@material-ui/core/Button';
-import { Button, Table } from 'antd';
+import RemoveIcon from '@material-ui/icons/Remove';
+import { Table } from 'antd';
 
 const styles = {
   textFieldStyle: { top: '-17px', width: '175px' },
@@ -27,31 +28,29 @@ class DefineFilters extends React.Component {
         maxHeight={200}
         onChange={(event, index, value) => this.setState({ fieldValue: value })}
       >
-        <MenuItem value="Account EIN" primaryText="Account EIN" />
-        <MenuItem value="Account Name" primaryText="Account Name" />
-        <MenuItem value="Additional Fee 1" primaryText="Additional Fee 1" />
-        <MenuItem value="Additional Fee 2" primaryText="Additional Fee 2" />
-        <MenuItem
-          value="Adoption Tracking #"
-          primaryText="Adoption Tracking #"
-        />
-        <MenuItem value="Amount Due" primaryText="Amount Due" />
-        <MenuItem value="Amount Paid" primaryText="Amount Paid" />
-        <MenuItem value="Capacity Limit" primaryText="Capacity Limit" />
-        <MenuItem value="Capacity Status" primaryText="Capacity Status" />
-        <MenuItem value="Mobile Phone" primaryText="Mobile Phone" />
-        <MenuItem value="Check Date" primaryText="Check Date" />
-        <MenuItem value="Deposit Date" primaryText="Deposit Date" />
-        <MenuItem value="Check Number" primaryText="Check Number" />
-        <MenuItem value="Co-Leader Yes/No" primaryText="Co-Leader Yes/No" />
-        <MenuItem value="Comments" primaryText="Comments" />
-        <MenuItem value="Date Created" primaryText="Date Created" />
-        <MenuItem value="Credit Card Type" primaryText="Credit Card Type" />
-        <MenuItem
-          value="Customer Product Code"
-          primaryText="Customer Product Code"
-        />
-        <MenuItem value="Decline Gift" primaryText="Decline Gift" />
+        <MenuItem primaryText="Account EIN">Account EIN</MenuItem>
+        <MenuItem primaryText="Account Name">Account Name</MenuItem>
+        <MenuItem primaryText="Additional Fee 1">Additional Fee 1</MenuItem>
+        <MenuItem primaryText="Additional Fee 2">Additional Fee 2</MenuItem>
+        <MenuItem primaryText="Adoption Tracking #">
+          Adoption Tracking #
+        </MenuItem>
+        <MenuItem primaryText="Amount Due">Amount Due</MenuItem>
+        <MenuItem primaryText="Amount Paid">Amount Paid</MenuItem>
+        <MenuItem primaryText="Capacity Limit">Capacity Limit</MenuItem>
+        <MenuItem primaryText="Capacity Status">Capacity Status</MenuItem>
+        <MenuItem primaryText="Mobile Phone">Mobile Phone</MenuItem>
+        <MenuItem primaryText="Check Date">Check Date</MenuItem>
+        <MenuItem primaryText="Deposit Date">Deposit Date</MenuItem>
+        <MenuItem primaryText="Check Number">Check Number</MenuItem>
+        <MenuItem primaryText="Co-Leader Yes/No">Co-Leader Yes/No</MenuItem>
+        <MenuItem primaryText="Comments">Comments</MenuItem>
+        <MenuItem primaryText="Date Created">Date Created</MenuItem>
+        <MenuItem primaryText="Credit Card Type">Credit Card Type</MenuItem>
+        <MenuItem primaryText="Customer Product Code">
+          Customer Product Code
+        </MenuItem>
+        <MenuItem primaryText="Decline Gift">Decline Gift</MenuItem>
       </SelectField>
     );
   };
@@ -67,15 +66,15 @@ class DefineFilters extends React.Component {
         }
         style={styles.operatorSelectBoxStyle}
       >
-        <MenuItem value="Equals" primaryText="Equals" />
-        <MenuItem value="Not Equal" primaryText="Not Equal" />
-        <MenuItem value="Starts With" primaryText="Starts With" />
-        <MenuItem value="Contains" primaryText="Contains" />
-        <MenuItem value="Not Contain" primaryText="Not Contain" />
-        <MenuItem value="Contains Any Of" primaryText="Contains Any Of" />
-        <MenuItem value="Contains All Of" primaryText="Contains All Of" />
-        <MenuItem value="Is One Of" primaryText="Is One Of" />
-        <MenuItem value="Not One Of" primaryText="Not One Of" />
+        <MenuItem primaryText="Equals">Equals</MenuItem>
+        <MenuItem primaryText="Not Equal">Not Equal</MenuItem>
+        <MenuItem primaryText="Starts With">Starts With</MenuItem>
+        <MenuItem primaryText="Contains">Contains</MenuItem>
+        <MenuItem primaryText="Not Contain">Not Contain</MenuItem>
+        <MenuItem primaryText="Contains Any Of">Contains Any Of</MenuItem>
+        <MenuItem primaryText="Contains All Of">Contains All Of</MenuItem>
+        <MenuItem primaryText="Is One Of">Is One Of</MenuItem>
+        <MenuItem primaryText="Not One Of">Not One Of</MenuItem>
       </SelectField>
     );
   };
@@ -101,9 +100,9 @@ class DefineFilters extends React.Component {
         title: 'Action',
         key: 'action',
         render: a => (
-          <Button icon="minus" onClick={() => onRemoveRow(a)}>
-            Remove
-          </Button>
+          <FlatButton onClick={() => onRemoveRow(a)}>
+            <RemoveIcon /> Remove
+          </FlatButton>
         ),
         width: 100
       }

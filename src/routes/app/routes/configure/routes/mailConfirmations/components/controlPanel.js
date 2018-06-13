@@ -11,28 +11,16 @@ const mWidthStyle = {
 
 const Controls = () => (
   <div className="box box-default text-center">
-    <Button
-      style={mWidthStyle}
-      label="New"
-      href=""
-      icon={<AddIcon />}
-      secondary
-    />
+    <Button style={mWidthStyle} href="" color="secondary">
+      <AddIcon /> New
+    </Button>
     <span className="space" />
-    <Button
-      style={mWidthStyle}
-      label="Edit"
-      href="#/app/email-conf-manage"
-      icon={<EditIcon />}
-      primary
-    />
-    <Button
-      style={mWidthStyle}
-      label="Duplicate"
-      href=""
-      icon={<CopyIcon />}
-      primary
-    />
+    <Button style={mWidthStyle} href="#/app/email-conf-manage" color="primary">
+      <EditIcon /> Edit
+    </Button>
+    <Button style={mWidthStyle} href="" color="primary">
+      <CopyIcon /> Duplicate
+    </Button>
     <Button style={mWidthStyle} label="Delete" href="" icon={<DeleteIcon />} />
   </div>
 );

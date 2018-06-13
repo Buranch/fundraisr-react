@@ -76,14 +76,18 @@ class HorizontalNonLinearStepper extends React.Component {
               disabled={stepIndex === 0}
               onClick={this.handlePrev}
               style={{ marginRight: 12 }}
-            />
+            >
+              Back
+            </Button>
             <Button
               label="Next"
               variant="contained"
               disabled={stepIndex === 2}
               primary
               onClick={this.handleNext}
-            />
+            >
+              Next
+            </Button>
           </div>
         </div>
       </div>
