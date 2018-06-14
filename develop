@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export APP_PORT=${APP_PORT:-3000}
+export NODE_ENV=${NODE_ENV:-development}
 
 # Users of the docker containers
 DOCKER_USER_NODE="node"
