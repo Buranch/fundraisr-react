@@ -11,5 +11,3 @@ services:
     ports:
       - "${APP_PORT}:3000"
     command: npm run start
-    environment:
-      - NODE_ENV=development
