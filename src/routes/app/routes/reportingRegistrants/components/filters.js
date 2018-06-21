@@ -23,34 +23,30 @@ class DefineFilters extends React.Component {
   renderFieldSelection = () => {
     return (
       <SelectField
-        floatingLabelText="Field"
+        label="Field"
         value={this.state.fieldValue}
         maxHeight={200}
         onChange={(event, index, value) => this.setState({ fieldValue: value })}
       >
-        <MenuItem primaryText="Account EIN">Account EIN</MenuItem>
-        <MenuItem primaryText="Account Name">Account Name</MenuItem>
-        <MenuItem primaryText="Additional Fee 1">Additional Fee 1</MenuItem>
-        <MenuItem primaryText="Additional Fee 2">Additional Fee 2</MenuItem>
-        <MenuItem primaryText="Adoption Tracking #">
-          Adoption Tracking #
-        </MenuItem>
-        <MenuItem primaryText="Amount Due">Amount Due</MenuItem>
-        <MenuItem primaryText="Amount Paid">Amount Paid</MenuItem>
-        <MenuItem primaryText="Capacity Limit">Capacity Limit</MenuItem>
-        <MenuItem primaryText="Capacity Status">Capacity Status</MenuItem>
-        <MenuItem primaryText="Mobile Phone">Mobile Phone</MenuItem>
-        <MenuItem primaryText="Check Date">Check Date</MenuItem>
-        <MenuItem primaryText="Deposit Date">Deposit Date</MenuItem>
-        <MenuItem primaryText="Check Number">Check Number</MenuItem>
-        <MenuItem primaryText="Co-Leader Yes/No">Co-Leader Yes/No</MenuItem>
-        <MenuItem primaryText="Comments">Comments</MenuItem>
-        <MenuItem primaryText="Date Created">Date Created</MenuItem>
-        <MenuItem primaryText="Credit Card Type">Credit Card Type</MenuItem>
-        <MenuItem primaryText="Customer Product Code">
-          Customer Product Code
-        </MenuItem>
-        <MenuItem primaryText="Decline Gift">Decline Gift</MenuItem>
+        <MenuItem>Account EIN">Account EIN</MenuItem>
+        <MenuItem>Account Name">Account Name</MenuItem>
+        <MenuItem>Additional Fee 1">Additional Fee 1</MenuItem>
+        <MenuItem>Additional Fee 2">Additional Fee 2</MenuItem>
+        <MenuItem>Adoption Tracking #"> Adoption Tracking #</MenuItem>
+        <MenuItem>Amount Due">Amount Due</MenuItem>
+        <MenuItem>Amount Paid">Amount Paid</MenuItem>
+        <MenuItem>Capacity Limit">Capacity Limit</MenuItem>
+        <MenuItem>Capacity Status">Capacity Status</MenuItem>
+        <MenuItem>Mobile Phone">Mobile Phone</MenuItem>
+        <MenuItem>Check Date">Check Date</MenuItem>
+        <MenuItem>Deposit Date">Deposit Date</MenuItem>
+        <MenuItem>Check Number">Check Number</MenuItem>
+        <MenuItem>Co-Leader Yes/No">Co-Leader Yes/No</MenuItem>
+        <MenuItem>Comments">Comments</MenuItem>
+        <MenuItem>Date Created">Date Created</MenuItem>
+        <MenuItem>Credit Card Type">Credit Card Type</MenuItem>
+        <MenuItem>Customer Product Code"> Customer Product Code</MenuItem>
+        <MenuItem>Decline Gift">Decline Gift</MenuItem>
       </SelectField>
     );
   };
@@ -58,7 +54,7 @@ class DefineFilters extends React.Component {
   renderOperatorSelection = () => {
     return (
       <SelectField
-        floatingLabelText="Operator"
+        label="Operator"
         value={this.state.operatorValue}
         maxHeight={200}
         onChange={(event, index, value) =>
@@ -66,15 +62,15 @@ class DefineFilters extends React.Component {
         }
         style={styles.operatorSelectBoxStyle}
       >
-        <MenuItem primaryText="Equals">Equals</MenuItem>
-        <MenuItem primaryText="Not Equal">Not Equal</MenuItem>
-        <MenuItem primaryText="Starts With">Starts With</MenuItem>
-        <MenuItem primaryText="Contains">Contains</MenuItem>
-        <MenuItem primaryText="Not Contain">Not Contain</MenuItem>
-        <MenuItem primaryText="Contains Any Of">Contains Any Of</MenuItem>
-        <MenuItem primaryText="Contains All Of">Contains All Of</MenuItem>
-        <MenuItem primaryText="Is One Of">Is One Of</MenuItem>
-        <MenuItem primaryText="Not One Of">Not One Of</MenuItem>
+        <MenuItem>Equals">Equals</MenuItem>
+        <MenuItem>Not Equal">Not Equal</MenuItem>
+        <MenuItem>Starts With">Starts With</MenuItem>
+        <MenuItem>Contains">Contains</MenuItem>
+        <MenuItem>Not Contain">Not Contain</MenuItem>
+        <MenuItem>Contains Any Of">Contains Any Of</MenuItem>
+        <MenuItem>Contains All Of">Contains All Of</MenuItem>
+        <MenuItem>Is One Of">Is One Of</MenuItem>
+        <MenuItem>Not One Of">Not One Of</MenuItem>
       </SelectField>
     );
   };

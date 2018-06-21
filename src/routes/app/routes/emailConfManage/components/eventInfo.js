@@ -130,15 +130,13 @@ class EmailConf extends React.Component {
                 </Tab>
                 <Tab label="To/From">
                   <div style={styles}>
-                    <TextField floatingLabelText="Subject Line" />{' '}
+                    <TextField label="Subject Line" />{' '}
                     <span className="space" />
-                    <TextField floatingLabelText="Reply To" /> <br />
-                    <TextField floatingLabelText="CC" />{' '}
-                    <span className="space" />
-                    <TextField floatingLabelText="From Name" /> <br />
-                    <TextField floatingLabelText="BCC" />{' '}
-                    <span className="space" />
-                    <TextField floatingLabelText="From eMail" />
+                    <TextField label="Reply To" /> <br />
+                    <TextField label="CC" /> <span className="space" />
+                    <TextField label="From Name" /> <br />
+                    <TextField label="BCC" /> <span className="space" />
+                    <TextField label="From eMail" />
                   </div>
                 </Tab>
               </Tabs>

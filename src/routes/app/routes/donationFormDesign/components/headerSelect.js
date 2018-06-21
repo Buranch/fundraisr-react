@@ -1,5 +1,6 @@
 import React from 'react';
 import Upload from 'material-ui-next-upload/Upload';
+
 import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -65,7 +66,7 @@ const TabsExampleSimple = () => (
                   rowsMax={10}
                   fullWidth
                 />
-                <TextField floatingLabelText="CSS Class" />
+                <TextField label="CSS Class" />
               </div>
             </div>
           </div>

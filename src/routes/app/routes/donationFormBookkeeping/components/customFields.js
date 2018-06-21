@@ -25,7 +25,7 @@ class Elem extends React.Component {
         <TextField
           key={this.props.key}
           name={this.props.key}
-          floatingLabelText="Amount"
+          label="Amount"
           onChange={this.numHandler}
           value={this.props.value}
         />
@@ -111,9 +111,9 @@ class CustomFields extends React.Component {
             <ContentAdd /> Add
           </Button>
           <div>
-            <TextField floatingLabelText="Amount" />
+            <TextField label="Amount" />
             <br />
-            <TextField floatingLabelText="Amount" />
+            <TextField label="Amount" />
           </div>
           {elems}
         </div>

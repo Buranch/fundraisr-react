@@ -156,15 +156,11 @@ const Verification = () => (
     </div>
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Description</h5>
-      <TextField defaultValue="e5r6tyui" floatingLabelText="Soft Descriptor" />
+      <TextField defaultValue="e5r6tyui" label="Soft Descriptor" />
     </div>
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Contact</h5>
-      <TextField
-        defaultValue="drfytguyh"
-        floatingLabelText="Inquiry Phone"
-      />{' '}
-      <br />
+      <TextField defaultValue="drfytguyh" label="Inquiry Phone" /> <br />
       <small>Donor Inquiry Phone Number. </small>
     </div>
   </div>
@@ -199,7 +195,7 @@ const Benchmark = () => (
       <h5>Benchmark Profile</h5>
       <TextField
         hintText="2,500,000"
-        floatingLabelText="Annual Revenue"
+        label="Annual Revenue"
         floatingLabelFixed
       />
     </div>
@@ -228,13 +224,9 @@ const Admin = () => (
       <TextField
         floatingLabelFixed
         hintText="Thirston Howell"
-        floatingLabelText="Administrator"
+        label="Administrator"
       />
-      <TextField
-        floatingLabelFixed
-        hintText="thirst@th3.com"
-        floatingLabelText="eMail"
-      />
+      <TextField floatingLabelFixed hintText="thirst@th3.com" label="eMail" />
     </div>
   </div>
 );
@@ -245,7 +237,7 @@ const Analytics = () => (
       <TextField
         floatingLabelFixed
         hintText="12345-2345-4567488"
-        floatingLabelText="Account"
+        label="Account"
       />
     </div>
   </div>
@@ -264,21 +256,9 @@ const Receipts = () => (
       </small>
       <Switch label="PDF Receipts" style={styles.toggle} />
 
-      <TextField
-        floatingLabelFixed
-        hintText="1"
-        floatingLabelText="Starting Number"
-      />
-      <TextField
-        floatingLabelFixed
-        hintText="99000"
-        floatingLabelText="Send Warning at"
-      />
-      <TextField
-        floatingLabelFixed
-        hintText="99999"
-        floatingLabelText="Ending Number"
-      />
+      <TextField floatingLabelFixed hintText="1" label="Starting Number" />
+      <TextField floatingLabelFixed hintText="99000" label="Send Warning at" />
+      <TextField floatingLabelFixed hintText="99999" label="Ending Number" />
     </div>
   </div>
 );

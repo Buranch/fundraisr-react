@@ -37,9 +37,9 @@ class PayPal extends React.Component {
         <div className="box bg-color-page" style={this.state}>
           <div className="box-body">
             <h5>Mail Chimp Settings</h5>
-            <TextField floatingLabelText="Account Number" />
+            <TextField label="Account Number" />
             <br />
-            <TextField floatingLabelText="Password" />
+            <TextField label="Password" />
           </div>
         </div>
       </div>

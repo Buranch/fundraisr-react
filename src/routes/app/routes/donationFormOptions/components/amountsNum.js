@@ -37,7 +37,7 @@ class Elem extends React.Component {
           key={this.props.key}
           name={this.props.key}
           style={styles.textFieldStyle}
-          floatingLabelText="Amount"
+          label="Amount"
           onChange={this.numHandler}
           value={this.props.value}
         />

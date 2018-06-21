@@ -12,20 +12,20 @@ class Date extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Date Range"
+        label="Date Range"
         value={this.state.value}
         maxHeight={200}
         onChange={this.handleChange}
       >
-        <MenuItem value="select" primaryText="-Select-" />
-        <MenuItem value={1} primaryText="Within" />
-        <MenuItem value={2} primaryText="Between" />
-        <MenuItem value={3} primaryText="Exactly" />
-        <MenuItem value={4} primaryText="Equal to" />
-        <MenuItem value={5} primaryText="Greater than" />
-        <MenuItem value={6} primaryText="Less than" />
-        <MenuItem value={7} primaryText="Greater than or Equal to" />
-        <MenuItem value={8} primaryText="Less than or Equial to" />
+        <MenuItem value="select">-Select-</MenuItem>
+        <MenuItem value={1}>Within</MenuItem>
+        <MenuItem value={2}>Between</MenuItem>
+        <MenuItem value={3}>Exactly</MenuItem>
+        <MenuItem value={4}>Equal to</MenuItem>
+        <MenuItem value={5}>Greater than</MenuItem>
+        <MenuItem value={6}>Less than</MenuItem>
+        <MenuItem value={7}>Greater than or Equal to</MenuItem>
+        <MenuItem value={8}>Less than or Equial to</MenuItem>
       </SelectField>
     );
   }
@@ -40,29 +40,29 @@ class DateSel extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Date Range"
+        label="Date Range"
         value={this.state.value}
         maxHeight={200}
         onChange={this.handleChange}
       >
-        <MenuItem value="select" primaryText="-Select-" />
-        <MenuItem value={1} primaryText="Today Only" />
-        <MenuItem value={2} primaryText="Previous # of Days" />
-        <MenuItem value={3} primaryText="Previous # of Weeks" />
-        <MenuItem value={4} primaryText="Previous # of Months" />
-        <MenuItem value={5} primaryText="Previous # of Years" />
-        <MenuItem value={6} primaryText="Last Full Week" />
-        <MenuItem value={7} primaryText="Last Full Monnth" />
-        <MenuItem value={8} primaryText="Last Billing Cycle" />
-        <MenuItem value={9} primaryText="2nd Last Billing Cycle" />
-        <MenuItem value={10} primaryText="Year To Date" />
-        <MenuItem value={11} primaryText="To Date" />
-        <MenuItem value={12} primaryText="Next # of Days" />
-        <MenuItem value={13} primaryText="Next # of Weeks" />
-        <MenuItem value={14} primaryText="Next # of Months" />
-        <MenuItem value={15} primaryText="Next # of Years" />
-        <MenuItem value={16} primaryText="Next Full Week" />
-        <MenuItem value={17} primaryText="Next Full Month" />
+        <MenuItem value="select">-Select-</MenuItem>
+        <MenuItem value={1}>Today Only</MenuItem>
+        <MenuItem value={2}>Previous # of Days</MenuItem>
+        <MenuItem value={3}>Previous # of Weeks</MenuItem>
+        <MenuItem value={4}>Previous # of Months</MenuItem>
+        <MenuItem value={5}>Previous # of Years</MenuItem>
+        <MenuItem value={6}>Last Full Week</MenuItem>
+        <MenuItem value={7}>Last Full Monnth</MenuItem>
+        <MenuItem value={8}>Last Billing Cycle</MenuItem>
+        <MenuItem value={9}>2nd Last Billing Cycle</MenuItem>
+        <MenuItem value={10}>Year To Date</MenuItem>
+        <MenuItem value={11}>To Date</MenuItem>
+        <MenuItem value={12}>Next # of Days</MenuItem>
+        <MenuItem value={13}>Next # of Weeks</MenuItem>
+        <MenuItem value={14}>Next # of Months</MenuItem>
+        <MenuItem value={15}>Next # of Years</MenuItem>
+        <MenuItem value={16}>Next Full Week</MenuItem>
+        <MenuItem value={17}>Next Full Month</MenuItem>
       </SelectField>
     );
   }

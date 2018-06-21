@@ -59,13 +59,13 @@ class OverviewTable extends React.Component {
   render() {
     return (
       <div role="form">
-        <TextField defaultValue="TH3 Industries" floatingLabelText="Name" />
+        <TextField defaultValue="TH3 Industries" label="Name" />
         <br />
-        <TextField defaultValue="0123456789" floatingLabelText="EIN" />
+        <TextField defaultValue="0123456789" label="EIN" />
         <br />
-        <TextField defaultValue="http://www.th3.com" floatingLabelText="URL" />
+        <TextField defaultValue="http://www.th3.com" label="URL" />
         <br />
-        <TextField defaultValue="Level 5" floatingLabelText="Level" />
+        <TextField defaultValue="Level 5" label="Level" />
         <br />
       </div>
     );
@@ -75,30 +75,24 @@ class ContactTable extends React.Component {
   render() {
     return (
       <div>
-        <TextField
-          defaultValue="Thirston Howell"
-          floatingLabelText="Main POC"
-        />
+        <TextField defaultValue="Thirston Howell" label="Main POC" />
         <div className="divider" />
 
-        <TextField defaultValue="619-555-2424" floatingLabelText="Phone" />
+        <TextField defaultValue="619-555-2424" label="Phone" />
         <br />
-        <TextField defaultValue="619-555-2423" floatingLabelText="Fax" />
+        <TextField defaultValue="619-555-2423" label="Fax" />
         <div className="divider" />
 
-        <TextField defaultValue="support@th3.com" floatingLabelText="eMail" />
+        <TextField defaultValue="support@th3.com" label="eMail" />
         <div className="divider" />
 
-        <TextField
-          defaultValue="234 Ortiz Dr."
-          floatingLabelText="Street Address"
-        />
+        <TextField defaultValue="234 Ortiz Dr." label="Street Address" />
         <br />
-        <TextField defaultValue="Organie" floatingLabelText="City" />
+        <TextField defaultValue="Organie" label="City" />
         <br />
         <IntegrationDownshift title="state" suggestions={suggestions} />
         <br />
-        <TextField defaultValue="91234" floatingLabelText="Zip Code" />
+        <TextField defaultValue="91234" label="Zip Code" />
       </div>
     );
   }

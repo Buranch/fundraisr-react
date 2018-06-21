@@ -33,7 +33,7 @@ class NumTextField extends React.Component {
       key={this.props.key}
       name={this.props.key}
       style={this.props.style}
-      floatingLabelText={this.props.label}
+      label={this.props.label}
       onChange={this.numHandler}
       value={this.state.value}
     />

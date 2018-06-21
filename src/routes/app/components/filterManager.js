@@ -6,6 +6,7 @@ import ContentRemove from '@material-ui/icons/Remove';
 import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import SearchIcon from '@material-ui/icons/Search';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const mWidthStyle = {
   minWidth: '135px'
@@ -45,37 +46,38 @@ class Elem extends React.Component {
     return (
       <div>
         <SelectField
-          floatingLabelText="Tag"
+          // label="Tag"
           value={this.props.value.item}
           onChange={this.typeOfItemHandler}
           style={styles.tagCheckBoxStyle}
           key={`${this.props.num}item`}
         >
-          <MenuItem value="firstName" primaryText="First Name" />
-          <MenuItem value="lastName" primaryText="Last Name" />
-          <MenuItem value="companyName" primaryText="Company Name" />
-          <MenuItem value="eMail" primaryText="eMail" />
-          <MenuItem value="city" primaryText="City" />
-          <MenuItem value="state" primaryText="State" />
-          <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code" />
-          <MenuItem value="supporterId" primaryText="Supporter ID" />
-          <MenuItem value="alternateId" primaryText="Alternate ID" />
-          <MenuItem value="specialFlag" primaryText="Special Flag" />
+          <MenuItem value="firstName">Profile</MenuItem>
+          <MenuItem value="firstName">First Name</MenuItem>
+          <MenuItem value="lastName">Last Name </MenuItem>
+          <MenuItem value="companyName">Company Name</MenuItem>
+          <MenuItem value="eMail">eMail</MenuItem>
+          <MenuItem value="city">City</MenuItem>
+          <MenuItem value="state">State</MenuItem>
+          <MenuItem value="zipPostalCode">Zip/Postal Code</MenuItem>
+          <MenuItem value="supporterId">Supporter ID</MenuItem>
+          <MenuItem value="alternateId">Alternate ID</MenuItem>
+          <MenuItem value="specialFlag">Special Flag</MenuItem>
         </SelectField>
         <span className="space" />
         <SelectField
-          floatingLabelText="option"
+          label="option"
           key={`${this.props.num}event`}
           value={this.props.value.event}
           style={styles.optionCheckBoxStyle}
           onChange={this.typeOfSearchHandler}
         >
-          <MenuItem value="startWith" primaryText="Start With" />
-          <MenuItem value="equal" primaryText="Equal" />
-          <MenuItem value="contains" primaryText="Contains" />
-          <MenuItem value="notContain" primaryText="Not Contain" />
-          <MenuItem value="containsAnyOf" primaryText="Contains Any Of" />
-          <MenuItem value="containsAllOf" primaryText="Contains All Of" />
+          <MenuItem value="startWith">Start With</MenuItem>
+          <MenuItem value="equal">Equal</MenuItem>
+          <MenuItem value="contains">Contains</MenuItem>
+          <MenuItem value="notContain">Not Contain</MenuItem>
+          <MenuItem value="containsAnyOf">Contains Any Of</MenuItem>
+          <MenuItem value="containsAllOf">Contains All Of</MenuItem>
         </SelectField>
         <span className="space" />
         <TextField
@@ -185,7 +187,7 @@ class FilterManager extends React.Component {
             <Button
               onClick={this.AddHandler}
               style={mWidthStyle}
-              label="Add Filter"
+              label="Adddd Filter"
               // labelPosition="after"
               color="primary"
             >
@@ -204,7 +206,7 @@ class FilterManager extends React.Component {
               onClick={this.props.onSearch ? this.props.onSearch : null}
               style={mWidthStyle}
               label="Search"
-              labelPosition="after"
+              // labelPosition="after"
               color="primary"
             >
               <SearchIcon /> Search

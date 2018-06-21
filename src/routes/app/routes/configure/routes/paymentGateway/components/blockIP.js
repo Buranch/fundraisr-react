@@ -39,7 +39,7 @@ class Elem extends React.Component {
         <TextField
           key={`${this.props.key}beg`}
           onChange={this.begHandler}
-          floatingLabelText="Begin Range"
+          label="Begin Range"
           style={styles.textFieldStyle}
           value={this.props.value.begin}
         />
@@ -47,7 +47,7 @@ class Elem extends React.Component {
         <TextField
           key={`${this.props.key}end`}
           onChange={this.endHandler}
-          floatingLabelText="End Range"
+          label="End Range"
           style={styles.textFieldStyle}
           value={this.props.value.end}
         />
@@ -158,15 +158,9 @@ class BlockIP extends React.Component {
               <ContentAdd /> Addresses
             </Button>
             <div>
-              <TextField
-                floatingLabelText="Begin Range"
-                style={styles.textFieldStyle}
-              />
+              <TextField label="Begin Range" style={styles.textFieldStyle} />
               <span className="space" />
-              <TextField
-                floatingLabelText="End Range"
-                style={styles.textFieldStyle}
-              />
+              <TextField label="End Range" style={styles.textFieldStyle} />
             </div>
             {elems}
           </div>

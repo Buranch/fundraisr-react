@@ -356,7 +356,7 @@ class EnhancedTable extends React.Component {
           '92345'
         ),
         createData(
-          'Betty',
+          'Btty',
           'Boop',
           'bboop@mail.com',
           'Betty Bucks',

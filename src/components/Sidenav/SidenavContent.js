@@ -55,6 +55,7 @@ class SidebarContent extends React.Component {
       const currentLocation = history.location;
       this.highlightActive(currentLocation.pathname);
       history.listen(location => {
+        console.log('problem');
         if (location.pathname != '/') {
           this.highlightActive(location.pathname);
         }
@@ -116,6 +117,7 @@ class SidebarContent extends React.Component {
     const li = p.querySelector('li');
     const h = li.getBoundingClientRect().height;
     let i = h * child.length;
+    console.log('mslo');
     p.parentNode.classList.remove('open');
 
     this.i = setInterval(() => {

@@ -147,61 +147,58 @@ class Personal extends React.Component {
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Demographics</h5>
-          <TextField value="68" floatingLabelText="Age" disabled />
+          <TextField value="68" label="Age" disabled />
           <br />
           <small>Donors "Age" is set by Donors "Birth Day". </small>
-          {/*<DatePicker floatingLabelText="Birth Day" />*/}
+          {/*<DatePicker label="Birth Day" />*/}
           <SelectField
-            floatingLabelText="Gender"
+            label="Gender"
             value={this.state.sexValue}
             onChange={this.handleSexChange}
           >
-            <MenuItem value={'male'} primaryText="Male" />
-            <MenuItem value={'female'} primaryText="Female" />
-            <MenuItem value={'alt'} primaryText="Alt" />
+            <MenuItem value={'male'}>Male</MenuItem>
+            <MenuItem value={'female'}>Female</MenuItem>
+            <MenuItem value={'alt'}>Alt</MenuItem>
           </SelectField>
           <SelectField
-            floatingLabelText="Ethnicity"
+            label="Ethnicity"
             value={this.state.ethnicity}
             onChange={this.handleEtnChange}
           >
-            <MenuItem value={'euAmerican'} primaryText="European American" />
-            <MenuItem value={'afAmerican'} primaryText="African American" />
-            <MenuItem value={'alaskan'} primaryText="Alaskan Native" />
-            <MenuItem value={'amIndian'} primaryText="American Indian" />
-            <MenuItem value={'asian'} primaryText="Asian" />
-            <MenuItem value={'hispanic'} primaryText="Hispanic" />
-            <MenuItem
-              value={'pacificIslander'}
-              primaryText="Pacific Islander"
-            />
-            <MenuItem value={'other'} primaryText="Other" />
+            <MenuItem value={'euAmerican'}>European American</MenuItem>
+            <MenuItem value={'afAmerican'}>African American</MenuItem>
+            <MenuItem value={'alaskan'}>Alaskan Native</MenuItem>
+            <MenuItem value={'amIndian'}>American Indian</MenuItem>
+            <MenuItem value={'asian'}>Asian</MenuItem>
+            <MenuItem value={'hispanic'}>Hispanic</MenuItem>
+            <MenuItem value={'pacificIslander'}>Pacific Islander</MenuItem>
+            <MenuItem value={'other'}>Other</MenuItem>
           </SelectField>
-          <TextField defaultValue="Circuits" floatingLabelText="Religion" />
+          <TextField defaultValue="Circuits" label="Religion" />
           <SelectField
-            floatingLabelText="Marital Status"
+            label="Marital Status"
             value={this.state.maritalStatus}
             onChange={this.handleMarChange}
           >
-            <MenuItem value={'single'} primaryText="Single" />
-            <MenuItem value={'married'} primaryText="Married" />
-            <MenuItem value={'separated'} primaryText="Separated" />
-            <MenuItem value={'divorced'} primaryText="Divorced" />
-            <MenuItem value={'widow'} primaryText="Widow" />
+            <MenuItem value={'single'}>Single</MenuItem>
+            <MenuItem value={'married'}>Married</MenuItem>
+            <MenuItem value={'separated'}>Separated</MenuItem>
+            <MenuItem value={'divorced'}>Divorced</MenuItem>
+            <MenuItem value={'widow'}>Widow</MenuItem>
           </SelectField>
           <SelectField
-            floatingLabelText="Living"
+            label="Living"
             value={this.state.living}
             onChange={this.handleLivChange}
           >
-            <MenuItem value={'living'} primaryText="Living" />
-            <MenuItem value={'deceased'} primaryText="Deceased" />
+            <MenuItem value={'living'}>Living</MenuItem>
+            <MenuItem value={'deceased'}>Deceased</MenuItem>
           </SelectField>
         </div>
 
         <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Tax Information</h5>
-          <TextField defaultValue="2034299-345" floatingLabelText="Tax ID#" />
+          <TextField defaultValue="2034299-345" label="Tax ID#" />
           <Switch
             label="Head of Household?"
             style={styles.toggle}
@@ -213,17 +210,13 @@ class Personal extends React.Component {
           <h5>Employment Information</h5>
           <TextField
             defaultValue="Transformers - Robots in Disguise"
-            floatingLabelText="Company Name"
+            label="Company Name"
           />{' '}
           <br />
-          <TextField
-            defaultValue="Team Leader"
-            floatingLabelText="Job Title"
-          />{' '}
-          <br />
+          <TextField defaultValue="Team Leader" label="Job Title" /> <br />
           <TextField
             defaultValue="www.transformers.com"
-            floatingLabelText="Company URL"
+            label="Company URL"
           />{' '}
           <br />
         </div>
@@ -235,14 +228,14 @@ const Identifiers = () => (
   <div className="row">
     <div className="col-xs-12 col-sm-6 col-md-4">
       <h5>Identifiers</h5>
-      <TextField value="9812873456" floatingLabelText="Donor ID" disabled />
+      <TextField value="9812873456" label="Donor ID" disabled />
       <br />
       <small>Donor ID can not be changed. </small>
       <IntegrationDownshift title="select year" suggestions={years} />
-      <TextField value="43631" floatingLabelText="Alternate ID" />
+      <TextField value="43631" label="Alternate ID" />
       <br />
 
-      <TextField value="Active; Gold; Veteran" floatingLabelText="Tags" />
+      <TextField value="Active; Gold; Veteran" label="Tags" />
       <br />
       <small>Seperate tags with ; </small>
     </div>
@@ -259,23 +252,23 @@ class Education extends React.Component {
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Education</h5>
-          <TextField value="Cybertron University" floatingLabelText="School" />
+          <TextField value="Cybertron University" label="School" />
           <br />
-          <TextField value="Engineering" floatingLabelText="Department" />
+          <TextField value="Engineering" label="Department" />
           <br />
-          <TextField value="Mechanical Engineering" floatingLabelText="Major" />
+          <TextField value="Mechanical Engineering" label="Major" />
           <br />
           <SelectField
-            floatingLabelText="Highest Education"
+            label="Highest Education"
             value={this.state.eduValue}
             onChange={this.handleEduChange}
           >
-            <MenuItem value={'highSchool'} primaryText="High School" />
-            <MenuItem value={'associate'} primaryText="Associate" />
-            <MenuItem value={'bachelors'} primaryText="Bachelors" />
-            <MenuItem value={'masters'} primaryText="Masters" />
-            <MenuItem value={'doctorate'} primaryText="Doctorate" />
-            <MenuItem value={'postDoctorate'} primaryText="Post Doctorate" />
+            <MenuItem value={'highSchool'}>High School</MenuItem>
+            <MenuItem value={'associate'}>Associate</MenuItem>
+            <MenuItem value={'bachelors'}>Bachelors</MenuItem>
+            <MenuItem value={'masters'}>Masters</MenuItem>
+            <MenuItem value={'doctorate'}>Doctorate</MenuItem>
+            <MenuItem value={'postDoctorate'}>Post Doctorate</MenuItem>
           </SelectField>
         </div>
       </div>
@@ -319,12 +312,12 @@ class ContactMethods extends React.Component {
           <h5>eMail</h5>
           <Switch label="eMail" style={styles.toggle} />
           <SelectField
-            floatingLabelText="eMail Format"
+            label="eMail Format"
             value={this.state.emailFormat}
             onChange={this.handleMailChange}
           >
-            <MenuItem value={'html'} primaryText="HTML" />
-            <MenuItem value={'text'} primaryText="Text" />
+            <MenuItem value={'html'}>HTML</MenuItem>
+            <MenuItem value={'text'}>Text</MenuItem>
           </SelectField>
           <Button
             style={mWidthStyle}
@@ -349,14 +342,14 @@ class Misc extends React.Component {
         <div className="col-xs-12 col-sm-6 col-md-4">
           <h5>Custom Fields</h5>
           <SelectField
-            floatingLabelText="How did you hear about us?"
+            label="How did you hear about us?"
             value={this.state.hear}
             onChange={this.handleHearChange}
           >
-            <MenuItem value={'direct'} primaryText="Direct Contact" />
-            <MenuItem value={'webWide'} primaryText="Web-Wide Search" />
-            <MenuItem value={'referal'} primaryText="Referal" />
-            <MenuItem value={'other'} primaryText="Other" />
+            <MenuItem value={'direct'}>Direct Contact</MenuItem>
+            <MenuItem value={'webWide'}>Web-Wide Search</MenuItem>
+            <MenuItem value={'referal'}>Referal</MenuItem>
+            <MenuItem value={'other'}>Other</MenuItem>
           </SelectField>
           <Switch label="Active Flag" style={styles.toggle} />
           <Switch label="Private Listing" style={styles.toggle} />

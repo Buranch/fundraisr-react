@@ -33,7 +33,7 @@ class Elem extends React.Component {
         <TextField
           key={`${this.props.key}beg`}
           onChange={this.begHandler}
-          floatingLabelText="Link"
+          label="Link"
           hintText="Link Name"
           style={styles.textFieldStyle}
           value={this.props.value.begin}
@@ -134,7 +134,7 @@ class FooterLinks extends React.Component {
         </Button>
         <div>
           <TextField
-            floatingLabelText="Link*"
+            label="Link*"
             style={styles.textFieldStyle}
             value="Privacy Policy"
             disabled
@@ -143,7 +143,7 @@ class FooterLinks extends React.Component {
           <small>*This link is required</small>
           <br />
           <TextField
-            floatingLabelText="Link*"
+            label="Link*"
             style={styles.textFieldStyle}
             value="Donation Policy"
             disabled
@@ -152,7 +152,7 @@ class FooterLinks extends React.Component {
           <small>*This link is required</small>
           <br />
           <TextField
-            floatingLabelText="Link*"
+            label="Link*"
             style={styles.textFieldStyle}
             value="Terms of Use Policy"
             disabled

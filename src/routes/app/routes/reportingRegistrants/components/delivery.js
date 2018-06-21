@@ -39,7 +39,7 @@ class Elem extends React.Component {
           key={this.props.key}
           name={this.props.key}
           style={styles.textFieldStyle}
-          floatingLabelText={`eMail${+this.props.giveKey + 1}`}
+          label={`eMail${+this.props.giveKey + 1}`}
           onChange={this.numHandler}
           value={this.props.value}
         />
@@ -64,14 +64,14 @@ class Format extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Frequency"
+        label="Frequency"
         value={this.state.value}
         onChange={this.handleChange}
       >
-        <MenuItem value={1} primaryText="HTML" />
-        <MenuItem value={2} primaryText="PDF" />
-        <MenuItem value={3} primaryText="Excel" />
-        <MenuItem value={4} primaryText="CSV" />
+        <MenuItem value={1}>HTML</MenuItem>
+        <MenuItem value={2}>PDF</MenuItem>
+        <MenuItem value={3}>Excel</MenuItem>
+        <MenuItem value={4}>CSV</MenuItem>
       </SelectField>
     );
   }
@@ -123,7 +123,7 @@ class Email extends React.Component {
 
     return (
       <span>
-        <TextField floatingLabelText="eMail" hintText="user@domain.com" />
+        <TextField label="eMail" hintText="user@domain.com" />
         <span className="space" />
         <Button
           onClick={this.addHandler}
@@ -168,10 +168,7 @@ class Delivery extends React.Component {
       case 'save':
         twoRow = (
           <span>
-            <TextField
-              floatingLabelText="File Name"
-              hintText="My Custom Report"
-            />
+            <TextField label="File Name" hintText="My Custom Report" />
             <br />
             <Format />
           </span>
@@ -181,14 +178,11 @@ class Delivery extends React.Component {
         twoRow = (
           <span>
             <TextField
-              floatingLabelText="Configuration Name"
+              label="Configuration Name"
               hintText="Report Configuration"
             />
             <br />
-            <TextField
-              floatingLabelText="Description"
-              hintText="Report Description"
-            />
+            <TextField label="Description" hintText="Report Description" />
           </span>
         );
     }
@@ -203,14 +197,9 @@ class Delivery extends React.Component {
         </small>
         <br />
         <h6>Properties</h6>
-        <TextField floatingLabelText="Title" hintText="Report title" /> <br />
-        <TextField
-          floatingLabelText="Prepared for"
-          hintText="Report for"
-        />{' '}
-        <br />
-        <TextField floatingLabelText="Prepared by" hintText="Report by" />{' '}
-        <br />
+        <TextField label="Title" hintText="Report title" /> <br />
+        <TextField label="Prepared for" hintText="Report for" /> <br />
+        <TextField label="Prepared by" hintText="Report by" /> <br />
         <Switch label="Time\Date Stamp" style={styles.toggle} defaultToggled />
         <div className="divider" />
         <div className="row">

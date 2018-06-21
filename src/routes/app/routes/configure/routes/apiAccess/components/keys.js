@@ -10,10 +10,10 @@ const Keys = () => (
   <div>
     <TextField
       defaultValue="74AF67099E5911A2E5BDBBADB8943964126A6E60AA6B101ACF18DFFA5D60FE429C01B62237D23489BC48FFFCD7C27F6D818654A08731CAE3ADD9D8FBE99C8BD26DAA7092A3F8DFA6C86A1E890D63626CFC92F2893070A3F7CED4311D53A40413"
-      floatingLabelText="API Key"
+      label="API Key"
       multiLine
       fullWidth
-      floatingLabelFixed
+      //floatingLabelFixed
       rows={2}
       rowsMax={4}
     />

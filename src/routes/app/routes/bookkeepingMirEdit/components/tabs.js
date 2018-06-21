@@ -23,13 +23,13 @@ const General = () => (
   <div className="row">
     <div className="col-xs-12 col-sm-6 col-md-6">
       <h5>Affiliation</h5>
-      <TextField value="Michael Scott" floatingLabelText="Name" disabled />{' '}
-      <br />
       <TextField
-        value="The Raisers"
-        floatingLabelText="Team Member of"
+        value="Michael Scott"
+        // label="Name"
         disabled
-      />
+      />{' '}
+      <br />
+      <TextField value="The Raisers" label="Team Member of" disabled />
       <br />
       <Button
         style={mWidthStyle}
@@ -42,15 +42,11 @@ const General = () => (
     </div>
     <div className="col-xs-12 col-sm-6 col-md-6">
       <h5>Record</h5>
-      <TextField
-        value="Michael Scott123"
-        floatingLabelText="User Name"
-        disabled
-      />
+      <TextField value="Michael Scott123" label="User Name" disabled />
       <br />
       <TextField
         value="The Raisers"
-        floatingLabelText="Password"
+        label="Password"
         type="password"
         disabled
       />

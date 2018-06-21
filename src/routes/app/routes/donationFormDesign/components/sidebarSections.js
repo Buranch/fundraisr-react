@@ -40,7 +40,7 @@ class TextSection extends React.Component {
             value={this.props.value.content}
           />
           <TextField
-            floatingLabelText="CSS Class"
+            label="CSS Class"
             onChange={this.cssHandler}
             value={this.props.value.css}
           />

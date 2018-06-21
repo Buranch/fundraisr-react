@@ -15,7 +15,7 @@ const FooterMessage = () => (
             rowsMax={10}
             fullWidth
           />
-          <TextField floatingLabelText="CSS Class" />
+          <TextField label="CSS Class" />
         </div>
       </div>
     </div>

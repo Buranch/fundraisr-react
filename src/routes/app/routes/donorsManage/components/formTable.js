@@ -59,17 +59,17 @@ class DonorTitle extends React.Component {
   render() {
     return (
       <div>
-        <TextField defaultValue="Dr." floatingLabelText="Suffix" />
+        <TextField defaultValue="Dr." label="Suffix" />
         <br />
-        <TextField defaultValue="Optimus" floatingLabelText="First Name" />
+        <TextField defaultValue="Optimus" label="First Name" />
         <br />
-        <TextField defaultValue="Bot" floatingLabelText="Middle Name" />
+        <TextField defaultValue="Bot" label="Middle Name" />
         <br />
-        <TextField defaultValue="Prime" floatingLabelText="Last Name" />
+        <TextField defaultValue="Prime" label="Last Name" />
         <br />
-        <TextField defaultValue="OP" floatingLabelText="Nick Name" />
+        <TextField defaultValue="OP" label="Nick Name" />
         <br />
-        <TextField floatingLabelText="Maiden Name" />
+        <TextField label="Maiden Name" />
       </div>
     );
   }
@@ -78,28 +78,22 @@ class ContactTable extends React.Component {
   render() {
     return (
       <div>
-        <TextField hintText="619-555-2424" floatingLabelText="Home Phone" />
+        <TextField hintText="619-555-2424" label="Home Phone" />
         <br />
-        <TextField hintText="619-555-2424" floatingLabelText="Cell Phone" />
+        <TextField hintText="619-555-2424" label="Cell Phone" />
         <br />
-        <TextField hintText="619-555-2424" floatingLabelText="Business Phone" />
+        <TextField hintText="619-555-2424" label="Business Phone" />
         <div className="divider" />
-        <TextField
-          defaultValue="oprime@autobots.com"
-          floatingLabelText="eMail"
-        />
+        <TextField defaultValue="oprime@autobots.com" label="eMail" />
         <div className="divider" />
 
-        <TextField
-          defaultValue="123 Main St."
-          floatingLabelText="Street Address"
-        />
+        <TextField defaultValue="123 Main St." label="Street Address" />
         <br />
-        <TextField defaultValue="Cityville" floatingLabelText="City" />
+        <TextField defaultValue="Cityville" label="City" />
         <br />
         <IntegrationDownshift title="select the country" suggestions={states} />
         <br />
-        <TextField defaultValue="91234" floatingLabelText="Zip Code" />
+        <TextField defaultValue="91234" label="Zip Code" />
       </div>
     );
   }

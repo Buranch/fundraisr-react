@@ -73,20 +73,14 @@ class Date extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Initatives"
+        label="Initatives"
         value={this.state.value}
         maxHeight={200}
         onChange={this.handleChange}
       >
-        <MenuItem value="" primaryText="All Initatives">
-          All Initatives
-        </MenuItem>
-        <MenuItem primaryText="All Active Initatives">
-          All Active Initatives
-        </MenuItem>
-        <MenuItem primaryText="All Closed Initatives">
-          All Closed Initatives
-        </MenuItem>
+        <MenuItem value="">All Initatives</MenuItem>
+        <MenuItem>All Active Initatives</MenuItem>
+        <MenuItem>All Closed Initatives</MenuItem>
       </SelectField>
     );
   }
@@ -102,13 +96,13 @@ class DateSel extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Date Range"
+        label="Date Range"
         value={this.state.value}
         maxHeight={200}
         onChange={this.handleChange}
       >
-        <MenuItem primaryText="Donation Form">Donation Form</MenuItem>
-        <MenuItem primaryText="Events">Events</MenuItem>
+        <MenuItem>Donation Form</MenuItem>
+        <MenuItem>Events</MenuItem>
       </SelectField>
     );
   }

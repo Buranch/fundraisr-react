@@ -16,13 +16,13 @@ class BoxPattern extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText={this.props.label}
+        label={this.props.label}
         value={this.state.value}
         onChange={this.handleChange}
       >
-        <MenuItem value={1} primaryText="Diagonal" />
-        <MenuItem value={2} primaryText="Grid" />
-        <MenuItem value={3} primaryText="Grill" />
+        <MenuItem value={1}>Diagonal</MenuItem>
+        <MenuItem value={2}>Grid</MenuItem>
+        <MenuItem value={3}>Grill</MenuItem>
       </SelectField>
     );
   }
@@ -37,14 +37,14 @@ class RepeatPattern extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Pattern Repeat"
+        label="Pattern Repeat"
         value={this.state.value}
         onChange={this.handleChange}
       >
-        <MenuItem value={1} primaryText="No Repeat" />
-        <MenuItem value={2} primaryText="Horizontal" />
-        <MenuItem value={3} primaryText="Verticall" />
-        <MenuItem value={4} primaryText="All MS" />
+        <MenuItem value={1}>No Repeat</MenuItem>
+        <MenuItem value={2}>Horizontal</MenuItem>
+        <MenuItem value={3}>Verticall</MenuItem>
+        <MenuItem value={4}>All MS</MenuItem>
       </SelectField>
     );
   }
@@ -59,17 +59,17 @@ class SelectFonts extends React.Component {
   render() {
     return (
       <SelectField
-        floatingLabelText="Font Family"
+        label="Font Family"
         value={this.state.value}
         onChange={this.handleChange}
       >
-        <MenuItem value={1} primaryText="Arial" />
-        <MenuItem value={2} primaryText="Helvetica" />
-        <MenuItem value={3} primaryText="Verdana" />
-        <MenuItem value={4} primaryText="Trebuchet MS" />
-        <MenuItem value={5} primaryText="Georgia" />
-        <MenuItem value={5} primaryText="Tahoma" />
-        <MenuItem value={5} primaryText="Times New Roman" />
+        <MenuItem value={1}>Arial</MenuItem>
+        <MenuItem value={2}>Helvetica</MenuItem>
+        <MenuItem value={3}>Verdana</MenuItem>
+        <MenuItem value={4}>Trebuchet MS</MenuItem>
+        <MenuItem value={5}>Georgia</MenuItem>
+        <MenuItem value={5}>Tahoma</MenuItem>
+        <MenuItem value={5}>Times New Roman</MenuItem>
       </SelectField>
     );
   }

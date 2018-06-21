@@ -71,26 +71,26 @@ class AddDialog extends React.Component {
           onRequestClose={this.handleClose}
         >
           <TextField
-            floatingLabelText="Input Label"
+            label="Input Label"
             value={this.state.inputLabel}
             onChange={this.handleLabel}
           />{' '}
           <br />
           <TextField
-            floatingLabelText="Input Label"
+            label="Input Label"
             value={this.state.inputId}
             onChange={this.handleId}
           />{' '}
           <br />
           <SelectField
-            floatingLabelText="Input Type"
+            label="Input Type"
             value={this.state.inputType}
             onChange={this.handleInputType}
           >
-            <MenuItem value="checkbox" primaryText="Check Box" />
-            <MenuItem value="textInput" primaryText="Text Input" />
-            <MenuItem value="select" primaryText="Select" />
-            <MenuItem value="radioButtons" primaryText="Radio Buttons" />
+            <MenuItem value="checkBox">Check Box</MenuItem>
+            <MenuItem value="textInput">Text Input</MenuItem>
+            <MenuItem value="select">Select</MenuItem>
+            <MenuItem value="radioButtons">Radio Button</MenuItem>
           </SelectField>
         </Dialog>
       </span>
