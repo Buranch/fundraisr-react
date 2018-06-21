@@ -1,57 +1,124 @@
 import React from 'react';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton/IconButton';
 import { withRouter } from 'react-router-dom';
-
-const ImgIconButtonStyle = {
-  width: '60px',
-  height: '60px'
-};
-
-const listItemStyle = {
-  paddingLeft: '50px' // 36 + 16, algin with sub list
-};
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Fade from '@material-ui/core/Fade';
+import Avatar from '@material-ui/core/Avatar';
 
 class NavRightList extends React.Component {
+  state = {
+    anchorEl: null
+  };
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
   handleChange = (event, value) => {
     this.props.history.push(value);
-  }
-
+  };
   render() {
     return (
       <ul className="list-unstyled float-right">
-        <li style={{marginRight: '10px'}}>
-          <IconMenu
-            iconButtonElement={<IconButton style={ImgIconButtonStyle}><img src="assets/images/g1.jpg" alt="" className="rounded-circle img30_30" /></IconButton>}
-            onChange={this.handleChange}
-            anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'right', vertical: 'top'}}
-            menuStyle={{minWidth: '150px'}}
-                    >
+        <li
+          style={{
+            margin: '10px'
+          }}
+        >
+          <Avatar
+            alt="Remy Sharp"
+            src="assets/images/g1.jpg"
+            aria-owns={this.state.anchorEl ? 'fade-menu' : null}
+            aria-haspopup="true"
+            onClick={this.handleClick}
+          />
+          <Menu
+            id="fade-menu"
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            onClose={this.handleClose}
+            style={{
+              marginRight: '10px',
+              lineHeight: '48px'
+            }}
+            TransitionComponent={Fade}
+            transformOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right'
+            }}
+          >
             <MenuItem
-              value="/app/dashboard"
-              primaryText="Dashboard"
-              style={{fontSize: '14px', lineHeight: '48px'}}
-              innerDivStyle={listItemStyle}
-              leftIcon={<i className="material-icons">home</i>}
-                        />
+              component="a"
+              href="#/app/dashboard"
+              onClick={this.handleClose}
+            >
+              <ListItemIcon
+                style={{
+                  marginRight: '4px',
+                  paddingRight: '8px'
+                }}
+              >
+                <i className="material-icons">home</i>
+              </ListItemIcon>
+              <ListItemText
+                style={{
+                  fontSize: '14px',
+                  padding: '0',
+                  lineHeight: '48px'
+                }}
+                inset="inset"
+                primary="Dashboard"
+              />
+            </MenuItem>
+
             <MenuItem
-              value="/app/page/about"
-              primaryText="About"
-              innerDivStyle={listItemStyle}
-              style={{fontSize: '14px', lineHeight: '48px'}}
-              leftIcon={<i className="material-icons">person_outline</i>}
-                        />
-            <MenuItem
-              value="/login"
-              primaryText="Log Out"
-              innerDivStyle={listItemStyle}
-              style={{fontSize: '14px', lineHeight: '48px'}}
-              leftIcon={<i className="material-icons">forward</i>}
-                        />
-          </IconMenu>
+              component="a"
+              href="#/app/page/about"
+              onClick={this.handleClose}
+            >
+              <ListItemIcon
+                style={{
+                  marginRight: '4px',
+                  paddingRight: '8px'
+                }}
+              >
+                <i className="material-icons">person_outline</i>
+              </ListItemIcon>
+              <ListItemText
+                style={{
+                  fontSize: '14px',
+                  padding: '0',
+                  lineHeight: '48px'
+                }}
+                inset="inset"
+                primary="Profile"
+              />
+            </MenuItem>
+
+            <MenuItem component="a" href="/logout" onClick={this.handleClose}>
+              <ListItemIcon
+                style={{
+                  marginRight: '4px',
+                  paddingRight: '8px'
+                }}
+              >
+                <i className="material-icons">forward</i>
+              </ListItemIcon>
+              <ListItemText
+                style={{
+                  fontSize: '14px',
+                  padding: '0',
+                  lineHeight: '48px'
+                }}
+                inset="inset"
+                primary="About"
+              />
+            </MenuItem>
+          </Menu>
         </li>
       </ul>
     );

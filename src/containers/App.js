@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import MuiThemeProviderV0 from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Route, Switch, Redirect } from 'react-router-dom';
-
 import MainApp from 'routes/app/';
 import Page404 from 'routes/404/';
 import Page500 from 'routes/500/';
@@ -26,7 +22,10 @@ import grayTheme from './themes/grayTheme';
 
 class App extends Component {
   componentDidMount() {}
-
+  constructor(props) {
+    super(props);
+    console.log('props');
+  }
   render() {
     const {
       match,
@@ -38,6 +37,7 @@ class App extends Component {
       sidebarWidth,
       theme
     } = this.props;
+
     let materialUITheme;
     switch (theme) {
       case 'gray':
@@ -49,6 +49,7 @@ class App extends Component {
       default:
         materialUITheme = lightTheme;
     }
+    materialUITheme = grayTheme;
 
     const isRoot = location.pathname === '/' ? true : false;
     if (isRoot) {
@@ -57,29 +58,27 @@ class App extends Component {
 
     return (
       <MuiThemeProvider theme={createMuiTheme(materialUITheme)}>
-        <MuiThemeProviderV0>
-          <div id="app-inner">
-            <div className="preloaderbar hide">
-              <span className="bar" />
-            </div>
-            <div
-              className={classnames('app-main full-height', {
-                'fixed-header': fixedHeader,
-                'nav-collapsed': navCollapsed,
-                'nav-behind': navBehind,
-                'layout-boxed': layoutBoxed,
-                'theme-gray': theme === 'gray',
-                'theme-dark': theme === 'dark',
-                'sidebar-sm': sidebarWidth === 'small',
-                'sidebar-lg': sidebarWidth === 'large'
-              })}
-            >
-              <Route path={`${match.url}app`} component={MainApp} />
-              <Route exact path="/404" component={Page404} />
-              <Route exact path="/500" component={Page500} />
-            </div>
+        <div id="app-inner">
+          <div className="preloaderbar hide">
+            <span className="bar" />
           </div>
-        </MuiThemeProviderV0>
+          <div
+            className={classnames('app-main full-height', {
+              'fixed-header': fixedHeader,
+              'nav-collapsed': navCollapsed,
+              'nav-behind': navBehind,
+              'layout-boxed': layoutBoxed,
+              'theme-gray': theme === 'gray',
+              'theme-dark': theme === 'dark',
+              'sidebar-sm': sidebarWidth === 'small',
+              'sidebar-lg': sidebarWidth === 'large'
+            })}
+          >
+            <Route path={`${match.url}app`} component={MainApp} />
+            <Route exact path="/404" component={Page404} />
+            <Route exact path="/500" component={Page500} />
+          </div>
+        </div>
       </MuiThemeProvider>
     );
   }
