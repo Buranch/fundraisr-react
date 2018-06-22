@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ContentRemove from '@material-ui/icons/Remove';
-import SelectField from '@material-ui/core/Select';
+import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import SearchIcon from '@material-ui/icons/Search';
 import FlatButton from 'material-ui/FlatButton';
@@ -23,15 +23,23 @@ const styles = {
 };
 
 class Elem extends React.Component {
-  props = {
-    value: { item: '', event: null, request: null },
-    num: 0,
-    onDelete: idx => {},
-    onItemChange: (value, idx) => {},
-    onEventChange: (value, idx) => {},
-    onRequestChange: (value, idx) => {},
-    canRemove: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('ElEM');
+    props = {
+      value: {
+        item: '',
+        event: null,
+        request: null
+      },
+      num: 0,
+      onDelete: idx => {},
+      onItemChange: (value, idx) => {},
+      onEventChange: (value, idx) => {},
+      onRequestChange: (value, idx) => {},
+      canRemove: false
+    };
+  }
 
   clickHandler = e => {
     this.props.onDelete(this.props.num - 1);
@@ -50,9 +58,10 @@ class Elem extends React.Component {
   render() {
     return (
       <div>
-        <SelectField
+        <Select
           // label="Tag"
-          value={this.props.value.item}
+          // value="slfdkj"
+          value={this.props.value.value.item}
           onChange={this.typeOfItemHandler}
           style={styles.tagCheckBoxStyle}
           key={`${this.props.num}item`}
@@ -68,12 +77,12 @@ class Elem extends React.Component {
           <MenuItem value="supporterId">Supporter ID</MenuItem>
           <MenuItem value="alternateId">Alternate ID</MenuItem>
           <MenuItem value="specialFlag">Special Flag</MenuItem>
-        </SelectField>
+        </Select>
         <span className="space" />
-        <SelectField
+        <Select
           label="option"
           key={`${this.props.num}event`}
-          value={this.props.value.event}
+          value={this.props.value.value.event}
           style={styles.optionCheckBoxStyle}
           onChange={this.typeOfSearchHandler}
         >
@@ -83,11 +92,11 @@ class Elem extends React.Component {
           <MenuItem value="notContain">Not Contain</MenuItem>
           <MenuItem value="containsAnyOf">Contains Any Of</MenuItem>
           <MenuItem value="containsAllOf">Contains All Of</MenuItem>
-        </SelectField>
+        </Select>
         <span className="space" />
         <TextField
           style={styles.textFieldStyle}
-          value={this.props.value.request}
+          value={this.props.value.value.request}
           onChange={this.requestHandler}
           key={`${this.props.num}request`}
         />
