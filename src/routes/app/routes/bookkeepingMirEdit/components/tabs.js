@@ -10,7 +10,9 @@ import Runners from './runners';
 import Role from './roleStepper';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const styles = {
   padding: '12px 18px',

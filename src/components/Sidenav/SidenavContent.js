@@ -27,7 +27,6 @@ class SidebarContent extends React.Component {
       let dropDown = document.createElement('i');
       dropDown.appendChild(document.createTextNode('keyboard_arrow_right'));
       dropDown.classList.add('material-icons');
-      console.log();
       let d = prepend.children[0];
       d.insertBefore(dropDown, d.firstChild);
     });
@@ -40,11 +39,8 @@ class SidebarContent extends React.Component {
     p.appendChild(material_elem);
     const As = p.children[0];
     As.addEventListener('click', e => {
-      console.log('clicked As');
       e.preventDefault();
     });
-    console.log('ass');
-
     const currentLocation = history.location;
     this.highlightActive(currentLocation.pathname);
     history.listen(location => {
@@ -55,18 +51,17 @@ class SidebarContent extends React.Component {
       const currentLocation = history.location;
       this.highlightActive(currentLocation.pathname);
       history.listen(location => {
-        console.log('problem');
-        if (location.pathname != '/') {
-          this.highlightActive(location.pathname);
-        }
+        this.highlightActive(location.pathname);
       });
     });
   }
   highlightActive(pathname) {
-    if (location.pathname == '/') {
+    let links = null;
+    try {
+      links = this.nav.querySelectorAll('a');
+    } catch (err) {
       return;
     }
-    const links = this.nav.querySelectorAll('a');
     const path = `#${pathname}`;
     links.forEach(i => {
       let p = i.parentNode;
@@ -117,7 +112,6 @@ class SidebarContent extends React.Component {
     const li = p.querySelector('li');
     const h = li.getBoundingClientRect().height;
     let i = h * child.length;
-    console.log('mslo');
     p.parentNode.classList.remove('open');
 
     this.i = setInterval(() => {

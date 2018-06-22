@@ -7,7 +7,9 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import UndoIcon from '@material-ui/icons/Undo';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 const boxBodyStyle = {

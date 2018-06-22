@@ -3,7 +3,9 @@ import Button from '@material-ui/core/Button';
 import RunIcon from '@material-ui/icons/Image';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class Runner extends React.Component {

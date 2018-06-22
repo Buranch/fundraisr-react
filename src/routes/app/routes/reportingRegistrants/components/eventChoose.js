@@ -10,7 +10,9 @@ import 'antd/dist/antd.css';
 import FilterManager from '../../../components/filterManager';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const controlPanelStyle = {
   padding: '4px'

@@ -49,7 +49,6 @@ class App extends Component {
       default:
         materialUITheme = lightTheme;
     }
-    materialUITheme = grayTheme;
 
     const isRoot = location.pathname === '/' ? true : false;
     if (isRoot) {

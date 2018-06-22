@@ -6,7 +6,9 @@ import NextIcon from '@material-ui/icons/ChevronRight';
 import CancelButton from '@material-ui/icons/Cancel';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const boxBodyStyle = {
   padding: '4px'

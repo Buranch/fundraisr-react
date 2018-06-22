@@ -5,7 +5,9 @@ import ContentRemove from '@material-ui/icons/Remove';
 import ContentAdd from '@material-ui/icons/Add';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class TextSection extends React.Component {

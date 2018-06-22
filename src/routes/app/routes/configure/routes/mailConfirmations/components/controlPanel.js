@@ -6,12 +6,19 @@ import EditIcon from '@material-ui/icons/Edit';
 import CopyIcon from '@material-ui/icons/ContentCopy';
 
 const mWidthStyle = {
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
+};
+
+const mWidthStyle_secondary = {
+  color: 'red',
   minWidth: '135px'
 };
 
 const Controls = () => (
   <div className="box box-default text-center">
-    <Button style={mWidthStyle} href="" color="secondary">
+    <Button style={mWidthStyle_secondary} href="">
       <AddIcon /> New
     </Button>
     <span className="space" />

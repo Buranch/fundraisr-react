@@ -6,7 +6,9 @@ import Tab from '@material-ui/core/Tab';
 import MyStatefulEditor from '../../../components/editor';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 const styles = {

@@ -7,7 +7,9 @@ import ContentRemove from '@material-ui/icons/Remove';
 import NumField from '../../../components/numField';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const styles = {
   toggle: {

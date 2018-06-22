@@ -10,7 +10,9 @@ import DonationAmounts from './donationAmounts';
 import CustomFields from './customFields';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class AdditionalContent extends React.Component {

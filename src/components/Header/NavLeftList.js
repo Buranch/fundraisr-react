@@ -29,7 +29,6 @@ class NavLeftList extends React.Component {
     this.setState({ anchorEl: null });
   };
   handleChange = (event, value) => {
-    console.log('navRight changed ');
     this.props.history.push(value);
   };
   render() {

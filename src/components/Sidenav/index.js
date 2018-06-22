@@ -15,7 +15,6 @@ class Sidebar extends React.Component {
     if (APPCONFIG.AutoCloseMobileNav) {
       history.listen(location => {
         setTimeout(() => {
-          console.log('on sidenav');
           body.classList.remove('sidebar-mobile-open');
         }, 0);
       });

@@ -6,13 +6,18 @@ import ContentRemove from '@material-ui/icons/Remove';
 import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import SearchIcon from '@material-ui/icons/Search';
+import FlatButton from 'material-ui/FlatButton';
+import { withStyles } from '@material-ui/core/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
+
 const styles = {
-  textFieldStyle: { top: '-17px', width: '170px' },
+  textFieldStyle: { top: '5px', width: '170px' },
   tagCheckBoxStyle: { width: '180px' },
   optionCheckBoxStyle: { width: '180px' }
 };
@@ -33,13 +38,13 @@ class Elem extends React.Component {
   };
 
   typeOfItemHandler = (e, index, newValue) => {
-    this.props.onItemChange(newValue, this.props.num - 1);
+    this.props.onItemChange(e.target.value, this.props.num - 1);
   };
   typeOfSearchHandler = (e, index, newValue) => {
-    this.props.onEventChange(newValue, this.props.num - 1);
+    this.props.onEventChange(e.target.value, this.props.num - 1);
   };
   requestHandler = (e, newValue) => {
-    this.props.onRequestChange(newValue, this.props.num - 1);
+    this.props.onRequestChange(e.target.value, this.props.num - 1);
   };
 
   render() {
@@ -185,11 +190,11 @@ class FilterManager extends React.Component {
         <div className="box-body">
           <div className="text-right">
             <Button
+              color="primary"
               onClick={this.AddHandler}
               style={mWidthStyle}
               label="Adddd Filter"
               // labelPosition="after"
-              color="primary"
             >
               Add Filter
             </Button>
@@ -198,7 +203,6 @@ class FilterManager extends React.Component {
               style={mWidthStyle}
               label="Show All"
               // labelPosition="after"
-              color="primary"
             >
               Show All
             </Button>
@@ -219,4 +223,5 @@ class FilterManager extends React.Component {
   }
 }
 
-module.exports = FilterManager;
+// module.exports = FilterManager;
+export default withStyles(styles)(FilterManager);

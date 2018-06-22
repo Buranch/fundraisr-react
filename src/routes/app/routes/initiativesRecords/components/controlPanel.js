@@ -2,7 +2,9 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 const controlPanelStyle = {

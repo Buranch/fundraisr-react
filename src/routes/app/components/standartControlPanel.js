@@ -5,7 +5,14 @@ import DeleteIcon from '@material-ui/icons/Remove';
 import EditIcon from '@material-ui/icons/Edit';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
+};
+const secondary = {
+  color: '#ff4081',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class Controls extends React.Component {
@@ -18,7 +25,7 @@ class Controls extends React.Component {
   render() {
     return (
       <div className="box box-default text-center">
-        <Button style={mWidthStyle} href={this.state.newHref} color="secondary">
+        <Button style={secondary} href={this.state.newHref}>
           <AddIcon /> New
         </Button>
         <span className="space" />

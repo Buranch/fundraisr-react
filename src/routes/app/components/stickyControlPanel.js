@@ -5,7 +5,14 @@ import UndoButton from '@material-ui/icons/Undo';
 import CancelButton from '@material-ui/icons/Cancel';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
+};
+const secondary = {
+  color: '#ff4081',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const boxBodyStyle = {
   padding: '4px'
@@ -14,10 +21,10 @@ const boxBodyStyle = {
 const panel = () => (
   <div className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
     <div className="text-right" style={boxBodyStyle}>
-      <Button style={mWidthStyle} color="secondary">
+      <Button style={secondary} color="secondary">
         <SaveButton /> Save
       </Button>
-      <Button style={mWidthStyle}>
+      <Button style={{ color: 'black' }}>
         <UndoButton /> Revert
       </Button>
       <Button style={mWidthStyle} color="primary">
