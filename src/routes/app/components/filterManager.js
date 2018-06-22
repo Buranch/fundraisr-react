@@ -25,19 +25,10 @@ const styles = {
 class Elem extends React.Component {
   constructor(props) {
     super(props);
-    console.log('ElEM');
-    props = {
-      value: {
-        item: '',
-        event: null,
-        request: null
-      },
-      num: 0,
-      onDelete: idx => {},
-      onItemChange: (value, idx) => {},
-      onEventChange: (value, idx) => {},
-      onRequestChange: (value, idx) => {},
-      canRemove: false
+    this.state = {
+      item: this.props.value.value.item,
+      event: this.props.value.value.event,
+      request: this.props.value.value.request
     };
   }
 
@@ -46,22 +37,24 @@ class Elem extends React.Component {
   };
 
   typeOfItemHandler = (e, index, newValue) => {
-    this.props.onItemChange(e.target.value, this.props.num - 1);
+    this.setState({ item: e.target.value });
+    // this.props.onItemChange(e.target.value, this.props.num - 1);
   };
   typeOfSearchHandler = (e, index, newValue) => {
-    this.props.onEventChange(e.target.value, this.props.num - 1);
+    this.setState({ event: e.target.value });
+    // this.props.onEventChange(e.target.value, this.props.num - 1);
   };
   requestHandler = (e, newValue) => {
-    this.props.onRequestChange(e.target.value, this.props.num - 1);
+    this.setState({ request: e.target.value });
+
+    // this.props.onRequestChange(e.target.value, this.props.num - 1);
   };
 
   render() {
     return (
       <div>
         <Select
-          // label="Tag"
-          // value="slfdkj"
-          value={this.props.value.value.item}
+          value={this.state.item}
           onChange={this.typeOfItemHandler}
           style={styles.tagCheckBoxStyle}
           key={`${this.props.num}item`}
@@ -82,7 +75,7 @@ class Elem extends React.Component {
         <Select
           label="option"
           key={`${this.props.num}event`}
-          value={this.props.value.value.event}
+          value={this.state.event}
           style={styles.optionCheckBoxStyle}
           onChange={this.typeOfSearchHandler}
         >
@@ -96,7 +89,7 @@ class Elem extends React.Component {
         <span className="space" />
         <TextField
           style={styles.textFieldStyle}
-          value={this.props.value.value.request}
+          value={this.state.request}
           onChange={this.requestHandler}
           key={`${this.props.num}request`}
         />
