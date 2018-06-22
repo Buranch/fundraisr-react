@@ -1,7 +1,7 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import DoneIcon from 'material-ui/svg-icons/action/done';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import DoneIcon from '@material-ui/icons/Done';
 import Helper from '../../../components/helper';
 import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';
@@ -10,7 +10,9 @@ import DonationAmounts from './donationAmounts';
 import CustomFields from './customFields';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class AdditionalContent extends React.Component {
@@ -56,22 +58,26 @@ class AdditionalContent extends React.Component {
             container
           </small>
           <div className="text-center">
-            <FlatButton
+            <Button
               onClick={this.ClickHandler}
               style={mWidthStyle}
               label="Content"
               href=""
               target="_blank"
               secondary={!this.state.advanced}
-            />
-            <FlatButton
+            >
+              Content
+            </Button>
+            <Button
               onClick={this.ClickHandler}
               style={mWidthStyle}
               label="Advanced"
               href=""
               target="_blank"
               secondary={this.state.advanced}
-            />
+            >
+              Advanced
+            </Button>
           </div>
           <br />
           <b>Header Content</b>
@@ -157,12 +163,9 @@ const FriendlyUrl = () => (
       .fundaisr.org/<span className="space" />
       <TextField hintText="Form Name" />
       <div className="text-right">
-        <FlatButton
-          style={mWidthStyle}
-          label="Submit"
-          icon={<DoneIcon />}
-          secondary
-        />
+        <Button style={mWidthStyle} color="secondary">
+          <DoneIcon /> Submit
+        </Button>
       </div>
     </div>
   </div>

@@ -1,9 +1,12 @@
 import React from 'react';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Fade from '@material-ui/core/Fade';
+import Avatar from '@material-ui/core/Avatar';
+
 import { withRouter } from 'react-router-dom';
-import Divider from 'material-ui/Divider';
 
 const HeaderIconButtonStyle = {
   width: '60px',
@@ -14,49 +17,137 @@ const badgeStyle = {
   marginTop: '14px'
 };
 
-const listItemStyle = {
-  paddingLeft: '40px' // 36 + 16, algin with sub list
-};
-
 class NavLeftList extends React.Component {
+  state = {
+    anchorEl: null
+  };
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
   handleChange = (event, value) => {
     this.props.history.push(value);
   };
-
   render() {
     return (
       <ul className="list-unstyled list-inline">
         <li className="list-inline-item">
-          <IconMenu
-            iconButtonElement={<IconButton
-              style={HeaderIconButtonStyle}
-              className="md-button header-btn">
-              <i className="material-icons">notifications_none</i>
-              <span className="badge badge-pill badge-danger">3</span>
-            </IconButton>}
-            onChange={this.handleChange}
-            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'left', vertical: 'top'}}
-            menuStyle={{minWidth: '250px'}}
+          <Avatar
+            alt="Remy Sharp"
+            aria-owns={this.state.anchorEl ? 'fade-menu' : null}
+            aria-haspopup="true"
+            style={{
+              top: '9px',
+              background: 'white',
+              color: 'black'
+            }}
+            onClick={this.handleClick}
+          >
+            <i className="material-icons">notifications_none</i>
+          </Avatar>
+
+          <Menu
+            id="fade-menu"
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            onClose={this.handleClose}
+            TransitionComponent={Fade}
+            style={{
+              marginTop: '40px',
+              marginLeft: '60px'
+            }}
+            transformOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center'
+            }}
           >
             <MenuItem
-              className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">mail_outline</i>}
-              primaryText="Messages"
-              secondaryText={<span style={badgeStyle} className="badge badge-pill badge-danger">3</span>}
-            />
+              component="a"
+              href="#/app/dashboard"
+              onClick={this.handleClose}
+            >
+              <ListItemIcon
+                style={{
+                  marginRight: '4px',
+                  paddingRight: '10px'
+                }}
+              >
+                <i className="material-icons">mail_outline</i>
+              </ListItemIcon>
+
+              <ListItemText
+                style={{
+                  fontSize: '14px',
+                  padding: '0',
+                  paddingRight: '10px',
+                  lineHeight: '48px'
+                }}
+                primary="Messages"
+              />
+              <ListItemIcon
+                style={{
+                  marginRight: '4px'
+                }}
+              >
+                <span
+                  style={badgeStyle}
+                  className="badge badge-pill badge-danger"
+                >
+                  3
+                </span>
+              </ListItemIcon>
+            </MenuItem>
             <MenuItem
-              className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">perm_identity</i>}
-              primaryText="Profile"
-            />
+              component="a"
+              href="#/app/dashboard"
+              onClick={this.handleClose}
+            >
+              <ListItemIcon
+                style={{
+                  marginRight: '4px',
+                  paddingRight: '10px'
+                }}
+              >
+                <i className="material-icons">perm_identity</i>
+              </ListItemIcon>
+
+              <ListItemText
+                style={{
+                  fontSize: '14px',
+                  padding: '0',
+                  lineHeight: '48px'
+                }}
+                primary="Profile"
+              />
+            </MenuItem>
+
             <MenuItem
-              className="header-icon-dropdown-item"
-              leftIcon={<i className="material-icons">settings</i>}
-              primaryText="Settings"
-            />
-          </IconMenu>
+              component="a"
+              href="#/app/dashboard"
+              onClick={this.handleClose}
+            >
+              <ListItemIcon
+                style={{
+                  marginRight: '4px',
+                  paddingRight: '10px'
+                }}
+              >
+                <i className="material-icons">settings</i>
+              </ListItemIcon>
+
+              <ListItemText
+                style={{
+                  fontSize: '14px',
+                  padding: '0',
+                  lineHeight: '48px'
+                }}
+                primary="Settings"
+              />
+            </MenuItem>
+          </Menu>
         </li>
       </ul>
     );

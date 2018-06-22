@@ -1,38 +1,75 @@
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete/index';
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
+import IntegrationDownshift from '../../configure/routes/organizationInformation/components/formTableAutocomplete';
 
 const states = [
-  'Alaska', 'Alabama', 'Arkansas',
-  'Arizona', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'Florida',
-  'Georgia', 'Hawaii', 'Iowa', 'Idaho',
-  'Illinois', 'Indiana', 'Kansas', 'Kentucky',
-  'Louisiana', 'Massachusetts', 'Maryland',
-  'Maine', 'Michigan', 'Minnesota', 'Missouri',
-  'Mississippi', 'Montana', 'North Carolina',
-  'North Dakota', 'Nebraska', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'Nevada', 'New York',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-  'Rhode Island', 'South Carolina', 'South Dakota',
-  'Tennessee', 'Texas', 'Utah', 'Virginia', 'Vermont',
-  'Washington', 'Wisconsin', 'West Virginia', 'Wyoming'];
+  { label: 'Alaska' },
+  { label: 'Alabama' },
+  { label: 'Arkansas' },
+  { label: 'Arizona' },
+  { label: 'California' },
+  { label: 'Colorado' },
+  { label: 'Connecticut' },
+  { label: 'Delaware' },
+  { label: 'Florida' },
+  { label: 'Georgia' },
+  { label: 'Hawaii' },
+  { label: 'Iowa' },
+  { label: 'Idaho' },
+  { label: 'Illinois' },
+  { label: 'Indiana' },
+  { label: 'Kansas' },
+  { label: 'Kentucky' },
+  { label: 'Louisiana' },
+  { label: 'Massachusetts' },
+  { label: 'Maryland' },
+  { label: 'Maine' },
+  { label: 'Michigan' },
+  { label: 'Minnesota' },
+  { label: 'Missouri' },
+  { label: 'Mississippi' },
+  { label: 'Montana' },
+  { label: 'North Carolina' },
+  { label: 'North Dakota' },
+  { label: 'Nebraska' },
+  { label: 'New Hampshire' },
+  { label: 'New Jersey' },
+  { label: 'New Mexico' },
+  { label: 'Nevada' },
+  { label: 'New York' },
+  { label: 'Ohio' },
+  { label: 'Oklahoma' },
+  { label: 'Oregon' },
+  { label: 'Pennsylvania' },
+  { label: 'Rhode Island' },
+  { label: 'South Carolina' },
+  { label: 'South Dakota' },
+  { label: 'Tennessee' },
+  { label: 'Texas' },
+  { label: 'Utah' },
+  { label: 'Virginia' },
+  { label: 'Vermont' },
+  { label: 'Washington' },
+  { label: 'Wisconsin' },
+  { label: 'West Virginia' },
+  { label: 'Wyoming}' }
+];
 
 class DonorTitle extends React.Component {
   render() {
     return (
       <div>
-        <TextField defaultValue="Dr." floatingLabelText="Suffix" />
+        <TextField defaultValue="Dr." label="Suffix" />
         <br />
-        <TextField defaultValue="Optimus" floatingLabelText="First Name" />
+        <TextField defaultValue="Optimus" label="First Name" />
         <br />
-        <TextField defaultValue="Bot" floatingLabelText="Middle Name" />
+        <TextField defaultValue="Bot" label="Middle Name" />
         <br />
-        <TextField defaultValue="Prime" floatingLabelText="Last Name" />
+        <TextField defaultValue="Prime" label="Last Name" />
         <br />
-        <TextField defaultValue="OP" floatingLabelText="Nick Name" />
+        <TextField defaultValue="OP" label="Nick Name" />
         <br />
-        <TextField floatingLabelText="Maiden Name" />
+        <TextField label="Maiden Name" />
       </div>
     );
   }
@@ -41,24 +78,22 @@ class ContactTable extends React.Component {
   render() {
     return (
       <div>
-        <TextField hintText="619-555-2424" floatingLabelText="Home Phone" /><br />
-        <TextField hintText="619-555-2424" floatingLabelText="Cell Phone" /><br />
-        <TextField hintText="619-555-2424" floatingLabelText="Business Phone" />
+        <TextField hintText="619-555-2424" label="Home Phone" />
+        <br />
+        <TextField hintText="619-555-2424" label="Cell Phone" />
+        <br />
+        <TextField hintText="619-555-2424" label="Business Phone" />
         <div className="divider" />
-        <TextField defaultValue="oprime@autobots.com" floatingLabelText="eMail" />
+        <TextField defaultValue="oprime@autobots.com" label="eMail" />
         <div className="divider" />
 
-        <TextField defaultValue="123 Main St." floatingLabelText="Street Address" />
+        <TextField defaultValue="123 Main St." label="Street Address" />
         <br />
-        <TextField defaultValue="Cityville" floatingLabelText="City" />
+        <TextField defaultValue="Cityville" label="City" />
         <br />
-        <AutoComplete
-          floatingLabelText="State"
-          filter={AutoComplete.caseInsensitiveFilter}
-          dataSource={states}
-        />
+        <IntegrationDownshift title="select the country" suggestions={states} />
         <br />
-        <TextField defaultValue="91234" floatingLabelText="Zip Code" />
+        <TextField defaultValue="91234" label="Zip Code" />
       </div>
     );
   }

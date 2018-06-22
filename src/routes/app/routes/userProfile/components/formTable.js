@@ -1,21 +1,23 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import SettingsIcon from 'material-ui/svg-icons/action/settings';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class UserInfo extends React.Component {
   render() {
     return (
       <div role="form">
-        <TextField defaultValue="Optimus" floatingLabelText="First Name" />
+        <TextField defaultValue="Optimus" label="First Name" />
         <br />
-        <TextField defaultValue="Bot" floatingLabelText="Middle Name" />
+        <TextField defaultValue="Bot" label="Middle Name" />
         <br />
-        <TextField defaultValue="Prime" floatingLabelText="Last Name" />
+        <TextField defaultValue="Prime" label="Last Name" />
       </div>
     );
   }
@@ -24,13 +26,13 @@ class UserContact extends React.Component {
   render() {
     return (
       <div role="form">
-        <TextField hintText="619-555-2424" floatingLabelText="Home Phone" />
+        <TextField hintText="619-555-2424" label="Home Phone" />
         <br />
-        <TextField hintText="619-555-2424" floatingLabelText="Cell Phone" />
+        <TextField hintText="619-555-2424" label="Cell Phone" />
         <br />
-        <TextField hintText="619-555-2424" floatingLabelText="Business Phone" />
+        <TextField hintText="619-555-2424" label="Business Phone" />
         <div className="divider" />
-        <TextField defaultValue="oprime@autobots.com" floatingLabelText="eMail" />
+        <TextField defaultValue="oprime@autobots.com" label="eMail" />
       </div>
     );
   }
@@ -39,9 +41,13 @@ class UserAccess extends React.Component {
   render() {
     return (
       <div>
-        <TextField defaultValue="dave_be" floatingLabelText="User Name" />
+        <TextField defaultValue="dave_be" label="User Name" />
         <div className="divider" />
-        <div className="text-right"><FlatButton style={mWidthStyle} label="Reset Password" icon={<SettingsIcon />} primary /></div>
+        <div className="text-right">
+          <Button style={mWidthStyle} color="primary">
+            <SettingsIcon /> Reset Password
+          </Button>
+        </div>
       </div>
     );
   }

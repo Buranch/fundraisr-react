@@ -1,16 +1,18 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import FlatButton from 'material-ui/FlatButton';
-import AddIcon from 'material-ui/svg-icons/content/add';
-import IconButton from 'material-ui/IconButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
+import TextField from '@material-ui/core/TextField';
+import Switch from '@material-ui/core/Switch';
+import SelectField from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import RadioButton from '@material-ui/core/Radio';
+import RadioButtonGroup from '@material-ui/core/RadioGroup';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ContentRemove from '@material-ui/icons/Remove';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const styles = {
   toggle: {
@@ -18,12 +20,12 @@ const styles = {
     marginBottom: 16
   },
   radioButton: {
-    marginBottom: 16,
-  },
+    marginBottom: 16
+  }
 };
 
 class Elem extends React.Component {
-  clickHandler = (e) => {
+  clickHandler = e => {
     e.preventDefault();
     this.props.onDelete(this.props.num);
   };
@@ -39,33 +41,39 @@ class Elem extends React.Component {
           key={this.props.key}
           name={this.props.key}
           style={styles.textFieldStyle}
-          floatingLabelText={`eMail${+this.props.giveKey + 1}`}
+          label={`eMail${+this.props.giveKey + 1}`}
           onChange={this.numHandler}
           value={this.props.value}
         />
-        <IconButton onClick={this.clickHandler} style={{padding: '0 10px 0 0'}}> <ContentRemove /> </IconButton>
+        <IconButton
+          onClick={this.clickHandler}
+          style={{ padding: '0 10px 0 0' }}
+        >
+          {' '}
+          <ContentRemove />{' '}
+        </IconButton>
       </div>
     );
   }
 }
 class Format extends React.Component {
   state = {
-    value: 1,
+    value: 1
   };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => this.setState({ value });
 
   render() {
     return (
       <SelectField
-        floatingLabelText="Frequency"
+        label="Frequency"
         value={this.state.value}
         onChange={this.handleChange}
       >
-        <MenuItem value={1} primaryText="HTML" />
-        <MenuItem value={2} primaryText="PDF" />
-        <MenuItem value={3} primaryText="Excel" />
-        <MenuItem value={4} primaryText="CSV" />
+        <MenuItem value={1}>HTML</MenuItem>
+        <MenuItem value={2}>PDF</MenuItem>
+        <MenuItem value={3}>Excel</MenuItem>
+        <MenuItem value={4}>CSV</MenuItem>
       </SelectField>
     );
   }
@@ -79,21 +87,21 @@ class Email extends React.Component {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.push('');
-      return {array: prev};
+      return { array: prev };
     });
   };
-  removeHandler = (num) => {
+  removeHandler = num => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
-      return {array: prev};
+      return { array: prev };
     });
   };
   numHandler = (newValue, num) => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev[num] = newValue;
-      return {array: prev};
+      return { array: prev };
     });
   };
 
@@ -117,9 +125,15 @@ class Email extends React.Component {
 
     return (
       <span>
-        <TextField floatingLabelText="eMail" hintText="user@domain.com" />
+        <TextField label="eMail" hintText="user@domain.com" />
         <span className="space" />
-        <FlatButton onClick={this.addHandler} style={mWidthStyle} label="Add email" secondary icon={<AddIcon />} />
+        <Button
+          onClick={this.addHandler}
+          style={mWidthStyle}
+          label="Add email"
+          secondary
+          icon={<AddIcon />}
+        />
         {elems}
       </span>
     );
@@ -127,62 +141,77 @@ class Email extends React.Component {
 }
 
 class Delivery extends React.Component {
-  state = {value: 'now'};
-  onValueChange = ((e, newValue) => { this.setState({value: newValue}); });
+  state = { value: 'now' };
+  onValueChange = (e, newValue) => {
+    this.setState({ value: newValue });
+  };
 
   render() {
     let twoRow;
     switch (this.state.value) {
       case 'now':
-        twoRow =
-          (
-            <span>
-              <b>Click Finish, Sit back, and Relax!</b> <br />
-              <small>Your Report will popup in a new Window as soon as it's ready</small>
-            </span>
-          );
+        twoRow = (
+          <span>
+            <b>Click Finish, Sit back, and Relax!</b> <br />
+            <small>
+              Your Report will popup in a new Window as soon as it's ready
+            </small>
+          </span>
+        );
         break;
       case 'email':
         twoRow = (
           <span>
             <Email />
             <Format />
-          </span>);
+          </span>
+        );
         break;
       case 'save':
         twoRow = (
           <span>
-            <TextField floatingLabelText="File Name" hintText="My Custom Report" />
+            <TextField label="File Name" hintText="My Custom Report" />
             <br />
             <Format />
-          </span>);
+          </span>
+        );
         break;
-      default: twoRow = (
-        <span>
-          <TextField floatingLabelText="Configuration Name" hintText="Report Configuration" />
-          <br />
-          <TextField floatingLabelText="Description" hintText="Report Description" />
-        </span>);
+      default:
+        twoRow = (
+          <span>
+            <TextField
+              label="Configuration Name"
+              hintText="Report Configuration"
+            />
+            <br />
+            <TextField label="Description" hintText="Report Description" />
+          </span>
+        );
     }
-
 
     return (
       <div>
         <h5>Delivery</h5>
         <small>
-          Choose how to get your report. View small reports immediately, to save resources have that larger report emailed to youself when it's complete.
+          Choose how to get your report. View small reports immediately, to save
+          resources have that larger report emailed to youself when it's
+          complete.
         </small>
         <br />
         <h6>Properties</h6>
-        <TextField floatingLabelText="Title" hintText="Report title" /> <br />
-        <TextField floatingLabelText="Prepared for" hintText="Report for" /> <br />
-        <TextField floatingLabelText="Prepared by" hintText="Report by" /> <br />
-        <Toggle label="Time\Date Stamp" style={styles.toggle} defaultToggled />
+        <TextField label="Title" hintText="Report title" /> <br />
+        <TextField label="Prepared for" hintText="Report for" /> <br />
+        <TextField label="Prepared by" hintText="Report by" /> <br />
+        <Switch label="Time\Date Stamp" style={styles.toggle} defaultToggled />
         <div className="divider" />
         <div className="row">
           <div className="col-xs-12 col-sm-4 col-md-4">
             <h6>Output Options</h6>
-            <RadioButtonGroup name="outputOptions" defaultSelected="now" onChange={this.onValueChange}>
+            <RadioButtonGroup
+              name="outputOptions"
+              defaultSelected="now"
+              onChange={this.onValueChange}
+            >
               <RadioButton
                 value="now"
                 label="View Report Now"
@@ -207,9 +236,7 @@ class Delivery extends React.Component {
           </div>
           <div className="col-xs-12 col-sm-8 col-md-8">
             <h6>Output Options Defined</h6>
-            {
-              twoRow
-            }
+            {twoRow}
           </div>
         </div>
       </div>

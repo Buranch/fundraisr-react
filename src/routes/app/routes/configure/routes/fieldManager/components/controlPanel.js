@@ -1,14 +1,16 @@
 import React from 'react';
-import FlatButton from 'material-ui/FlatButton';
-import Dialog from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import AddIcon from 'material-ui/svg-icons/content/add';
-import RemoveIcon from 'material-ui/svg-icons/content/remove';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import TextField from '@material-ui/core/TextField';
+import SelectField from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
 class AddDialog extends React.Component {
@@ -20,42 +22,49 @@ class AddDialog extends React.Component {
   };
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   };
   handleConfirm = () => {
     alert('Confirm!');
     alert(this.state.inputLabel);
     alert(this.state.inputId);
     alert(this.state.inputType);
-    this.setState({open: false});
+    this.setState({ open: false });
   };
   handleClose = () => {
-    alert("Close!");
-    this.setState({open: false});
+    alert('Close!');
+    this.setState({ open: false });
   };
-  handleLabel = (event, value) => this.setState({inputLabel: value});
-  handleInputType = (event, index, value) => this.setState({inputType: value});
-  handleId = (event, value) => this.setState({inputId: value});
+  handleLabel = (event, value) => this.setState({ inputLabel: value });
+  handleInputType = (event, index, value) =>
+    this.setState({ inputType: value });
+  handleId = (event, value) => this.setState({ inputId: value });
 
   render() {
     const actions = [
-      <FlatButton
+      <Button
         label="Confirm"
-        secondary
+        color="secondary"
         keyboardFocused
         onClick={this.handleConfirm}
-      />,
-      <FlatButton
+      >
+        Confirm
+      </Button>,
+      <Button
         label="Cancel"
         style={mWidthStyle}
-        primary
+        color="primary"
         onClick={this.handleClose}
-      />,
+      >
+        Cancel
+      </Button>
     ];
 
     return (
       <span>
-        <FlatButton label="Add" onClick={this.handleOpen} icon={<AddIcon />} secondary />
+        <Button onClick={this.handleOpen} color="secondary">
+          <AddIcon /> Add
+        </Button>
         <Dialog
           title="Add Custom Field"
           actions={actions}
@@ -63,17 +72,27 @@ class AddDialog extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <TextField floatingLabelText="Input Label" value={this.state.inputLabel} onChange={this.handleLabel} /> <br />
-          <TextField floatingLabelText="Input Label" value={this.state.inputId} onChange={this.handleId} /> <br />
+          <TextField
+            label="Input Label"
+            value={this.state.inputLabel}
+            onChange={this.handleLabel}
+          />{' '}
+          <br />
+          <TextField
+            label="Input Label"
+            value={this.state.inputId}
+            onChange={this.handleId}
+          />{' '}
+          <br />
           <SelectField
-            floatingLabelText="Input Type"
+            label="Input Type"
             value={this.state.inputType}
             onChange={this.handleInputType}
           >
-            <MenuItem value="checkbox" primaryText="Check Box" />
-            <MenuItem value="textInput" primaryText="Text Input" />
-            <MenuItem value="select" primaryText="Select" />
-            <MenuItem value="radioButtons" primaryText="Radio Buttons" />
+            <MenuItem value="checkBox">Check Box</MenuItem>
+            <MenuItem value="textInput">Text Input</MenuItem>
+            <MenuItem value="select">Select</MenuItem>
+            <MenuItem value="radioButtons">Radio Button</MenuItem>
           </SelectField>
         </Dialog>
       </span>
@@ -84,7 +103,15 @@ class AddDialog extends React.Component {
 const Controls = () => (
   <div className="box box-default text-center">
     <AddDialog />
-    <FlatButton style={mWidthStyle} label="Delete" href="" icon={<RemoveIcon />} primary />
+    <Button
+      style={mWidthStyle}
+      label="Delete"
+      href=""
+      icon={<RemoveIcon />}
+      color="primary"
+    >
+      <RemoveIcon /> Delete
+    </Button>
   </div>
 );
 

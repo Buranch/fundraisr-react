@@ -21,11 +21,10 @@ $state-default-border:          darken(adjust-hue($state-default-bg, -10), 5%) !
 
 //== Typography
 $font-weight-thin:      300 !default;
-$font-family-condensed: "Roboto Condensed", "Roboto", "Helvetica Neue", Arial, sans-serif !default
-
+$font-family-condensed: "Roboto Condensed", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
 
 // UI
-$container_fluid_maxwidth:      1400px;
+$container_fluid_maxwidth: 1400px;
 
 
 // Cards 

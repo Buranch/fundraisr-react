@@ -1,11 +1,18 @@
 import React from 'react';
-import FlatButton from 'material-ui/FlatButton';
-import SaveButton from 'material-ui/svg-icons/content/save';
-import UndoButton from 'material-ui/svg-icons/content/undo';
-import CancelButton from 'material-ui/svg-icons/navigation/cancel';
+import Button from '@material-ui/core/Button';
+import SaveButton from '@material-ui/icons/Save';
+import UndoButton from '@material-ui/icons/Undo';
+import CancelButton from '@material-ui/icons/Cancel';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
+};
+const secondary = {
+  color: '#ff4081',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const boxBodyStyle = {
   padding: '4px'
@@ -14,9 +21,15 @@ const boxBodyStyle = {
 const panel = () => (
   <div className="box box-default position-sticky sticky-top -sticky-note -sticky-note-o fa-sticky-note fa-sticky-note-o">
     <div className="text-right" style={boxBodyStyle}>
-      <FlatButton style={mWidthStyle} label="Save" secondary icon={<SaveButton />}/>
-      <FlatButton style={mWidthStyle} label="Revert" icon={<UndoButton />} />
-      <FlatButton style={mWidthStyle} label="Cancel" primary icon={<CancelButton />} />
+      <Button style={secondary} color="secondary">
+        <SaveButton /> Save
+      </Button>
+      <Button style={{ color: 'black' }}>
+        <UndoButton /> Revert
+      </Button>
+      <Button style={mWidthStyle} color="primary">
+        <CancelButton /> Cancel
+      </Button>
     </div>
   </div>
 );

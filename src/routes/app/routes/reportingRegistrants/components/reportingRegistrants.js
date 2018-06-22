@@ -1,5 +1,7 @@
 import React from 'react';
-import { Step, StepButton, Stepper } from 'material-ui/Stepper';
+import Step from '@material-ui/core/Step';
+import StepButton from '@material-ui/core/StepButton';
+import Stepper from '@material-ui/core/Stepper';
 import Helper from '../../../components/helper';
 import HeadText from '../../../components/headText';
 import Breadcrumb from '../../../components/breadcrumb';

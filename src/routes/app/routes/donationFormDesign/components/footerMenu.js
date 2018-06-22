@@ -1,20 +1,22 @@
 import React from 'react';
 import Upload from 'material-ui-next-upload/Upload';
-import TextField from 'material-ui/TextField';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
+import TextField from '@material-ui/core/TextField';
+import ContentAdd from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ContentRemove from '@material-ui/icons/Remove';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const styles = {
   textFieldStyle: { width: 180 }
 };
 
 class Elem extends React.Component {
-  clickHandler = (e) => {
+  clickHandler = e => {
     e.preventDefault();
     this.props.onDelete(this.props.num - 1);
   };
@@ -33,7 +35,7 @@ class Elem extends React.Component {
         <TextField
           key={`${this.props.key}beg`}
           onChange={this.begHandler}
-          floatingLabelText="Link"
+          label="Link"
           hintText="Link Name"
           style={styles.textFieldStyle}
           value={this.props.value.begin}
@@ -46,7 +48,10 @@ class Elem extends React.Component {
           style={styles.textFieldStyle}
           value={this.props.value.end}
         />
-        <IconButton onClick={this.clickHandler}> <ContentRemove /> </IconButton>
+        <IconButton onClick={this.clickHandler}>
+          {' '}
+          <ContentRemove />{' '}
+        </IconButton>
       </div>
     );
   }
@@ -63,7 +68,7 @@ class FooterLinks extends React.Component {
     } else {
       this.setState((prevState, props) => {
         const prev = prevState.array.map(elem => elem);
-        prev.push({begin: '', end: ''});
+        prev.push({ begin: '', end: '' });
         return {
           array: prev
         };
@@ -71,7 +76,7 @@ class FooterLinks extends React.Component {
     }
   };
 
-  RemoveHandler = (num) => {
+  RemoveHandler = num => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
@@ -121,29 +126,42 @@ class FooterLinks extends React.Component {
 
     return (
       <div>
-        <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Addresses" labelPosition="after" primary icon={<ContentAdd />} />
+        <Button
+          onClick={this.AddHandler}
+          style={mWidthStyle}
+          labelPosition="after"
+          color="primary"
+        >
+          <ContentAdd /> Addresses
+        </Button>
         <div>
           <TextField
-            floatingLabelText="Link*"
+            label="Link*"
             style={styles.textFieldStyle}
             value="Privacy Policy"
             disabled
-          /><br />
-          <small>*This link is required</small><br />
+          />
+          <br />
+          <small>*This link is required</small>
+          <br />
           <TextField
-            floatingLabelText="Link*"
+            label="Link*"
             style={styles.textFieldStyle}
             value="Donation Policy"
             disabled
-          /><br />
-          <small>*This link is required</small><br />
+          />
+          <br />
+          <small>*This link is required</small>
+          <br />
           <TextField
-            floatingLabelText="Link*"
+            label="Link*"
             style={styles.textFieldStyle}
             value="Terms of Use Policy"
             disabled
-          /><br />
-          <small>*This link is required</small><br />
+          />
+          <br />
+          <small>*This link is required</small>
+          <br />
         </div>
         {elems}
       </div>
@@ -160,7 +178,10 @@ const Table = () => (
           <Upload label="Choose an Image" />
           <br />
           <small>Recommended image size is 1170 x 320 for this layout.</small>
-          <div className="bg-color-body" style={{borderRadius: '10px', padding: '20px'}}>
+          <div
+            className="bg-color-body"
+            style={{ borderRadius: '10px', padding: '20px' }}
+          >
             <img src="assets/images-demo/donr-logo.png" alt="donor-logo" />
           </div>
           © 2018 <TextField hintText="Company Name" />

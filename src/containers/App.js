@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Route, Switch, Redirect } from 'react-router-dom';
-
 import MainApp from 'routes/app/';
 import Page404 from 'routes/404/';
 import Page500 from 'routes/500/';
@@ -24,7 +22,10 @@ import grayTheme from './themes/grayTheme';
 
 class App extends Component {
   componentDidMount() {}
-
+  constructor(props) {
+    super(props);
+    console.log('props');
+  }
   render() {
     const {
       match,
@@ -36,6 +37,7 @@ class App extends Component {
       sidebarWidth,
       theme
     } = this.props;
+
     let materialUITheme;
     switch (theme) {
       case 'gray':
@@ -54,7 +56,7 @@ class App extends Component {
     }
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(materialUITheme)}>
+      <MuiThemeProvider theme={createMuiTheme(materialUITheme)}>
         <div id="app-inner">
           <div className="preloaderbar hide">
             <span className="bar" />

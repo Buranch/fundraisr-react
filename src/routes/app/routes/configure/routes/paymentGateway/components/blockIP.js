@@ -1,13 +1,15 @@
 import React from 'react';
-import Toggle from 'material-ui/Toggle';
-import TextField from 'material-ui/TextField';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
+import Switch from '@material-ui/core/Switch';
+import TextField from '@material-ui/core/TextField';
+import ContentAdd from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ContentRemove from '@material-ui/icons/Remove';
 
 const mWidthStyle = {
-  minWidth: '135px'
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 const styles = {
   toggle: {
@@ -18,7 +20,7 @@ const styles = {
 };
 
 class Elem extends React.Component {
-  clickHandler = (e) => {
+  clickHandler = e => {
     e.preventDefault();
     this.props.onDelete(this.props.num - 1);
   };
@@ -39,7 +41,7 @@ class Elem extends React.Component {
         <TextField
           key={`${this.props.key}beg`}
           onChange={this.begHandler}
-          floatingLabelText="Begin Range"
+          label="Begin Range"
           style={styles.textFieldStyle}
           value={this.props.value.begin}
         />
@@ -47,11 +49,14 @@ class Elem extends React.Component {
         <TextField
           key={`${this.props.key}end`}
           onChange={this.endHandler}
-          floatingLabelText="End Range"
+          label="End Range"
           style={styles.textFieldStyle}
           value={this.props.value.end}
         />
-        <IconButton onClick={this.clickHandler}> <ContentRemove /> </IconButton>
+        <IconButton onClick={this.clickHandler}>
+          {' '}
+          <ContentRemove />{' '}
+        </IconButton>
       </div>
     );
   }
@@ -59,14 +64,14 @@ class Elem extends React.Component {
 
 class BlockIP extends React.Component {
   state = {
-    style: {display: 'none'},
+    style: { display: 'none' },
     array: []
   };
 
   AddHandler = () => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
-      prev.push({begin: '', end: ''});
+      prev.push({ begin: '', end: '' });
       return {
         style: prevState.style,
         array: prev
@@ -74,7 +79,7 @@ class BlockIP extends React.Component {
     });
   };
 
-  RemoveHandler = (num) => {
+  RemoveHandler = num => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
@@ -110,11 +115,11 @@ class BlockIP extends React.Component {
   ToggleHandler = () => {
     if (this.state.style.display === 'block') {
       this.setState({
-        style: {display: 'none'}
+        style: { display: 'none' }
       });
     } else {
       this.setState({
-        style: {display: 'block'}
+        style: { display: 'block' }
       });
     }
   };
@@ -139,14 +144,25 @@ class BlockIP extends React.Component {
 
     return (
       <div>
-        <Toggle label="Block IP Addresses" style={styles.toggle} onToggle={this.ToggleHandler} />
+        <Switch
+          label="Block IP Addresses"
+          style={styles.toggle}
+          onChange={this.ToggleHandler}
+        />
         <div className="box bg-color-page" style={this.state.style}>
           <div className="box-body">
-            <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Addresses" labelPosition="after" primary icon={<ContentAdd />} />
+            <Button
+              onClick={this.AddHandler}
+              style={mWidthStyle}
+              labelPosition="after"
+              color="primary"
+            >
+              <ContentAdd /> Addresses
+            </Button>
             <div>
-              <TextField floatingLabelText="Begin Range" style={styles.textFieldStyle} />
+              <TextField label="Begin Range" style={styles.textFieldStyle} />
               <span className="space" />
-              <TextField floatingLabelText="End Range" style={styles.textFieldStyle} />
+              <TextField label="End Range" style={styles.textFieldStyle} />
             </div>
             {elems}
           </div>

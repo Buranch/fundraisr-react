@@ -1,8 +1,9 @@
-import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import AutoComplete from 'material-ui/AutoComplete/index';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+import React, { Component } from 'react';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import TextField from '@material-ui/core/TextField';
+import Switch from '@material-ui/core/Switch';
+import IntegrationDownshift from './formTableAutocomplete';
 
 const styles = {
   padding: '12px 18px',
@@ -12,127 +13,135 @@ const styles = {
   toggle: {
     maxWidth: 250,
     marginBottom: 16
-  },
+  }
 };
 const timezones = [
-  '(GMT-11:00) Midway Island',
-  '(GMT-11:00) Samoa',
-  '(GMT-10:00) Hawaii',
-  '(GMT-09:00) Alaska',
-  '(GMT-08:00) Pacific Time (US &amp; Canada)',
-  '(GMT-08:00) Tijuana',
-  '(GMT-07:00) Arizona',
-  '(GMT-07:00) Mountain Time (US &amp; Canada)',
-  '(GMT-07:00) Chihuahua',
-  '(GMT-07:00) Mazatlan',
-  '(GMT-06:00) Mexico City',
-  '(GMT-06:00) Monterrey',
-  '(GMT-06:00) Saskatchewan',
-  '(GMT-06:00) Central Time (US &amp; Canada)',
-  '(GMT-05:00) Eastern Time (US &amp; Canada)',
-  '(GMT-05:00) Indiana (East)',
-  '(GMT-05:00) Bogota',
-  '(GMT-05:00) Lima',
-  '(GMT-04:30) Caracas',
-  '(GMT-04:00) Atlantic Time (Canada)',
-  '(GMT-04:00) La Paz',
-  '(GMT-04:00) Santiago',
-  '(GMT-03:30) Newfoundland',
-  '(GMT-03:00) Buenos Aires',
-  '(GMT-03:00) Greenland',
-  '(GMT-02:00) Stanley',
-  '(GMT-01:00) Azores',
-  '(GMT-01:00) Cape Verde Is.',
-  '(GMT) Casablanca',
-  '(GMT) Dublin',
-  '(GMT) Lisbon',
-  '(GMT) London',
-  '(GMT) Monrovia',
-  '(GMT+01:00) Amsterdam',
-  '(GMT+01:00) Belgrade',
-  '(GMT+01:00) Berlin',
-  '(GMT+01:00) Bratislava',
-  '(GMT+01:00) Brussels',
-  '(GMT+01:00) Budapest',
-  '(GMT+01:00) Copenhagen',
-  '(GMT+01:00) Ljubljana',
-  '(GMT+01:00) Madrid',
-  '(GMT+01:00) Paris',
-  '(GMT+01:00) Prague',
-  '(GMT+01:00) Rome',
-  '(GMT+01:00) Sarajevo',
-  '(GMT+01:00) Skopje',
-  '(GMT+01:00) Stockholm',
-  '(GMT+01:00) Vienna',
-  '(GMT+01:00) Warsaw',
-  '(GMT+01:00) Zagreb',
-  '(GMT+02:00) Athens',
-  '(GMT+02:00) Bucharest',
-  '(GMT+02:00) Cairo',
-  '(GMT+02:00) Harare',
-  '(GMT+02:00) Helsinki',
-  '(GMT+02:00) Istanbul',
-  '(GMT+02:00) Jerusalem',
-  '(GMT+02:00) Kyiv',
-  '(GMT+02:00) Minsk',
-  '(GMT+02:00) Riga',
-  '(GMT+02:00) Sofia',
-  '(GMT+02:00) Tallinn',
-  '(GMT+02:00) Vilnius',
-  '(GMT+03:00) Baghdad',
-  '(GMT+03:00) Kuwait',
-  '(GMT+03:00) Nairobi',
-  '(GMT+03:00) Riyadh',
-  '(GMT+03:00) Moscow',
-  '(GMT+03:30) Tehran',
-  '(GMT+04:00) Baku',
-  '(GMT+04:00) Volgograd',
-  '(GMT+04:00) Muscat',
-  '(GMT+04:00) Tbilisi',
-  '(GMT+04:00) Yerevan',
-  '(GMT+04:30) Kabul',
-  '(GMT+05:00) Karachi',
-  '(GMT+05:00) Tashkent',
-  '(GMT+05:30) Kolkata',
-  '(GMT+05:45) Kathmandu',
-  '(GMT+06:00) Ekaterinburg',
-  '(GMT+06:00) Almaty',
-  '(GMT+06:00) Dhaka',
-  '(GMT+07:00) Novosibirsk',
-  '(GMT+07:00) Bangkok',
-  '(GMT+07:00) Jakarta',
-  '(GMT+08:00) Krasnoyarsk',
-  '(GMT+08:00) Chongqing',
-  '(GMT+08:00) Hong Kong',
-  '(GMT+08:00) Kuala Lumpur',
-  '(GMT+08:00) Perth',
-  '(GMT+08:00) Singapore',
-  '(GMT+08:00) Taipei',
-  '(GMT+08:00) Ulaan Bataar',
-  '(GMT+08:00) Urumqi',
-  '(GMT+09:00) Irkutsk',
-  '(GMT+09:00) Seoul',
-  '(GMT+09:00) Tokyo',
-  '(GMT+09:30) Adelaide',
-  '(GMT+09:30) Darwin',
-  '(GMT+10:00) Yakutsk',
-  '(GMT+10:00) Brisbane',
-  '(GMT+10:00) Canberra',
-  '(GMT+10:00) Guam',
-  '(GMT+10:00) Hobart',
-  '(GMT+10:00) Melbourne',
-  '(GMT+10:00) Port Moresby',
-  '(GMT+10:00) Sydney',
-  '(GMT+11:00) Vladivostok',
-  '(GMT+12:00) Magadan',
-  '(GMT+12:00) Auckland',
-  '(GMT+12:00) Fiji'
+  { label: '(GMT-11:00) Midway Island' },
+  { label: '(GMT-11:00) Samoa' },
+  { label: '(GMT-10:00) Hawaii' },
+  { label: '(GMT-09:00) Alaska' },
+  { label: '(GMT-08:00) Pacific Time (US &amp; Canada)' },
+  { label: '(GMT-08:00) Tijuana' },
+  { label: '(GMT-07:00) Arizona' },
+  { label: '(GMT-07:00) Mountain Time (US &amp; Canada)' },
+  { label: '(GMT-07:00) Chihuahua' },
+  { label: '(GMT-07:00) Mazatlan' },
+  { label: '(GMT-06:00) Mexico City' },
+  { label: '(GMT-06:00) Monterrey' },
+  { label: '(GMT-06:00) Saskatchewan' },
+  { label: '(GMT-06:00) Central Time (US &amp; Canada)' },
+  { label: '(GMT-05:00) Eastern Time (US &amp; Canada)' },
+  { label: '(GMT-05:00) Indiana (East)' },
+  { label: '(GMT-05:00) Bogota' },
+  { label: '(GMT-05:00) Lima' },
+  { label: '(GMT-04:30) Caracas' },
+  { label: '(GMT-04:00) Atlantic Time (Canada)' },
+  { label: '(GMT-04:00) La Paz' },
+  { label: '(GMT-04:00) Santiago' },
+  { label: '(GMT-03:30) Newfoundland' },
+  { label: '(GMT-03:00) Buenos Aires' },
+  { label: '(GMT-03:00) Greenland' },
+  { label: '(GMT-02:00) Stanley' },
+  { label: '(GMT-01:00) Azores' },
+  { label: '(GMT-01:00) Cape Verde Is.' },
+  { label: '(GMT) Casablanca' },
+  { label: '(GMT) Dublin' },
+  { label: '(GMT) Lisbon' },
+  { label: '(GMT) London' },
+  { label: '(GMT) Monrovia' },
+  { label: '(GMT+01:00) Amsterdam' },
+  { label: '(GMT+01:00) Belgrade' },
+  { label: '(GMT+01:00) Berlin' },
+  { label: '(GMT+01:00) Bratislava' },
+  { label: '(GMT+01:00) Brussels' },
+  { label: '(GMT+01:00) Budapest' },
+  { label: '(GMT+01:00) Copenhagen' },
+  { label: '(GMT+01:00) Ljubljana' },
+  { label: '(GMT+01:00) Madrid' },
+  { label: '(GMT+01:00) Paris' },
+  { label: '(GMT+01:00) Prague' },
+  { label: '(GMT+01:00) Rome' },
+  { label: '(GMT+01:00) Sarajevo' },
+  { label: '(GMT+01:00) Skopje' },
+  { label: '(GMT+01:00) Stockholm' },
+  { label: '(GMT+01:00) Vienna' },
+  { label: '(GMT+01:00) Warsaw' },
+  { label: '(GMT+01:00) Zagreb' },
+  { label: '(GMT+02:00) Athens' },
+  { label: '(GMT+02:00) Bucharest' },
+  { label: '(GMT+02:00) Cairo' },
+  { label: '(GMT+02:00) Harare' },
+  { label: '(GMT+02:00) Helsinki' },
+  { label: '(GMT+02:00) Istanbul' },
+  { label: '(GMT+02:00) Jerusalem' },
+  { label: '(GMT+02:00) Kyiv' },
+  { label: '(GMT+02:00) Minsk' },
+  { label: '(GMT+02:00) Riga' },
+  { label: '(GMT+02:00) Sofia' },
+  { label: '(GMT+02:00) Tallinn' },
+  { label: '(GMT+02:00) Vilnius' },
+  { label: '(GMT+03:00) Baghdad' },
+  { label: '(GMT+03:00) Kuwait' },
+  { label: '(GMT+03:00) Nairobi' },
+  { label: '(GMT+03:00) Riyadh' },
+  { label: '(GMT+03:00) Moscow' },
+  { label: '(GMT+03:30) Tehran' },
+  { label: '(GMT+04:00) Baku' },
+  { label: '(GMT+04:00) Volgograd' },
+  { label: '(GMT+04:00) Muscat' },
+  { label: '(GMT+04:00) Tbilisi' },
+  { label: '(GMT+04:00) Yerevan' },
+  { label: '(GMT+04:30) Kabul' },
+  { label: '(GMT+05:00) Karachi' },
+  { label: '(GMT+05:00) Tashkent' },
+  { label: '(GMT+05:30) Kolkata' },
+  { label: '(GMT+05:45) Kathmandu' },
+  { label: '(GMT+06:00) Ekaterinburg' },
+  { label: '(GMT+06:00) Almaty' },
+  { label: '(GMT+06:00) Dhaka' },
+  { label: '(GMT+07:00) Novosibirsk' },
+  { label: '(GMT+07:00) Bangkok' },
+  { label: '(GMT+07:00) Jakarta' },
+  { label: '(GMT+08:00) Krasnoyarsk' },
+  { label: '(GMT+08:00) Chongqing' },
+  { label: '(GMT+08:00) Hong Kong' },
+  { label: '(GMT+08:00) Kuala Lumpur' },
+  { label: '(GMT+08:00) Perth' },
+  { label: '(GMT+08:00) Singapore' },
+  { label: '(GMT+08:00) Taipei' },
+  { label: '(GMT+08:00) Ulaan Bataar' },
+  { label: '(GMT+08:00) Urumqi' },
+  { label: '(GMT+09:00) Irkutsk' },
+  { label: '(GMT+09:00) Seoul' },
+  { label: '(GMT+09:00) Tokyo' },
+  { label: '(GMT+09:30) Adelaide' },
+  { label: '(GMT+09:30) Darwin' },
+  { label: '(GMT+10:00) Yakutsk' },
+  { label: '(GMT+10:00) Brisbane' },
+  { label: '(GMT+10:00) Canberra' },
+  { label: '(GMT+10:00) Guam' },
+  { label: '(GMT+10:00) Hobart' },
+  { label: '(GMT+10:00) Melbourne' },
+  { label: '(GMT+10:00) Port Moresby' },
+  { label: '(GMT+10:00) Sydney' },
+  { label: '(GMT+11:00) Vladivostok' },
+  { label: '(GMT+12:00) Magadan' },
+  { label: '(GMT+12:00) Auckland' },
+  { label: '(GMT+12:00) Fiji}' }
 ];
 const month = [
-  'January', 'February', 'March',
-  'April', 'May', 'June', 'July',
-  'August', 'September', 'October',
-  'November', 'December'
+  { label: 'January' },
+  { label: 'February' },
+  { label: 'March' },
+  { label: 'April' },
+  { label: 'May' },
+  { label: 'June' },
+  { label: 'July' },
+  { label: 'August' },
+  { label: 'September' },
+  { label: 'October' },
+  { label: 'November' },
+  { label: 'December}' }
 ];
 
 const Verification = () => (
@@ -140,18 +149,18 @@ const Verification = () => (
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Verification Defaults</h5>
       <small>Require Address or Zip/Postal code verification. </small>
-      <Toggle label="Postal Code" style={styles.toggle} />
+      <Switch label="Postal Code" style={styles.toggle} />
       <br />
       <small>Lock credit card verification settings. </small>
-      <Toggle label="Lock Settings" style={styles.toggle} />
+      <Switch label="Lock Settings" style={styles.toggle} />
     </div>
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Description</h5>
-      <TextField defaultValue="e5r6tyui" floatingLabelText="Soft Descriptor" />
+      <TextField defaultValue="e5r6tyui" label="Soft Descriptor" />
     </div>
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Contact</h5>
-      <TextField defaultValue="drfytguyh" floatingLabelText="Inquiry Phone" /> <br/>
+      <TextField defaultValue="drfytguyh" label="Inquiry Phone" /> <br />
       <small>Donor Inquiry Phone Number. </small>
     </div>
   </div>
@@ -161,7 +170,7 @@ const Virtual = () => (
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>All Accounts</h5>
       <small>Share Transactions Across All Virtual Accounts.</small>
-      <Toggle label="Sharing" style={styles.toggle} defaultToggled />
+      <Switch label="Sharing" style={styles.toggle} defaultToggled />
     </div>
   </div>
 );
@@ -169,21 +178,14 @@ const Preferences = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Time Keeping</h5>
-      <AutoComplete
-        floatingLabelText="Time Zone"
-        filter={AutoComplete.caseInsensitiveFilter}
-        dataSource={timezones} />
-      <AutoComplete
-        floatingLabelText="Time Zone"
-        filter={AutoComplete.caseInsensitiveFilter}
-        dataSource={month}
-      />
+      <IntegrationDownshift title="select timeZone" suggestions={timezones} />
+      <IntegrationDownshift title="select month" suggestions={month} />
       <br />
       <small>Last Month of Fiscal Year</small>
-      <br /><br />
+      <br />
+      <br />
       <small>Enable Daylight Saving Time (DST)</small>
-      <Toggle label="DST" style={styles.toggle} defaultToggled />
-
+      <Switch label="DST" style={styles.toggle} defaultToggled />
     </div>
   </div>
 );
@@ -191,7 +193,11 @@ const Benchmark = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Benchmark Profile</h5>
-      <TextField hintText="2,500,000" floatingLabelText="Annual Revenue" floatingLabelFixed />
+      <TextField
+        hintText="2,500,000"
+        label="Annual Revenue"
+        floatingLabelFixed
+      />
     </div>
   </div>
 );
@@ -199,8 +205,11 @@ const Duplicates = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Duplicates</h5>
-      <small>Merge new records if First Name, Last Name, and E-Mail address match exactly</small>
-      <Toggle label="De-Duplicator" style={styles.toggle} defaultToggled />
+      <small>
+        Merge new records if First Name, Last Name, and E-Mail address match
+        exactly
+      </small>
+      <Switch label="De-Duplicator" style={styles.toggle} defaultToggled />
     </div>
   </div>
 );
@@ -208,10 +217,16 @@ const Admin = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Admin</h5>
-      <small>Administrator for “Forgot Password?” and “Form Workflow” Support</small>
+      <small>
+        Administrator for “Forgot Password?” and “Form Workflow” Support
+      </small>
       <br />
-      <TextField floatingLabelFixed hintText="Thirston Howell" floatingLabelText="Administrator" />
-      <TextField floatingLabelFixed hintText="thirst@th3.com" floatingLabelText="eMail" />
+      <TextField
+        floatingLabelFixed
+        hintText="Thirston Howell"
+        label="Administrator"
+      />
+      <TextField floatingLabelFixed hintText="thirst@th3.com" label="eMail" />
     </div>
   </div>
 );
@@ -219,7 +234,11 @@ const Analytics = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Analytics Tracking</h5>
-      <TextField floatingLabelFixed hintText="12345-2345-4567488" floatingLabelText="Account" />
+      <TextField
+        floatingLabelFixed
+        hintText="12345-2345-4567488"
+        label="Account"
+      />
     </div>
   </div>
 );
@@ -227,12 +246,19 @@ const Receipts = () => (
   <div className="row">
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Enable PDF Receipts for Account?</h5>
-      <small>You must specify all three numbers. When the number specified for Send Warning at is assigned, an email will be sent notifying that you are nearing the end of the range. Select values that will give you sufficient time to reset the range. To meet tax agency requirements, when you start a new range of numbers for PDF receipts, you must manually enter a range that is unique and not previously used.</small>
-      <Toggle label="PDF Receipts" style={styles.toggle} />
+      <small>
+        You must specify all three numbers. When the number specified for Send
+        Warning at is assigned, an email will be sent notifying that you are
+        nearing the end of the range. Select values that will give you
+        sufficient time to reset the range. To meet tax agency requirements,
+        when you start a new range of numbers for PDF receipts, you must
+        manually enter a range that is unique and not previously used.
+      </small>
+      <Switch label="PDF Receipts" style={styles.toggle} />
 
-      <TextField floatingLabelFixed hintText="1" floatingLabelText="Starting Number" />
-      <TextField floatingLabelFixed hintText="99000" floatingLabelText="Send Warning at" />
-      <TextField floatingLabelFixed hintText="99999" floatingLabelText="Ending Number" />
+      <TextField floatingLabelFixed hintText="1" label="Starting Number" />
+      <TextField floatingLabelFixed hintText="99000" label="Send Warning at" />
+      <TextField floatingLabelFixed hintText="99999" label="Ending Number" />
     </div>
   </div>
 );
@@ -241,60 +267,86 @@ const Export = () => (
     <div className="сol-xs-12 col-sm-6 col-md-4">
       <h5>Enable PDF Receipts for Account?</h5>
       <small>Exclude extended characters set in CSV and XLS exports.</small>
-      <Toggle label="Sharing" style={styles.toggle} />
+      <Switch label="Sharing" style={styles.toggle} />
     </div>
   </div>
 );
 
-const TabsExampleSimple = () => (
-  <Tabs>
-    <Tab label="Verification" >
-      <div style={styles}>
-        <Verification />
+class TabsExampleSimple extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+  }
+
+  handleChange = (event, val) => {
+    this.setState({ value: val });
+  };
+  render() {
+    const { value } = this.state;
+    return (
+      <div>
+        <Tabs value={value} onChange={this.handleChange}>
+          <Tab label="Verification" />
+          <Tab label="Virtual" />
+          <Tab label="Preferences" />
+          <Tab label="Benchmark" />
+          <Tab label="Duplicates" />
+          <Tab label="Admin" />
+          <Tab label="Analytics" />
+          <Tab label="Reciepts" />
+          <Tab label="Export" />
+        </Tabs>
+        {value === 0 && (
+          <div style={styles}>
+            <Verification />
+          </div>
+        )}
+        {value === 1 && (
+          <div style={styles}>
+            <Virtual />
+          </div>
+        )}
+        {value === 2 && (
+          <div style={styles}>
+            <Preferences />
+          </div>
+        )}
+        {value === 3 && (
+          <div style={styles}>
+            <Benchmark />
+          </div>
+        )}
+        {value === 4 && (
+          <div style={styles}>
+            <Duplicates />
+          </div>
+        )}
+        {value === 5 && (
+          <div style={styles}>
+            <Admin />
+          </div>
+        )}
+        {value === 6 && (
+          <div style={styles}>
+            <Analytics />
+          </div>
+        )}
+        {value === 7 && (
+          <div style={styles}>
+            <Receipts />
+          </div>
+        )}
+        {value === 8 && (
+          <div style={styles}>
+            <Export />
+          </div>
+        )}
       </div>
-    </Tab>
-    <Tab label="Virtual" >
-      <div style={styles}>
-        <Virtual />
-      </div>
-    </Tab>
-    <Tab label="Preferences" >
-      <div style={styles}>
-        <Preferences />
-      </div>
-    </Tab>
-    <Tab label="Benchmark" >
-      <div style={styles}>
-        <Benchmark />
-      </div>
-    </Tab>
-    <Tab label="Duplicates" >
-      <div style={styles}>
-        <Duplicates />
-      </div>
-    </Tab>
-    <Tab label="Admin" >
-      <div style={styles}>
-        <Admin />
-      </div>
-    </Tab>
-    <Tab label="Analytics" >
-      <div style={styles}>
-        <Analytics />
-      </div>
-    </Tab>
-    <Tab label="Reciepts" >
-      <div style={styles}>
-        <Receipts />
-      </div>
-    </Tab>
-    <Tab label="Export" >
-      <div style={styles}>
-        <Export />
-      </div>
-    </Tab>
-  </Tabs>
-);
+    );
+  }
+}
 
 const TabsSection = () => (
   <section className="box box-default">

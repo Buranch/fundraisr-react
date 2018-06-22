@@ -1,11 +1,8 @@
 import React from 'react';
-import {
-  Step,
-  Stepper,
-  StepButton,
-} from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepButton from '@material-ui/core/StepButton';
+import Button from '@material-ui/core/Button';
 import TemplatesTable from './table';
 
 /**
@@ -17,22 +14,21 @@ import TemplatesTable from './table';
  * We've used the `<StepButton>` here to demonstrate clickable step labels.
  */
 class HorizontalNonLinearStepper extends React.Component {
-
   state = {
-    stepIndex: 0,
+    stepIndex: 0
   };
 
   handleNext = () => {
-    const {stepIndex} = this.state;
+    const { stepIndex } = this.state;
     if (stepIndex < 2) {
-      this.setState({stepIndex: stepIndex + 1});
+      this.setState({ stepIndex: stepIndex + 1 });
     }
   };
 
   handlePrev = () => {
-    const {stepIndex} = this.state;
+    const { stepIndex } = this.state;
     if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
+      this.setState({ stepIndex: stepIndex - 1 });
     }
   };
 
@@ -50,43 +46,48 @@ class HorizontalNonLinearStepper extends React.Component {
   }
 
   render() {
-    const {stepIndex} = this.state;
-    const contentStyle = {margin: '0 16px'};
+    const { stepIndex } = this.state;
+    const contentStyle = { margin: '0 16px' };
 
     return (
-      <div style={{width: '100%', maxWidth: 900, margin: 'auto'}}>
+      <div style={{ width: '100%', maxWidth: 900, margin: 'auto' }}>
         <Stepper linear={false} activeStep={stepIndex}>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 0})}>
+            <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
               People
             </StepButton>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 1})}>
+            <StepButton onClick={() => this.setState({ stepIndex: 1 })}>
               Planning
             </StepButton>
           </Step>
           <Step>
-            <StepButton onClick={() => this.setState({stepIndex: 2})}>
+            <StepButton onClick={() => this.setState({ stepIndex: 2 })}>
               Billing
             </StepButton>
           </Step>
         </Stepper>
         <div style={contentStyle}>
           <p>{this.getStepContent(stepIndex)}</p>
-          <div style={{marginTop: 12}}>
-            <FlatButton
+          <div style={{ marginTop: 12 }}>
+            <Button
               label="Back"
               disabled={stepIndex === 0}
               onClick={this.handlePrev}
-              style={{marginRight: 12}}
-            />
-            <RaisedButton
+              style={{ marginRight: 12 }}
+            >
+              Back
+            </Button>
+            <Button
               label="Next"
+              variant="contained"
               disabled={stepIndex === 2}
               primary
               onClick={this.handleNext}
-            />
+            >
+              Next
+            </Button>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Toggle from 'material-ui/Toggle';
-import TextField from 'material-ui/TextField';
+import Switch from '@material-ui/core/Switch';
+import TextField from '@material-ui/core/TextField';
 
 const styles = {
   toggle: {
@@ -29,13 +29,17 @@ class PayPal extends React.Component {
   render() {
     return (
       <div>
-        <Toggle label="Mail Chimp" style={styles.toggle} onToggle={this.ToggleHandler} />
+        <Switch
+          label="Mail Chimp"
+          style={styles.toggle}
+          onChange={this.ToggleHandler}
+        />
         <div className="box bg-color-page" style={this.state}>
           <div className="box-body">
             <h5>Mail Chimp Settings</h5>
-            <TextField floatingLabelText="Account Number" />
+            <TextField label="Account Number" />
             <br />
-            <TextField floatingLabelText="Password" />
+            <TextField label="Password" />
           </div>
         </div>
       </div>

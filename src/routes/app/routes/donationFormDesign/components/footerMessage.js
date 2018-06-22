@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
 
 const FooterMessage = () => (
   <div className="box box-default">
@@ -15,7 +15,7 @@ const FooterMessage = () => (
             rowsMax={10}
             fullWidth
           />
-          <TextField floatingLabelText="CSS Class" />
+          <TextField label="CSS Class" />
         </div>
       </div>
     </div>

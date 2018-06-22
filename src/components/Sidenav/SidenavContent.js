@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '@material-ui/core/Button';
 
 class SidebarContent extends React.Component {
   constructor(props) {
@@ -27,7 +27,6 @@ class SidebarContent extends React.Component {
       let dropDown = document.createElement('i');
       dropDown.appendChild(document.createTextNode('keyboard_arrow_right'));
       dropDown.classList.add('material-icons');
-      console.log();
       let d = prepend.children[0];
       d.insertBefore(dropDown, d.firstChild);
     });
@@ -40,11 +39,8 @@ class SidebarContent extends React.Component {
     p.appendChild(material_elem);
     const As = p.children[0];
     As.addEventListener('click', e => {
-      console.log('clicked As');
       e.preventDefault();
     });
-    console.log('ass');
-
     const currentLocation = history.location;
     this.highlightActive(currentLocation.pathname);
     history.listen(location => {
@@ -60,7 +56,12 @@ class SidebarContent extends React.Component {
     });
   }
   highlightActive(pathname) {
-    const links = this.nav.querySelectorAll('a');
+    let links = null;
+    try {
+      links = this.nav.querySelectorAll('a');
+    } catch (err) {
+      return;
+    }
     const path = `#${pathname}`;
     links.forEach(i => {
       let p = i.parentNode;
@@ -111,7 +112,6 @@ class SidebarContent extends React.Component {
     const li = p.querySelector('li');
     const h = li.getBoundingClientRect().height;
     let i = h * child.length;
-    console.log('mslo');
     p.parentNode.classList.remove('open');
 
     this.i = setInterval(() => {
@@ -138,36 +138,36 @@ class SidebarContent extends React.Component {
           <span>Navigation</span>
         </li>
         <li>
-          <FlatButton href="#/app/dashboard">
+          <Button href="#/app/dashboard">
             <i className="nav-icon material-icons">dashboard</i>
             <span className="nav-text">Dashboard</span>
-          </FlatButton>
+          </Button>
         </li>
         <li>
-          <FlatButton href="#/app/donors">
+          <Button href="#/app/donors">
             <i className="nav-icon material-icons">face</i>
             <span className="nav-text">Donors</span>
-          </FlatButton>
+          </Button>
         </li>
         <li>
-          <FlatButton href="#/app/events">
+          <Button href="#/app/events">
             <i className="nav-icon material-icons">event</i>
             <span className="nav-text">Events</span>
-          </FlatButton>
+          </Button>
         </li>
         <li>
-          <FlatButton href="#/app/donation-forms">
+          <Button href="#/app/donation-forms">
             <i className="nav-icon material-icons">assignment</i>
             <span className="nav-text">Donation Forms</span>
-          </FlatButton>
+          </Button>
         </li>
         <li>
           {/* <i className="material-icons icon-has-ul">arrow_drop_down</i> */}
-          <FlatButton onClick={this.handleSideDropDown} href="#/app/form">
+          <Button onClick={this.handleSideDropDown} href="#/app/form">
             <i className="nav-icon material-icons">build</i>
             <span className="nav-text">Configure</span>
             <span className="badge badge-pill badge-info">6</span>
-          </FlatButton>
+          </Button>
           <ul
             style={{
               display: this.state.completed ? 'block' : 'none',
@@ -176,59 +176,59 @@ class SidebarContent extends React.Component {
             }}
           >
             <li>
-              <FlatButton
+              <Button
                 className="prepend-icon"
                 href="#/app/configure/organization-info"
               >
                 <span>Organization Information</span>
-              </FlatButton>
+              </Button>
             </li>
             <li>
-              <FlatButton className="prepend-icon" href="#/app/configure/users">
+              <Button className="prepend-icon" href="#/app/configure/users">
                 <span>Users</span>
-              </FlatButton>
+              </Button>
             </li>
             <li>
-              <FlatButton
+              <Button
                 className="prepend-icon"
                 href="#/app/configure/field-manager"
               >
                 <span>Field Manager</span>
-              </FlatButton>
+              </Button>
             </li>
             <li>
-              <FlatButton
+              <Button
                 className="prepend-icon"
                 href="#/app/configure/payment-gateway"
               >
                 <span>Payment Gateway</span>
-              </FlatButton>
+              </Button>
             </li>
             <li>
-              <FlatButton
+              <Button
                 className="prepend-icon"
                 href="#/app/configure/mail-confirmations"
               >
                 <span>eMail & Confirmations</span>
-              </FlatButton>
+              </Button>
             </li>
             <li>
-              <FlatButton
+              <Button
                 className="prepend-icon"
                 href="#/app/configure/api-access"
               >
                 <span>API Access</span>
-              </FlatButton>
+              </Button>
             </li>
           </ul>
         </li>
         <li>
-          <FlatButton href="#/app/reporting">
+          <Button href="#/app/reporting">
             <i className="nav-icon material-icons">report_problem</i>
             <span className="nav-text" ref={this.configure}>
               Reporting
             </span>
-          </FlatButton>
+          </Button>
         </li>
       </ul>
     );

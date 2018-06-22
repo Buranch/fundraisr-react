@@ -1,14 +1,11 @@
-import {
-  cyan700,
-  grey600,
-  green600, green200, green400,
-  fullWhite,
-} from 'material-ui/styles/colors';
-import {fade} from 'material-ui/utils/colorManipulator';
-import spacing from 'material-ui/styles/spacing';
-
-// $theme_gray_sidebar_bg_color: grayscale($theme_dark_sidebar_bg_color); // or 3c3c3c
-// $theme_dark_text_color:       rgba(255,255,255,.7);
+import cyan700 from '@material-ui/core/colors/cyan';
+import grey600 from '@material-ui/core/colors/grey';
+import green600 from '@material-ui/core/colors/green';
+import green200 from '@material-ui/core/colors/green';
+import green400 from '@material-ui/core/colors/green';
+import common from '@material-ui/core/colors/common';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import spacing from '@material-ui/core/styles/spacing';
 
 export default {
   spacing,
@@ -22,12 +19,12 @@ export default {
     accent2Color: green400,
     accent3Color: green200,
     textColor: 'rgba(255,255,255,.7)',
-    secondaryTextColor: fade(fullWhite, 0.54),
+    secondaryTextColor: fade(common.white, 0.54),
     alternateTextColor: '#3c3c3c',
     canvasColor: '#3c3c3c',
-    borderColor: fade(fullWhite, 0.15),
-    disabledColor: fade(fullWhite, 0.3),
-    pickerHeaderColor: fade(fullWhite, 0.12),
-    clockCircleColor: fade(fullWhite, 0.12),
-  },
+    borderColor: fade(common.white, 0.15),
+    disabledColor: fade(common.white, 0.3),
+    pickerHeaderColor: fade(common.white, 0.12),
+    clockCircleColor: fade(common.white, 0.12)
+  }
 };

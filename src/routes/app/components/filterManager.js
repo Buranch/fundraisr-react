@@ -1,92 +1,105 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ContentRemove from '@material-ui/icons/Remove';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import SearchIcon from '@material-ui/icons/Search';
 import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import SearchIcon from 'material-ui/svg-icons/action/search';
+import { withStyles } from '@material-ui/core/styles';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const mWidthStyle = {
-  minWidth: '135px'
-};
-const styles = {
-  textFieldStyle: {top: '-17px', width: '170px'},
-  tagCheckBoxStyle: {width: '180px'},
-  optionCheckBoxStyle: {width: '180px'}
+  color: '#00bcd4',
+  minWidth: '135px',
+  fontSize: '15px'
 };
 
+const styles = {
+  textFieldStyle: { top: '5px', width: '170px' },
+  tagCheckBoxStyle: { width: '180px' },
+  optionCheckBoxStyle: { width: '180px' }
+};
 
 class Elem extends React.Component {
-  props = {
-    value: {item: '', event: null, request: null},
-    num: 0,
-    onDelete: (idx) => {
-    },
-    onItemChange: (value, idx) => {
-    },
-    onEventChange: (value, idx) => {
-    },
-    onRequestChange: (value, idx) => {
-    },
-    canRemove: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      item: this.props.value.value.item,
+      event: this.props.value.value.event,
+      request: this.props.value.value.request
+    };
+  }
 
-  clickHandler = (e) => {
+  clickHandler = e => {
     this.props.onDelete(this.props.num - 1);
   };
 
   typeOfItemHandler = (e, index, newValue) => {
-    this.props.onItemChange(newValue, this.props.num - 1);
+    this.setState({ item: e.target.value });
+    // this.props.onItemChange(e.target.value, this.props.num - 1);
   };
   typeOfSearchHandler = (e, index, newValue) => {
-    this.props.onEventChange(newValue, this.props.num - 1);
+    this.setState({ event: e.target.value });
+    // this.props.onEventChange(e.target.value, this.props.num - 1);
   };
   requestHandler = (e, newValue) => {
-    this.props.onRequestChange(newValue, this.props.num - 1);
+    this.setState({ request: e.target.value });
+
+    // this.props.onRequestChange(e.target.value, this.props.num - 1);
   };
 
   render() {
     return (
       <div>
-        <SelectField
-          floatingLabelText="Tag"
-          value={this.props.value.item}
+        <Select
+          value={this.state.item}
           onChange={this.typeOfItemHandler}
           style={styles.tagCheckBoxStyle}
           key={`${this.props.num}item`}
         >
-          <MenuItem value="firstName" primaryText="First Name"/>
-          <MenuItem value="lastName" primaryText="Last Name"/>
-          <MenuItem value="companyName" primaryText="Company Name"/>
-          <MenuItem value="eMail" primaryText="eMail"/>
-          <MenuItem value="city" primaryText="City"/>
-          <MenuItem value="state" primaryText="State"/>
-          <MenuItem value="zipPostalCode" primaryText="Zip/Postal Code"/>
-          <MenuItem value="supporterId" primaryText="Supporter ID"/>
-          <MenuItem value="alternateId" primaryText="Alternate ID"/>
-          <MenuItem value="specialFlag" primaryText="Special Flag"/>
-        </SelectField>
-        <span className="space"/>
-        <SelectField
-          floatingLabelText="option"
+          <MenuItem value="firstName">Profile</MenuItem>
+          <MenuItem value="firstName">First Name</MenuItem>
+          <MenuItem value="lastName">Last Name </MenuItem>
+          <MenuItem value="companyName">Company Name</MenuItem>
+          <MenuItem value="eMail">eMail</MenuItem>
+          <MenuItem value="city">City</MenuItem>
+          <MenuItem value="state">State</MenuItem>
+          <MenuItem value="zipPostalCode">Zip/Postal Code</MenuItem>
+          <MenuItem value="supporterId">Supporter ID</MenuItem>
+          <MenuItem value="alternateId">Alternate ID</MenuItem>
+          <MenuItem value="specialFlag">Special Flag</MenuItem>
+        </Select>
+        <span className="space" />
+        <Select
+          label="option"
           key={`${this.props.num}event`}
-          value={this.props.value.event}
+          value={this.state.event}
           style={styles.optionCheckBoxStyle}
           onChange={this.typeOfSearchHandler}
         >
-          <MenuItem value="startWith" primaryText="Start With"/>
-          <MenuItem value="equal" primaryText="Equal"/>
-          <MenuItem value="contains" primaryText="Contains"/>
-          <MenuItem value="notContain" primaryText="Not Contain"/>
-          <MenuItem value="containsAnyOf" primaryText="Contains Any Of"/>
-          <MenuItem value="containsAllOf" primaryText="Contains All Of"/>
-        </SelectField>
-        <span className="space"/>
-        <TextField style={styles.textFieldStyle} value={this.props.value.request} onChange={this.requestHandler}
-                   key={`${this.props.num}request`}/>
+          <MenuItem value="startWith">Start With</MenuItem>
+          <MenuItem value="equal">Equal</MenuItem>
+          <MenuItem value="contains">Contains</MenuItem>
+          <MenuItem value="notContain">Not Contain</MenuItem>
+          <MenuItem value="containsAnyOf">Contains Any Of</MenuItem>
+          <MenuItem value="containsAllOf">Contains All Of</MenuItem>
+        </Select>
+        <span className="space" />
+        <TextField
+          style={styles.textFieldStyle}
+          value={this.state.request}
+          onChange={this.requestHandler}
+          key={`${this.props.num}request`}
+        />
 
-        {this.props.canRemove && <IconButton onClick={this.clickHandler}> <ContentRemove/> </IconButton>}
+        {this.props.canRemove && (
+          <IconButton onClick={this.clickHandler}>
+            {' '}
+            <ContentRemove />{' '}
+          </IconButton>
+        )}
       </div>
     );
   }
@@ -94,20 +107,20 @@ class Elem extends React.Component {
 
 class FilterManager extends React.Component {
   state = {
-    array: [{value: {item: 'firstName', event: 'startWith', request: ''}}],
+    array: [{ value: { item: 'firstName', event: 'startWith', request: '' } }]
   };
 
   AddHandler = () => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
-      prev.push({item: 'firstName', event: 'startWith', request: ''});
+      prev.push({ item: 'firstName', event: 'startWith', request: '' });
       return {
         style: prevState.style,
         array: prev
       };
     });
   };
-  RemoveHandler = (num) => {
+  RemoveHandler = num => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
@@ -119,7 +132,7 @@ class FilterManager extends React.Component {
   };
   RemoveAllHandler = () => {
     this.setState({
-      array: [{value: {item: 'firstName', event: 'startWith', request: ''}}],
+      array: [{ value: { item: 'firstName', event: 'startWith', request: '' } }]
     });
   };
   ItemHandler = (newValue, num) => {
@@ -178,11 +191,32 @@ class FilterManager extends React.Component {
       <div className="box box-default" style={this.state.style}>
         <div className="box-body">
           <div className="text-right">
-            <FlatButton onClick={this.AddHandler} style={mWidthStyle} label="Add Filter" labelPosition="after" primary/>
-            <FlatButton onClick={this.RemoveAllHandler} style={mWidthStyle} label="Show All" labelPosition="after"
-                        primary/>
-            <FlatButton onClick={this.props.onSearch ? this.props.onSearch : null} style={mWidthStyle} label="Search"
-                        labelPosition="after" primary icon={<SearchIcon/>}/>
+            <Button
+              color="primary"
+              onClick={this.AddHandler}
+              style={mWidthStyle}
+              label="Adddd Filter"
+              // labelPosition="after"
+            >
+              Add Filter
+            </Button>
+            <Button
+              onClick={this.RemoveAllHandler}
+              style={mWidthStyle}
+              label="Show All"
+              // labelPosition="after"
+            >
+              Show All
+            </Button>
+            <Button
+              onClick={this.props.onSearch ? this.props.onSearch : null}
+              style={mWidthStyle}
+              label="Search"
+              // labelPosition="after"
+              color="primary"
+            >
+              <SearchIcon /> Search
+            </Button>
           </div>
           {elems}
         </div>
@@ -191,4 +225,5 @@ class FilterManager extends React.Component {
   }
 }
 
-module.exports = FilterManager;
+// module.exports = FilterManager;
+export default withStyles(styles)(FilterManager);
