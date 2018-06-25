@@ -6,9 +6,7 @@ import ContentRemove from '@material-ui/icons/Remove';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import SearchIcon from '@material-ui/icons/Search';
-import FlatButton from 'material-ui/FlatButton';
 import { withStyles } from '@material-ui/core/styles';
-import ListItemText from '@material-ui/core/ListItemText';
 
 const mWidthStyle = {
   color: '#00bcd4',
