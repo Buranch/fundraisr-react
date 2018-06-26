@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Helper from '../../../components/helper';
 import Runners from './runners';
 import Role from './roleStepper';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -22,8 +22,8 @@ const styles = {
 };
 
 const General = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-6 col-md-6">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={6}>
       <h5>Affiliation</h5>
       <TextField
         value="Michael Scott"
@@ -41,8 +41,8 @@ const General = () => (
       >
         <ContactIcon /> View Contact
       </Button>
-    </div>
-    <div className="col-xs-12 col-sm-6 col-md-6">
+    </Grid>
+    <Grid item xs={12} sm={6} md={6}>
       <h5>Record</h5>
       <TextField value="Michael Scott123" label="User Name" disabled />
       <br />
@@ -61,8 +61,8 @@ const General = () => (
       >
         <DeleteIcon /> Reset Password
       </Button>
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 class TabsExampleSimple extends Component {

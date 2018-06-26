@@ -24,9 +24,26 @@ class Elem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: this.props.value.value.item,
-      event: this.props.value.value.event,
-      request: this.props.value.value.request
+      // item: this.props.value.value.item,
+      item: '',
+      event: null,
+      request: null
+      // item: '',
+      // event: this.props.value.value.event,
+      // request: this.props.value.value.request
+    };
+    props = {
+      value: {
+        item: '',
+        event: null,
+        request: null
+      },
+      num: 0,
+      onDelete: idx => {},
+      onItemChange: (value, idx) => {},
+      onEventChange: (value, idx) => {},
+      onRequestChange: (value, idx) => {},
+      canRemove: false
     };
   }
 
@@ -196,7 +213,7 @@ class FilterManager extends React.Component {
               label="Adddd Filter"
               // labelPosition="after"
             >
-              Add Filter
+              Add Filters
             </Button>
             <Button
               onClick={this.RemoveAllHandler}

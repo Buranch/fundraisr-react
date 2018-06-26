@@ -3,7 +3,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Switch from '@material-ui/core/Switch';
 import ActivityTable from './activityTable';
-
+import Grid from '@material-ui/core/Grid';
 const styles = {
   padding: '12px 18px',
   marginBottom: 12,
@@ -16,12 +16,12 @@ const styles = {
 };
 
 const Priveleges = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Status</h5>
       <Switch label="Active" style={styles.toggle} />
-    </div>
-    <div className="col-xs-12 col-sm-6 col-md-4">
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Group</h5>
       <small>Full Access</small>
       <Switch label="Administrator" style={styles.toggle} />
@@ -32,8 +32,8 @@ const Priveleges = () => (
       <div className="divider" />
       <small>Description</small>
       <Switch label="Custom Group" style={styles.toggle} />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 class TabsExampleSimple extends Component {

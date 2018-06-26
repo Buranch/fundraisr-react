@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import MyStatefulEditor from '../../../components/editor';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -35,8 +35,8 @@ class EmailConf extends React.Component {
         <h1 className="article-title"> Conformation Title</h1>
         <div className="box box-default">
           <div className="box-body">
-            <div className="row">
-              <div className="col-xl-4">
+            <Grid container spacing={24}>
+              <Grid item xs={4}>
                 <h5>Message Type</h5>
                 <div className="box box-default text-center">
                   <Button
@@ -56,8 +56,8 @@ class EmailConf extends React.Component {
                     Use Custom Text
                   </Button>
                 </div>
-              </div>
-              <div className="col-xl-8">
+              </Grid>
+              <Grid item xs={8}>
                 <h5>Message Preview</h5>
                 {this.state.first ? (
                   <p>
@@ -89,8 +89,8 @@ class EmailConf extends React.Component {
                     [[account_name]]
                   </span>
                 )}
-              </div>
-            </div>
+              </Grid>
+            </Grid>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ import RadioButtonGroup from '@material-ui/core/RadioGroup';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ContentRemove from '@material-ui/icons/Remove';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -204,8 +204,8 @@ class Delivery extends React.Component {
         <TextField label="Prepared by" hintText="Report by" /> <br />
         <Switch label="Time\Date Stamp" style={styles.toggle} defaultToggled />
         <div className="divider" />
-        <div className="row">
-          <div className="col-xs-12 col-sm-4 col-md-4">
+        <Grid container spacing={24}>
+          <Grid item xs={12} sm={4} md={4}>
             <h6>Output Options</h6>
             <RadioButtonGroup
               name="outputOptions"
@@ -233,12 +233,12 @@ class Delivery extends React.Component {
                 style={styles.radioButton}
               />
             </RadioButtonGroup>
-          </div>
-          <div className="col-xs-12 col-sm-8 col-md-8">
+          </Grid>
+          <Grid item xs={12} sm={8} md={8}>
             <h6>Output Options Defined</h6>
             {twoRow}
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     );
   }

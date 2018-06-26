@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -58,20 +58,20 @@ class formTable extends React.Component {
     return (
       <div className="box box-default">
         <div className="box-body">
-          <div className="row">
-            <div className="col-xs-12 col-sm-6 col-md-4">
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={6} md={4}>
               <h5>User Info</h5>
               <UserInfo />
-            </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
               <h5>User Contact</h5>
               <UserContact />
-            </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
               <h5>User Access</h5>
               <UserAccess />
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         </div>
       </div>
     );

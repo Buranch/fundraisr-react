@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import AmNums from './amountsNum';
 import NumField from '../../../components/numField';
-
+import Grid from '@material-ui/core/Grid';
 const styles = {
   toggle: {
     maxWidth: 250,
@@ -82,7 +82,7 @@ class OthAmount extends React.Component {
 }
 
 const PaymentTypes = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid item xs={12} sm={6} md={4}>
     <h5>Payment Types</h5>
     <small>
       Default payment types are Visa, Master Card, American Express and
@@ -91,10 +91,10 @@ const PaymentTypes = () => (
     <br />
     <br />
     <Switch label="PayPal" style={styles.toggle} defaultToggled />
-  </div>
+  </Grid>
 );
 const GivingOpt = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid item xs={12} sm={6} md={4}>
     <h5>Giving Options</h5>
     <small>Enable donors to customize how they donate.</small>
     <br />
@@ -104,25 +104,25 @@ const GivingOpt = () => (
     <HonorGiving />
     <div className="divider" />
     <Switch label="Designation" style={styles.toggle} />
-  </div>
+  </Grid>
 );
 const DonAm = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid item xs={12} sm={6} md={4}>
     <h5>Donation Amounts</h5>
     <AmNums />
     <div className="divider" />
     <OthAmount />
-  </div>
+  </Grid>
 );
 
 const result = () => (
   <div className="box box-default">
     <div className="box-body">
-      <div className="row">
+      <Grid container spacing={24}>
         <GivingOpt />
         <PaymentTypes />
         <DonAm />
-      </div>
+      </Grid>
     </div>
   </div>
 );

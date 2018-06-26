@@ -6,10 +6,10 @@ import PayPal from './paypal';
 import CreditCards from './creditCards';
 import BlockCountries from './blockCountries';
 import BlockIP from './blockIP';
-
+import Grid from '@material-ui/core/Grid';
 const Main = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-12 col-md-6">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={12} md={6}>
       <div className="box box-default">
         <div className="box-body">
           <h5>Donor Payment Options</h5>
@@ -19,8 +19,8 @@ const Main = () => (
           <CreditCards />
         </div>
       </div>
-    </div>
-    <div className="col-xs-12 col-sm-12 col-md-6">
+    </Grid>
+    <Grid item xs={12} sm={12} md={6}>
       <div className="box box-default">
         <div className="box-body">
           <h5>Donor Payment Options</h5>
@@ -33,8 +33,8 @@ const Main = () => (
           <BlockIP />
         </div>
       </div>
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 const paymentGateway = () => (

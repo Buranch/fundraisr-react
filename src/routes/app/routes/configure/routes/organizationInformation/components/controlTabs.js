@@ -4,7 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import IntegrationDownshift from './formTableAutocomplete';
-
+import Grid from '@material-ui/core/Grid';
 const styles = {
   padding: '12px 18px',
   marginBottom: 12,
@@ -145,38 +145,38 @@ const month = [
 ];
 
 const Verification = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Verification Defaults</h5>
       <small>Require Address or Zip/Postal code verification. </small>
       <Switch label="Postal Code" style={styles.toggle} />
       <br />
       <small>Lock credit card verification settings. </small>
       <Switch label="Lock Settings" style={styles.toggle} />
-    </div>
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Description</h5>
       <TextField defaultValue="e5r6tyui" label="Soft Descriptor" />
-    </div>
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Contact</h5>
       <TextField defaultValue="drfytguyh" label="Inquiry Phone" /> <br />
       <small>Donor Inquiry Phone Number. </small>
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Virtual = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>All Accounts</h5>
       <small>Share Transactions Across All Virtual Accounts.</small>
       <Switch label="Sharing" style={styles.toggle} defaultToggled />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Preferences = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Time Keeping</h5>
       <IntegrationDownshift title="select timeZone" suggestions={timezones} />
       <IntegrationDownshift title="select month" suggestions={month} />
@@ -186,36 +186,36 @@ const Preferences = () => (
       <br />
       <small>Enable Daylight Saving Time (DST)</small>
       <Switch label="DST" style={styles.toggle} defaultToggled />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Benchmark = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Benchmark Profile</h5>
       <TextField
         hintText="2,500,000"
         label="Annual Revenue"
         floatingLabelFixed
       />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Duplicates = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Duplicates</h5>
       <small>
         Merge new records if First Name, Last Name, and E-Mail address match
         exactly
       </small>
       <Switch label="De-Duplicator" style={styles.toggle} defaultToggled />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Admin = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Admin</h5>
       <small>
         Administrator for “Forgot Password?” and “Form Workflow” Support
@@ -227,24 +227,24 @@ const Admin = () => (
         label="Administrator"
       />
       <TextField floatingLabelFixed hintText="thirst@th3.com" label="eMail" />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Analytics = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Analytics Tracking</h5>
       <TextField
         floatingLabelFixed
         hintText="12345-2345-4567488"
         label="Account"
       />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Receipts = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Enable PDF Receipts for Account?</h5>
       <small>
         You must specify all three numbers. When the number specified for Send
@@ -259,17 +259,17 @@ const Receipts = () => (
       <TextField floatingLabelFixed hintText="1" label="Starting Number" />
       <TextField floatingLabelFixed hintText="99000" label="Send Warning at" />
       <TextField floatingLabelFixed hintText="99999" label="Ending Number" />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const Export = () => (
-  <div className="row">
-    <div className="сol-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Enable PDF Receipts for Account?</h5>
       <small>Exclude extended characters set in CSV and XLS exports.</small>
       <Switch label="Sharing" style={styles.toggle} />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 class TabsExampleSimple extends Component {
