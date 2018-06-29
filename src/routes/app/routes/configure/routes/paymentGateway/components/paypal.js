@@ -1,6 +1,7 @@
 import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const styles = {
   toggle: {
@@ -29,10 +30,10 @@ class PayPal extends React.Component {
   render() {
     return (
       <div>
-        <Switch
-          label="PayPal"
+        <FormControlLabel
+          control={<Switch onChange={this.ToggleHandler} />}
           style={styles.toggle}
-          onChange={this.ToggleHandler}
+          label="PayPal"
         />
         <div className="box bg-color-page" style={this.state}>
           <div className="box-body">

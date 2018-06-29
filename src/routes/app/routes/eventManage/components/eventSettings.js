@@ -4,6 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import MyStatefulEditor from '../../../components/editor';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const styles = {
   padding: '12px 18px',
@@ -221,7 +222,11 @@ const Features = () => (
         Allow users to Register/Login and Donate using their Social Media Login
         Information
       </small>
-      <Switch label="Enable Quick Connect" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        label="Enable Quick Connect"
+        style={styles.toggle}
+      />
     </div>
 
     <h5>Registration Types</h5>
@@ -232,14 +237,22 @@ const Features = () => (
         Send Notifications to Event Managers when a new Registration is
         Confirmed
       </small>
-      <Switch label="Send Registration Notifications" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        label="Send Registration Notifications"
+        style={styles.toggle}
+      />
 
       <small>
         Allow users to create a Family of Donors - Each member will have
         individual contact information and the Family will have it's own Family
         page to collaborate Fund-Raising
       </small>
-      <Switch label="Family registration" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        label="Family registration"
+        style={styles.toggle}
+      />
     </div>
   </div>
 );
@@ -265,10 +278,10 @@ class Registration extends React.Component {
           Send Notifications to Event Managers when a new Registration is
           Confirmed
         </small>
-        <Switch
+        <FormControlLabel
+          control={<Switch onToggle={this.toggleHandler} />}
           label=" Send Registration Notifications"
           style={styles.toggle}
-          onToggle={this.toggleHandler}
         />
 
         <div
@@ -285,18 +298,28 @@ class Registration extends React.Component {
           individual contact information and the Family will have it's own
           Family page to collaborate Fund-Raising
         </small>
-        <Switch label="Family registration" style={styles.toggle} />
-
+        <FormControlLabel
+          control={<Switch />}
+          label="Family registration"
+          style={styles.toggle}
+        />
         <small>
           Allow participants to register as an Individual and not be a team
           member.
         </small>
-        <Switch label="Individual Registration" style={styles.toggle} />
-
+        <FormControlLabel
+          control={<Switch />}
+          label="Individual Registration"
+          style={styles.toggle}
+        />
         <small>
           Enable users to participate and help fund-raise for your event.
         </small>
-        <Switch label="Participant Registration" style={styles.toggle} />
+        <FormControlLabel
+          control={<Switch />}
+          label="Participant Registration"
+          style={styles.toggle}
+        />
       </div>
     </div>
   );

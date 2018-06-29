@@ -1,11 +1,12 @@
 import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import CountryDialog from './countriesDialogs';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const styles = {
   toggle: {
-    maxWidth: 250,
-    marginBottom: 16
+    maxWidth: 250
+    // // marginBottom: 16
   }
 };
 
@@ -36,10 +37,11 @@ class BlockCountries extends React.Component {
           see "http://www.wymoo.com/countries/fraud-zones/" for more information
           on on-line Internet scams.{' '}
         </small>
-        <Switch
-          label="Block Countries"
+
+        <FormControlLabel
+          control={<Switch onChange={this.ToggleHandler} />}
           style={styles.toggle}
-          onChange={this.ToggleHandler}
+          label="Block Countries"
         />
 
         <div style={this.state}>

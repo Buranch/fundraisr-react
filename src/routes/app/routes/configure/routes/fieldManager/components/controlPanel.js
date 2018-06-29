@@ -6,7 +6,10 @@ import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -25,20 +28,19 @@ class AddDialog extends React.Component {
     this.setState({ open: true });
   };
   handleConfirm = () => {
-    alert('Confirm!');
     alert(this.state.inputLabel);
     alert(this.state.inputId);
     alert(this.state.inputType);
     this.setState({ open: false });
   };
   handleClose = () => {
-    alert('Close!');
     this.setState({ open: false });
   };
-  handleLabel = (event, value) => this.setState({ inputLabel: value });
+  handleLabel = (event, value) =>
+    this.setState({ inputLabel: event.target.value });
   handleInputType = (event, index, value) =>
-    this.setState({ inputType: value });
-  handleId = (event, value) => this.setState({ inputId: value });
+    this.setState({ inputType: event.target.value });
+  handleId = (event, value) => this.setState({ inputId: event.target.value });
 
   render() {
     const actions = [
@@ -66,34 +68,45 @@ class AddDialog extends React.Component {
           <AddIcon /> Add
         </Button>
         <Dialog
-          title="Add Custom Field"
-          actions={actions}
-          modal={false}
           open={this.state.open}
-          onRequestClose={this.handleClose}
+          onClose={this.handleClose}
+          maxWidth="xl"
+          aria-labelledby="form-dialog-title"
+          actions={actions}
         >
-          <TextField
-            label="Input Label"
-            value={this.state.inputLabel}
-            onChange={this.handleLabel}
-          />{' '}
-          <br />
-          <TextField
-            label="Input Label"
-            value={this.state.inputId}
-            onChange={this.handleId}
-          />{' '}
-          <br />
-          <SelectField
-            label="Input Type"
-            value={this.state.inputType}
-            onChange={this.handleInputType}
-          >
-            <MenuItem value="checkBox">Check Box</MenuItem>
-            <MenuItem value="textInput">Text Input</MenuItem>
-            <MenuItem value="select">Select</MenuItem>
-            <MenuItem value="radioButtons">Radio Button</MenuItem>
-          </SelectField>
+          <DialogTitle id="form-dialog-title">Add Custom Field</DialogTitle>
+          <DialogContent>
+            <TextField
+              label="Input Label"
+              value={this.state.inputLabel}
+              onChange={this.handleLabel}
+            />{' '}
+            <br />
+            <TextField
+              label="Input Label"
+              value={this.state.inputId}
+              onChange={this.handleId}
+            />{' '}
+            <br />
+            <SelectField
+              label="Input Type"
+              value={this.state.inputType}
+              onChange={this.handleInputType}
+            >
+              <MenuItem value="checkBox">Check Box</MenuItem>
+              <MenuItem value="textInput">Text Input</MenuItem>
+              <MenuItem value="select">Select</MenuItem>
+              <MenuItem value="radioButtons">Radio Button</MenuItem>
+            </SelectField>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={this.handleConfirm} color="primary">
+              Save
+            </Button>
+          </DialogActions>
         </Dialog>
       </span>
     );

@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import IntegrationDownshift from './formTableAutocomplete';
 import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 const styles = {
   padding: '12px 18px',
   marginBottom: 12,
@@ -12,7 +13,8 @@ const styles = {
   minHeight: 300,
   toggle: {
     maxWidth: 250,
-    marginBottom: 16
+    padding: 10
+    // marginBottom: 16
   }
 };
 const timezones = [
@@ -149,10 +151,19 @@ const Verification = () => (
     <Grid item xs={12} sm={6} md={4}>
       <h5>Verification Defaults</h5>
       <small>Require Address or Zip/Postal code verification. </small>
-      <Switch label="Postal Code" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        style={styles.toggle}
+        label="Postal Code"
+      />
+
       <br />
       <small>Lock credit card verification settings. </small>
-      <Switch label="Lock Settings" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        style={styles.toggle}
+        label="Lock Settings"
+      />
     </Grid>
     <Grid item xs={12} sm={6} md={4}>
       <h5>Description</h5>
@@ -170,7 +181,11 @@ const Virtual = () => (
     <Grid item xs={12} sm={6} md={4}>
       <h5>All Accounts</h5>
       <small>Share Transactions Across All Virtual Accounts.</small>
-      <Switch label="Sharing" style={styles.toggle} defaultToggled />
+      <FormControlLabel
+        control={<Switch checked />}
+        style={styles.toggle}
+        label="Sharing"
+      />
     </Grid>
   </Grid>
 );
@@ -185,7 +200,11 @@ const Preferences = () => (
       <br />
       <br />
       <small>Enable Daylight Saving Time (DST)</small>
-      <Switch label="DST" style={styles.toggle} defaultToggled />
+      <FormControlLabel
+        control={<Switch checked />}
+        style={styles.toggle}
+        label="DST"
+      />
     </Grid>
   </Grid>
 );
@@ -209,7 +228,11 @@ const Duplicates = () => (
         Merge new records if First Name, Last Name, and E-Mail address match
         exactly
       </small>
-      <Switch label="De-Duplicator" style={styles.toggle} defaultToggled />
+      <FormControlLabel
+        control={<Switch checked />}
+        style={styles.toggle}
+        label="De-Duplicator"
+      />
     </Grid>
   </Grid>
 );
@@ -254,7 +277,11 @@ const Receipts = () => (
         when you start a new range of numbers for PDF receipts, you must
         manually enter a range that is unique and not previously used.
       </small>
-      <Switch label="PDF Receipts" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch checked />}
+        style={styles.toggle}
+        label="PDF Receipts"
+      />
 
       <TextField floatingLabelFixed hintText="1" label="Starting Number" />
       <TextField floatingLabelFixed hintText="99000" label="Send Warning at" />
@@ -267,7 +294,11 @@ const Export = () => (
     <Grid item xs={12} sm={6} md={4}>
       <h5>Enable PDF Receipts for Account?</h5>
       <small>Exclude extended characters set in CSV and XLS exports.</small>
-      <Switch label="Sharing" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch checked />}
+        style={styles.toggle}
+        label="Sharing"
+      />
     </Grid>
   </Grid>
 );

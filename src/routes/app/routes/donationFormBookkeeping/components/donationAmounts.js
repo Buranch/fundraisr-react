@@ -1,8 +1,8 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import AmNums from './amountsNum';
 import NumField from '../../../components/numField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const styles = {
   toggle: {
@@ -36,13 +36,14 @@ class HonorGiving extends React.Component {
   render() {
     return (
       <div>
-        <Switch
+        <FormControlLabel
+          control={
+            <Switch style={styles.toggle} onChange={this.ToggleHandler} />
+          }
           label="Honor Giving"
-          style={styles.toggle}
-          onToggle={this.ToggleHandler}
         />
         <div style={this.state}>
-          <Switch label="Honoree Card" />
+          <FormControlLabel control={<Switch />} label="Honoree Card" />
         </div>
       </div>
     );
@@ -68,10 +69,10 @@ class OthAmount extends React.Component {
   render() {
     return (
       <div>
-        <Switch
+        <FormControlLabel
+          control={<Switch onChange={this.ToggleHandler} />}
           label="Other Amount"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
         />
         <div className="box-body" style={this.state}>
           <NumField min={5} label="Minimum" />
@@ -90,7 +91,11 @@ const PaymentTypes = () => (
     </small>
     <br />
     <br />
-    <Switch label="PayPal" style={styles.toggle} defaultToggled />
+    <FormControlLabel
+      control={<Switch checked />}
+      label="PayPal"
+      style={styles.toggle}
+    />
   </Grid>
 );
 const GivingOpt = () => (
@@ -99,11 +104,20 @@ const GivingOpt = () => (
     <small>Enable donors to customize how they donate.</small>
     <br />
     <br />
-    <Switch label="Monthly Giving" style={styles.toggle} />
+    <FormControlLabel
+      control={<Switch />}
+      label="Monthly Giving"
+      style={styles.toggle}
+    />
+
     <div className="divider" />
     <HonorGiving />
     <div className="divider" />
-    <Switch label="Designation" style={styles.toggle} />
+    <FormControlLabel
+      control={<Switch />}
+      label="Designation"
+      style={styles.toggle}
+    />
   </Grid>
 );
 const DonAm = () => (

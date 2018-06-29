@@ -23,10 +23,11 @@ class EditDialog extends React.Component {
     alert(this.state.inputType);
   };
 
-  handleLabel = (event, value) => this.setState({ inputLabel: value });
+  handleLabel = (event, value) =>
+    this.setState({ inputLabel: event.target.value });
   handleInputType = (event, index, value) =>
-    this.setState({ inputType: value });
-  handleId = (event, value) => this.setState({ inputId: value });
+    this.setState({ inputType: event.target.value });
+  handleId = (event, value) => this.setState({ inputId: event.target.value });
 
   render() {
     return (
