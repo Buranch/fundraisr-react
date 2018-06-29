@@ -107,7 +107,7 @@ class CustomFields extends React.Component {
           <Button
             onClick={this.AddHandler}
             style={mWidthStyle}
-            labelPosition="after"
+            labelposition="after"
             color="primary"
           >
             <ContentAdd /> Add

@@ -1,7 +1,20 @@
 import React from 'react';
-
+import Grid from '@material-ui/core/Grid';
 function getMonth(date) {
-  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  const month = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
   return month[date.getMonth()];
 }
 const date = new Date();
@@ -9,15 +22,15 @@ const dateString = `${getMonth(date)} ${date.getDate()}, ${date.getFullYear()}`;
 
 class HeadText extends React.Component {
   render = () => (
-    <div className="row">
-      <div className="col-xs-6 col-sm-6 col-md-6">
+    <Grid container spacing={24}>
+      <Grid item xs={6} sm={6} md={6}>
         <h1 className="article-title">{this.props.pageName}</h1>
-      </div>
-      <div className="col-xs-6 col-sm-6 col-md-6" style={{textAlign: 'right'}}>
+      </Grid>
+      <Grid item xs={6} sm={6} md={6} style={{ textAlign: 'right' }}>
         <h1 className="article-title">{dateString}</h1>
-      </div>
-    </div>
-);
+      </Grid>
+    </Grid>
+  );
 }
 
 module.exports = HeadText;

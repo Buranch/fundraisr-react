@@ -64,7 +64,7 @@ class AdditionalContent extends React.Component {
               label="Content"
               href=""
               target="_blank"
-              secondary={!this.state.advanced}
+              // secondary={!this.state.advanced}
             >
               Content
             </Button>
@@ -74,7 +74,7 @@ class AdditionalContent extends React.Component {
               label="Advanced"
               href=""
               target="_blank"
-              secondary={this.state.advanced}
+              // secondary={this.state.advanced}
             >
               Advanced
             </Button>

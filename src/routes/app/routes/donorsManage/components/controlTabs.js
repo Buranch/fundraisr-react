@@ -8,7 +8,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import HistoryTable from './historyTable';
 import IntegrationDownshift from '../../configure/routes/organizationInformation/components/formTableAutocomplete';
-
+import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 const styles = {
   padding: '12px 18px',
   marginBottom: 12,
@@ -137,17 +138,19 @@ class Personal extends React.Component {
     maritalStatus: '',
     living: 'living'
   };
-  handleSexChange = (event, index, value) => this.setState({ sexValue: value });
+  handleSexChange = (event, index, value) =>
+    this.setState({ sexValue: event.target.value });
   handleEtnChange = (event, index, value) =>
-    this.setState({ ethnicity: value });
+    this.setState({ ethnicity: event.target.value });
   handleMarChange = (event, index, value) =>
-    this.setState({ maritalStatus: value });
-  handleLivChange = (event, index, value) => this.setState({ living: value });
+    this.setState({ maritalStatus: event.target.value });
+  handleLivChange = (event, index, value) =>
+    this.setState({ living: event.target.value });
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Demographics</h5>
           <TextField value="68" label="Age" disabled />
           <br />
@@ -196,19 +199,19 @@ class Personal extends React.Component {
             <MenuItem value={'living'}>Living</MenuItem>
             <MenuItem value={'deceased'}>Deceased</MenuItem>
           </SelectField>
-        </div>
+        </Grid>
 
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Tax Information</h5>
           <TextField defaultValue="2034299-345" label="Tax ID#" />
-          <Switch
+          <FormControlLabel
+            control={<Switch checked />}
             label="Head of Household?"
             style={styles.toggle}
-            defaultToggled
           />
-        </div>
+        </Grid>
 
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Employment Information</h5>
           <TextField
             defaultValue="Transformers - Robots in Disguise"
@@ -221,14 +224,14 @@ class Personal extends React.Component {
             label="Company URL"
           />{' '}
           <br />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }
 const Identifiers = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Identifiers</h5>
       <TextField value="9812873456" label="Donor ID" disabled />
       <br />
@@ -240,19 +243,20 @@ const Identifiers = () => (
       <TextField value="Active; Gold; Veteran" label="Tags" />
       <br />
       <small>Seperate tags with ; </small>
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 class Education extends React.Component {
   state = {
     eduValue: 'highSchool'
   };
-  handleEduChange = (event, index, value) => this.setState({ eduValue: value });
+  handleEduChange = (event, index, value) =>
+    this.setState({ eduValue: event.target.value });
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Education</h5>
           <TextField value="Cybertron University" label="School" />
           <br />
@@ -272,17 +276,17 @@ class Education extends React.Component {
             <MenuItem value={'doctorate'}>Doctorate</MenuItem>
             <MenuItem value={'postDoctorate'}>Post Doctorate</MenuItem>
           </SelectField>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }
 const Relationships = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Relationships</h5>
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 const History = () => (
   <div>
@@ -295,24 +299,44 @@ class ContactMethods extends React.Component {
     emailFormat: 'html'
   };
   handleMailChange = (event, index, value) =>
-    this.setState({ emailFormat: value });
+    this.setState({ emailFormat: event.target.value });
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Phone</h5>
-          <Switch label="Home Phone" style={styles.toggle} />
-          <Switch label="Cell Phone" style={styles.toggle} />
-          <Switch label="Business Phone" style={styles.toggle} />
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
+          <FormControlLabel
+            control={<Switch />}
+            label="Home Phone"
+            style={styles.toggle}
+          />
+          <FormControlLabel
+            control={<Switch />}
+            label="Cell Phone"
+            style={styles.toggle}
+          />
+          <FormControlLabel
+            control={<Switch />}
+            label="Business Phone"
+            style={styles.toggle}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Physical</h5>
-          <Switch label="Direct Mail" style={styles.toggle} />
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
+          <FormControlLabel
+            control={<Switch />}
+            label="Direct Mail"
+            style={styles.toggle}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <h5>eMail</h5>
-          <Switch label="eMail" style={styles.toggle} />
+          <FormControlLabel
+            control={<Switch />}
+            label="eMail"
+            style={styles.toggle}
+          />
           <SelectField
             label="eMail Format"
             value={this.state.emailFormat}
@@ -327,8 +351,8 @@ class ContactMethods extends React.Component {
             target="_blank"
             primary
           />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }
@@ -336,12 +360,13 @@ class Misc extends React.Component {
   state = {
     hear: ''
   };
-  handleHearChange = (event, index, value) => this.setState({ hear: value });
+  handleHearChange = (event, index, value) =>
+    this.setState({ hear: event.target.value });
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={4}>
           <h5>Custom Fields</h5>
           <SelectField
             label="How did you hear about us?"
@@ -353,13 +378,33 @@ class Misc extends React.Component {
             <MenuItem value={'referal'}>Referal</MenuItem>
             <MenuItem value={'other'}>Other</MenuItem>
           </SelectField>
-          <Switch label="Active Flag" style={styles.toggle} />
-          <Switch label="Private Listing" style={styles.toggle} />
-          <Switch label="Celebrity" style={styles.toggle} />
-          <Switch label="Can Post" style={styles.toggle} defaultToggled />
-          <Switch label="Giving Fund" style={styles.toggle} defaultToggled />
-        </div>
-      </div>
+          <FormControlLabel
+            control={<Switch />}
+            label="Active Flag"
+            style={styles.toggle}
+          />
+          <FormControlLabel
+            control={<Switch />}
+            label="Private Listing"
+            style={styles.toggle}
+          />
+          <FormControlLabel
+            control={<Switch />}
+            label="Celebrity"
+            style={styles.toggle}
+          />
+          <FormControlLabel
+            control={<Switch checked />}
+            label="Can Post"
+            style={styles.toggle}
+          />
+          <FormControlLabel
+            control={<Switch checked />}
+            label="Giving Fund"
+            style={styles.toggle}
+          />
+        </Grid>
+      </Grid>
     );
   }
 }

@@ -8,21 +8,21 @@ import NewEvents from './NewEvents';
 import TopDonors from './TopDonors';
 import TopEvents from './TopEvents';
 import HeadText from '../../../components/headText';
-
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 const Main = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-12 col-md-6">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={12} md={6}>
       <div className="box box-default">
         <div className="box-body">
           <DonationChart />
         </div>
       </div>
-    </div>
-
-    <div className="col-xs-12 col-sm-12 col-md-6">
+    </Grid>
+    <Grid item xs={12} sm={12} md={6}>
       <StatBoxes />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 const Dashboard = () => (
@@ -32,11 +32,17 @@ const Dashboard = () => (
     <QueueAnim type="bottom" className="ui-animate">
       <Main />
     </QueueAnim>
-    <div className="row">
-      <div className="col-xs-12 col-sm-6 col-md-4"><TopDonors /></div>
-      <div className="col-xs-12 col-sm-6 col-md-4"><TopEvents /></div>
-      <div className="col-xs-12 col-sm-6 col-md-4"><NewEvents /></div>
-    </div>
+    <Grid container spacing={24}>
+      <Grid item xs={12} sm={6} md={4}>
+        <TopDonors />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <TopEvents />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <NewEvents />
+      </Grid>
+    </Grid>
   </div>
 );
 

@@ -24,9 +24,26 @@ class Elem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: this.props.value.value.item,
-      event: this.props.value.value.event,
-      request: this.props.value.value.request
+      // item: this.props.value.value.item,
+      item: '',
+      event: null,
+      request: null
+      // item: '',
+      // event: this.props.value.value.event,
+      // request: this.props.value.value.request
+    };
+    props = {
+      value: {
+        item: '',
+        event: null,
+        request: null
+      },
+      num: 0,
+      onDelete: idx => {},
+      onItemChange: (value, idx) => {},
+      onEventChange: (value, idx) => {},
+      onRequestChange: (value, idx) => {},
+      canRemove: false
     };
   }
 
@@ -194,15 +211,15 @@ class FilterManager extends React.Component {
               onClick={this.AddHandler}
               style={mWidthStyle}
               label="Adddd Filter"
-              // labelPosition="after"
+              // labelposition="after"
             >
-              Add Filter
+              Add Filters
             </Button>
             <Button
               onClick={this.RemoveAllHandler}
               style={mWidthStyle}
               label="Show All"
-              // labelPosition="after"
+              // labelposition="after"
             >
               Show All
             </Button>
@@ -210,7 +227,7 @@ class FilterManager extends React.Component {
               onClick={this.props.onSearch ? this.props.onSearch : null}
               style={mWidthStyle}
               label="Search"
-              // labelPosition="after"
+              // labelposition="after"
               color="primary"
             >
               <SearchIcon /> Search

@@ -4,7 +4,7 @@ import FlatButton from '@material-ui/core/Button';
 import RemoveIcon from '@material-ui/icons/Remove';
 import Checkbox from '@material-ui/core/Checkbox';
 import SimpleExpansionPanel from './reportingCollapse';
-
+import Grid from '@material-ui/core/Grid';
 class FormatStep extends React.Component {
   state = {
     allOptions: [
@@ -102,17 +102,17 @@ class FormatStep extends React.Component {
 
   renderCheckboxes = checkboxes => {
     return (
-      <div className="row">
+      <Grid container spacing={24}>
         {checkboxes.map(x => (
-          <div className="col-md-6 col-sm-12" key={x.name}>
+          <Grid item md={6} sm={12} key={x.name}>
             <Checkbox
               label={x.name}
               checked={x.isChecked}
               onCheck={(e, isChecked) => this.onCheckOption(x, isChecked)}
             />
-          </div>
+          </Grid>
         ))}
-      </div>
+      </Grid>
     );
   };
 
@@ -163,8 +163,8 @@ class FormatStep extends React.Component {
   render() {
     return (
       <div>
-        <div className="row">
-          <div className="col-xl-6 col-lg-12">
+        <Grid container spacing={24}>
+          <Grid item xs={6} lg={12}>
             <SimpleExpansionPanel>
               {this.renderOptionsPanel('Standard Fields', 'standard-fields', [
                 { options: this.getStandardFieldsOptions() }
@@ -187,16 +187,16 @@ class FormatStep extends React.Component {
                 }
               ])}
             </SimpleExpansionPanel>
-          </div>
-          <div className="col-xl-6 col-lg-12">
+          </Grid>
+          <Grid item xs={6} lg={12}>
             <Table
               dataSource={this.getCheckedOptionsDataSource()}
               columns={this.createTableCols(this.removeFromSelectedRows)}
               size="small"
               bordered
             />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import ColorPicker from '../../../components/colorPicker';
 import NumField from '../../../components/numField';
-
+import Grid from '@material-ui/core/Grid';
 const boxStyle = { margin: '5px' };
 
 class BoxPattern extends React.Component {
@@ -78,124 +78,124 @@ class ColorTable extends React.Component {
   render() {
     return (
       <div>
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
+        <Grid container spacing={24}>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Canvas
                 <ColorPicker r="61" g="68" b="255" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Top box
                 <ColorPicker r="74" g="125" b="217" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Body text
                 <ColorPicker r="85" g="80" b="75" />
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
 
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
+        <Grid container spacing={24}>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Bottom footer text
                 <ColorPicker r="255" g="255" b="255" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Form headlines
                 <ColorPicker r="86" g="162" b="2" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Sidebar headlines
                 <ColorPicker r="255" g="255" b="255" />
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
 
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
+        <Grid container spacing={24}>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Sidebar top bg
                 <ColorPicker r="1" g="132" b="255" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Sidebar container text
                 <ColorPicker r="226" g="226" b="213" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Sidebar container bg
                 <ColorPicker r="226" g="226" b="213" />
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
 
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
+        <Grid container spacing={24}>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Top footer bg
                 <ColorPicker r="51" g="51" b="51" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Top footer text
                 <ColorPicker r="240" g="240" b="232" />
               </div>
             </div>
-          </div>
-          <div className="col-xs-4 col-sm-4 col-md-4">
+          </Grid>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Bottom footer bg
                 <ColorPicker r="74" g="125" b="217" />
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
 
-        <div className="row">
-          <div className="col-xs-4 col-sm-4 col-md-4">
+        <Grid container spacing={24}>
+          <Grid item xs={4} sm={4} md={4}>
             <div className="box bg-color-page">
               <div className="box-body no-padding" style={boxStyle}>
                 Body links
                 <ColorPicker r="66" g="139" b="202" />
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     );
   }
@@ -206,12 +206,12 @@ class FormTable extends React.Component {
     return (
       <div className="box box-default">
         <div className="box-body">
-          <div className="row">
-            <div className="col-lg-12 col-xl-4">
+          <Grid container spacing={24}>
+            <Grid item lg={6} xl={4}>
               <h5>Colors</h5>
               <ColorTable />
-            </div>
-            <div className="col-md-12 col-lg-6 col-xl-4">
+            </Grid>
+            <Grid item md={3} lg={3} xl={4}>
               <h5>Body Font</h5>
               <NumField min="10" start="10" label="Font Size" />
               <SelectFonts />
@@ -221,16 +221,16 @@ class FormTable extends React.Component {
               <h5>Sub-Title Font</h5>
               <NumField min="10" start="20" label="Font Size" />
               <SelectFonts />
-            </div>
-            <div className="col-md-12 col-lg-6 col-xl-4">
+            </Grid>
+            <Grid item md={3} lg={3} xl={4}>
               <h5>Patterns</h5>
               <BoxPattern label="Top Box Pattern" />
               <RepeatPattern />
               <div className="divider" />
               <BoxPattern label="Bottom Box Pattern" />
               <RepeatPattern />
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         </div>
       </div>
     );

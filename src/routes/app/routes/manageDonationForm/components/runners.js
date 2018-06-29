@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import BrushIcon from '@material-ui/icons/Brush';
 import BookIcon from '@material-ui/icons/Book';
 import OptionIcon from '@material-ui/icons/Build';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -13,8 +13,8 @@ const mWidthStyle = {
 class Runner extends React.Component {
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">Form Design</div>
             <div className="box-body">
@@ -32,8 +32,8 @@ class Runner extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">Form Options</div>
             <div className="box-body">
@@ -50,8 +50,8 @@ class Runner extends React.Component {
               </div>{' '}
             </div>
           </div>
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">Form Bookkeeping</div>
             <div className="box-body">
@@ -67,8 +67,8 @@ class Runner extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }

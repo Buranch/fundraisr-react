@@ -124,7 +124,7 @@ class BlockIP extends React.Component {
           onClick={this.AddHandler}
           style={mWidthStyle}
           label="Add"
-          labelPosition="after"
+          labelposition="after"
           primary
           icon={<ContentAdd />}
         />

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import RunIcon from '@material-ui/icons/Image';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -11,8 +11,8 @@ const mWidthStyle = {
 class Runner extends React.Component {
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">
               Manage Initiative Records
@@ -31,8 +31,8 @@ class Runner extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">Gift Entry</div>
             <div className="box-body">
@@ -51,8 +51,8 @@ class Runner extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">Registraion Entry</div>
             <div className="box-body">
@@ -68,8 +68,8 @@ class Runner extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }

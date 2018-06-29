@@ -66,7 +66,6 @@ class Header extends React.Component {
     );
   }
 }
-
 const mapStateToProps = state => ({
   colorOption: state.settings.colorOption,
   isFixedHeader: state.settings.isFixedHeader

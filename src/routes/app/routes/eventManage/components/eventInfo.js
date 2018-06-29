@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import SelectField from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import Grid from '@material-ui/core/Grid';
 class PhoneSelect extends React.Component {
   state = {
     value: 1
@@ -27,8 +27,8 @@ const EventInformation = () => (
   <div className="box box-default">
     <div className="box-body">
       <h1 className="article-title">Event Information</h1>
-      <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-8">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={12} md={8}>
           <h5>Details</h5>
           <small>Event Information</small>
           <br />
@@ -48,8 +48,8 @@ const EventInformation = () => (
           <TextField defaultValue="1234567890" label="Event ID" disabled />
           <br />
           <small>Event ID is unique to your event and can not be edited.</small>
-        </div>
-        <div className="col-xs-12 col-sm-12 col-md-4">
+        </Grid>
+        <Grid item xs={12} sm={12} md={4}>
           <h5>Contact</h5>
           <small>
             These fields are for the Event Information, not for the Participants
@@ -72,8 +72,8 @@ const EventInformation = () => (
           />
           <br />
           <TextField defaultValue="123 Give Lane." label="Location" />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </div>
   </div>
 );

@@ -5,7 +5,7 @@ import ContentAdd from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ContentRemove from '@material-ui/icons/Remove';
-
+import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -129,7 +129,7 @@ class FooterLinks extends React.Component {
         <Button
           onClick={this.AddHandler}
           style={mWidthStyle}
-          labelPosition="after"
+          labelposition="after"
           color="primary"
         >
           <ContentAdd /> Addresses
@@ -172,8 +172,8 @@ class FooterLinks extends React.Component {
 const Table = () => (
   <div className="box box-default">
     <div className="box-body">
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-6">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={6}>
           <h5>Logo & Copyright</h5>
           <Upload label="Choose an Image" />
           <br />
@@ -185,12 +185,12 @@ const Table = () => (
             <img src="assets/images-demo/donr-logo.png" alt="donor-logo" />
           </div>
           © 2018 <TextField hintText="Company Name" />
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-6">
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>
           <h5>Footer Menu</h5>
           <FooterLinks />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </div>
   </div>
 );

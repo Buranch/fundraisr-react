@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ContentRemove from '@material-ui/icons/Remove';
 import ContentAdd from '@material-ui/icons/Add';
+import Grid from '@material-ui/core/Grid';
 
 const mWidthStyle = {
   color: '#00bcd4',
@@ -25,7 +26,7 @@ class TextSection extends React.Component {
   };
   render() {
     return (
-      <div className="bg-color-page col-xs-12 col-sm-6 col-md-4 box">
+      <Grid className="bg-color-page box" item xs={12} sm={6} md={4}>
         <div className="box-body">
           <TextField
             hintText="HeadLine"
@@ -51,13 +52,13 @@ class TextSection extends React.Component {
               style={mWidthStyle}
               onClick={this.clickHandler}
               label="Delete"
-              labelPosition="after"
+              labelposition="after"
               primary
               icon={<ContentRemove />}
             />
           </div>
         </div>
-      </div>
+      </Grid>
     );
   }
 }
@@ -139,13 +140,15 @@ class SidebarSections extends React.Component {
             <Button
               onClick={this.addHandler}
               style={mWidthStyle}
-              labelPosition="after"
+              labelposition="after"
               color="primary"
             >
               <ContentAdd /> Addresses
             </Button>
             <br />
-            <div className="row">{elems}</div>
+            <Grid container spacing={24}>
+              {elems}
+            </Grid>
           </div>
         </div>
       </div>

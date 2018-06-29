@@ -1,6 +1,6 @@
 import React from 'react';
 import Upload from 'material-ui-next-upload/Upload';
-
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -17,15 +17,15 @@ const TabsExampleSimple = () => (
     <Tab label="Option 1">
       <div style={styles}>
         <h5>Full Header Image</h5>
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-4 box-body">
+        <Grid container spacing={24}>
+          <Grid item xs={12} sm={6} md={4} className="box-body">
             <Upload label="Choose an Image" />
             <br />
             <small>Recommended image size is 1170 x 320 for this layout.</small>
             <br />
             <br />
-          </div>
-          <div className="col-xs-12 col-sm-12 col-md-8 box-body">
+          </Grid>
+          <Grid item xs={12} sm={12} md={8} className="box-body">
             <b>Image Preview</b>
             <br />
             <img
@@ -33,15 +33,15 @@ const TabsExampleSimple = () => (
               alt="donor-header"
               style={{ maxWidth: '100%', borderRadius: '5px' }}
             />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     </Tab>
     <Tab label="Option 2">
       <div style={styles}>
         <h5>Split Header with image and text</h5>
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-4 box-body">
+        <Grid container spacing={24}>
+          <Grid item xs={12} sm={6} md={4} className="box-body">
             <b>Image Preview</b>
             <br />
             <img
@@ -53,8 +53,8 @@ const TabsExampleSimple = () => (
             <br />
             <Upload label="Choose an Image" />
             <small>Recommended image size is 1170 x 320 for this layout.</small>
-          </div>
-          <div className="col-xs-12 col-sm-12 col-md-8">
+          </Grid>
+          <Grid item xs={12} sm={12} md={8}>
             <b>Text</b>
             <div className="box bg-color-page">
               <div className="box-body">
@@ -69,8 +69,8 @@ const TabsExampleSimple = () => (
                 <TextField label="CSS Class" />
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
     </Tab>
   </Tabs>

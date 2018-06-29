@@ -26,7 +26,9 @@ class DefineFilters extends React.Component {
         label="Field"
         value={this.state.fieldValue}
         maxHeight={200}
-        onChange={(event, index, value) => this.setState({ fieldValue: value })}
+        onChange={(event, index, value) =>
+          this.setState({ fieldValue: event.target.value })
+        }
       >
         <MenuItem>Account EIN">Account EIN</MenuItem>
         <MenuItem>Account Name">Account Name</MenuItem>
@@ -58,7 +60,7 @@ class DefineFilters extends React.Component {
         value={this.state.operatorValue}
         maxHeight={200}
         onChange={(event, index, value) =>
-          this.setState({ operatorValue: value })
+          this.setState({ operatorValue: event.target.value })
         }
         style={styles.operatorSelectBoxStyle}
       >
@@ -163,7 +165,7 @@ class DefineFilters extends React.Component {
             onClick={this.addFilter}
             style={styles.addFilterButtonStyle}
             label="Add Filter"
-            labelPosition="after"
+            labelposition="after"
             primary
           />
         </div>

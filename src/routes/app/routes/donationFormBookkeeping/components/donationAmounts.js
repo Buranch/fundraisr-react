@@ -1,8 +1,9 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import AmNums from './amountsNum';
 import NumField from '../../../components/numField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
   toggle: {
@@ -36,13 +37,13 @@ class HonorGiving extends React.Component {
   render() {
     return (
       <div>
-        <Switch
-          label="Honor Giving"
+        <FormControlLabel
+          control={<Switch onChange={this.ToggleHandler} />}
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
+          label="Honor Giving"
         />
         <div style={this.state}>
-          <Switch label="Honoree Card" />
+          <FormControlLabel control={<Switch />} label="Honoree Card" />
         </div>
       </div>
     );
@@ -68,10 +69,10 @@ class OthAmount extends React.Component {
   render() {
     return (
       <div>
-        <Switch
+        <FormControlLabel
+          control={<Switch onChange={this.ToggleHandler} />}
           label="Other Amount"
           style={styles.toggle}
-          onToggle={this.ToggleHandler}
         />
         <div className="box-body" style={this.state}>
           <NumField min={5} label="Minimum" />
@@ -82,7 +83,7 @@ class OthAmount extends React.Component {
 }
 
 const PaymentTypes = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid item xs={12} sm={6} md={4}>
     <h5>Payment Types</h5>
     <small>
       Default payment types are Visa, Master Card, American Express and
@@ -90,39 +91,52 @@ const PaymentTypes = () => (
     </small>
     <br />
     <br />
-    <Switch label="PayPal" style={styles.toggle} defaultToggled />
-  </div>
+    <FormControlLabel
+      control={<Switch checked />}
+      label="PayPal"
+      style={styles.toggle}
+    />
+  </Grid>
 );
 const GivingOpt = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid item xs={12} sm={6} md={4}>
     <h5>Giving Options</h5>
     <small>Enable donors to customize how they donate.</small>
     <br />
     <br />
-    <Switch label="Monthly Giving" style={styles.toggle} />
+    <FormControlLabel
+      control={<Switch />}
+      label="Monthly Giving"
+      style={styles.toggle}
+    />
+
     <div className="divider" />
     <HonorGiving />
     <div className="divider" />
-    <Switch label="Designation" style={styles.toggle} />
-  </div>
+    <FormControlLabel
+      control={<Switch />}
+      label="Designation"
+      style={styles.toggle}
+    />
+  </Grid>
 );
 const DonAm = () => (
-  <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid item xs={12} sm={6} md={4}>
     <h5>Donation Amounts</h5>
     <AmNums />
     <div className="divider" />
     <OthAmount />
-  </div>
+  </Grid>
 );
 
 const result = () => (
   <div className="box box-default">
     <div className="box-body">
-      <div className="row">
+      <Grid container spacing={24}>
         <GivingOpt />
         <PaymentTypes />
         <DonAm />
-      </div>
+      </Grid>
     </div>
   </div>
 );

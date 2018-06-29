@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import IntegrationDownshift from './formTableAutocomplete';
-
+import Grid from '@material-ui/core/Grid';
 const suggestions = [
   { label: 'Alaska' },
   { label: 'Alabama' },
@@ -103,22 +103,22 @@ class formTable extends React.Component {
     return (
       <div className="box box-default">
         <div className="box-body">
-          <div className="row">
-            <div className="сol-xs-12 col-sm-12 col-md-2">
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={12} md={2}>
               <h5>Logo</h5>
               <img src="assets/images-demo/image-icons/imac.png" alt="Logo" />
               <div className="divider" />
               <img src="assets/images-demo/image-icons/imac.png" alt="Logo" />
-            </div>
-            <div className="сol-xs-12 col-sm-6 col-md-5">
+            </Grid>
+            <Grid item xs={12} sm={6} md={5}>
               <h5>Organization Overview</h5>
               <OverviewTable />
-            </div>
-            <div className="сol-xs-12 col-sm-6 col-md-5">
+            </Grid>
+            <Grid item xs={12} sm={6} md={5}>
               <h5>Contact</h5>
               <ContactTable />
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         </div>
       </div>
     );

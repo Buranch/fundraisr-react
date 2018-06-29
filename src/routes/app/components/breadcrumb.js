@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Grid from '@material-ui/core/Grid';
 /**
  * @param {string} path
  * @param {string} [typeId]
@@ -13,14 +13,14 @@ class Breadcrumb extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-6 col-sm-6 col-md-6">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={6} md={6}>
           {this.state.path}
-        </div>
-        <div className="col-xs-6 col-sm-6 col-md-6 text-right">
+        </Grid>
+        <Grid item xs={12} sm={6} md={6}>
           <small>{this.state.id}</small>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }

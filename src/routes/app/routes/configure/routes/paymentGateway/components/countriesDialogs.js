@@ -2,9 +2,9 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ArrowUp from '@material-ui/icons/KeyboardArrowUp';
 import ArrowDown from '@material-ui/icons/KeyboardArrowDown';
-import RadioButton from '@material-ui/core/Radio';
+import Radio from '@material-ui/core/Radio';
 import RadioButtonGroup from '@material-ui/core/RadioGroup';
-
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 const styles = {
   radioButton: {
     marginTop: 16
@@ -17,15 +17,17 @@ const styles = {
 class Padum extends React.Component {
   state = {
     selectAllowed: false,
-    selectBlocked: false
+    selectBlocked: false,
+    valueAllow: 'Afghanistan',
+    valueBlocked: 'Afghanistan'
   };
 
   handleSelectAllowed = (e, value) => {
-    this.setState({ selectAllowed: true });
+    this.setState({ selectAllowed: true, valueAllow: e.target.value });
   };
 
   handleSelectBlocked = (e, value) => {
-    this.setState({ selectBlocked: true });
+    this.setState({ selectBlocked: true, valueBlocked: e.target.value });
   };
 
   handleAdd = () => {
@@ -282,18 +284,20 @@ class Padum extends React.Component {
     ];
 
     const allowed = allowCountries.map((item, i, arr) => (
-      <RadioButton
+      <FormControlLabel
         key={i}
         value={item}
         label={item}
+        control={<Radio />}
         style={styles.radioButton}
       />
     ));
     const blocked = blockedCountries.map((item, i, arr) => (
-      <RadioButton
-        key={i}
+      <FormControlLabel
         value={`${blockedCountries[i]}`}
+        key={i}
         label={`${blockedCountries[i]}`}
+        control={<Radio />}
         style={styles.radioButton}
       />
     ));
@@ -308,6 +312,7 @@ class Padum extends React.Component {
             <RadioButtonGroup
               name="allowedCountries"
               onChange={this.handleSelectAllowed}
+              value={this.state.valueAllow}
             >
               {allowed}
             </RadioButtonGroup>
@@ -316,7 +321,7 @@ class Padum extends React.Component {
 
         <Button
           label="Add"
-          labelPosition="before"
+          labelposition="before"
           variant="contained"
           style={styles.raisedButton}
           disabled={!this.state.selectAllowed}
@@ -327,7 +332,7 @@ class Padum extends React.Component {
 
         <Button
           label="Remove"
-          labelPosition="before"
+          labelposition="before"
           variant="contained"
           style={styles.raisedButton}
           disabled={!this.state.selectBlocked}
@@ -344,6 +349,7 @@ class Padum extends React.Component {
             <RadioButtonGroup
               name="blockCountries"
               onChange={this.handleSelectBlocked}
+              value={this.state.valueBlocked}
             >
               {blocked}
             </RadioButtonGroup>

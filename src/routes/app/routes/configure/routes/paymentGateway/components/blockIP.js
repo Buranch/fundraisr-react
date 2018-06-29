@@ -5,7 +5,7 @@ import ContentAdd from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ContentRemove from '@material-ui/icons/Remove';
-
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
@@ -144,17 +144,17 @@ class BlockIP extends React.Component {
 
     return (
       <div>
-        <Switch
-          label="Block IP Addresses"
+        <FormControlLabel
+          control={<Switch onChange={this.ToggleHandler} />}
           style={styles.toggle}
-          onChange={this.ToggleHandler}
+          label="Block IP Addresses"
         />
         <div className="box bg-color-page" style={this.state.style}>
           <div className="box-body">
             <Button
               onClick={this.AddHandler}
               style={mWidthStyle}
-              labelPosition="after"
+              labelposition="after"
               color="primary"
             >
               <ContentAdd /> Addresses

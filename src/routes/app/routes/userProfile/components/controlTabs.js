@@ -3,6 +3,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Switch from '@material-ui/core/Switch';
 import ActivityTable from './activityTable';
+import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const styles = {
   padding: '12px 18px',
@@ -11,29 +13,52 @@ const styles = {
   minHeight: 300,
   toggle: {
     maxWidth: 250,
-    marginBottom: 16
+    marginLeft: 9
   }
 };
 
 const Priveleges = () => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-6 col-md-4">
+  <Grid container spacing={24}>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Status</h5>
-      <Switch label="Active" style={styles.toggle} />
-    </div>
-    <div className="col-xs-12 col-sm-6 col-md-4">
+      <FormControlLabel
+        control={<Switch />}
+        label="Active"
+        style={styles.toggle}
+      />
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
       <h5>Group</h5>
       <small>Full Access</small>
-      <Switch label="Administrator" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        label="Administrator"
+        style={styles.toggle}
+      />
+      <br />
       <small>Only Reports</small>
-      <Switch label="Reports" style={styles.toggle} />
+      <FormControlLabel
+        control={<Switch />}
+        label="Reports"
+        style={styles.toggle}
+        style={{ marginLeft: 4 }}
+      />
+      <br />
       <small>Only Events</small>
-      <Switch label="Event Admin" style={styles.toggle} />
-      <div className="divider" />
+      <FormControlLabel
+        control={<Switch />}
+        label="Event Admin"
+        style={styles.toggle}
+      />
+      <br />
       <small>Description</small>
-      <Switch label="Custom Group" style={styles.toggle} />
-    </div>
-  </div>
+      <FormControlLabel
+        control={<Switch />}
+        label="Custom Group"
+        style={styles.toggle}
+      />
+    </Grid>
+  </Grid>
 );
 
 class TabsExampleSimple extends Component {
