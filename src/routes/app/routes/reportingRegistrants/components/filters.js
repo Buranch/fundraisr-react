@@ -165,7 +165,7 @@ class DefineFilters extends React.Component {
             onClick={this.addFilter}
             style={styles.addFilterButtonStyle}
             label="Add Filter"
-            labelPosition="after"
+            labelposition="after"
             primary
           />
         </div>

@@ -13,7 +13,7 @@ const styles = {
   minHeight: 300,
   toggle: {
     maxWidth: 250,
-    marginBottom: 16
+    marginLeft: 9
   }
 };
 
@@ -35,19 +35,22 @@ const Priveleges = () => (
         label="Administrator"
         style={styles.toggle}
       />
+      <br />
       <small>Only Reports</small>
       <FormControlLabel
         control={<Switch />}
         label="Reports"
         style={styles.toggle}
+        style={{ marginLeft: 4 }}
       />
+      <br />
       <small>Only Events</small>
       <FormControlLabel
         control={<Switch />}
         label="Event Admin"
         style={styles.toggle}
       />
-      <div className="divider" />
+      <br />
       <small>Description</small>
       <FormControlLabel
         control={<Switch />}

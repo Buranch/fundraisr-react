@@ -14,7 +14,6 @@ class Runner extends React.Component {
   render() {
     return (
       <Grid container spacing={24}>
-        >
         <Grid item xs={12} sm={6} md={4}>
           <div className="box box-default">
             <div className="box-header bg-color-primary">Form Design</div>

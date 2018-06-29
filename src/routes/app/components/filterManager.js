@@ -211,7 +211,7 @@ class FilterManager extends React.Component {
               onClick={this.AddHandler}
               style={mWidthStyle}
               label="Adddd Filter"
-              // labelPosition="after"
+              // labelposition="after"
             >
               Add Filters
             </Button>
@@ -219,7 +219,7 @@ class FilterManager extends React.Component {
               onClick={this.RemoveAllHandler}
               style={mWidthStyle}
               label="Show All"
-              // labelPosition="after"
+              // labelposition="after"
             >
               Show All
             </Button>
@@ -227,7 +227,7 @@ class FilterManager extends React.Component {
               onClick={this.props.onSearch ? this.props.onSearch : null}
               style={mWidthStyle}
               label="Search"
-              // labelPosition="after"
+              // labelposition="after"
               color="primary"
             >
               <SearchIcon /> Search

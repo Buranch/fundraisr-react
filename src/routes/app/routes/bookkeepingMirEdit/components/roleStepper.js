@@ -5,10 +5,11 @@ import StepButton from '@material-ui/core/StepButton';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
-
+import StepLabel from '@material-ui/core/StepLabel';
 /**
  * A basic vertical non-linear implementation
  */
+
 class VerticalNonLinear extends React.Component {
   state = {
     stepIndex: 0
@@ -30,7 +31,7 @@ class VerticalNonLinear extends React.Component {
           disableTouchRipple
           disableFocusRipple
           color="primary"
-          style={{ marginRight: 12 }}
+          style={{ marginRight: 12, backgroundColor: '#00bcd4' }}
           icon={<SettingsIcon />}
         >
           Run <SettingsIcon />
@@ -44,8 +45,8 @@ class VerticalNonLinear extends React.Component {
 
     return (
       <div style={{ maxWidth: 500, height: 400, margin: 'auto' }}>
-        <Stepper activeStep={stepIndex} linear={false} orientation="vertical">
-          <Step>
+        <Stepper activeStep={stepIndex} linear={'false'} orientation="vertical">
+          <Step MuiStep>
             <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
               Start a Team
             </StepButton>

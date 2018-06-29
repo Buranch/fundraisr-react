@@ -13,7 +13,8 @@ const styles = {
   minHeight: 300,
   toggle: {
     maxWidth: 250,
-    marginBottom: 16
+    marginLeft: 6
+    // marginBottom: 16
   }
 };
 

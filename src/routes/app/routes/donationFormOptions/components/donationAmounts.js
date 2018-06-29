@@ -39,9 +39,8 @@ class HonorGiving extends React.Component {
     return (
       <div>
         <FormControlLabel
-          control={
-            <Switch style={styles.toggle} onChange={this.ToggleHandler} />
-          }
+          control={<Switch onChange={this.ToggleHandler} />}
+          style={styles.toggle}
           label="Honor Giving"
         />
         <div style={this.state}>

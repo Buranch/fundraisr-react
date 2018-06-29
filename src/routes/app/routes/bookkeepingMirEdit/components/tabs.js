@@ -12,7 +12,8 @@ import Grid from '@material-ui/core/Grid';
 const mWidthStyle = {
   color: '#00bcd4',
   minWidth: '135px',
-  fontSize: '15px'
+  fontSize: '12px',
+  backgroundColor: 'white'
 };
 const styles = {
   padding: '12px 18px',
@@ -33,12 +34,7 @@ const General = () => (
       <br />
       <TextField value="The Raisers" label="Team Member of" disabled />
       <br />
-      <Button
-        style={mWidthStyle}
-        variant="contained"
-        labelPosition="after"
-        color="primary"
-      >
+      <Button style={mWidthStyle} variant="contained" labelposition="after">
         <ContactIcon /> View Contact
       </Button>
     </Grid>
@@ -53,12 +49,7 @@ const General = () => (
         disabled
       />
       <br />
-      <Button
-        style={mWidthStyle}
-        variant="contained"
-        labelPosition="after"
-        color="primary"
-      >
+      <Button style={mWidthStyle} variant="contained" labelposition="after">
         <DeleteIcon /> Reset Password
       </Button>
     </Grid>

@@ -321,7 +321,7 @@ class Padum extends React.Component {
 
         <Button
           label="Add"
-          labelPosition="before"
+          labelposition="before"
           variant="contained"
           style={styles.raisedButton}
           disabled={!this.state.selectAllowed}
@@ -332,7 +332,7 @@ class Padum extends React.Component {
 
         <Button
           label="Remove"
-          labelPosition="before"
+          labelposition="before"
           variant="contained"
           style={styles.raisedButton}
           disabled={!this.state.selectBlocked}

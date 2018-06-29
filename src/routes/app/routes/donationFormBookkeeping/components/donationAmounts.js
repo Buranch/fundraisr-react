@@ -3,6 +3,7 @@ import Switch from '@material-ui/core/Switch';
 import AmNums from './amountsNum';
 import NumField from '../../../components/numField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
   toggle: {
@@ -37,9 +38,8 @@ class HonorGiving extends React.Component {
     return (
       <div>
         <FormControlLabel
-          control={
-            <Switch style={styles.toggle} onChange={this.ToggleHandler} />
-          }
+          control={<Switch onChange={this.ToggleHandler} />}
+          style={styles.toggle}
           label="Honor Giving"
         />
         <div style={this.state}>

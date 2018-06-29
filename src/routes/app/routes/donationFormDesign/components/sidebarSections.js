@@ -52,7 +52,7 @@ class TextSection extends React.Component {
               style={mWidthStyle}
               onClick={this.clickHandler}
               label="Delete"
-              labelPosition="after"
+              labelposition="after"
               primary
               icon={<ContentRemove />}
             />
@@ -140,7 +140,7 @@ class SidebarSections extends React.Component {
             <Button
               onClick={this.addHandler}
               style={mWidthStyle}
-              labelPosition="after"
+              labelposition="after"
               color="primary"
             >
               <ContentAdd /> Addresses
