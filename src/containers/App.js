@@ -9,7 +9,7 @@ import Page500 from 'routes/500/';
 
 // = styles =
 // 3rd
-import 'styles/bootstrap.scss';
+import 'styles/custom_style.scss';
 // custom
 import 'styles/layout.scss';
 import 'styles/theme.scss';
