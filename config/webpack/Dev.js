@@ -1,10 +1,6 @@
-'use strict';
-
-/**
- * Default dev server configuration.
- */
 const webpack = require('webpack');
 const WebpackBaseConfig = require('./Base');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 class WebpackDevConfig extends WebpackBaseConfig {
 
@@ -22,6 +18,7 @@ class WebpackDevConfig extends WebpackBaseConfig {
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
+        new BundleAnalyzerPlugin()
       ]
     };
 
