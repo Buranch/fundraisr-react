@@ -1,9 +1,4 @@
 
-// map Bootstrap variables here so that Bootstrap is not required for essential layout
-// prefix with `l_`
-// Note: '_' and '-' are identical, e.g. if bootstrap _var.scss is loaded, $body_bg will be compiled with value of $body-bg
-
-// color
 $l_body_bg:     $body-bg;
 $l_white:       #fff;       // for app-page-container, quickview, header
 $l_gray_dark:   $gray-800; // for nav

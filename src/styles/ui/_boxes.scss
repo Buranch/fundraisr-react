@@ -1,3 +1,7 @@
+$card-spacer-y: .75rem !default;
+$card-spacer-x: 1.25rem !default;
+$card-bg: $white !default;
+
 .box {
   position: relative;
   margin-bottom: 1.5rem;
@@ -47,7 +51,13 @@
   background: rgba(0,0,0,0.08);
   margin: 0 $card-spacer-x;
 }
-
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
 .box-body {
   padding: $card-spacer-x;
   @include clearfix;

@@ -1,3 +1,4 @@
+
 // Colors for layouts based on color option, including sidebar, header, logo
 
 // .bg-color-dark is the default, there's no need for additional style
@@ -39,7 +40,6 @@
         > .icon-has-ul { color: $light_nav_link_active_color; }
       }
 
-      // overrides Bootstrap 
       > a:focus {
         background-color: $light_nav_link_active_bg;
       }

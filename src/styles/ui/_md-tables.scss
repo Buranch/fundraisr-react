@@ -3,6 +3,8 @@
 // * boxes components
 
 // Add to mdl-data-table
+$table-border-color: $gray-200 !default;
+
 .mdl-data-table {
   &.mdl-data-table-non-numeric {
     td, th {
@@ -29,7 +31,7 @@
 // Responsive tables
 .table-responsive {
   overflow-x: auto;
-  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  min-height: 0.01%;
 
   @media screen and (max-width: (map-get($grid-breakpoints, md) - 1)) {
     width: 100%;

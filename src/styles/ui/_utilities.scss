@@ -1,4 +1,5 @@
-
+$state-default-bg : rgba(0, 0, 0, .1) !default; // also: pagination bg
+$state-default-border : darken(adjust-hue($state-default-bg, -10), 5%) !default;
 
 // 
 @mixin divider() {

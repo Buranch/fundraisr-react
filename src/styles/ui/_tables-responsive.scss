@@ -15,7 +15,7 @@
     thead { display: block; float: left; }
     tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
     thead tr { display: block; }
-    .table > thead > tr > th:first-child { // add to Bootstrap style
+    .table > thead > tr > th:first-child { 
       border-top: 1px solid #ddd;
     }
     th { display: block; text-align: right; }
