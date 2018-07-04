@@ -1,6 +1,9 @@
-// takes advantage of Bootstrap 4 variables, however it's not required for essential layout
-@import "variables";
+// @import "variables";
+@import "global/variables-extra";
+@import "layout/variables-layout";
+@import "themes/variables-theme";
 
+@import "material-design-lite/src/variables";
 @import "layout/base";
 @import "layout/header";
 @import "layout/sidebar";

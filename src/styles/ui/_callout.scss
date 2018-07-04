@@ -1,3 +1,8 @@
+// @each $color,
+// $value in $theme-colors {
+//   @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
+// }
+
 .callout {
   margin: 20px 0;
   padding: 20px;
@@ -14,10 +19,12 @@
     margin-bottom: 0;
   }
 }
+$theme-colors: ( // primary: $blue,
+primary: $primary, secondary: $secondary, success: $green, info: $cyan, warning: $yellow, danger: $red, light: $gray-100, dark: $gray-800) !default;
 
 // use rgba so that background-color also works for dark theme
 .callout-success {
-  background-color: rgba(theme-color("success"), .08); // #f3faf3
+  background-color: #f3faf3;
   border-color: theme-color("success");
 
   h4 {
@@ -26,7 +33,7 @@
 }
 
 .callout-info {
-  background-color: rgba(theme-color("info"), .05); // #f4f8fa
+  background-color:  #f4f8fa;
   border-color: theme-color("info");
 
   h4 {
@@ -35,7 +42,7 @@
 }
 
 .callout-warning {
-  background-color: rgba(theme-color("warning"), .08); // #fcf8f2
+  background-color: #fcf8f2;
   border-color: theme-color("warning");
 
   h4 {
@@ -44,7 +51,7 @@
 }
 
 .callout-danger {
-  background-color: rgba(theme-color("danger"), .05); // #fdf7f7
+  background-color: #fdf7f7;
   border-color: theme-color("danger");
 
   h4 {

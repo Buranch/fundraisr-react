@@ -1,0 +1,860 @@
+//functions
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+  }
+}
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// Color contrast
+@mixin color-yiq($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    color: #111;
+  } @else {
+    color: #fff;
+  }
+}
+@function color($key: "blue") {
+  @return map-get($colors, $key);
+}
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+
+@function grayscale($key: "100") {
+  @return map-get($grays, $key);
+}
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $color-base: if($level > 0, #000, #fff);
+  @if $level < 0 {
+    @return mix($color-base, $color, $level * -1 * $theme-color-interval);
+  } @else {
+    @return mix($color-base, $color, $level * $theme-color-interval);
+  }
+}
+//variables
+$white: #fff !default;
+$gray-100: #f8f9fa !default; // $gray-lightest
+$gray-200: #e9ecef !default; // $gray-lighter
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default; // $gray-light
+$gray-700: #495057 !default; // $gray
+$gray-800: #343a40 !default; // $gray-dark
+$gray-900: #212529 !default; // $gray-darker
+$black: #000 !default;
+$grays: ( 100: $gray-100, 200: $gray-200, 300: $gray-300, 400: $gray-400, 500: $gray-500, 600: $gray-600, 700: $gray-700, 800: $gray-800, 900: $gray-900) !default;
+$blue: #2196F3 !default; // Blue 500
+$primary: #00bcd4 !default;
+$secondary: #ff4081 !default;
+$indigo: #6610f2 !default;
+$purple: #7E57C2 !default; // Deep Purple 400
+$pink: #e83e8c !default;
+$red: #EF5350 !default; // Red 400
+$orange: #FFCA28 !default; // Amber 400
+$yellow: #ffc107 !default;
+$green: #66BB6A !default; // Green 400
+$teal: #20c997 !default;
+$cyan: #00BCD4 !default; // Cyan 500
+$colors: ( primary: $primary, secondary: $secondary, blue: $blue, indigo: $indigo, purple: $purple, pink: $pink, red: $red, orange: $orange, yellow: $yellow, green: $green, teal: $teal, cyan: $cyan, white: $white, gray: $gray-600, gray-dark: $gray-800) !default;
+$theme-colors: ( // primary: $blue,
+primary: $primary, secondary: $secondary, success: $green, info: $cyan, warning: $yellow, danger: $red, light: $gray-100, dark: $gray-800) !default;
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+// Spacing
+//
+
+$spacer: 1rem !default;
+$spacers: ( 0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3)) !default;
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: ( 25: 25%, 50: 50%, 75: 75%, 100: 100%) !default;
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: #e5e5e5 !default;
+$body-color: rgba(0, 0, 0, 0.87) !default;
+// Links
+//
+// Style anchor elements.
+$link-color: theme-color("primary") !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+// Paragraphs
+//
+// Style p element.
+$paragraph-margin-bottom: 1rem;
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px) !default;
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+// Components
+//
+// Define common padding and border radius sizes and more.
+$line-height-lg: 1.5 !default;
+$line-height-sm: 1.5 !default;
+$border-width: 1px !default;
+$border-color: $gray-200 !default;
+$border-radius: .2rem !default;
+$border-radius-lg: .2rem !default;
+$border-radius-sm: .2rem !default;
+$component-active-color: $white !default;
+$component-active-bg: theme-color("primary") !default;
+$caret-width: .3em !default;
+$transition-base: all .2s ease-in-out !default;
+$transition-fade: opacity .15s linear !default;
+$transition-collapse: height .35s ease !default;
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif: "Roboto",
+-apple-system,
+system-ui,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+sans-serif !default;
+$font-family-monospace: Menlo,
+Monaco,
+Consolas,
+"Liberation Mono",
+"Courier New",
+monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: 1.25rem !default;
+$font-size-sm: .875rem !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.5 !default;
+$h1-font-size: 2.5rem !default;
+$h2-font-size: 2rem !default;
+$h3-font-size: 1.75rem !default;
+$h4-font-size: 1.5rem !default;
+$h5-font-size: 1.25rem !default;
+$h6-font-size: 1rem !default;
+$headings-margin-bottom: ($spacer / 2) !default;
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;
+$display1-size: 6rem !default;
+$display2-size: 5.5rem !default;
+$display3-size: 4.5rem !default;
+$display4-size: 3.5rem !default;
+$display1-weight: 300 !default;
+$display2-weight: 300 !default;
+$display3-weight: 300 !default;
+$display4-weight: 300 !default;
+$display-line-height: $headings-line-height !default;
+$lead-font-size: 1.25rem !default;
+$lead-font-weight: 300 !default;
+$small-font-size: 80% !default;
+$text-muted: $gray-600 !default;
+$blockquote-small-color: $gray-600 !default;
+$blockquote-font-size: ($font-size-base * 1.25) !default;
+$hr-border-color: rgba($black, .1) !default;
+$hr-border-width: $border-width !default;
+$mark-padding: .2em !default;
+$dt-font-weight: $font-weight-bold !default;
+$kbd-box-shadow: inset 0 -.1rem 0 rgba($black, .25) !default;
+$nested-kbd-font-weight: $font-weight-bold !default;
+$list-inline-padding: 5px !default;
+$mark-bg: #fcf8e3 !default;
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+$zindex-dropdown: 1000 !default;
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;
+$zindex-modal-backdrop: 1040 !default;
+$zindex-modal: 1050 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+// Navs
+$nav-link-padding-y: .5rem !default;
+$nav-link-padding-x: 1rem !default;
+$nav-link-disabled-color: $gray-600 !default;
+$nav-tabs-border-color: #ddd !default;
+$nav-tabs-border-width: $border-width !default;
+$nav-tabs-border-radius: $border-radius !default;
+$nav-tabs-link-hover-border-color: $gray-200 !default;
+$nav-tabs-link-active-color: $gray-700 !default;
+$nav-tabs-link-active-bg: $body-bg !default;
+$nav-tabs-link-active-border-color: #ddd !default;
+$nav-pills-border-radius: $border-radius !default;
+$nav-pills-link-active-color: $component-active-color !default;
+$nav-pills-link-active-bg: $component-active-bg !default;
+// Navbar
+$navbar-padding-y: ($spacer / 2) !default;
+$navbar-padding-x: $spacer !default;
+$navbar-brand-font-size: $font-size-lg !default;
+$border-radius: .2rem !default;
+$border-radius-lg: .2rem !default;
+$border-radius-sm: .2rem !default;
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height: $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-height: ($font-size-base * $line-height-base + $nav-link-padding-y * 2) !default;
+$navbar-brand-padding-y: ($navbar-brand-height - $nav-link-height) / 2 !default;
+$navbar-toggler-padding-y: .25rem !default;
+$navbar-toggler-padding-x: .75rem !default;
+$navbar-toggler-font-size: $font-size-lg !default;
+$navbar-toggler-border-radius: $btn-border-radius !default;
+$navbar-dark-color: rgba($white, .5) !default;
+$navbar-dark-hover-color: rgba($white, .75) !default;
+$navbar-dark-active-color: rgba($white, 1) !default;
+$navbar-dark-disabled-color: rgba($white, .25) !default;
+$navbar-dark-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
+"#",
+"%23") !default;
+$navbar-dark-toggler-border-color: rgba($white,
+.1) !default;
+$navbar-light-color: rgba($black,
+.5) !default;
+$navbar-light-hover-color: rgba($black,
+.7) !default;
+$navbar-light-active-color: rgba($black,
+.9) !default;
+$navbar-light-disabled-color: rgba($black,
+.3) !default;
+$navbar-light-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
+"#",
+"%23") !default;
+$navbar-light-toggler-border-color: rgba($black,
+.1) !default;
+// Badges
+$badge-color: $white !default;
+$badge-font-size: 75% !default;
+$badge-font-weight: $font-weight-bold !default;
+$badge-padding-y: .25em !default;
+$badge-padding-x: .4em !default;
+$badge-pill-padding-x: .6em !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius: 10rem !default;
+// List group
+$list-group-bg: $white !default;
+$list-group-border-color: rgba($black,
+.125) !default;
+$list-group-border-width: $border-width !default;
+$list-group-border-radius: $border-radius !default;
+$list-group-item-padding-y: .75rem !default;
+$list-group-item-padding-x: 1.25rem !default;
+$list-group-hover-bg: $gray-100 !default;
+$list-group-active-color: $component-active-color !default;
+$list-group-active-bg: $component-active-bg !default;
+$list-group-active-border-color: $list-group-active-bg !default;
+$list-group-disabled-color: $gray-600 !default;
+$list-group-disabled-bg: $list-group-bg !default;
+$list-group-action-color: $gray-700 !default;
+$list-group-action-hover-color: $list-group-action-color !default;
+$list-group-action-active-color: $body-color !default;
+$list-group-action-active-bg: $gray-200 !default;
+//figure
+$figure-caption-font-size: 90% !default;
+$figure-caption-color: $gray-600 !default;
+//breadcrum
+$breadcrumb-padding-y: .75rem !default;
+$breadcrumb-padding-x: 1rem !default;
+$breadcrumb-item-padding: .5rem !default;
+$breadcrumb-margin-bottom: 1rem !default;
+$breadcrumb-bg: $gray-200 !default;
+$breadcrumb-divider-color: $gray-600 !default;
+$breadcrumb-active-color: $gray-600 !default;
+$breadcrumb-divider: "/" !default;
+$table-cell-padding: .75rem !default;
+$table-cell-padding-sm: .3rem !default;
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name)
+  } @else if $min == null {
+    @include media-breakpoint-down($name)
+  }
+}
+@mixin badge-variant($bg) {
+  @include color-yiq($bg);
+  background-color: $bg;
+
+  &[href] {
+    @include hover-focus {
+      @include color-yiq($bg);
+      text-decoration: none;
+      background-color: darken($bg, 10%);
+    }
+  }
+}
+@mixin hover {
+    &:hover { @content }
+// scss-lint:enable Indentation
+//  }
+}
+
+
+@mixin hover-focus {
+  @if $enable-hover-media-query {
+    &:focus { @content }
+    @include hover { @content }
+  } @else {
+    &:focus,
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin plain-hover-focus {
+  @if $enable-hover-media-query {
+    &,
+    &:focus {
+      @content
+    }
+    @include hover { @content }
+  } @else {
+    &,
+    &:focus,
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin hover-focus-active {
+  @if $enable-hover-media-query {
+    &:focus,
+    &:active {
+      @content
+    }
+    @include hover { @content }
+  } @else {
+    &:focus,
+    &:active,
+    &:hover {
+      @content
+    }
+  }
+}
+@mixin resizable($direction) {
+    overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+    resize: $direction; // Options: horizontal, vertical, both
+}
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+}
+@mixin sr-only-focusable {
+    &:active,
+    &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        clip-path: none;
+    }
+}
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+@mixin reset-text {
+  font-family: $font-family-base; // We deliberately do NOT reset font-size or word-wrap.
+  font-style: normal;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+}
+@mixin text-emphasis-variant($parent, $color) {    
+  #{$parent} {                                     
+    color: $color !important;                      
+  }                                                
+  a#{$parent} {                                    
+    @include hover-focus {                         
+      color: darken($color, 10%) !important;       
+    }                                              
+  }                                                
+}   
+@mixin text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin invisible($visibility) {
+  visibility: $visibility !important;
+}
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+@mixin list-group-item-variant($state, $background, $color) 
+{                                                           
+  .list-group-item-#{$state} {                              
+    color: $color;                                          
+    background-color: $background;                          
+  }                                                         
+                                                            
+  //scss-lint:disable QualifyingElement                     
+  a.list-group-item-#{$state},                              
+  button.list-group-item-#{$state} {                        
+    color: $color;                                          
+                                                            
+    @include hover-focus {                                  
+      color: $color;                                        
+      background-color: darken($background, 5%);            
+    }                                                       
+                                                            
+    &.active {                                              
+      color: #fff;                                          
+      background-color: $color;                             
+      border-color: $color;                                 
+    }                                                       
+  }                                                         
+  // scss-lint:enable QualifyingElement                     
+}            
+@mixin nav-divider($color: #e5e5e5) {
+  height: 0;
+  margin: ($spacer / 2) 0;
+  overflow: hidden;
+  border-top: 1px solid $color;
+}
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+  a#{$parent} {
+    @include hover-focus {
+      background-color: darken($color, 10%) !important;
+    }
+  }
+}
+@mixin border-radius($radius: $border-radius) {        
+  @if $enable-rounded {                                
+    border-radius: $radius;                            
+  }                                                    
+}                                                      
+                                                       
+@mixin border-top-radius($radius) {                    
+  @if $enable-rounded {                                
+    border-top-left-radius: $radius;                   
+    border-top-right-radius: $radius;                  
+  }                                                    
+}                                                      
+                                                       
+@mixin border-right-radius($radius) {                  
+  @if $enable-rounded {                                
+    border-top-right-radius: $radius;                  
+    border-bottom-right-radius: $radius;               
+  }                                                    
+}                                                      
+                                                       
+@mixin border-bottom-radius($radius) {                 
+  @if $enable-rounded {                                
+    border-bottom-right-radius: $radius;               
+    border-bottom-left-radius: $radius;                
+  }                                                    
+}                                                      
+                                                       
+@mixin border-left-radius($radius) {                   
+  @if $enable-rounded {                                
+    border-top-left-radius: $radius;                   
+    border-bottom-left-radius: $radius;                
+  }                                                    
+}                    
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+@mixin float-left {               
+  float: left !important;         
+}                                 
+@mixin float-right {              
+  float: right !important;        
+}                                 
+@mixin float-none {               
+  float: none !important;         
+}                                 
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+  -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+ol,ul,dl { margin-top: 0; margin-bottom: 1rem; }
+ol ol, ul ul, ol ul, ul ol { margin-bottom: 0; }
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
+.lead {
+  font-size: $lead-font-size;
+  font-weight: $lead-font-weight;
+}
+.display-1 {
+  font-size: $display1-size;
+  font-weight: $display1-weight;
+  line-height: $display-line-height;
+}
+.display-2 {
+  font-size: $display2-size;
+  font-weight: $display2-weight;
+  line-height: $display-line-height;
+}
+.display-3 {
+  font-size: $display3-size;
+  font-weight: $display3-weight;
+  line-height: $display-line-height;
+}
+.display-4 {
+  font-size: $display4-size;
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: $hr-border-width solid $hr-border-color;
+}
+small,
+.small {
+  font-size: $small-font-size;
+  font-weight: $font-weight-normal;
+}
+mark,
+.mark {
+  padding: $mark-padding;
+  background-color: $mark-bg;
+}
+.list-unstyled {
+  @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: $list-inline-padding;
+  }
+}
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+.blockquote {
+  margin-bottom: $spacer;
+  font-size: $blockquote-font-size;
+}
+.blockquote-footer {
+  display: block;
+  font-size: 80%; // back to default font-size
+  color: $blockquote-small-color;
+
+  &::before {
+    content: "\2014 \00A0"; // em dash, nbsp
+  }
+}
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-link {
+    display: block;
+    padding: $nav-link-padding-y $nav-link-padding-x;
+    @include hover-focus {
+        text-decoration: none;
+    } // Disabled state lightens text
+    &.disabled {
+        color: $nav-link-disabled-color;
+    }
+}
+.nav-tabs {
+    border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+    .nav-item {
+        margin-bottom: -$nav-tabs-border-width;
+    }
+    .nav-link {
+        border: $nav-tabs-border-width solid transparent;
+        @include border-top-radius($nav-tabs-border-radius);
+        @include hover-focus {
+            border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+        }
+        &.disabled {
+            color: $nav-link-disabled-color;
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        color: $nav-tabs-link-active-color;
+        background-color: $nav-tabs-link-active-bg;
+        border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color $nav-tabs-link-active-bg;
+    }
+    .dropdown-menu {
+        // Make dropdown border overlap tab border
+        margin-top: -$nav-tabs-border-width; // Remove the top rounded corners here since there is a hard edge above the menu
+        @include border-top-radius(0);
+    }
+}
+.nav-pills {
+    .nav-link {
+        @include border-radius($nav-pills-border-radius);
+        &.active,
+        .show>& {
+            color: $nav-pills-link-active-color;
+            background-color: $nav-pills-link-active-bg;
+        }
+    }
+}
+.nav-fill {
+    .nav-item {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+}
+.nav-justified {
+    .nav-item {
+        flex-basis: 0;
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+.tab-content {
+    >.tab-pane {
+        display: none;
+    }
+    >.active {
+        display: block;
+    }
+}
+
+.badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  color: $badge-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  @include border-radius();
+  &:empty {
+    display: none;
+  }
+}
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+.badge-pill {
+  padding-right: $badge-pill-padding-x;
+  padding-left: $badge-pill-padding-x;
+  @include border-radius($badge-pill-border-radius);
+}
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    @include badge-variant($value);
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .d#{$infix}-none         { display: none !important; }
+    .d#{$infix}-inline       { display: inline !important; }
+    .d#{$infix}-inline-block { display: inline-block !important; }
+    .d#{$infix}-block        { display: block !important; }
+    .d#{$infix}-table        { display: table !important; }
+    .d#{$infix}-table-cell   { display: table-cell !important; }
+    .d#{$infix}-flex         { display: flex !important; }
+    .d#{$infix}-inline-flex  { display: inline-flex !important; }
+  }
+}
+.d-print-block {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+
+.d-print-inline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+
+.d-print-inline-block {
+  display: none !important;
+
+  @media print {
+    display: inline-block !important;
+  }
+}
+
+.d-print-none {
+  @media print {
+    display: none !important;
+  }
+}

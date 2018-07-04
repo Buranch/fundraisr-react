@@ -9,11 +9,11 @@ import Page500 from 'routes/500/';
 
 // = styles =
 // 3rd
-import 'styles/bootstrap.scss';
 // custom
+import 'styles/ui.scss';
+
 import 'styles/layout.scss';
 import 'styles/theme.scss';
-import 'styles/ui.scss';
 import 'styles/app.scss';
 
 import lightTheme from './themes/lightTheme';

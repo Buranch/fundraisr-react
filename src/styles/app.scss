@@ -1,20 +1,23 @@
 
-@import "variables";
+// @import 'themes/global_fun_mix_var';
 
-@import "vendors/material-ui/material-ui";
+@import "global/all";
+@import "global/variables-extra";
+@import "layout/variables-layout";
+@import "themes/variables-theme";
+@import "material-design-lite/src/variables";
 @import "vendors/react";
 @import "vendors/rc-queue-anim";
-
-// Pages
-@import "pages/demo";
-@import "pages/auth";
-@import "pages/error";
-@import "pages/lock-screen";
-@import "pages/profile";
-@import "pages/invoice";
 @import "pages/dashboard";
-@import "pages/maintenance";
-@import "pages/about";
-@import "pages/terms";
-@import "pages/blog";
+// Pages
+// @import "pages/demo";
+// @import "pages/auth";
+// @import "pages/error";
+// @import "pages/lock-screen";
+// @import "pages/profile";
+// @import "pages/invoice";
+// @import "pages/maintenance";
+// @import "pages/about";
+// @import "pages/terms";
+// // @import "pages/blog";
 
