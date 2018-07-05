@@ -442,7 +442,8 @@ class EnhancedTable extends React.Component {
   // indexOf for contains any of
   // == for contians of all
   callAPI() {
-    var url = 'https://raw.githubusercontent.com/Buranch/demo/master/db.json';
+    var url = 'http://localhost:2121';
+    // var url = 'https://raw.githubusercontent.com/Buranch/demo/master/db.json';
     fetch(url)
       .then(results => {
         return results.json();
@@ -574,7 +575,7 @@ class EnhancedTable extends React.Component {
                         <TableCell component="th" scope="row" padding="none">
                           {n.firstName}
                         </TableCell>
-                        <TableCell numeric>
+                        <TableCell>
                           <a
                             href="#/app/donors-manage"
                             style={{ display: 'block' }}
@@ -588,12 +589,12 @@ class EnhancedTable extends React.Component {
                             </small>
                           </a>
                         </TableCell>
-                        <TableCell numeric>{n.email}</TableCell>
-                        <TableCell numeric>{n.companyName}</TableCell>
-                        <TableCell numeric>{n.address}</TableCell>
-                        <TableCell numeric>{n.city}</TableCell>
-                        <TableCell numeric>{n.state}</TableCell>
-                        <TableCell numeric>{n.zip}</TableCell>
+                        <TableCell>{n.email}</TableCell>
+                        <TableCell>{n.companyName}</TableCell>
+                        <TableCell>{n.address}</TableCell>
+                        <TableCell>{n.city}</TableCell>
+                        <TableCell>{n.state}</TableCell>
+                        <TableCell>{n.zip}</TableCell>
                       </TableRow>
                     );
                   })}
