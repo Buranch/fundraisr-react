@@ -46,25 +46,25 @@ class Elem extends React.Component {
       canRemove: false
     };
   }
-
   clickHandler = e => {
     this.props.onDelete(this.props.num - 1);
+    console.log('delete');
   };
-
   typeOfItemHandler = (e, index, newValue) => {
+    console.log('item changed');
     this.setState({ item: e.target.value });
-    // this.props.onItemChange(e.target.value, this.props.num - 1);
+    this.props.onItemChange(e.target.value, this.props.num - 1);
   };
   typeOfSearchHandler = (e, index, newValue) => {
     this.setState({ event: e.target.value });
-    // this.props.onEventChange(e.target.value, this.props.num - 1);
+    this.props.onEventChange(e.target.value, this.props.num - 1);
   };
   requestHandler = (e, newValue) => {
     this.setState({ request: e.target.value });
+    console.log('requestHandler');
 
-    // this.props.onRequestChange(e.target.value, this.props.num - 1);
+    this.props.onRequestChange(e.target.value, this.props.num - 1);
   };
-
   render() {
     return (
       <div>
@@ -74,11 +74,11 @@ class Elem extends React.Component {
           style={styles.tagCheckBoxStyle}
           key={`${this.props.num}item`}
         >
-          <MenuItem value="firstName">Profile</MenuItem>
+          <MenuItem value="profile">Profile</MenuItem>
           <MenuItem value="firstName">First Name</MenuItem>
           <MenuItem value="lastName">Last Name </MenuItem>
           <MenuItem value="companyName">Company Name</MenuItem>
-          <MenuItem value="eMail">eMail</MenuItem>
+          <MenuItem value="email">eMail</MenuItem>
           <MenuItem value="city">City</MenuItem>
           <MenuItem value="state">State</MenuItem>
           <MenuItem value="zipPostalCode">Zip/Postal Code</MenuItem>
@@ -122,13 +122,20 @@ class Elem extends React.Component {
 
 class FilterManager extends React.Component {
   state = {
-    array: [{ value: { item: 'firstName', event: 'startWith', request: '' } }]
+    array: [{ item: '', event: '', request: '' }]
   };
 
   AddHandler = () => {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
-      prev.push({ item: 'firstName', event: 'startWith', request: '' });
+      // prev.push({ item: 'firstName', event: 'startWith', request: '' });
+      prev.push({
+        item: '',
+        event: '',
+        request: ''
+      });
+
+      console.log(prev);
       return {
         style: prevState.style,
         array: prev
@@ -139,6 +146,8 @@ class FilterManager extends React.Component {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev.splice(num, 1);
+      this.props.onFilterChange(prev);
+
       return {
         style: prevState.style,
         array: prev
@@ -146,14 +155,17 @@ class FilterManager extends React.Component {
     });
   };
   RemoveAllHandler = () => {
+    this.props.onFilterChange([]);
     this.setState({
-      array: [{ value: { item: 'firstName', event: 'startWith', request: '' } }]
+      array: []
     });
   };
   ItemHandler = (newValue, num) => {
+    console.log('ItemHandler ');
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev[num].item = newValue;
+      this.props.onFilterChange(prev);
       return {
         style: prevState.style,
         array: prev
@@ -164,6 +176,7 @@ class FilterManager extends React.Component {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev[num].event = newValue;
+      this.props.onFilterChange(prev);
       return {
         style: prevState.style,
         array: prev
@@ -174,6 +187,7 @@ class FilterManager extends React.Component {
     this.setState((prevState, props) => {
       const prev = prevState.array.map(elem => elem);
       prev[num].request = newValue;
+      this.props.onFilterChange(prev);
       return {
         style: prevState.style,
         array: prev
@@ -201,7 +215,6 @@ class FilterManager extends React.Component {
         />
       );
     }
-
     return (
       <div className="box box-default" style={this.state.style}>
         <div className="box-body">
