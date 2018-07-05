@@ -442,8 +442,8 @@ class EnhancedTable extends React.Component {
   // indexOf for contains any of
   // == for contians of all
   callAPI() {
-    var url = 'http://localhost:2121';
-    // var url = 'https://raw.githubusercontent.com/Buranch/demo/master/db.json';
+    // var url = 'http://localhost:2121';
+    var url = 'https://raw.githubusercontent.com/Buranch/demo/master/db.json';
     fetch(url)
       .then(results => {
         return results.json();
