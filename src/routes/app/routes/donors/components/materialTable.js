@@ -44,6 +44,11 @@ function createData(
   };
 }
 
+function createData2(obj) {
+  obj['id'] = counter++;
+  return obj;
+}
+
 const columnData = [
   {
     id: 'firstName',
@@ -329,116 +334,146 @@ const styles = theme => ({
 class EnhancedTable extends React.Component {
   constructor(props) {
     super(props);
+    console.log('enahanced');
 
+    this.callAPI = this.callAPI.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
     this.state = {
       order: 'asc',
       orderBy: 'firstName',
       selected: [],
-      data: [
-        createData(
-          'Optimus',
-          'Prime',
-          'opp@mail.com',
-          'Non-profit America',
-          '1357 Winners Circle',
-          'Donerville',
-          'CA',
-          '92110'
-        ),
-        createData(
-          'Daffy',
-          'Duck',
-          'dafDuck@mail.com',
-          'Ducky Dollars',
-          '1 Lilly Lane',
-          'Duckville',
-          'CA',
-          '92345'
-        ),
-        createData(
-          'Btty',
-          'Boop',
-          'bboop@mail.com',
-          'Betty Bucks',
-          '12 Boop Blvd',
-          'Betyington',
-          'CA',
-          '98756'
-        ),
-        createData(
-          'Jonas',
-          'Grumby',
-          'theskipper@mail.com',
-          'Minnow Money',
-          '3 Gilli Lane',
-          'Island',
-          'CA',
-          '91654'
-        ),
-        createData(
-          'Super',
-          'Luidgi',
-          'sluigi@mail.com',
-          '1-Up',
-          '347 Castle Lane',
-          'Superland',
-          'CA',
-          '99876'
-        ),
-        createData(
-          'Jim',
-          'Magoo',
-          'mrmagoo@mail.com',
-          'Rag-Time',
-          '657 Bear St',
-          'Gooville',
-          'CA',
-          '92110'
-        ),
-        createData(
-          'George',
-          'Jetson',
-          'gjett@mail.com',
-          'RUDI',
-          '456 Space Lane',
-          'Space',
-          'CP',
-          '98734'
-        ),
-        createData(
-          'Bobby',
-          'Hill',
-          'bhill@mail.com',
-          'Sugarland Propane',
-          '124 Rainey St',
-          'Arlen',
-          'TX',
-          '91993'
-        ),
-        createData(
-          'Eunice',
-          'Howell',
-          'lovey@mail.com',
-          'TH3 Industries',
-          '128 High Lane',
-          'Island',
-          'CA',
-          '98376'
-        ),
-        createData(
-          'Bob',
-          'Denver',
-          'gilligan@mail.com',
-          'Minnow Money',
-          '3.5 Gilli Lane',
-          'Island',
-          'CA',
-          '91654'
-        )
-      ].sort((a, b) => (a.firstName < b.firstName ? -1 : 1)),
+      loaded: false,
+      data: [],
+      backup: [],
+      filtered: [],
       page: 0,
-      rowsPerPage: 5
+      rowsPerPage: 5,
+      filter: []
     };
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState(
+      {
+        filter: nextProps.filter
+      },
+      () => {
+        console.log('propsChanged');
+        this.handleFilter();
+      }
+    );
+  }
+
+  handleFilter() {
+    console.log('handleFilter');
+    console.log(this.state.filter);
+    var fromData = false;
+    var filtered = this.state.backup;
+    if (this.state.filter.length == 0) {
+      this.setState({
+        data: this.state.backup
+      });
+      return;
+    }
+
+    this.state.filter.forEach(filter => {
+      if (filter.event == '' || filter.item == '' || filter.request == '') {
+        console.log('returing');
+        return;
+      }
+
+      switch (filter.event) {
+        case 'startWith':
+          filtered = filtered.filter(word => {
+            return word[filter.item]
+              .toLowerCase()
+              .startsWith(filter.request.toLowerCase());
+          });
+          break;
+        case 'equal':
+          filtered = filtered.filter(
+            word =>
+              word[filter.item].toLowerCase() == filter.request.toLowerCase()
+          );
+          break;
+        case 'contains':
+          filtered = filtered.filter(word => {
+            return word[filter.item]
+              .toLowerCase()
+              .includes(filter.request.toLowerCase());
+          });
+          break;
+        case 'notContain':
+          filtered = filtered.filter(word => {
+            return !word[filter.item]
+              .toLowerCase()
+              .includes(filter.request.toLowerCase());
+          });
+          break;
+        case 'containsAnyOf':
+          filtered = filtered.filter(word => {
+            return word[filter.item]
+              .toLowerCase()
+              .indexOf(filter.request.toLowerCase());
+          });
+          break;
+        case 'containsAllOf':
+          filtered = filtered.filter(
+            word => word[filter.item] == filter.request
+          );
+          break;
+      }
+    });
+    if (filtered.length != 0) {
+      this.setState({
+        data: filtered
+      });
+    } else if (!fromData) {
+      // this.callAPI();
+      this.setState({
+        data: filtered
+      });
+    }
+  }
+  //filters
+  // startsWith
+  // includes
+  // string == anotherString (equals)
+  // !includes for not includes
+  // indexOf for contains any of
+  // == for contians of all
+  callAPI() {
+    var url = 'https://raw.githubusercontent.com/Buranch/demo/master/db.json';
+    fetch(url)
+      .then(results => {
+        return results.json();
+      })
+      .then(data => {
+        console.log(data);
+        if (this.mounted) {
+          let empty = [];
+          data.forEach(el => {
+            console.log(el);
+            empty.push(createData2(el));
+          });
+          console.log('sup');
+          this.setState({
+            data: empty,
+            backup: empty,
+            loaded: true
+          });
+        }
+      });
+  }
+
+  componentWillMount() {
+    this.callAPI();
+  }
+
+  componentDidMount() {
+    this.mounted = true;
+  }
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleRequestSort = (event, property) => {
@@ -470,6 +505,7 @@ class EnhancedTable extends React.Component {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
+    console.log('handleClick');
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
@@ -482,7 +518,6 @@ class EnhancedTable extends React.Component {
         selected.slice(selectedIndex + 1)
       );
     }
-
     this.setState({ selected: newSelected });
   };
 
@@ -499,90 +534,94 @@ class EnhancedTable extends React.Component {
   render() {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
-    const emptyRows =
-      rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+    if (!this.state.loaded) {
+      return <p>Loading.....</p>;
+    } else {
+      const emptyRows =
+        rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
-    return (
-      <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <div className={classes.tableWrapper}>
-          <Table className={classes.table} aria-labelledby="tableTitle">
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={this.handleSelectAllClick}
-              onRequestSort={this.handleRequestSort}
-              rowCount={data.length}
-            />
-            <TableBody>
-              {data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(n => {
-                  const isSelected = this.isSelected(n.id);
-                  return (
-                    <TableRow
-                      hover
-                      onClick={event => this.handleClick(event, n.id)}
-                      role="checkbox"
-                      aria-checked={isSelected}
-                      tabIndex={-1}
-                      key={n.id}
-                      selected={isSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox checked={isSelected} />
-                      </TableCell>
-                      <TableCell component="th" scope="row" padding="none">
-                        {n.firstName}
-                      </TableCell>
-                      <TableCell numeric>
-                        <a
-                          href="#/app/donors-manage"
-                          style={{ display: 'block' }}
-                        >
-                          {n.lastName}{' '}
-                          <small
-                            className="material-icons"
-                            style={{ fontSize: '15px', float: 'right' }}
+      return (
+        <Paper className={classes.root}>
+          <EnhancedTableToolbar numSelected={selected.length} />
+          <div className={classes.tableWrapper}>
+            <Table className={classes.table} aria-labelledby="tableTitle">
+              <EnhancedTableHead
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={this.handleSelectAllClick}
+                onRequestSort={this.handleRequestSort}
+                rowCount={data.length}
+              />
+              <TableBody>
+                {data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map(n => {
+                    const isSelected = this.isSelected(n.id);
+                    return (
+                      <TableRow
+                        hover
+                        onClick={event => this.handleClick(event, n.id)}
+                        role="checkbox"
+                        aria-checked={isSelected}
+                        tabIndex={-1}
+                        key={n.id}
+                        selected={isSelected}
+                      >
+                        <TableCell padding="checkbox">
+                          <Checkbox checked={isSelected} />
+                        </TableCell>
+                        <TableCell component="th" scope="row" padding="none">
+                          {n.firstName}
+                        </TableCell>
+                        <TableCell numeric>
+                          <a
+                            href="#/app/donors-manage"
+                            style={{ display: 'block' }}
                           >
-                            <a href="#/app/donors-manage">settings</a>
-                          </small>
-                        </a>
-                      </TableCell>
-                      <TableCell numeric>{n.email}</TableCell>
-                      <TableCell numeric>{n.companyName}</TableCell>
-                      <TableCell numeric>{n.address}</TableCell>
-                      <TableCell numeric>{n.city}</TableCell>
-                      <TableCell numeric>{n.state}</TableCell>
-                      <TableCell numeric>{n.zip}</TableCell>
-                    </TableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 49 * emptyRows }}>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
-        <TablePagination
-          component="div"
-          count={data.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          backIconButtonProps={{
-            'aria-label': 'Previous Page'
-          }}
-          nextIconButtonProps={{
-            'aria-label': 'Next Page'
-          }}
-          onChangePage={this.handleChangePage}
-          onChangeRowsPerPage={this.handleChangeRowsPerPage}
-        />
-      </Paper>
-    );
+                            {n.lastName}{' '}
+                            <small
+                              className="material-icons"
+                              style={{ fontSize: '15px', float: 'right' }}
+                            >
+                              <a href="#/app/donors-manage">settings</a>
+                            </small>
+                          </a>
+                        </TableCell>
+                        <TableCell numeric>{n.email}</TableCell>
+                        <TableCell numeric>{n.companyName}</TableCell>
+                        <TableCell numeric>{n.address}</TableCell>
+                        <TableCell numeric>{n.city}</TableCell>
+                        <TableCell numeric>{n.state}</TableCell>
+                        <TableCell numeric>{n.zip}</TableCell>
+                      </TableRow>
+                    );
+                  })}
+                {emptyRows > 0 && (
+                  <TableRow style={{ height: 49 * emptyRows }}>
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+          <TablePagination
+            component="div"
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            backIconButtonProps={{
+              'aria-label': 'Previous Page'
+            }}
+            nextIconButtonProps={{
+              'aria-label': 'Next Page'
+            }}
+            onChangePage={this.handleChangePage}
+            onChangeRowsPerPage={this.handleChangeRowsPerPage}
+          />
+        </Paper>
+      );
+    }
   }
 }
 
